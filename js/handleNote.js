@@ -1,18 +1,15 @@
 // Initialize Quill editor 
-console.log("quill created");
-
-  var quill = new Quill('#editor', {
-	modules: {
-	  toolbar: [
-		[{ header: [1, 2, false] }],
-		['bold', 'italic', 'underline'],
-		['image', 'code-block']
-	  ]
+var quill = new Quill('#editor', {
+modules: {
+	toolbar: [
+	[{ header: [1, 2, false] }],
+	['bold', 'italic', 'underline'],
+	['image', 'code-block']
+	]
 	},
 	placeholder: 'Compose an epic...',
 	theme: 'snow'  // or 'bubble'
-	
-  });
+});
 
 /*Creating new note*/
 function createNote(title, message){
@@ -39,3 +36,19 @@ function addNote(newNote){
 function getNote(title){
 	return JSON.parse(localStorage.getItem(title))
 }
+
+// Get all text in editor
+var text;
+
+document.getElementById("click").addEventListener("click", function () {
+	console.log("klick");
+	c();
+})
+function c () {
+	text = quill.getText(0, );
+	document.getElementById("note1").innerHTML = text;
+
+}
+
+
+

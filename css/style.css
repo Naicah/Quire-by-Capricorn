@@ -41,4 +41,6 @@ nav {
 #editorContainer {
     height: 100vh;
 }
-
+#noteTitle {
+    font-weight: bold;
+}
