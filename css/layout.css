@@ -24,6 +24,15 @@
         grid-template-columns: 3fr 9fr;
     }
 
+    #editorContainer {
+        display: grid;
+        grid-template-areas:
+            'ql-toolbar'
+            'editor';
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 11fr;
+            
+    }
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */

@@ -8,6 +8,16 @@
 
     <link href="../css/style.css" type="text/css" rel="stylesheet">
     <link href="../css/layout.css" type="text/css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    
+
 
 </head>
 
@@ -36,12 +46,31 @@
     </nav>
 
     <main>
+        <div id="editorContainer">
 
-        <div id="toolBar">
-            Verktyg
+        
+            <div id="editor">
+                    <p>Some initial <strong>bold</strong> text</p>
+            </div>
         </div>
-        main
+
+
+
+
+    
+
     </main>
+
+    <!-- Include the Quill library -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="/js/handleNote.js"></script>
+    
+
+
 
 </body>
 
