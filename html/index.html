@@ -9,6 +9,12 @@
     <link href="../css/style.css" type="text/css" rel="stylesheet">
     <link href="../css/layout.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="../css/tutorial.css">
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
 </head>
 <body class="container">
     <nav>
@@ -23,12 +29,13 @@
 
         <div id="menu">
             Meny
+            <button id="click"></button>
         </div>
         <div id="toolBarMobile">
             Meny
         </div>
         <div id="noteList">
-            Lista över antecknignar
+             <div id="note1"></div>>
         </div>
 
 
@@ -45,13 +52,25 @@
       </div>
     </div>
     <main>
+        <div id="editorContainer">
 
-        <div id="toolBar">
-            Verktyg
+
+            <div id="editor">
+            </div>
         </div>
-        main
+
+
+
+
+
+
     </main>
-<script type="text/javascript" src="../js/tutorial.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="/js/handleNote.js"></script>
+    <script type="text/javascript" src="../js/tutorial.js"></script>
 </body>
 
 </html>

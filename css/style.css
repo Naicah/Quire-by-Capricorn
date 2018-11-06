@@ -1,5 +1,12 @@
 * {
     box-sizing: border-box;
+    
+}
+body {
+    margin:0;
+    
+}
+div {
     border-style: solid;
 }
 body, html{
@@ -19,13 +26,14 @@ nav {
     grid-area: nav;
     background-color: rgb(50, 50, 182);
 }
-main {
-    grid-area: main;
-    min-height: 100vh;
-}
 #mobileMenu { grid-area: mobileMenu;}
 #menu { grid-area: menu;}
 #noteList { grid-area: noteList;}
+
+#editorContainer { grid-area: editorContainer;}
+.ql-toolbar { grid-area: ql-toolbar;}
+#editor { grid-area: editor;}
+
 
 .flex {
     display: flex;
@@ -33,4 +41,10 @@ main {
 }
 #navOverview {
     background-color: rgb(79, 79, 233);
+}
+#editorContainer {
+    height: 100vh;
+}
+#noteTitle {
+    font-weight: bold;
 }
