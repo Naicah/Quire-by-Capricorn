@@ -2,3 +2,28 @@
     box-sizing: border-box;
     border-style: solid;
 }
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    
+     grid-template-areas:
+        'header'
+        'main';
+        padding: 0;
+
+}
+header {
+    grid-area: header;
+    background-color: rgb(50, 50, 182);
+}
+main {
+    grid-area: main;
+    min-height: 100vh;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+#navOverview {
+    background-color: rgb(79, 79, 233);
+}
