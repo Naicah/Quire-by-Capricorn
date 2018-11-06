@@ -7,19 +7,22 @@
     grid-template-columns: 1fr;
     
      grid-template-areas:
-        'header'
+        'nav'
         'main';
         padding: 0;
-
 }
-header {
-    grid-area: header;
+nav {
+    grid-area: nav;
     background-color: rgb(50, 50, 182);
 }
 main {
     grid-area: main;
     min-height: 100vh;
 }
+#mobileMenu { grid-area: mobileMenu;}
+#menu { grid-area: menu;}
+#noteList { grid-area: noteList;}
+
 .flex {
     display: flex;
     justify-content: space-between;
