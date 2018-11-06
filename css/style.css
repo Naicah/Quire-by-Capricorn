@@ -2,10 +2,14 @@
     box-sizing: border-box;
     border-style: solid;
 }
+body, html{
+  margin:0;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr;
-    
+
      grid-template-areas:
         'nav'
         'main';
