@@ -29,9 +29,10 @@ nav {
     grid-area: mobileMenu;
 }
 #hamburgerIcon{
+    display: block;
     color: white;
-    width: 100%;
-    margin-left: 46%;
+    position: absolute;
+    right: 20px;
     font-size: 42px;
 }
 
@@ -76,7 +77,7 @@ nav {
 }
 
 .iconimages {
-    
+
     flex-direction: row;
     align-items: center;
     height: 6em;
@@ -93,7 +94,5 @@ nav {
     width: 100%;
     font-size: 25px;
     color: white;
-    
+
 }
-
-
