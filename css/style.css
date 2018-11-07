@@ -7,7 +7,7 @@ body {
     
 }
 div {
-    border-style: solid;
+    border-style: none;
 }
 body, html{
   margin:0;
@@ -24,11 +24,20 @@ body, html{
 }
 nav {
     grid-area: nav;
-    background-color: rgb(50, 50, 182);
 }
-#mobileMenu { grid-area: mobileMenu;}
-#menu { grid-area: menu;}
-#noteList { grid-area: noteList;}
+#mobileMenu { 
+    grid-area: mobileMenu;
+}
+#menu { 
+    grid-area: menu;
+    border-right:; 
+    background-color:#105493; 
+}
+
+#noteList { 
+    grid-area: noteList;
+    background-color: #ebebeb;
+}
 
 #editorContainer { grid-area: editorContainer;}
 .ql-toolbar { grid-area: ql-toolbar;}
@@ -47,4 +56,26 @@ nav {
 }
 #noteTitle {
     font-weight: bold;
+}
+
+#icon {
+ position:; 
+ background-color:#1c354c; 
+ height: 4em; 
+ width: 100%; 
+}
+
+.icons {
+    display: flex; 
+    flex-direction: column; 
+    size: 10px; 
+    color: black; 
+    justify-content: space-evenly, center; 
+    align-items: center; 
+    
+}
+
+.icons li i{
+    list-style: none; 
+    background-color: pink;
 }
