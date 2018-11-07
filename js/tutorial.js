@@ -2,7 +2,7 @@ let tutorial = document.querySelector(".tutorial");
 tutorial.addEventListener("click", ()=>{
   tutorial.style.display = "none";
 })
-var key_value = "myTestCookie, expires=Fri";
+var key_value = "beenhere";
    var foundCookie = 0;
 
    // Get all the cookies from this site and store in an array
