@@ -1,10 +1,10 @@
 * {
     box-sizing: border-box;
-    
+
 }
 body {
     margin:0;
-    
+
 }
 div {
     border-style: none;
@@ -25,16 +25,16 @@ body, html{
 nav {
     grid-area: nav;
 }
-#mobileMenu { 
+#mobileMenu {
     grid-area: mobileMenu;
 }
-#menu { 
+#menu {
     grid-area: menu;
-    border-right:; 
-    background-color:#105493; 
+    border-right:;
+    background-color:#105493;
 }
 
-#noteList { 
+#noteList {
     grid-area: noteList;
     background-color: #ebebeb;
 }
@@ -59,18 +59,23 @@ nav {
 }
 
 #icon {
- position:; 
- background-color:#1c354c; 
- height: 4em; 
- width: 100%; 
+ position:;
+ background-color:#1c354c;
+ height: 4em;
+ width: 100%;
 }
 
 .iconimages {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    height: 6em; 
+    align-items: center;
+    height: 6em;
 }
-
+.icons{
+  margin: 10px 0;
+  max-height: 25px;
+  max-width: 20px;
+}
 .iconimages img {
-    background-color: #105493; 
+    background-color: #105493;
 }
