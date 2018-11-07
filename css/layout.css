@@ -10,7 +10,7 @@
             height: 100%;
     }
     
-    #mobileMenu, #toolBarMobile,#hamburgerIcon {
+    #mobileMenu, #toolBarMobile,#hamburgerIcon,#folder {
         display: none;
     }
     #menu, #noteList { 
