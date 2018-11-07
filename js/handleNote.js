@@ -2,9 +2,13 @@
 var quill = new Quill('#editor', {
 modules: {
 	toolbar: [
-	[{ header: [1, 2, false] }],
+	[{ 'font': [] }, { header: [1, 2, false] }],
 	['bold', 'italic', 'underline'],
-	['image', 'code-block']
+	[{ 'align': [] }, { 'indent': '-1'}, { 'indent': '+1' }],
+	[ { 'list': 'ordered'}, { 'list': 'bullet' }],
+	['image', 'video'], 
+	['code-block'],
+	['clean']  
 	]
 	},
 	placeholder: 'Compose an epic...',
@@ -44,6 +48,7 @@ document.getElementById("click").addEventListener("click", function () {
 	console.log("klick");
 	c();
 })
+
 function c () {
 	text = quill.getText(0, );
 	document.getElementById("note1").innerHTML = text;
