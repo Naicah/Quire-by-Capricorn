@@ -1,4 +1,4 @@
-// Initialize Quill editor 
+// Initialize Quill editor
 var quill = new Quill('#editor', {
 modules: {
 	toolbar: [
@@ -15,7 +15,8 @@ modules: {
 function createNote(title, message){
  	return obj = {
  		title: title,
- 		dateTime: new Date().getDate() + "/" + (new Date().getMonth()+1),
+		//For the record i hate Date objs.
+ 		dateTime: new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear(),
  		message: message
  	}
 }
@@ -49,6 +50,3 @@ function c () {
 	document.getElementById("note1").innerHTML = text;
 
 }
-
-
-
