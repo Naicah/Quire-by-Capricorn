@@ -65,12 +65,11 @@ nav {
  width: 100%; 
 }
 
+
 .iconimages {
     display: flex; 
     flex-direction: column;
-    height: 6em; 
-}
-
-.iconimages img {
-    background-color: #105493; 
+    justify-content: center; 
+    align-items: center; 
+    height: 16em; 
 }

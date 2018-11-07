@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)file:///Users/carl/Desktop/Capricon/capricorn/html/index.html -->
+<html lang="sv"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quire</title>
+
+    <link href="./Quire_files/style.css" type="text/css" rel="stylesheet">
+    <link href="./Quire_files/layout.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="./Quire_files/tutorial.css">
+
+    <link href="./Quire_files/quill.snow.css" rel="stylesheet">
+    <link href="./Quire_files/monokai-sublime.min.css" rel="stylesheet">
+    <link href="./Quire_files/katex.min.css" rel="stylesheet">
+    <link href="./Quire_files/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Quire_files/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body class="container">
+    <nav>
+        <div id="mobileMenu" class="flex">
+            <div id="hamburger">
+                Hamburgare
+            </div>
+            <div id="toolIcon">
+                Verktyg
+            </div>
+        </div>
+
+        <div id="menu" class="menuicons">
+            <div id="icon">ICON</div>
+            <div class="iconimages">
+            <img src="./Quire_files/search.svg" alt="searchicon"> 
+            <img src="./Quire_files/settings.svg" alt="settingsicon">
+            <img src="./Quire_files/trash.svg" alt="trashicon">    
+            </div>
+            <button id="click"></button>
+            
+        </div>
+        <div id="toolBarMobile">
+            Meny
+        </div>
+        <div id="noteList">
+             <div id="note1"></div>
+        </div>
+    </nav>
+    <div class="tutorial" style="display: none;">
+      <div class="tutorial-content">
+        <h2>Tutorial</h2>
+        <ul>
+          <li><b>Meny</b>: meny för spara- skapa dokument, sök bland dokument</li>
+          <li><b>Titlar</b>: hittar du alla dina tidigare sparade dokument.</li>
+          <li><b>Vertyg</b>: Här kan du modifiera texten byta tecken snitt, öka på storlek, bestämma dokuments format.</li>
+        </ul>
+        <button type="button" class="tutorial-btn" name="button">Jag förstår</button>
+      </div>
+    </div>
+    <main>
+        <div id="editorContainer">
+
+
+            <div class="ql-toolbar ql-snow"><span class="ql-formats"><span class="ql-header ql-picker"><span class="ql-picker-label" tabindex="0" role="button" aria-expanded="false" aria-controls="ql-picker-options-0"><svg viewBox="0 0 18 18"> <polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon> <polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon> </svg></span><span class="ql-picker-options" aria-hidden="true" tabindex="-1" id="ql-picker-options-0"><span tabindex="0" role="button" class="ql-picker-item" data-value="1"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="2"></span><span tabindex="0" role="button" class="ql-picker-item ql-selected"></span></span></span><select class="ql-header" style="display: none;"><option value="1"></option><option value="2"></option><option selected="selected"></option></select></span><span class="ql-formats"><button type="button" class="ql-bold"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path> <path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path> </svg></button><button type="button" class="ql-italic"><svg viewBox="0 0 18 18"> <line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line> <line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line> <line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line> </svg></button><button type="button" class="ql-underline"><svg viewBox="0 0 18 18"> <path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path> <rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect> </svg></button></span><span class="ql-formats"><button type="button" class="ql-image"><svg viewBox="0 0 18 18"> <rect class="ql-stroke" height="10" width="12" x="3" y="4"></rect> <circle class="ql-fill" cx="6" cy="7" r="1"></circle> <polyline class="ql-even ql-fill" points="5 12 5 11 7 9 8 10 11 7 13 9 13 12 5 12"></polyline> </svg></button><button type="button" class="ql-code-block"><svg viewBox="0 0 18 18"> <polyline class="ql-even ql-stroke" points="5 7 3 9 5 11"></polyline> <polyline class="ql-even ql-stroke" points="13 7 15 9 13 11"></polyline> <line class="ql-stroke" x1="10" x2="8" y1="5" y2="13"></line> </svg></button></span></div><div id="editor" class="ql-container ql-snow"><div class="ql-editor ql-blank" data-gramm="false" contenteditable="true" data-placeholder="Compose an epic..."><p><br></p></div><div class="ql-clipboard" contenteditable="true" tabindex="-1"></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div>
+        </div>
+
+
+
+
+
+    </main>
+    <script src="./Quire_files/jquery.min.js"></script>
+    <script src="./Quire_files/highlight.min.js"></script>
+    <script src="./Quire_files/katex.min.js"></script>
+    <script src="./Quire_files/quill.js"></script>
+    <script src="./Quire_files/handleNote.js"></script>
+    <script type="text/javascript" src="./Quire_files/tutorial.js"></script>
+
+
+
+</body></html>
