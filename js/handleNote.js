@@ -43,14 +43,30 @@ function getNote(title){
 }
 
 // Get all text in editor
+var titlediv;
 var text;
+var title;
 
 document.getElementById("click").addEventListener("click", function () {
 	console.log("klick");
 	c();
 })
 
-function c () {
+document.getElementById("save").addEventListener("click", function () {
+	getTitle();
+})
+// js for save function
+
+function save (){
+
+}
+
+
+function getTitle () {
+
+	title = document.getElementById("editor").firstChild.firstChild
+	console.log(title.);
+	title = titlediv.firstchild.innerHTML;
 	text = quill.getText(0, );
 	document.getElementById("note1").innerHTML = text;
 
