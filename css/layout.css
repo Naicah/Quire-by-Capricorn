@@ -16,7 +16,24 @@
     #menu, #noteList { 
         height: 100%;
     }
-   
+    #icon img {
+        height: 2.5em;
+        width: 60%;
+        padding: 0;
+        margin: 0;
+    }
+    #icon button {
+        display: none;
+    }
+    #icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ql-toolbar {
+        display: flex;
+        align-items: center;
+    }
     .container {
         grid-template-areas:
             'nav main';
