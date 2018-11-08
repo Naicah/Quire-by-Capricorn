@@ -15,9 +15,12 @@ modules: {
 	theme: 'snow'  // or 'bubble'
 });
 
+let noteID = 0;
 /*Creating new note*/
 function createNote(title, text){
+	noteID += 1;
  	return obj = {
+		id: noteID,
  		title: title,
 		//For the record i hate Date objs.
  		dateTime: new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear(),
@@ -67,8 +70,10 @@ function getText () {
 /// LOOP OBJECTS TO NOTE LISTS  titlar.
 
 let noteArr = [];
+
 function loopNoteTitles(){
-	Objects.keys(localStorage).forEach((key)=>{
-		noteArr.push(JSON.parse(key));
+	noteArr = [];
+	Object.keys(localStorage).forEach((key)=>{
+		noteArr.push(JSON.parse(localStorage.getItem(key)));
 	})
 }
