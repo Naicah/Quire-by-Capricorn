@@ -61,3 +61,14 @@ function getText () {
 	text = quill.getText(0, );
 	let format = quill.getFormat();
 }
+
+
+
+/// LOOP OBJECTS TO NOTE LISTS  titlar.
+
+let noteArr = [];
+function loopNoteTitles(){
+	Objects.keys(localStorage).forEach((key)=>{
+		noteArr.push(JSON.parse(key));
+	})
+}
