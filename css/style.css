@@ -81,7 +81,7 @@ nav {
 }
 #icon img {
     height: 2.5em;
-    width: 70%;
+    width: 60%;
     padding: 0;
     margin: 0;
 }
@@ -92,4 +92,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.ql-toolbar {
+    display: flex;
+    align-items: center;
 }
