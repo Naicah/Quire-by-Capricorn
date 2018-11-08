@@ -16,16 +16,13 @@
     #menu, #noteList { 
         height: 100%;
     }
-    #icon img {
+    #logo img {
         height: 2.5em;
         width: 60%;
         padding: 0;
         margin: 0;
     }
-    #icon button {
-        display: none;
-    }
-    #icon {
+    #logo {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -40,7 +37,6 @@
         padding: 0;
         grid-template-columns: 3fr 9fr;
     }
-
     #editorContainer {
         display: grid;
         grid-template-areas:
