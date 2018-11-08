@@ -28,15 +28,26 @@ nav {
 #mobileMenu {
     grid-area: mobileMenu;
 }
+#hamburgerIcon{
+    display: block;
+    color: white;
+    position: absolute;
+    right: 20px;
+    font-size: 42px;
+}
+
 #menu {
     grid-area: menu;
     border-right:;
     background-color:#105493;
+    min-width: 1.5cm;
 }
 
 #noteList {
     grid-area: noteList;
     background-color: #ebebeb;
+    min-height: 400px;
+    display: none;
 }
 
 #editorContainer { grid-area: editorContainer;}
@@ -61,23 +72,29 @@ nav {
 #icon {
  position:;
  background-color:#1c354c;
- height: 4em;
+ height: 5em;
  width: 100%;
 }
 
 .iconimages {
-    display: flex;
-    flex-direction: column;
+
+    flex-direction: row;
     align-items: center;
     height: 6em;
+    justify-content: space-evenly;
+    display: none;
 }
 .icons{
   margin: 10px 0;
   max-height: 25px;
   max-width: 20px;
 }
-.iconimages img {
+.iconimages img, .iconimages i {
     background-color: #105493;
+    width: 100%;
+    font-size: 25px;
+    color: white;
+
 }
 #icon img {
     height: 2.5em;
