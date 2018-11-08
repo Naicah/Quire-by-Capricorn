@@ -1,10 +1,14 @@
-// Initialize Quill editor 
+// Initialize Quill editor
 var quill = new Quill('#editor', {
 modules: {
 	toolbar: [
-	[{ header: [1, 2, false] }],
+	[{ 'font': [] }, { header: [1, 2, false] }],
 	['bold', 'italic', 'underline'],
-	['image', 'code-block']
+	[{ 'align': [] }, { 'indent': '-1'}, { 'indent': '+1' }],
+	[ { 'list': 'ordered'}, { 'list': 'bullet' }],
+	['image', 'video'],
+	['code-block'],
+	['clean']
 	]
 	},
 	placeholder: 'Compose an epic...',
@@ -15,7 +19,8 @@ modules: {
 function createNote(title, message){
  	return obj = {
  		title: title,
- 		dateTime: new Date().getDate() + "/" + (new Date().getMonth()+1),
+		//For the record i hate Date objs.
+ 		dateTime: new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear(),
  		message: message
  	}
 }
@@ -44,11 +49,9 @@ document.getElementById("click").addEventListener("click", function () {
 	console.log("klick");
 	c();
 })
+
 function c () {
 	text = quill.getText(0, );
 	document.getElementById("note1").innerHTML = text;
 
 }
-
-
-

@@ -10,7 +10,7 @@
             height: 100%;
     }
     
-    #mobileMenu, #toolBarMobile {
+    #mobileMenu, #toolBarMobile,#hamburgerIcon,#folder {
         display: none;
     }
     #menu, #noteList { 
@@ -27,12 +27,18 @@
     #editorContainer {
         display: grid;
         grid-template-areas:
-            'ql-toolbar'
-            'editor';
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 11fr;
-            
-    }
+        'ql-toolbar'
+        'editor';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 11fr;
+        }
+    .iconimages {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 6em;
+        }
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
