@@ -64,8 +64,8 @@ function save (){
 
 function getTitle () {
 
-	title = document.getElementById("editor").firstChild.firstChild
-	console.log(title.);
+	title = document.getElementById("editor").firstChild.firstChild;
+	console.log(title);
 	title = titlediv.firstchild.innerHTML;
 	text = quill.getText(0, );
 	document.getElementById("note1").innerHTML = text;
