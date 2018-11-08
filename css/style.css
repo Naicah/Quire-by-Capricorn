@@ -38,7 +38,6 @@ nav {
 
 #menu {
     grid-area: menu;
-    border-right:;
     background-color:#105493;
     min-width: 1.5cm;
 }
@@ -69,11 +68,19 @@ nav {
     font-weight: bold;
 }
 
-#icon {
- position:;
- background-color:#1c354c;
+#logo {
+ background-color:#213d57;
  height: 5em;
  width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: left;
+}
+#logo img {
+    height: 2.5em;
+    width: auto;
+    padding: 0;
+    margin-left: 1.5em;
 }
 
 .iconimages {
@@ -96,20 +103,7 @@ nav {
     color: white;
 
 }
-#icon img {
-    height: 2.5em;
-    width: auto;
-    padding: 0;
-    margin-left: 1em;
-}
-#icon button {
-    display: none;
-}
-#icon {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
+
 .ql-toolbar {
     display: flex;
     align-items: center;
