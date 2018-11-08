@@ -8,7 +8,6 @@ var cookie_key_value = "beenhere=true";
 
    // Get all the co  okies from this site and store in an array
    var cookieArray = document.cookie.split(';');
-   console.log(cookieArray);
 
        // Walk through the array
        for(var i=0;i < cookieArray.length;i++)
@@ -19,7 +18,7 @@ var cookie_key_value = "beenhere=true";
                   {
                     checkCookie = checkCookie.substring(1,checkCookie.length);
                   }
-                  
+
            // Look for cookie set by key_value
                    if (checkCookie.indexOf(cookie_key_value) == 0)
                   {

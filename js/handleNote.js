@@ -16,19 +16,19 @@ modules: {
 });
 
 /*Creating new note*/
-function createNote(title, message){
+function createNote(title, text){
  	return obj = {
  		title: title,
 		//For the record i hate Date objs.
  		dateTime: new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear(),
- 		message: message
+ 		text: text
  	}
 }
 
 /*User has written down title & message and hitting save.
 Get info from document*/
-function newNote(title, message){
-	let note = createNote(title, message);
+function newNote(title, text){
+	let note = createNote(title, text);
 	addNote(note);
 }
 
@@ -42,32 +42,22 @@ function getNote(title){
 	return JSON.parse(localStorage.getItem(title))
 }
 
-// Get all text in editor
-var titlediv;
 var text;
 var title;
 
-document.getElementById("click").addEventListener("click", function () {
-	console.log("klick");
-	c();
-})
-
 document.getElementById("save").addEventListener("click", function () {
-	getTitle();
+	getText();
+	save();
 })
 // js for save function
 
-function save (){
-
+function save(){
+	let notis = newNote(title, text);
 }
 
-
-function getTitle () {
-
-	title = document.getElementById("editor").firstChild.firstChild;
-	console.log(title);
-	title = titlediv.firstchild.innerHTML;
+// Get all text in editor
+function getText () {
+	title = document.getElementById("editor").firstChild.firstChild.textContent;
 	text = quill.getText(0, );
-	document.getElementById("note1").innerHTML = text;
-
+	let format = quill.getFormat();
 }
