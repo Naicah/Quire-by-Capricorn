@@ -19,14 +19,14 @@ if(noteList.style.display === 'none'){
 	}});
 
 // adjust elements between phone and computer displey / William
-// 
-// window.addEventListener("resize", function() {
-// 	if (window.matchMedia("(min-width: 768px)").matches) {
-// 		iconimages.style.display = 'flex';
-// 		noteList.style.display = 'block';
-//
-// 	} else {
-// 		iconimages.style.display = 'none';
-// 		noteList.style.display = 'none';
-// 	}
-// });
+
+window.addEventListener("load", function() {
+	if (window.matchMedia("(min-width: 768px)").matches) {
+		iconimages.style.display = 'flex';
+		noteList.style.display = 'block';
+
+	} else {
+		iconimages.style.display = 'none';
+		noteList.style.display = 'none';
+	}
+});

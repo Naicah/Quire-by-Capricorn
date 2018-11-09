@@ -51,6 +51,7 @@ var title;
 document.getElementById("save").addEventListener("click", function () {
 	getText();
 	save();
+	savedStatus();
 })
 // js for save function
 
@@ -77,3 +78,17 @@ function loopNoteTitles(){
 		noteArr.push(JSON.parse(localStorage.getItem(key)));
 	})
 }
+
+
+function savedStatus(){
+	document.getElementById("save").style.display = 'none';
+	document.querySelector(".load-wrapp").style.display = 'block';
+	setTimeout(function(){
+		document.getElementById("save").style.display = 'block';
+		document.querySelector(".load-wrapp").style.display = 'none';	
+	
+	}, 2000);
+	
+};
+
+

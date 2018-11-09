@@ -116,3 +116,55 @@ nav {
     display: flex;
     align-items: center;
 }
+
+#save{
+    display: block;
+}
+
+
+/* Loading icon / William */
+
+
+p {
+    margin: 0;
+    padding: 10px 0;
+    color: #777;
+}
+
+.clear {clear:both;}
+
+/* -----------------------------------------
+  =CSS3 Loading animations
+-------------------------------------------- */
+
+/* =Elements style
+---------------------- */
+.load-wrapp {
+    float: left;
+    width: 100%;
+    height: auto;
+    padding: 20px 0 6px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+    
+}
+
+.load-wrapp p {padding: 0 0 20px;}
+.load-wrapp:last-child {margin-right: 0;}
+
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #4b9cdb;
+}
+
+.load-8 .line {animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;}
+
+@keyframes loadingH {
+    0% {width: 15px;}
+    50% {width: 35px; padding: 4px;}
+    100% {width: 15px;}
+}
