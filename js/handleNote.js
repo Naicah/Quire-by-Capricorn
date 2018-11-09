@@ -47,14 +47,29 @@ function getNote(title){
 
 var text;
 var title;
-
+var boolIS = false;
 document.getElementById("save").addEventListener("click", function () {
 	getText();
-	save();
-	savedStatus();
+	// returnerar true om den  title finns.
+	boolIS = checkForNote(title);
+	if(text.length > 1){
+		if(boolIS){
+			// Finns redan hämta objekt och fortsätt.
+			// Uppdatera enbart Title & text. inte dateTime eller id.
+			// object.title = title; etc
+			console.log("Already existing , please continue")
+		}else{
+			// Objekt fanns inte. skapa nytt objekt.
+			save();
+			savedStatus();
+		}
+	}else{
+		// SPARA INTE TOM TEXT
+		console.log("PLZ WRITE SOMETHING")
+	}
 })
-// js for save function
 
+// js for save function
 function save(){
 	let notis = newNote(title, text);
 }
@@ -66,7 +81,10 @@ function getText () {
 	let format = quill.getFormat();
 }
 
-
+// CHECK IF OBJECT ALREADY EXIST
+	function checkForNote(title){
+		return (localStorage.getItem(title) ?  true : false);
+	}
 
 /// LOOP OBJECTS TO NOTE LISTS  titlar.
 
@@ -85,10 +103,8 @@ function savedStatus(){
 	document.querySelector(".load-wrapp").style.display = 'block';
 	setTimeout(function(){
 		document.getElementById("save").style.display = 'block';
-		document.querySelector(".load-wrapp").style.display = 'none';	
-	
-	}, 2000);
-	
+		document.querySelector(".load-wrapp").style.display = 'none';
+
+	}, 1000);
+
 };
-
-
