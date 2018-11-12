@@ -50,10 +50,10 @@ function getNote(title){
 
 document.getElementById("save").addEventListener("click", function () {
 	let boolIS = false;
-	getText();
+	let textObj = getText();
 	// returnerar true om den  title finns.
-	boolIS = checkForNote(title);
-	if(text.length > 1){
+	boolIS = checkForNote(textObj.title);
+	if(textObj.text.length > 1){
 		if(boolIS){
 			// Finns redan hämta objekt och fortsätt.
 			// Uppdatera enbart Title & text. inte dateTime eller id.
