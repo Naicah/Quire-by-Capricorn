@@ -26,7 +26,7 @@ window.onload = function(){
 // GET LOWEST AVAILABLE ID - Nina H
 function getAvailID() {
 
-	let notes = loopNoteTitles(); //Get all notes
+	let notes = loopNoteObjects(); //Get all notes
 	let noteIDs = []; //Array of all Note IDs
 
 	notes.forEach((n) => { //For each note
