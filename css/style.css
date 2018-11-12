@@ -112,11 +112,6 @@ nav {
   .menuHover:hover{
     background-color: #213d57;
   }
-.ql-toolbar {
-    display: flex;
-    align-items: center;
-}
-
 #save{
     display: block;
 }

@@ -2,14 +2,8 @@
 var quill = new Quill('#editor', {
 modules: {
 	toolbar: [
-	[{ 'font': [] }, { header: [1, 2, false] }],
-	['bold', 'italic', 'underline'],
-	[{ 'align': [] }, { 'indent': '-1'}, { 'indent': '+1' }],
-	[ { 'list': 'ordered'}, { 'list': 'bullet' }],
-	['image', 'video'],
-	['code-block'],
-	['clean']
-	]
+	{ 'font': [] }, { header: [1, 2, false] }, 'bold', 'italic', 'underline', { 'align': [] }, { 'indent': '-1'}, { 'indent': '+1' }, { 'list': 'ordered'}, { 'list': 'bullet' }, 'image', 'video', 'code-block', 'clean',
+	],
 	},
 	placeholder: 'Compose an epic...',
 	theme: 'snow'  // or 'bubble'

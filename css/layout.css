@@ -44,14 +44,15 @@
         'editor';
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 11fr;
-        }
+    }
     .iconimages {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         height: 6em;
-        }
+    }
+
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
