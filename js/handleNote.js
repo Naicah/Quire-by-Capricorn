@@ -154,11 +154,14 @@ function viewNoteLists(){
 	container.innerHTML = "";
 	noteArr.forEach((obj)=>{
 		let newDiv = document.createElement("div");
+		let newH = document.createElement("H4");
 		let newP = document.createElement("p");
-		newP.innerHTML = `${obj.title} <br> ${obj.dateTime}`;
+		newH.innerHTML = `${obj.title.substring(0, 35)} `;
+		newP.innerHTML = `${obj.dateTime}`;
 		console.log(newDiv);
 		console.log(container)
 		container.appendChild(newDiv);
+		newDiv.appendChild(newH);
 		newDiv.appendChild(newP);
 	})
 }
