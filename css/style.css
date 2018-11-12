@@ -49,6 +49,13 @@ nav {
     display: none;
 }
 
+#noteList div:nth-of-type(odd){
+  background: #f2f2f2;
+}
+#noteList div:hover{
+  background: #fff;
+}
+
 #editorContainer { grid-area: editorContainer;}
 .ql-toolbar { grid-area: ql-toolbar;}
 #editor { grid-area: editor;}
@@ -113,11 +120,6 @@ nav {
   .menuHover:hover{
     background-color: #213d57;
   }
-.ql-toolbar {
-    display: flex;
-    align-items: center;
-}
-
 #save{
     display: block;
 }
@@ -148,7 +150,7 @@ p {
     border-radius: 5px;
     text-align: center;
     display: none;
-    
+
 }
 
 .load-wrapp p {padding: 0 0 20px;}

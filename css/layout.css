@@ -44,7 +44,7 @@
         'editor';
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 11fr;
-        }
+    }
     .iconimages {
         display: flex;
         flex-direction: column;
