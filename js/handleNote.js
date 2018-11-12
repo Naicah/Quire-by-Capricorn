@@ -15,6 +15,7 @@ modules: {
 	theme: 'snow'  // or 'bubble'
 });
 
+
 window.onload = function(){
 	if(localStorage.length > 0){
 		viewNoteLists();
@@ -24,12 +25,11 @@ window.onload = function(){
 }
 
 
-let noteID = 0;
 /*Creating new note*/
 function createNote(title, text){
-	noteID += 1;
+
  	return obj = {
-		id: noteID,
+		id: getAvailID(),
  		title: title,
 		//For the record i hate Date objs.
  		dateTime: new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear(),
