@@ -15,6 +15,15 @@ modules: {
 	theme: 'snow'  // or 'bubble'
 });
 
+window.onload = function(){
+	if(localStorage.length > 0){
+		viewNoteLists();
+	}else{
+		console.log("there is no documents")
+	}
+}
+
+
 let noteID = 0;
 /*Creating new note*/
 function createNote(title, text){
@@ -59,11 +68,13 @@ document.getElementById("save").addEventListener("click", function () {
 			// Finns redan hämta objekt och fortsätt.
 			// Uppdatera enbart Title & text. inte dateTime eller id.
 			// object.title = title; etc
+			console.log(boolIS)
+			console.log(textObj.text);
 			console.log("Already existing , please continue")
 		}else{
 			// Objekt fanns inte. skapa nytt objekt.
+			console.log(boolIS)
 			save();
-	
 		}
 	}else{
 		// SPARA INTE TOM TEXT
@@ -90,9 +101,8 @@ function getText () {
 	}
 
 /// LOOP OBJECTS TO NOTE LISTS  titlar.
-
-function loopNoteTitles(){
-	let noteArr = [];
+function loopNoteObjects(){
+	let noteArr =[];
 	Object.keys(localStorage).forEach((key)=>{
 		noteArr.push(JSON.parse(localStorage.getItem(key)));
 	})
@@ -100,15 +110,33 @@ function loopNoteTitles(){
 }
 
 
-// Show load symbol when saving 
+// Show load symbol when saving
 
 function savedStatus(){
 	document.getElementById("save").style.display = 'none';
 	document.querySelector(".load-wrapp").style.display = 'block';
 	setTimeout(function(){
 		document.getElementById("save").style.display = 'block';
-		document.querySelector(".load-wrapp").style.display = 'none';	
-	
+		document.querySelector(".load-wrapp").style.display = 'none';
+
 	}, 1000);
-	
+
 };
+
+
+// VIEW NOTES IN NOTELIST
+
+function viewNoteLists(){
+	let noteArr = loopNoteObjects();
+	let container = document.getElementById("noteList");
+	container.innerHTML = "";
+	noteArr.forEach((obj)=>{
+		let newDiv = document.createElement("div");
+		let newP = document.createElement("p");
+		newP.innerHTML = `${obj.title} <br> ${obj.dateTime}`;
+		console.log(newDiv);
+		console.log(container)
+		container.appendChild(newDiv);
+		newDiv.appendChild(newP);
+	})
+}
