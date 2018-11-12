@@ -165,3 +165,16 @@ function viewNoteLists(){
 		newDiv.appendChild(newP);
 	})
 }
+
+
+// new page 
+
+document.getElementById("newPage").addEventListener("click", function () {
+	let container = document.getElementById("noteList");
+	let newDiv = document.createElement("div");
+	let newH = document.createElement("H4");
+	container.appendChild(newDiv);
+	newDiv.appendChild(newH);
+	newH.innerHTML = 'NY ANTECKNING';
+
+});
