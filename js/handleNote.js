@@ -15,12 +15,40 @@ modules: {
 	theme: 'snow'  // or 'bubble'
 });
 
-let noteID = 0;
+// GET LOWEST AVAILABLE ID - Nina H
+function getAvailID() {
+
+	let notes = loopNoteTitles(); //Get all notes
+	let noteIDs = []; //Array of all Note IDs
+
+	notes.forEach((n) => { //For each note
+		noteIDs.push(n["id"]); 
+    });
+
+	noteIDs.sort(function(a, b) { return a-b; });   // Sort all IDs numeric 
+
+	var lowest = -1;
+	if (noteIDs.length == 0) { //If there aren't any notes
+		lowest = 0; // ID = 0
+	} else {
+		for (i = 0;  i < noteIDs.length;  ++i) { //Start at 0 and increase by 1 until value does not exist in list of IDs
+			if (noteIDs[i] != i) {
+			lowest = i;
+			break;
+			}
+		}
+	if (lowest == -1) { //Failsafe source: https://stackoverflow.com/questions/30672861/find-the-lowest-unused-number-in-an-array-using-javascript
+		  lowest = noteIDs[noteIDs.length - 1] + 1;
+	 	}
+	}
+	  return lowest; //Return lowest available ID
+}
+
 /*Creating new note*/
 function createNote(title, text){
-	noteID += 1;
+	
  	return obj = {
-		id: noteID,
+		id: getAvailID(),
  		title: title,
 		//For the record i hate Date objs.
  		dateTime: new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear(),
