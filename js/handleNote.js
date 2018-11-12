@@ -35,20 +35,21 @@ function newNote(title, text){
 	addNote(note);
 }
 
+/* Add note to localStorage*/
 function addNote(newNote){
 	localStorage.setItem(newNote.title, JSON.stringify(newNote));
 }
 
 /*Click event Getting title on selected note?*/
 /* or search specific note*/
+
+/*Gets note*/
 function getNote(title){
 	return JSON.parse(localStorage.getItem(title))
 }
 
-var text;
-var title;
-var boolIS = false;
 document.getElementById("save").addEventListener("click", function () {
+	let boolIS = false;
 	getText();
 	// returnerar true om den  title finns.
 	boolIS = checkForNote(title);
@@ -79,6 +80,7 @@ function getText () {
 	title = document.getElementById("editor").firstChild.firstChild.textContent;
 	text = quill.getText(0, );
 	let format = quill.getFormat();
+	return textObj = {title: title, text: text};
 }
 
 // CHECK IF OBJECT ALREADY EXIST
@@ -88,13 +90,12 @@ function getText () {
 
 /// LOOP OBJECTS TO NOTE LISTS  titlar.
 
-let noteArr = [];
-
 function loopNoteTitles(){
-	noteArr = [];
+	let noteArr = [];
 	Object.keys(localStorage).forEach((key)=>{
 		noteArr.push(JSON.parse(localStorage.getItem(key)));
 	})
+	return noteArr;
 }
 
 
@@ -104,7 +105,5 @@ function savedStatus(){
 	setTimeout(function(){
 		document.getElementById("save").style.display = 'block';
 		document.querySelector(".load-wrapp").style.display = 'none';
-
 	}, 1000);
-
 };
