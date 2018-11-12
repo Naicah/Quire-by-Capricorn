@@ -95,12 +95,9 @@ document.getElementById("save").addEventListener("click", function () {
 			// Finns redan hämta objekt och fortsätt.
 			// Uppdatera enbart Title & text. inte dateTime eller id.
 			// object.title = title; etc
-			console.log(boolIS)
-			console.log(textObj.text);
 			console.log("Already existing , please continue")
 		}else{
 			// Objekt fanns inte. skapa nytt objekt.
-			console.log(boolIS)
 			save();
 			viewNoteLists()
 		}
@@ -161,9 +158,7 @@ function viewNoteLists(){
 	noteArr.forEach((obj)=>{
 		let newDiv = document.createElement("div");
 		let newP = document.createElement("p");
-		newP.innerHTML = `${obj.title} <br> ${obj.dateTime}`;
-		console.log(newDiv);
-		console.log(container)
+		newP.innerHTML = `${obj.title} <br> <span>${obj.dateTime}</span>`;
 		container.appendChild(newDiv);
 		newDiv.appendChild(newP);
 	})
