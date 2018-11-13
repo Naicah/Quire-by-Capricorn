@@ -89,12 +89,10 @@ document.getElementById("save").addEventListener("click", function () {
 			// Finns redan hämta objekt och fortsätt.
 			// Uppdatera enbart Title & text. inte dateTime eller id.
 			// object.title = title; etc
-			console.log(boolIS)
-			console.log(textObj.text);
+			viewNoteLists()
 			console.log("Already existing , please continue")
 		}else{
 			// Objekt fanns inte. skapa nytt objekt.
-			console.log(boolIS)
 			save();
 			viewNoteLists()
 		}
@@ -154,7 +152,7 @@ function viewNoteLists(){
 	container.innerHTML = "";
 	noteArr.forEach((obj)=>{
 		let newDiv = document.createElement("div");
-		let newH = document.createElement("H4");
+		let newH = document.createElement("h4");
 		let newP = document.createElement("p");
 		newH.innerHTML = `${obj.title.substring(0, 35)} `;
 		newP.innerHTML = `${obj.dateTime}`;
@@ -167,14 +165,12 @@ function viewNoteLists(){
 }
 
 
-// new page 
-
+// new 
 document.getElementById("newPage").addEventListener("click", function () {
 	let container = document.getElementById("noteList");
 	let newDiv = document.createElement("div");
-	let newH = document.createElement("H4");
+	let newH = document.createElement("h4");
 	container.appendChild(newDiv);
 	newDiv.appendChild(newH);
 	newH.innerHTML = 'NY ANTECKNING';
-
 });
