@@ -88,9 +88,12 @@ document.getElementById("save").addEventListener("click", function () {
 	boolIS = checkForNote(textObj.title);
 	if(textObj.text.length > 1){
 		if(boolIS){
+
 			// Finns redan hämta objekt och fortsätt.
 			// Uppdatera enbart Title ,text och dateTime inte id.
 			// object.title = title; etc
+			let updatedNote = getNoteFromStorage(textObj.title)
+			save();
 			viewNoteLists()
 			console.log("Already existing , please continue")
 		}else{
@@ -184,16 +187,16 @@ function getTitleFromNoteList(){
 		if(event.target.tagName === "H4" || event.target.tagName === "P"){
 			let noteObj = event.target.parentElement;
 			let titlestr = noteObj.firstChild.innerHTML;
-			textToEditor(openNoteFromNotelist(titlestr.trim()))
+			textToEditor(getNoteFromStorage(titlestr.trim()))
 		}else{
 			let titlestr = event.target.firstChild.innerHTML;
-			textToEditor(openNoteFromNotelist(titlestr.trim()))
+			textToEditor(getNoteFromStoraget(titlestr.trim()))
 		}
 	})
 }
 
 // Hämtar objekt från localStorage med hjälp av titeln.
-function openNoteFromNotelist(title){
+function getNoteFromStorage(title){
 	return JSON.parse(localStorage.getItem(title));
 }
 
