@@ -47,6 +47,10 @@ function getAvailID() {
 	  return lowest; //Return lowest available ID
 }
 
+// get time for Date time on object creation
+function getTime(){
+	return new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear();
+}
 /*Creating new note*/
 function createNote(title, text){
 
@@ -54,7 +58,7 @@ function createNote(title, text){
 		id: getAvailID(),
  		title: title,
 		//For the record i hate Date objs.
- 		dateTime: new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear(),
+ 		dateTime: getTime(),
  		text: text
  	}
 }
@@ -93,6 +97,7 @@ document.getElementById("save").addEventListener("click", function () {
 			// Uppdatera enbart Title ,text och dateTime inte id.
 			// object.title = title; etc
 			let updatedNote = getNoteFromStorage(textObj.title)
+			updatedNote.dateTime = getTime();
 			save();
 			viewNoteLists()
 			console.log("Already existing , please continue")
@@ -200,8 +205,7 @@ function getNoteFromStorage(title){
 	return JSON.parse(localStorage.getItem(title));
 }
 
-// ta text till editor, beta
-// HITTA INBYGGD FUNKTION PÅ QUILL
+// inbyggt i quill för att kunna adera html document i editorn.
 function textToEditor(noteObj){
 	let editor = document.querySelector(".ql-editor");
  	quill.root.innerHTML = "";
