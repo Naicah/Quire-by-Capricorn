@@ -112,8 +112,7 @@ function save(){
 // Get all text in editor
 function getText () {
 	title = document.getElementById("editor").firstChild.firstChild.textContent;
-	text = quill.getText(0, );
-	let format = quill.getFormat();
+	text = quill.root.innerHTML;
 	return textObj = {title: title, text: text};
 }
 
@@ -202,9 +201,6 @@ function openNoteFromNotelist(title){
 // HITTA INBYGGD FUNKTION PÅ QUILL
 function textToEditor(noteObj){
 	let editor = document.querySelector(".ql-editor");
-	editor.innerHTML = "";
-	let newP = document.createElement("P");
-	let textNode = document.createTextNode(noteObj.text);
-	newP.appendChild(textNode);
-	editor.appendChild(newP);
+ 	quill.root.innerHTML = "";
+	quill.root.innerHTML = noteObj.text;
 }
