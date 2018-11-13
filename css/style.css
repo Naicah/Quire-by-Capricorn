@@ -39,7 +39,7 @@ nav {
 #menu {
     grid-area: menu;
     background-color:#105493;
-    
+
 }
 
 #noteList {
@@ -54,7 +54,7 @@ nav {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-#noteList div h4, #noteList div p { 
+#noteList div h4, #noteList div p {
     padding-left: 10px;
     color: black;
     padding-top:10px;
@@ -123,7 +123,7 @@ nav {
     max-height: 25px;
     max-width: 20px;
     display: block;
-    
+
   }
 .iconimages img, .iconimages i {
     width: 100%;
@@ -131,7 +131,7 @@ nav {
     color: white;
     display: block;
     margin: 1em auto;
-   
+
 }
 .menuHover{
     background-color: inherit;
