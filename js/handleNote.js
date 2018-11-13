@@ -2,7 +2,11 @@
 var quill = new Quill('#editor', {
 modules: {
 	toolbar: [
-	{ 'font': [] }, { header: [1, 2, false] }, 'bold', 'italic', 'underline', { 'align': [] }, { 'indent': '-1'}, { 'indent': '+1' }, { 'list': 'ordered'}, { 'list': 'bullet' }, 'image', 'video', 'code-block', 'clean',
+	{ 'font': [] }, { header: [1, 2, false] }, 
+	'bold', 'italic', 'underline', 
+	{ 'align': [] }, { 'indent': '-1'}, { 'indent': '+1' }, 
+	{ 'list': 'ordered'}, { 'list': 'bullet' }, 
+	'image', 'video', 'code-block', 'clean',
 	],
 	},
 	placeholder: 'Compose an epic...',
@@ -18,6 +22,7 @@ window.onload = function(){
 	}
 	getTitleFromNoteList();
 }
+
 // GET LOWEST AVAILABLE ID - Nina H
 function getAvailID() {
 
@@ -25,24 +30,20 @@ function getAvailID() {
 	let noteIDs = []; //Array of all Note IDs
 
 	notes.forEach((n) => { //For each note
-		noteIDs.push(n["id"]);
+		noteIDs.push(n["id"]); // Get ID and put it in the array of all IDs
     });
 
 	noteIDs.sort(function(a, b) { return a-b; });   // Sort all IDs numeric
 
-	var lowest = -1;
 	if (noteIDs.length == 0) { //If there aren't any notes
 		lowest = 0; // ID = 0
-	} else {
-		for (i = 0;  i < noteIDs.length;  ++i) { //Start at 0 and increase by 1 until value does not exist in list of IDs
+	} else { // 1 note or more
+		for (i = 0;  i <= noteIDs.length;  ++i) { //Start at 0 and increase by 1 until value does not exist in list of IDs
 			if (noteIDs[i] != i) {
-			lowest = i;
-			break;
+				lowest = i;
+				break; // Stops the loop when the lowest ID is found
 			}
 		}
-	if (lowest == -1) { //Failsafe source: https://stackoverflow.com/questions/30672861/find-the-lowest-unused-number-in-an-array-using-javascript
-		  lowest = noteIDs[noteIDs.length - 1] + 1;
-	 	}
 	}
 	  return lowest; //Return lowest available ID
 }
