@@ -10,7 +10,7 @@ div {
     border-style: none;
 }
 body, html{
-  margin:0;
+    margin:0;
 }
 
 .container {
@@ -20,7 +20,7 @@ body, html{
      grid-template-areas:
         'nav'
         'main';
-        padding: 0;
+    padding: 0;
 }
 nav {
     grid-area: nav;
@@ -32,28 +32,49 @@ nav {
     display: block;
     color: white;
     position: absolute;
-    right: 20px;
+    right: 0.7em;
     font-size: 42px;
 }
 
 #menu {
     grid-area: menu;
     background-color:#105493;
-    min-width: 1.5cm;
+
 }
 
 #noteList {
     grid-area: noteList;
     background-color: #ebebeb;
-    min-height: 400px;
+    min-height: 5em;
     display: none;
 }
 
-#noteList div:nth-of-type(odd){
-  background: #f2f2f2;
+#noteList div{
+    height: 78px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-#noteList div:hover{
-  background: #fff;
+
+#noteList div h4, #noteList div p {
+    padding-left: 10px;
+    color: black;
+    padding-top:10px;
+}
+
+#noteList div h4{
+    margin:0;
+}
+
+#noteList div p{
+    margin:0;
+    font-size: 14px;
+    margin-top: 22px;
+}
+
+/* #noteList div:nth-of-type(even){
+  background: #f2f2f2;
+} */
+#noteList div:hover {
+  background: #f2f2f2;
 }
 
 #editorContainer { grid-area: editorContainer;}
@@ -77,7 +98,7 @@ nav {
 
 #logo {
  background-color:#213d57;
- height: 5em;
+ height: 78px;
  width: 100%;
  display: flex;
  align-items: center;
@@ -91,25 +112,26 @@ nav {
 }
 
 .iconimages {
-
     flex-direction: row;
     align-items: center;
-    height: 15em;
+    height: 5em;
     justify-content: space-evenly;
     display: none;
 }
 .icons{
-    margin: 10px auto;
+    margin: 2em auto;
     max-height: 25px;
     max-width: 20px;
-    display:block;
+    display: block;
+
   }
-  .iconimages img, .iconimages i {
+.iconimages img, .iconimages i {
     width: 100%;
     font-size: 25px;
     color: white;
-    display:block;
-    margin: 10px auto;
+    display: block;
+    margin: 1em auto;
+
 }
 .menuHover{
     background-color: inherit;

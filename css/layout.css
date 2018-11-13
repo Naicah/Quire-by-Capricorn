@@ -5,20 +5,20 @@
         display: grid;
         grid-template-areas:
             'menu noteList';
-            grid-template-columns: 1fr 4fr;
+            grid-template-columns: 1fr 7fr;
             grid-template-rows: auto;
-            height: 100%;
+            
     }
     
     #mobileMenu, #toolBarMobile,#hamburgerIcon,#folder {
         display: none;
     }
     #menu, #noteList { 
-        height: 100%;
+        
     }
     #logo img {
         height: 2.5em;
-        width: 60%;
+        width: 2.5em;
         padding: 0;
         margin: 0;
     }
@@ -51,15 +51,15 @@
         justify-content: flex-start;
         align-items: center;
         height: 6em;
-    }
-
+        width: 3.5em;
+        }
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     #icon img {
         height: 2.5em;
-        width: 60%;
+        width: 2.5em;
         padding: 0;
         margin: 0;
     }

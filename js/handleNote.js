@@ -16,6 +16,7 @@ window.onload = function(){
 	}else{
 		console.log("there is no documents")
 	}
+	getTitleFromNoteList();
 }
 // GET LOWEST AVAILABLE ID - Nina H
 function getAvailID() {
@@ -61,12 +62,13 @@ function createNote(title, text){
 /*User has written down title & message and hitting save.
 Get info from document*/
 function newNote(title, text){
+	title = title.trim();
 	let note = createNote(title, text);
-	addNote(note);
+	addToLocalStorage(note);
 }
 
 /* Add note to localStorage*/
-function addNote(newNote){
+function addToLocalStorage(newNote){
 	localStorage.setItem(newNote.title, JSON.stringify(newNote));
 }
 
@@ -87,14 +89,12 @@ document.getElementById("save").addEventListener("click", function () {
 	if(textObj.text.length > 1){
 		if(boolIS){
 			// Finns redan hämta objekt och fortsätt.
-			// Uppdatera enbart Title & text. inte dateTime eller id.
+			// Uppdatera enbart Title ,text och dateTime inte id.
 			// object.title = title; etc
-			console.log(boolIS)
-			console.log(textObj.text);
+			viewNoteLists()
 			console.log("Already existing , please continue")
 		}else{
 			// Objekt fanns inte. skapa nytt objekt.
-			console.log(boolIS)
 			save();
 			viewNoteLists()
 		}
@@ -154,11 +154,57 @@ function viewNoteLists(){
 	container.innerHTML = "";
 	noteArr.forEach((obj)=>{
 		let newDiv = document.createElement("div");
+		let newH = document.createElement("h4");
 		let newP = document.createElement("p");
-		newP.innerHTML = `${obj.title} <br> ${obj.dateTime}`;
-		console.log(newDiv);
-		console.log(container)
+		newH.innerHTML = `${obj.title.substring(0, 35)} `;
+		newP.innerHTML = `${obj.dateTime}`;
 		container.appendChild(newDiv);
+		newDiv.appendChild(newH);
 		newDiv.appendChild(newP);
 	})
+}
+
+
+// new page
+document.getElementById("newPage").addEventListener("click", function () {
+	let container = document.getElementById("noteList");
+	let newDiv = document.createElement("div");
+	let newH = document.createElement("h4");
+	container.appendChild(newDiv);
+	newDiv.appendChild(newH);
+	newH.innerHTML = 'NY ANTECKNING';
+});
+
+
+
+// Hämta objekt från "notelist"
+// Hämtar titeln.
+function getTitleFromNoteList(){
+ let noteList = document.querySelector("#noteList");
+	noteList.addEventListener("click", function(event){
+		if(event.target.tagName === "H4" || event.target.tagName === "P"){
+			let noteObj = event.target.parentElement;
+			let titlestr = noteObj.firstChild.innerHTML;
+			textToEditor(openNoteFromNotelist(titlestr.trim()))
+		}else{
+			let titlestr = event.target.firstChild.innerHTML;
+			textToEditor(openNoteFromNotelist(titlestr.trim()))
+		}
+	})
+}
+
+// Hämtar objekt från localStorage med hjälp av titeln.
+function openNoteFromNotelist(title){
+	return JSON.parse(localStorage.getItem(title));
+}
+
+// ta text till editor, beta
+// HITTA INBYGGD FUNKTION PÅ QUILL
+function textToEditor(noteObj){
+	let editor = document.querySelector(".ql-editor");
+	editor.innerHTML = "";
+	let newP = document.createElement("P");
+	let textNode = document.createTextNode(noteObj.text);
+	newP.appendChild(textNode);
+	editor.appendChild(newP);
 }
