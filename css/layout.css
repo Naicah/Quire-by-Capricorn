@@ -6,23 +6,32 @@
         padding: 0;
         grid-template-columns: 3fr 9fr;
     }
-    /* ------------------------ NAV ------------------------- */
+    /* -------------------------------- NAV --------------------------- */
     nav {
         display: grid;
         grid-template-areas:
-            'nav noteList';
-            grid-template-columns: 1fr 7fr;
-            grid-template-rows: auto;
-            
+            'navSec notes';  
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        max-height: 100vh;
     }
-    #mobileMenu, #toolBarMobile,#hamburgerIcon,#folder {
-        display: none;
+    /* ---------------------- NAVSEC -------------------- */
+    #navSec {
+        display: grid;
+        grid-template-areas:
+            'topNav'
+            'menu';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 9fr;  
+        max-height:100%;
     }
+    
     /* ---------------- TOPNAV ----------------- */
     #topNav {
         display: flex;
         align-items: center;
         justify-content: center;
+        height:100%;
     }
     #logo {
         height: 2.5em;
@@ -30,7 +39,10 @@
         padding: 0;
         margin: 0;
     }
-    /* ---------------- MENU ----------------- */
+    #mobileMenu, #toolBarMobile,#hamburgerIcon,#folder {
+        display: none;
+    }
+    /* ----------------- MENU ------------------ */
     #menu {
         display: flex;
         flex-direction: column;
@@ -39,15 +51,34 @@
         height: 25em;/* 5x5 so that every icon is 5em */
         width: 3.5em;
     }
+  
 
-    /* ---------------------- NOTE LIST --------------------- */
+    /* ------------------------ NOTES ----------------------- */
+   
+    #notes {
+        display: grid;
+        grid-template-areas:
+            'searchField'
+            'noteList';
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 9fr;  
+            max-height:100%;
+    }
+
+     /* ------------ SEARCH FIELD ------------- */
+
+    #searchField {
+        display: block;
+    }
+    
+    /* -------------- NOTE LIST --------------- */
 
     
     #noteList {
         grid-area: noteList;
         background-color: #ebebeb;
         min-height: 5em;
-        max-height: 80vh;
+        max-height: 100%;
     }
     #clicklist div{
         height: 78px;
@@ -72,8 +103,8 @@
     }
 
     
-
-    /* ---------------------- Editor ------------------------ */
+    /* -------------------------------- MAIN ---------------------------- */
+    /* ---------------------- EDITOR ------------------------ */
     #eitorContainer {
         display: grid;
         grid-template-areas:

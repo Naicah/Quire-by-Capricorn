@@ -16,22 +16,20 @@ body, html{
 /*------------------------------------------------------------
   -                      NAV                                 -
   ------------------------------------------------------------ */
-nav {
-    grid-area: nav;
-}
 /* #mobileMenu {
     grid-area: mobileMenu;
 } */
-#nav {
-    grid-area: nav;
+#navSec {
+    grid-area: navSec;
     background-color:#105493;
 }
 /*-------------------------------------------------
   -                      TOPNAV                   -
   ------------------------------------------------- */
 #topNav {
+    grid-area: topNav;
     background-color:#213d57;
-    height: 78px;
+    height: 5em;
     width: 100%;
     display: flex;
     align-items: center;
@@ -50,12 +48,17 @@ nav {
     right: 0.7em;
     font-size: 42px;
 }
-
+#searchField {
+    grid-area: searchField;
+    background-color:#213d57;
+    display: none;
+}
 /*-------------------------------------------------
   -                      MENU                     -
   ------------------------------------------------- */
 
 #menu {
+    grid-area: menu;
     flex-direction: row;
     align-items: center;
     height: 5em;
@@ -108,11 +111,13 @@ nav {
     50% {width: 35px; padding: 4px;}
     100% {width: 15px;}
 }
-
-/*------------------------------------------------------------
-  -                      NOTELIST                            -
-  ------------------------------------------------------------ */
-#noteList {
+/*-------------------------------------------------
+  -                   NOTE LIST                   -
+  ------------------------------------------------- */
+  #notes {
+    grid-area: notes;
+  }
+  #noteList {
     grid-area: noteList;
     background-color: #ebebeb;
     min-height: 3em;
@@ -151,10 +156,26 @@ nav {
     width: auto;
     height: auto;
 }
+
 /*------------------------------------------------------------
-  -                     EDITOR                               -
+  -                      MAIN                                -
   ------------------------------------------------------------ */
-#editorContainer { grid-area: editorContainer;}
+#editorContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 9fr;
+
+     grid-template-areas:
+        'ql-toolbar'
+        'editor';
+    padding: 0;
+}
+
+/*-------------------------------------------------
+  -                      EDITOR                   -
+  ------------------------------------------------- */
+
+
 .ql-toolbar { grid-area: ql-toolbar;}
 #editor { grid-area: editor;}
 
@@ -171,6 +192,9 @@ nav {
 }
 #editor {
     overflow-y: scroll;
+}
+.ql-container {
+    max-height: 100%;
 }
 #noteTitle {
     font-weight: bold;
