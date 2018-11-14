@@ -211,3 +211,13 @@ function textToEditor(noteObj){
  	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
 }
+let trashcan = document.querySelector("#deleteAll");
+	trashcan.addEventListener("click", ()=>{
+		deleteAll()
+})
+//delete all function
+function deleteAll(){
+	localStorage.clear();
+	quill.root.innerHTML = "";
+	viewNoteLists();
+}
