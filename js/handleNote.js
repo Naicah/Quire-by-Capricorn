@@ -48,6 +48,10 @@ function getAvailID() {
 	  return lowest; //Return lowest available ID
 }
 
+// get time for Date time on object creation
+function getTime(){
+	return new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear();
+}
 /*Creating new note*/
 function createNote(title, text){
 
@@ -55,7 +59,7 @@ function createNote(title, text){
 		id: getAvailID(),
  		title: title,
 		//For the record i hate Date objs.
- 		dateTime: new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear(),
+ 		dateTime: getTime(),
  		text: text
  	}
 }
@@ -89,9 +93,13 @@ document.getElementById("save").addEventListener("click", function () {
 	boolIS = checkForNote(textObj.title);
 	if(textObj.text.length > 1){
 		if(boolIS){
+
 			// Finns redan hämta objekt och fortsätt.
 			// Uppdatera enbart Title ,text och dateTime inte id.
 			// object.title = title; etc
+			let updatedNote = getNoteFromStorage(textObj.title)
+			updatedNote.dateTime = getTime();
+			save();
 			viewNoteLists()
 			console.log("Already existing , please continue")
 		}else{
@@ -113,8 +121,7 @@ function save(){
 // Get all text in editor
 function getText () {
 	title = document.getElementById("editor").firstChild.firstChild.textContent;
-	text = quill.getText(0, );
-	let format = quill.getFormat();
+	text = quill.root.innerHTML;
 	return textObj = {title: title, text: text};
 }
 
@@ -185,27 +192,33 @@ function getTitleFromNoteList(){
 	noteList.addEventListener("click", function(event){
 		if(event.target.tagName === "H4" || event.target.tagName === "P"){
 			let noteObj = event.target.parentElement;
-			let titlestr = noteObj.firstChild.innerHTML;
-			textToEditor(openNoteFromNotelist(titlestr.trim()))
+			let titlestr = noteObj.firstChild.textContent;
+			textToEditor(getNoteFromStorage(titlestr.trim()))
 		}else{
-			let titlestr = event.target.firstChild.innerHTML;
-			textToEditor(openNoteFromNotelist(titlestr.trim()))
+			let titlestr = event.target.firstChild.textContent;
+			textToEditor(getNoteFromStorage(titlestr.trim()))
 		}
 	})
 }
 
 // Hämtar objekt från localStorage med hjälp av titeln.
-function openNoteFromNotelist(title){
+function getNoteFromStorage(title){
 	return JSON.parse(localStorage.getItem(title));
 }
 
-// ta text till editor, beta
-// HITTA INBYGGD FUNKTION PÅ QUILL
+// inbyggt i quill för att kunna adera html document i editorn.
 function textToEditor(noteObj){
 	let editor = document.querySelector(".ql-editor");
-	editor.innerHTML = "";
-	let newP = document.createElement("P");
-	let textNode = document.createTextNode(noteObj.text);
-	newP.appendChild(textNode);
-	editor.appendChild(newP);
+ 	quill.root.innerHTML = "";
+	quill.root.innerHTML = noteObj.text;
+}
+let trashcan = document.querySelector("#deleteAll");
+	trashcan.addEventListener("click", ()=>{
+		deleteAll()
+})
+//delete all function
+function deleteAll(){
+	localStorage.clear();
+	quill.root.innerHTML = "";
+	viewNoteLists();
 }

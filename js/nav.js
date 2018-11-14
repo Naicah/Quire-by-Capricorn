@@ -4,19 +4,21 @@ var noteList = document.getElementById("noteList");
 var iconimages = document.querySelector(".iconimages");
 document.getElementById("hamburgerIcon").addEventListener("click",function(){
     if(iconimages.style.display === 'none'){
-        iconimages.style.display = 'flex'
+		iconimages.style.display = 'flex';
+        noteList.style.display = 'block';
        } else {
-		iconimages.style.display = 'none'
+		iconimages.style.display = 'none';
+		noteList.style.display = 'none';
 	   }});
 
 // Toggle Notelist overwiew in mobile version / William
 
-document.getElementById("folder").addEventListener("click",function(){
-if(noteList.style.display === 'none'){
-	noteList.style.display = 'block'
-	} else {
-	noteList.style.display = 'none'
-	}});
+// document.getElementById("folder").addEventListener("click",function(){
+// if(noteList.style.display === 'none'){
+// 	noteList.style.display = 'block'
+// 	} else {
+// 	noteList.style.display = 'none'
+// 	}});
 
 // adjust elements between phone and computer displey onload / William
 
