@@ -191,11 +191,11 @@ function getTitleFromNoteList(){
 	noteList.addEventListener("click", function(event){
 		if(event.target.tagName === "H4" || event.target.tagName === "P"){
 			let noteObj = event.target.parentElement;
-			let titlestr = noteObj.firstChild.innerHTML;
+			let titlestr = noteObj.firstChild.textContent;
 			textToEditor(getNoteFromStorage(titlestr.trim()))
 		}else{
-			let titlestr = event.target.firstChild.innerHTML;
-			textToEditor(getNoteFromStoraget(titlestr.trim()))
+			let titlestr = event.target.firstChild.textContent;
+			textToEditor(getNoteFromStorage(titlestr.trim()))
 		}
 	})
 }
