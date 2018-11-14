@@ -1,13 +1,13 @@
 // Toggle hamburger to toolbar in mobile version / William
 
 var noteList = document.getElementById("noteList");
-var iconimages = document.querySelector(".iconimages");
+var menu = document.getElementById("menu");
 document.getElementById("hamburgerIcon").addEventListener("click",function(){
-    if(iconimages.style.display === 'none'){
-		iconimages.style.display = 'flex';
+    if(menu.style.display === 'none'){
+		menu.style.display = 'flex';
         noteList.style.display = 'block';
        } else {
-		iconimages.style.display = 'none';
+		menu.style.display = 'none';
 		noteList.style.display = 'none';
 	   }});
 
@@ -24,11 +24,11 @@ document.getElementById("hamburgerIcon").addEventListener("click",function(){
 
 window.addEventListener("load",  function() {
 	    if (window.matchMedia("(min-width: 768px)").matches) {
-	        iconimages.style.display = 'flex';
+	        menu.style.display = 'flex';
 	        noteList.style.display = 'block';
 	
 	    } else {
-	        iconimages.style.display = 'none';
+	        menu.style.display = 'none';
 	        noteList.style.display = 'none';
 	    }
 	    
@@ -38,11 +38,11 @@ window.addEventListener("load",  function() {
 	
 	window.addEventListener("resize",  function() {
 	    if (window.matchMedia("(min-width: 768px)").matches) {
-	        iconimages.style.display = 'flex';
+	        menu.style.display = 'flex';
 	        noteList.style.display = 'block';
 	
 	    } else {
-	        iconimages.style.display = 'none';
+	        menu.style.display = 'none';
 	        noteList.style.display = 'none';
 	    }
 	    

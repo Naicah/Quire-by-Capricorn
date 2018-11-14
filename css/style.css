@@ -1,18 +1,9 @@
 * {
     box-sizing: border-box;
-
-}
-body {
-    margin:0;
-
-}
-div {
-    border-style: none;
 }
 body, html{
     margin:0;
 }
-
 .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -22,11 +13,35 @@ body, html{
         'main';
     padding: 0;
 }
+/*------------------------------------------------------------
+  -                      NAV                                 -
+  ------------------------------------------------------------ */
 nav {
     grid-area: nav;
 }
-#mobileMenu {
+/* #mobileMenu {
     grid-area: mobileMenu;
+} */
+#nav {
+    grid-area: nav;
+    background-color:#105493;
+}
+/*-------------------------------------------------
+  -                      TOPNAV                   -
+  ------------------------------------------------- */
+#topNav {
+    background-color:#213d57;
+    height: 78px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+#logo {
+    height: 2.5em;
+    width: auto;
+    padding: 0;
+    margin-left: 1.5em;
 }
 #hamburgerIcon{
     display: block;
@@ -36,82 +51,11 @@ nav {
     font-size: 42px;
 }
 
+/*-------------------------------------------------
+  -                      MENU                     -
+  ------------------------------------------------- */
+
 #menu {
-    grid-area: menu;
-    background-color:#105493;
-
-}
-
-#noteList {
-    grid-area: noteList;
-    background-color: #ebebeb;
-    min-height: 5em;
-    display: none;
-}
-
-#noteList div{
-    height: 78px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-#noteList div h4, #noteList div p {
-    padding-left: 10px;
-    color: black;
-    padding-top:10px;
-}
-
-#noteList div h4{
-    margin:0;
-}
-
-#noteList div p{
-    margin:0;
-    font-size: 14px;
-    margin-top: 22px;
-}
-
-/* #noteList div:nth-of-type(even){
-  background: #f2f2f2;
-} */
-#noteList div:hover {
-  background: #f2f2f2;
-}
-
-#editorContainer { grid-area: editorContainer;}
-.ql-toolbar { grid-area: ql-toolbar;}
-#editor { grid-area: editor;}
-
-
-.flex {
-    display: flex;
-    justify-content: space-between;
-}
-#navOverview {
-    background-color: rgb(79, 79, 233);
-}
-#editorContainer {
-    height: 100vh;
-}
-#noteTitle {
-    font-weight: bold;
-}
-
-#logo {
- background-color:#213d57;
- height: 78px;
- width: 100%;
- display: flex;
- align-items: center;
- justify-content: left;
-}
-#logo img {
-    height: 2.5em;
-    width: auto;
-    padding: 0;
-    margin-left: 1.5em;
-}
-
-.iconimages {
     flex-direction: row;
     align-items: center;
     height: 5em;
@@ -123,39 +67,22 @@ nav {
     max-height: 25px;
     max-width: 20px;
     display: block;
-
-  }
-.iconimages img, .iconimages i {
+}
+#menu i {
     width: 100%;
     font-size: 25px;
     color: white;
     display: block;
     margin: 1em auto;
-
 }
 .menuHover{
     background-color: inherit;
     width: 100%;
     cursor: pointer;
-  }
-  .menuHover:hover{
+}
+.menuHover:hover{
     background-color: #213d57;
-  }
-#save{
-    display: block;
 }
-
-
-/* Loading icon / William */
-
-
-p {
-    margin: 0;
-    padding: 10px 0;
-    color: #777;
-}
-
-.clear {clear:both;}
 
 /* -----------------------------------------
   =CSS3 Loading animations
@@ -192,3 +119,82 @@ p {
     50% {width: 35px; padding: 4px;}
     100% {width: 15px;}
 }
+
+/*------------------------------------------------------------
+  -                      NOTELIST                            -
+  ------------------------------------------------------------ */
+#noteList {
+    grid-area: noteList;
+    background-color: #ebebeb;
+    min-height: 5em;
+    display: none;
+}
+
+#noteList div{
+    height: 78px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#noteList div h4, #noteList div p {
+    padding-left: 10px;
+    color: black;
+    padding-top:10px;
+}
+
+#noteList div h4{
+    margin:0;
+}
+
+#noteList div p{
+    margin:0;
+    font-size: 14px;
+    margin-top: 22px;
+}
+
+/* #noteList div:nth-of-type(even){
+  background: #f2f2f2;
+} */
+#noteList div:hover {
+  background: #f2f2f2;
+}
+
+/*------------------------------------------------------------
+  -                     EDITOR                               -
+  ------------------------------------------------------------ */
+#editorContainer { grid-area: editorContainer;}
+.ql-toolbar { grid-area: ql-toolbar;}
+#editor { grid-area: editor;}
+
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+#navOverview {
+    background-color: rgb(79, 79, 233);
+}
+#editorContainer {
+    height: 100vh;
+}
+#noteTitle {
+    font-weight: bold;
+}
+
+
+#save{
+    display: block;
+}
+
+
+/* Loading icon / William */
+
+
+p {
+    margin: 0;
+    padding: 10px 0;
+    color: #777;
+}
+
+.clear {clear:both;}
+
+

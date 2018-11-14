@@ -4,7 +4,7 @@
     nav {
         display: grid;
         grid-template-areas:
-            'menu noteList';
+            'nav noteList';
             grid-template-columns: 1fr 7fr;
             grid-template-rows: auto;
             
@@ -16,13 +16,13 @@
     #menu, #noteList { 
         
     }
-    #logo img {
+    #logo {
         height: 2.5em;
         width: 2.5em;
         padding: 0;
         margin: 0;
     }
-    #logo {
+    #topNav {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -45,7 +45,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 11fr;
     }
-    .iconimages {
+    #menu {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
