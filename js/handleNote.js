@@ -1,4 +1,4 @@
-// Initialize Quill editor
+// INITIALIZE QUILL EDITOR - Nina
 var quill = new Quill('#editor', {
 modules: {
 	toolbar: [
@@ -13,17 +13,18 @@ modules: {
 	theme: 'snow'  // or 'bubble'
 });
 
-
+// ON LOAD
 window.onload = function(){
+	
 	if(localStorage.length > 0){
-		viewNoteLists();
+		displayNoteList();
 	}else{
 		console.log("there is no documents")
 	}
 	getTitleFromNoteList();
 }
 
-// GET LOWEST AVAILABLE ID - Nina H
+// GET LOWEST AVAILABLE ID - Nina 
 function getAvailID() {
 
 	let notes = loopNoteObjects(); //Get all notes
@@ -48,11 +49,12 @@ function getAvailID() {
 	  return lowest; //Return lowest available ID
 }
 
-// get time for Date time on object creation
+// GET TIME FOR DATE TIME WHEN CREATING NOTE -Jonathan
 function getTime(){
 	return new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear();
 }
-/*Creating new note*/
+
+// CREATE NEW NOTE
 function createNote(title, text){
 
  	return obj = {
@@ -72,7 +74,7 @@ function newNote(title, text){
 	addToLocalStorage(note);
 }
 
-/* Add note to localStorage*/
+// ADD NOTE TO LOCAL STORAGE
 function addToLocalStorage(newNote){
 	localStorage.setItem(newNote.title, JSON.stringify(newNote));
 }
@@ -80,11 +82,12 @@ function addToLocalStorage(newNote){
 /*Click event Getting title on selected note?*/
 /* or search specific note*/
 
-/*Gets note*/
+// GET NOTE
 function getNote(title){
 	return JSON.parse(localStorage.getItem(title))
 }
 
+// WHEN CLICK ON SAVE ICON
 document.getElementById("save").addEventListener("click", function () {
 	savedStatus();
 	let boolIS = false;
@@ -100,12 +103,12 @@ document.getElementById("save").addEventListener("click", function () {
 			let updatedNote = getNoteFromStorage(textObj.title)
 			updatedNote.dateTime = getTime();
 			save();
-			viewNoteLists()
+			displayNoteList()
 			console.log("Already existing , please continue")
 		}else{
 			// Objekt fanns inte. skapa nytt objekt.
 			save();
-			viewNoteLists()
+			displayNoteList()
 		}
 	}else{
 		// SPARA INTE TOM TEXT
@@ -113,24 +116,24 @@ document.getElementById("save").addEventListener("click", function () {
 	}
 })
 
-// js for save function
+// SAVE NOTE
 function save(){
 	let notis = newNote(title, text);
 }
 
-// Get all text in editor
+// GET ATT TEXT IN EDITOR
 function getText () {
 	title = document.getElementById("editor").firstChild.firstChild.textContent;
 	text = quill.root.innerHTML;
 	return textObj = {title: title, text: text};
 }
 
-// CHECK IF OBJECT ALREADY EXIST
-	function checkForNote(title){
-		return (localStorage.getItem(title) ?  true : false);
-	}
+// CHECK IF NOTE ALREADY EXIST
+function checkForNote(title){
+	return (localStorage.getItem(title) ?  true : false);
+}
 
-/// LOOP OBJECTS TO NOTE LISTS  titlar.
+// LOOP OBJECTS TO NOTE LISTS  titlar. - Jonathan
 function loopNoteObjects(){
 	let noteArr =[];
 	Object.keys(localStorage).forEach((key)=>{
@@ -139,26 +142,21 @@ function loopNoteObjects(){
 	return noteArr;
 }
 
-
-// Show load symbol when saving
-
+// SHOW LOAD SYMBOL WHEN SAVING - William
 function savedStatus(){
 	document.getElementById("saveIcon").style.display = 'none';
-	document.querySelector(".load-wrapp").style.display = 'block';
+	document.getElementById("load-wrapp").style.display = 'block';
 	setTimeout(function(){
 		document.getElementById("saveIcon").style.display = 'block';
-		document.querySelector(".load-wrapp").style.display = 'none';
+		document.getElementById("load-wrapp").style.display = 'none';
 
 	}, 1000);
-
 };
 
-
-// VIEW NOTES IN NOTELIST
-
-function viewNoteLists(){
+// DISPLAY NOTES IN NOTELIST
+function displayNoteList(){
 	let noteArr = loopNoteObjects();
-	let container = document.getElementById("noteList");
+	let container = document.getElementById("clicklist");
 	container.innerHTML = "";
 	noteArr.forEach((obj)=>{
 		let newDiv = document.createElement("div");
@@ -172,10 +170,9 @@ function viewNoteLists(){
 	})
 }
 
-
-// new page
+// WHEN CLICKING ON CON FOR NEW PAGE
 document.getElementById("newPage").addEventListener("click", function () {
-	let container = document.getElementById("noteList");
+	let container = document.getElementById("clicklist");
 	let newDiv = document.createElement("div");
 	let newH = document.createElement("h4");
 	container.appendChild(newDiv);
@@ -183,13 +180,10 @@ document.getElementById("newPage").addEventListener("click", function () {
 	newH.innerHTML = 'NY ANTECKNING';
 });
 
-
-
-// Hämta objekt från "notelist"
-// Hämtar titeln.
+// GET TITLE FROM NOTE LIST
 function getTitleFromNoteList(){
- let noteList = document.querySelector("#noteList");
-	noteList.addEventListener("click", function(event){
+ let noteList = document.getElementById("clicklist");
+ 	clicklist.addEventListener("click", function(event){
 		if(event.target.tagName === "H4" || event.target.tagName === "P"){
 			let noteObj = event.target.parentElement;
 			let titlestr = noteObj.firstChild.textContent;
@@ -206,19 +200,22 @@ function getNoteFromStorage(title){
 	return JSON.parse(localStorage.getItem(title));
 }
 
-// inbyggt i quill för att kunna adera html document i editorn.
+
+// inbyggt i quill för att kunna adDera html-document i editorn
 function textToEditor(noteObj){
 	let editor = document.querySelector(".ql-editor");
  	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
 }
-let trashcan = document.querySelector("#deleteAll");
+// WHEN CLICKING ON TRASHCAN ICON 
+let trashcan = document.getElementById("deleteAll");
 	trashcan.addEventListener("click", ()=>{
-		deleteAll()
+		deleteAll();
 })
-//delete all function
+
+// DELETE ALL NOTES
 function deleteAll(){
 	localStorage.clear();
 	quill.root.innerHTML = "";
-	viewNoteLists();
+	displayNoteList();
 }

@@ -1,6 +1,12 @@
-
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+    .container {
+        grid-template-areas:
+            'nav main';
+        padding: 0;
+        grid-template-columns: 3fr 9fr;
+    }
+    /* ------------------------ NAV ------------------------- */
     nav {
         display: grid;
         grid-template-areas:
@@ -9,12 +15,14 @@
             grid-template-rows: auto;
             
     }
-    
     #mobileMenu, #toolBarMobile,#hamburgerIcon,#folder {
         display: none;
     }
-    #menu, #noteList { 
-        
+    /* ---------------- TOPNAV ----------------- */
+    #topNav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     #logo {
         height: 2.5em;
@@ -22,22 +30,51 @@
         padding: 0;
         margin: 0;
     }
-    #topNav {
+    /* ---------------- MENU ----------------- */
+    #menu {
         display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
-        justify-content: center;
+        height: 25em;/* 5x5 so that every icon is 5em */
+        width: 3.5em;
     }
-    .ql-toolbar {
-        display: flex;
-        align-items: center;
+
+    /* ---------------------- NOTE LIST --------------------- */
+
+    
+    #noteList {
+        grid-area: noteList;
+        background-color: #ebebeb;
+        min-height: 5em;
+        max-height: 80vh;
     }
-    .container {
-        grid-template-areas:
-            'nav main';
-        padding: 0;
-        grid-template-columns: 3fr 9fr;
+    #clicklist div{
+        height: 78px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
-    #editorContainer {
+    #clicklist div h4, #clicklist div p {
+        padding-left: 10px;
+        color: black;
+        padding-top:10px;
+    }
+    #clicklist div h4{
+        margin:0;
+    }
+    #clicklist div p{
+        margin:0;
+        font-size: 14px;
+        margin-top: 22px;
+    }
+
+    #clicklist div:hover {
+      background: #f2f2f2;
+    }
+
+    
+
+    /* ---------------------- Editor ------------------------ */
+    #eitorContainer {
         display: grid;
         grid-template-areas:
         'ql-toolbar'
@@ -45,14 +82,16 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 11fr;
     }
-    #menu {
+
+    /* ---------------- TOOLBAR ----------------- */
+    .ql-toolbar {
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
-        height: 6em;
-        width: 3.5em;
-        }
+    }
+   
+  
+   
+    
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */

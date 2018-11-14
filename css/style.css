@@ -81,15 +81,12 @@ nav {
     color: white;
 
 }
+/*---------------------------------------
+  -            LOADING ICON             -
+  --------------------------------------- */ 
+/*- William*/
 
-
-/* -----------------------------------------
-  =CSS3 Loading animations
--------------------------------------------- */
-
-/* =Elements style
----------------------- */
-.load-wrapp {
+#load-wrapp {
     float: left;
     width: 100%;
     height: auto;
@@ -98,10 +95,6 @@ nav {
     text-align: center;
     display: none;
 }
-
-.load-wrapp p {padding: 0 0 20px;}
-.load-wrapp:last-child {margin-right: 0;}
-
 .line {
     display: inline-block;
     width: 15px;
@@ -109,10 +102,7 @@ nav {
     border-radius: 15px;
     background-color: #4b9cdb;
 }
-/* Loading icon / William */
-
 .load-8 .line {animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;}
-
 @keyframes loadingH {
     0% {width: 15px;}
     50% {width: 35px; padding: 4px;}
@@ -125,38 +115,42 @@ nav {
 #noteList {
     grid-area: noteList;
     background-color: #ebebeb;
-    min-height: 5em;
-    display: none;
+    min-height: 3em;
+    max-height: 10em;
+    overflow-y: scroll;
+    border-bottom: 1px solid darkgrey;
 }
-
-#noteList div{
-    height: 78px;
+#clicklist div{
+    height: 3em;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-
-#noteList div h4, #noteList div p {
+#clicklist div h4, #clicklist div p {
     padding-left: 10px;
     color: black;
-    padding-top:10px;
+    margin: 0.3em 0 0 0;
+
+}
+#clicklist div h4{
+    font-size: 1em;
+}
+#clicklist div p{
+    font-size: 0.8em;
+    color: #777;
 }
 
-#noteList div h4{
-    margin:0;
-}
 
-#noteList div p{
-    margin:0;
-    font-size: 14px;
-    margin-top: 22px;
-}
 
 /* #noteList div:nth-of-type(even){
   background: #f2f2f2;
 } */
-#noteList div:hover {
+#clicklist div:hover {
   background: #f2f2f2;
 }
-
+#clicklist {
+    display: block;
+    width: auto;
+    height: auto;
+}
 /*------------------------------------------------------------
   -                     EDITOR                               -
   ------------------------------------------------------------ */
@@ -175,6 +169,9 @@ nav {
 #editorContainer {
     height: 100vh;
 }
+#editor {
+    overflow-y: scroll;
+}
 #noteTitle {
     font-weight: bold;
 }
@@ -185,12 +182,6 @@ nav {
 
 
 
-
-p {
-    margin: 0;
-    padding: 10px 0;
-    color: #777;
-}
 
 .clear {clear:both;}
 
