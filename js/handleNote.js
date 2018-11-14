@@ -143,10 +143,10 @@ function loopNoteObjects(){
 // Show load symbol when saving
 
 function savedStatus(){
-	document.getElementById("save").style.display = 'none';
+	document.getElementById("saveIcon").style.display = 'none';
 	document.querySelector(".load-wrapp").style.display = 'block';
 	setTimeout(function(){
-		document.getElementById("save").style.display = 'block';
+		document.getElementById("saveIcon").style.display = 'block';
 		document.querySelector(".load-wrapp").style.display = 'none';
 
 	}, 1000);

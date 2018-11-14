@@ -60,29 +60,28 @@ nav {
     align-items: center;
     height: 5em;
     justify-content: space-evenly;
-    display: none;
 }
-.icons{
-    margin: 2em auto;
-    max-height: 25px;
-    max-width: 20px;
-    display: block;
-}
-#menu i {
-    width: 100%;
-    font-size: 25px;
-    color: white;
-    display: block;
-    margin: 1em auto;
-}
-.menuHover{
+.menuIcon{
     background-color: inherit;
     width: 100%;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.menuHover:hover{
+.menuIcon:hover{
     background-color: #213d57;
 }
+.icon{
+    margin: 1em auto;
+    max-height: 25px;
+    max-width: 20px;
+    display: block;
+    font-size: 25px;
+    color: white;
+
+}
+
 
 /* -----------------------------------------
   =CSS3 Loading animations
@@ -98,7 +97,6 @@ nav {
     border-radius: 5px;
     text-align: center;
     display: none;
-
 }
 
 .load-wrapp p {padding: 0 0 20px;}
@@ -111,6 +109,7 @@ nav {
     border-radius: 15px;
     background-color: #4b9cdb;
 }
+/* Loading icon / William */
 
 .load-8 .line {animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;}
 
@@ -181,12 +180,10 @@ nav {
 }
 
 
-#save{
-    display: block;
-}
 
 
-/* Loading icon / William */
+
+
 
 
 p {
