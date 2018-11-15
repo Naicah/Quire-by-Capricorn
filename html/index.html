@@ -17,18 +17,23 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body class="container">
-    <nav>
+  
+    <nav> 
+        <!-- -------------------------- NAVSEC ---------------------------------------------------------------------------------------- -->  
         <section id="navSec">
+            <!-- ---------------------- TOPNAV ---------------------------------------------------------------------------------------- -->
             <div id="topNav">
                 <img id="logo" src="../media/quire.png">
                 <i  id="hamburgerIcon" class="fas fa-bars"></i>
-            </div>
-            
+            </div> <!-- End TopNav -->
+
+            <!-- ---------------------- MENU ------------------------------------------------------------------------------------------ -->
             <div id="menu">
+                <!-- NEW -->
                 <div id="newPage" class="menuIcon">
                     <i class="far fa-file icon" alt="New file icon"></i>
                 </div>
-
+                <!-- SAVE -->
                 <div id="save" class="menuIcon">
                     <i id="saveIcon" class="far fa-save icon" alt="Save file icon"></i>
                     <div id="load-wrapp">
@@ -37,30 +42,34 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- SEARCH -->
                 <div id="search" class="menuIcon">
                     <i class="fas fa-search icon" alt="Search icon"></i>
                 </div>
-
+                <!-- ANALYTICS -->
                 <div id="analytics" class="menuIcon">
                     <i class="far fa-chart-bar icon" alt="Analytics icon"></i>
                 </div>
-
+                <!-- DELETE -->
                 <div id="deleteAll" class="menuIcon">
                     <i class="far fa-trash-alt icon"  alt="Trash icon"></i>
                 </div>
-            </div>
-        </section>
+            </div> <!-- End Menu -->
+        </section> <!-- End NavSec -->
+
+        <!-- ---------------------- NOTES ------------------------------------------------------------------------------------------ -->
         <section id="notes" >
-            <div id="searchField"></div>
+            <div id="searchField">
+            </div>
             <div id="noteList">
-                <div id="clicklist">
+                <div id="clickNoteList">
                 </div>
             </div>
-        </section>
+        </section> <!-- End Notes -->
     </nav>
 
-    <div class="tutorial">
+    <!-- ------------------------- TUTORIAL --------------------------------------------------------------------------------------- -->
+    <section class="tutorial">
         <div class="tutorial-content">
             <h2>Tutorial</h2>
             <ul>
@@ -70,17 +79,17 @@
             </ul>
             <button type="button" class="tutorial-btn" name="button">Jag förstår</button>
         </div>
-    </div>
+    </section> <!-- End Tutorial -->
 
     <main>
+        <!-- ---------------------- EDITOR ----------------------------------------------------------------------------------------- -->
         <div id="editorContainer">
-
             <div id="editor">
-
             </div>
-        </div>
+        </div> <!-- End Tutorial -->
     </main>
 
+    <!-- -------------------------- SCRIPTS ---------------------------------------------------------------------------------------- -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>

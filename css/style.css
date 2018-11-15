@@ -13,12 +13,13 @@ body, html{
         'main';
     padding: 0;
 }
+/*---------------------------------------------------------------------------
+  -                      NAV                                                -
+  --------------------------------------------------------------------------- */
+
 /*------------------------------------------------------------
-  -                      NAV                                 -
+  -                      NAVSEC                              -
   ------------------------------------------------------------ */
-/* #mobileMenu {
-    grid-area: mobileMenu;
-} */
 #navSec {
     grid-area: navSec;
     background-color:#105493;
@@ -48,15 +49,10 @@ body, html{
     right: 0.7em;
     font-size: 42px;
 }
-#searchField {
-    grid-area: searchField;
-    background-color:#213d57;
-    display: none;
-}
+
 /*-------------------------------------------------
   -                      MENU                     -
   ------------------------------------------------- */
-
 #menu {
     grid-area: menu;
     flex-direction: row;
@@ -82,8 +78,8 @@ body, html{
     display: block;
     font-size: 25px;
     color: white;
-
 }
+
 /*---------------------------------------
   -            LOADING ICON             -
   --------------------------------------- */ 
@@ -105,19 +101,32 @@ body, html{
     border-radius: 15px;
     background-color: #4b9cdb;
 }
-.load-8 .line {animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;}
+.load-8 .line {
+    animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
+}
 @keyframes loadingH {
     0% {width: 15px;}
     50% {width: 35px; padding: 4px;}
     100% {width: 15px;}
 }
+/*------------------------------------------------------------
+  -                      NOTES                               -
+  ------------------------------------------------------------ */
+#notes {
+    grid-area: notes;
+}
 /*-------------------------------------------------
   -                   NOTE LIST                   -
   ------------------------------------------------- */
-  #notes {
-    grid-area: notes;
-  }
-  #noteList {
+#searchField {
+    grid-area: searchField;
+    background-color:#213d57;
+    display: none;
+}
+/*-------------------------------------------------
+  -                   NOTE LIST                   -
+  ------------------------------------------------- */
+#noteList {
     grid-area: noteList;
     background-color: #ebebeb;
     min-height: 3em;
@@ -125,36 +134,32 @@ body, html{
     overflow-y: scroll;
     border-bottom: 1px solid darkgrey;
 }
-#clicklist div{
-    height: 3em;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-#clicklist div h4, #clicklist div p {
-    padding-left: 10px;
-    color: black;
-    margin: 0.3em 0 0 0;
-
-}
-#clicklist div h4{
-    font-size: 1em;
-}
-#clicklist div p{
-    font-size: 0.8em;
-    color: #777;
-}
-
-
-
-/* #noteList div:nth-of-type(even){
-  background: #f2f2f2;
-} */
-#clicklist div:hover {
-  background: #f2f2f2;
-}
-#clicklist {
+/*---------------------------------------
+  -            CLICK NOTE LIST          -
+  --------------------------------------- */ 
+#clickNoteList { /* Div containing all note divs in note list - click lo show text in edito */
     display: block;
     width: auto;
     height: auto;
+}
+#clickNoteList div:hover {
+    background: #f2f2f2;
+}
+#clickNoteList div{ /* Divs created for each note in notelist */
+    height: 3em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+#clickNoteList div h4, #clickNoteList div p { /* All text in div for notes in notelist */
+    padding-left: 10px;
+    color: black;
+    margin: 0.3em 0 0 0;
+}
+#clickNoteList div h4{ /* Heading (title) for notes in notelist */
+    font-size: 1em;
+}
+#clickNoteList div p{ /* Text (time & date) in div for notes in notelist */
+    font-size: 0.8em;
+    color: #777;
 }
 
 /*------------------------------------------------------------
@@ -171,42 +176,28 @@ body, html{
     padding: 0;
 }
 
-/*-------------------------------------------------
-  -                      EDITOR                   -
-  ------------------------------------------------- */
-
-
-.ql-toolbar { grid-area: ql-toolbar;}
-#editor { grid-area: editor;}
-
-
-.flex {
-    display: flex;
-    justify-content: space-between;
-}
-#navOverview {
-    background-color: rgb(79, 79, 233);
-}
+/*---------------------------------------------------------------------------
+  -                      MAIN                                               -
+  --------------------------------------------------------------------------- */
+/*------------------------------------------------------------
+  -                      EDITOR CONTAINER                    -
+  ------------------------------------------------------------ */
 #editorContainer {
     height: 100vh;
 }
+/*-------------------------------------------------
+  -                      EDITOR                   -
+  ------------------------------------------------- */
 #editor {
+    grid-area: editor;
     overflow-y: scroll;
 }
+.ql-toolbar { grid-area: ql-toolbar;}
+
 .ql-container {
     max-height: 100%;
 }
-#noteTitle {
-    font-weight: bold;
-}
 
 
-
-
-
-
-
-
-.clear {clear:both;}
 
 

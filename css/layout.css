@@ -1,4 +1,7 @@
-/* Medium devices (landscape tablets, 768px and up) */
+/*--------------------------------------------------------------------------
+  -              Medium devices (landscape tablets, 768px and up)          -
+  -------------------------------------------------------------------------- */
+
 @media only screen and (min-width: 768px) {
     .container {
         grid-template-areas:
@@ -73,36 +76,33 @@
     
     /* -------------- NOTE LIST --------------- */
 
-    
     #noteList {
         grid-area: noteList;
         background-color: #ebebeb;
         min-height: 5em;
         max-height: 100%;
     }
-    #clicklist div{
+    #clickNoteList div{
         height: 78px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
-    #clicklist div h4, #clicklist div p {
+    #clickNoteList div h4, #clickNoteList div p {
         padding-left: 10px;
         color: black;
         padding-top:10px;
     }
-    #clicklist div h4{
+    #clickNoteList div h4{
         margin:0;
     }
-    #clicklist div p{
+    #clickNoteList div p{
         margin:0;
         font-size: 14px;
         margin-top: 22px;
     }
-
-    #clicklist div:hover {
+    #clickNoteList div:hover {
       background: #f2f2f2;
     }
 
-    
     /* -------------------------------- MAIN ---------------------------- */
     /* ---------------------- EDITOR ------------------------ */
     #eitorContainer {
@@ -113,43 +113,24 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 11fr;
     }
-
     /* ---------------- TOOLBAR ----------------- */
     .ql-toolbar {
         display: flex;
         align-items: center;
     }
-   
-  
-   
-    
 } 
+/*--------------------------------------------------------------------------
+  -              Large devices (laptops/desktops, 992px and up)            -
+  -------------------------------------------------------------------------- */
 
-/* Large devices (laptops/desktops, 992px and up) */
+/*  */
 @media only screen and (min-width: 992px) {
-    #icon img {
-        height: 2.5em;
-        width: 2.5em;
-        padding: 0;
-        margin: 0;
-    }
-    #icon button {
-        display: none;
-    }
-    #icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .ql-toolbar {
-        display: flex;
-        align-items: center;
-    }
-    
 
 } 
+/*--------------------------------------------------------------------------
+  -    Extra large devices (large laptops and desktops, 1200px and up)     -
+  -------------------------------------------------------------------------- */
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 
 
