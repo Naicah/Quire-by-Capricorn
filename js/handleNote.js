@@ -92,12 +92,12 @@ document.getElementById("save").addEventListener("click", function () {
 			let updatedNote = getNoteFromStorage(textObj.title)
 			updatedNote.dateTime = getTime();
 			save();
-			displayNoteList()
+			displayNoteList();
 			console.log("Already existing , please continue")
 		}else{
 			// Objekt fanns inte. skapa nytt objekt.
-			createNote(title, text);
-			displayNoteList()
+			save();
+			displayNoteList();
 		}
 	}else{
 		// SPARA INTE TOM TEXT
@@ -118,17 +118,24 @@ function getText () {
 }
 
 // CREATE NEW NOTE
-function createNote(title, text){
+function newNote(title, text){
 	title = title.trim();
-	let note = {
+	let note = createNote(title, text);
+	addToLocalStorage(note);
+}
+
+// CREATE NOTE OBJECT
+function createNote(title, text){
+	return obj = {
 	   id: getAvailID(),
 		title: title,
 		dateTime: getTime(),
 		text: text
 	}
-	addToLocalStorage(note);
 }
-
+function save () {
+	let notis = newNote(title, text);
+}
 // GET LOWEST AVAILABLE ID - Nina 
 function getAvailID() {
 
