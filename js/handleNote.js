@@ -42,16 +42,14 @@ function displayNoteList(){
 // WHEN CLICK IN NOTE LIST: FIND WHICH NOTE AND DISPLAY TEXT IN EDITOR
 
 function getTitleFromNoteList(){
-	document.getElementById("clickNoteList").addEventListener("click", function(event){
-		if(event.target.tagName === "H4" || event.target.tagName === "P"){
-			let noteObj = event.target.parentElement;
-			let titlestr = noteObj.firstChild.textContent;
-			textToEditor(getNoteFromStorage(titlestr.trim()))
-		}else{
-			let titlestr = event.target.firstChild.textContent;
-			textToEditor(getNoteFromStorage(titlestr.trim()))
-		}
-	})
+	let titlestr;
+	if(event.target.tagName === "H4" || event.target.tagName === "P"){
+		let noteObj = event.target.parentElement;
+		titlestr = noteObj.firstChild.textContent;
+	}else{
+		titlestr = event.target.firstChild.textContent;
+	}
+	textToEditor(getNoteFromStorage(titlestr.trim()))
 }
 
 // DISPLAY TEXT OF GIVEN NOTE IN EDITOR
