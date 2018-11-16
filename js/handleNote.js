@@ -40,18 +40,18 @@ function displayNoteList(){
 }
 
 // WHEN CLICK IN NOTE LIST: FIND WHICH NOTE AND DISPLAY TEXT IN EDITOR
+
 function getTitleFromNoteList(){
-	 let clickNoteList = document.getElementById("clickNoteList");
-		clickNoteList.addEventListener("click", function(event){
-		   if(event.target.tagName === "H4" || event.target.tagName === "P"){
-			   let noteObj = event.target.parentElement;
-			   let titlestr = noteObj.firstChild.textContent;
-			   textToEditor(getNoteFromStorage(titlestr.trim()))
-		   }else{
-			   let titlestr = event.target.firstChild.textContent;
-			   textToEditor(getNoteFromStorage(titlestr.trim()))
-		   }
-	   })
+	document.getElementById("clickNoteList").addEventListener("click", function(event){
+		if(event.target.tagName === "H4" || event.target.tagName === "P"){
+			let noteObj = event.target.parentElement;
+			let titlestr = noteObj.firstChild.textContent;
+			textToEditor(getNoteFromStorage(titlestr.trim()))
+		}else{
+			let titlestr = event.target.firstChild.textContent;
+			textToEditor(getNoteFromStorage(titlestr.trim()))
+		}
+	})
 }
 
 // DISPLAY TEXT OF GIVEN NOTE IN EDITOR
@@ -65,28 +65,23 @@ function getNoteFromStorage(title){
 	return JSON.parse(localStorage.getItem(title));
 }
 
+// WHEN CLICKING ON SAVE ICON
 function saveIcon() {
-	savedStatus();
+	savingAnimation();
 	let boolIS = false;
 	let textObj = getText();
 	// returnerar true om den title finns.
 	boolIS = checkForNote(textObj.title);
 	if(textObj.text.length > 1){
 		if(boolIS){
-
 			// Finns redan hämta objekt och fortsätt.
 			// Uppdatera enbart Title ,text och dateTime inte id.
 			// object.title = title; etc
-			let updatedNote = getNoteFromStorage(textObj.title)
-			updatedNote.dateTime = getTime();
-			save();
-			displayNoteList();
+			getNoteFromStorage(textObj.title).dateTime = getTime();
 			console.log("Already existing , please continue")
-		}else{
-			// Objekt fanns inte. skapa nytt objekt.
-			save();
-			displayNoteList();
 		}
+		save();
+		displayNoteList();
 	}else{
 		// SPARA INTE TOM TEXT
 		console.log("PLZ WRITE SOMETHING")
@@ -115,12 +110,14 @@ function newNote(title, text){
 // CREATE NOTE OBJECT
 function createNote(title, text){
 	return obj = {
-	   id: getAvailID(),
+	   	id: getAvailID(),
 		title: title,
 		dateTime: getTime(),
 		text: text
 	}
 }
+
+// ?
 function save () {
 	let notis = newNote(title, text);
 }
@@ -153,16 +150,23 @@ function getAvailID() {
 // GET CURRENT TIME AND DATE - Jonathan
 function getTime(){
 	let date = new Date();
-	return date.getHours() + ":" + date.getMinutes() + " " + date.getDate() + "/" + (date.getMonth()+1) + " " + date.getFullYear();
+	return  date.getHours() + ":" + 
+			date.getMinutes() + " " + 
+			date.getDate() + "-" + 
+			(date.getMonth()+1) + "-" + 
+			date.getFullYear();
 }
 
 // SHOW LOAD SYMBOL WHEN SAVING - William
-function savedStatus () {
-	document.getElementById("saveIcon").style.display = 'none';
-	document.getElementById("load-wrapp").style.display = 'block';
+function savingAnimation () {
+	let saveIcon = document.getElementById("saveIcon");
+	let loadWrapp = document.getElementById("load-wrapp");
+
+	saveIcon.classList.toggle('none');
+	loadWrapp.classList.toggle('none');
 	setTimeout(function(){
-		document.getElementById("saveIcon").style.display = 'block';
-		document.getElementById("load-wrapp").style.display = 'none';
+		saveIcon.classList.toggle('none');
+		loadWrapp.classList.toggle('none');
 
 	}, 1000);
 };

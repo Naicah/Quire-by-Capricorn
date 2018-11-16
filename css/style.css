@@ -91,7 +91,6 @@ body, html{
   -            LOADING ICON             -
   --------------------------------------- */ 
 /*- William*/
-
 #load-wrapp {
     float: left;
     width: 100%;
@@ -99,7 +98,6 @@ body, html{
     padding: 20px 0 6px;
     border-radius: 5px;
     text-align: center;
-    display: none;
 }
 .line {
     display: inline-block;

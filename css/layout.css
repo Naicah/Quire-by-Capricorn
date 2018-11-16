@@ -9,7 +9,7 @@
         padding: 0;
         grid-template-columns: 3fr 9fr;
     }
-    /* -------------------------------- NAV --------------------------- */
+    /* -------------------------------- NAV -------------------------------- */
     nav {
         display: grid;
         grid-template-areas:
@@ -18,7 +18,7 @@
         grid-template-rows: 1fr;
         max-height: 100vh;
     }
-    /* ---------------------- NAVSEC -------------------- */
+    /* -------------------------- NAVSEC --------------------------- */
     #navSec {
         display: grid;
         grid-template-areas:
@@ -29,7 +29,7 @@
         max-height:100%;
     }
     
-    /* ---------------- TOPNAV ----------------- */
+    /* --------------------- TOPNAV ------------------ */
     #topNav {
         display: flex;
         align-items: center;
@@ -42,10 +42,10 @@
         padding: 0;
         margin: 0;
     }
-    #mobileMenu, #toolBarMobile,#hamburgerIcon,#folder {
+    #hamburgerIcon {
         display: none;
     }
-    /* ----------------- MENU ------------------ */
+    /* ---------------------- MENU -------------------- */
     #menu {
         display: flex;
         flex-direction: column;
@@ -56,8 +56,7 @@
     }
   
 
-    /* ------------------------ NOTES ----------------------- */
-   
+    /* ---------------------------- NOTES --------------------------- */
     #notes {
         display: grid;
         grid-template-areas:
@@ -68,14 +67,13 @@
             max-height:100%;
     }
 
-     /* ------------ SEARCH FIELD ------------- */
+     /* ------------------ SEARCH FIELD -------------------- */
 
     #searchField {
         display: block;
     }
     
-    /* -------------- NOTE LIST --------------- */
-
+    /* -------------------- NOTE LIST ---------------------- */
     #noteList {
         grid-area: noteList;
         background-color: #ebebeb;
@@ -83,6 +81,7 @@
         max-height: 100%;
         display: block;
     }
+    /* ------------- CLICK NOTE LIST ------------- */
     #clickNoteList div{
         height: 78px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -103,9 +102,14 @@
     #clickNoteList div:hover {
       background: #f2f2f2;
     }
-
-    /* -------------------------------- MAIN ---------------------------- */
-    /* ---------------------- EDITOR ------------------------ */
+    /* -------------------------------- TUTORIAL --------------------------- */
+    /* ---------------------- TUTORIAL CONTENT -------------- */
+    #tutorial-content {
+        width: 50%;
+    }
+    /* -------------------------------- MAIN -------------------------------- */
+    /* ---------------------- QUILL EDITOR ------------------ */
+    /* ---------------- EDITOR CONTAINER ------------ */
     #eitorContainer {
         display: grid;
         grid-template-areas:
@@ -114,7 +118,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 11fr;
     }
-    /* ---------------- TOOLBAR ----------------- */
+    /* ---------- TOOLBAR ------------- */
     .ql-toolbar {
         display: flex;
         align-items: center;
@@ -124,7 +128,6 @@
   -              Large devices (laptops/desktops, 992px and up)            -
   -------------------------------------------------------------------------- */
 
-/*  */
 @media only screen and (min-width: 992px) {
 
 } 
@@ -134,5 +137,5 @@
 
 @media only screen and (min-width: 1200px) {
 
-
 }
+
