@@ -25,7 +25,8 @@ function showTutuorial() {
   if (foundCookie == 0) {
     // The key_value cookie was not found so set it now
     document.cookie = key_value;
-    document.getElementById("tutorial").style.display = "block";
+    document.getElementById("tutorial").style.display = "block"; 
+    currentNoteID = 0;
   }
 }
 

@@ -1,7 +1,13 @@
 // ON LOAD
 window.onload = function () {
     showTutuorial(); // Show tutorial on first visit
+    displayNoteList(); // Display list of saved notes
 
+    if (localStorage.length > 0) { // If there are any stored notes
+        displayFirstNote(); // Display content of first note of note list in editor
+    } else {
+        newPage(); // Create new object in note list
+    }
     // WHEN CLICK IN TUTORIAL POP UP
     document.getElementById("tutorial").addEventListener("click", () => {
         document.getElementById("tutorial").style.display = "none"; // Hide tutorial
@@ -15,12 +21,13 @@ window.onload = function () {
 
     // WHEN CLICKING ON ICON FOR NEW PAGE
     document.getElementById("newPage").addEventListener("click", function () {
-        newPage();
+        newPage(); // Create new object in note list
+        getNoteFromNoteList(); // Show new note in editor (= no text)
     });
 
     // WHEN CLICK ON SAVE ICON
     document.getElementById("save").addEventListener("click", function () {
-        saveIcon();
+        save(); 
     });
 
     // WHEN CLICKING ON TRASHCAN ICON
@@ -29,13 +36,6 @@ window.onload = function () {
     });
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
-        getTitleFromNoteList();
-    })
-
-    // DISPLAY
-    if (localStorage.length > 0) {
-        displayNoteList();
-    } else {
-        console.log("there is no documents")
-    }
+        getNoteFromNoteList();
+    });
 }
