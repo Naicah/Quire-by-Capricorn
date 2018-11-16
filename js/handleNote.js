@@ -31,26 +31,64 @@ function displayNoteList() {
 		let newDiv = document.createElement("div");
 		let newH = document.createElement("h4");
 		let newP = document.createElement("p");
-		newH.innerHTML = `${obj.title.substring(0, 35)} `;
+		let title = obj.title;
+		if (title.length > 20) {
+			title = title.substring(0, 20) + "...";
+		}
+		newH.innerHTML = title;
 		newP.innerHTML = `${obj.dateTime}`;
-		container.appendChild(newDiv);
+		newDiv.id = `${obj.id}`;
 		newDiv.appendChild(newH);
 		newDiv.appendChild(newP);
+		container.appendChild(newDiv);
 	})
 }
+// ---------------- OLD NOTE TITLE: DISPLAY NOTES IN NOTELIST ------------------------
+// function viewNoteLists(){
+// 	let noteArr = loopNoteObjects();
+// 	let container = document.getElementById("noteList");
+// 	container.innerHTML = "";
+// 	noteArr.forEach((obj)=>{
+// 		let newDiv = document.createElement("div");
+// 		let newH = document.createElement("h4");
+// 		let newP = document.createElement("p");
+// 		newH.innerHTML = `${obj.title.substring(0, 35)} `;
+// 		newP.innerHTML = `${obj.dateTime}`;
+// 		container.appendChild(newDiv);
+// 		newDiv.appendChild(newH);
+// 		newDiv.appendChild(newP);
+// 	})
+// }
+// ---------------- OLD NOTE TITLE: DISPLAY NOTES IN NOTELIST ------------------------
 
 // WHEN CLICK IN NOTE LIST: FIND WHICH NOTE AND DISPLAY TEXT IN EDITOR
-
 function getTitleFromNoteList() {
-	let titlestr;
+	console.log(event);
+	let note;
 	if (event.target.tagName === "H4" || event.target.tagName === "P") {
-		let noteObj = event.target.parentElement;
-		titlestr = noteObj.firstChild.textContent;
+		note = event.target.parentElement;
+		console.log(note);
 	} else {
-		titlestr = event.target.firstChild.textContent;
+		note = event.target;
+		console.log(note);
 	}
-	textToEditor(getNoteFromStorage(titlestr.trim()))
+	
+	let id = note.id;
+	console.log(id);
+	textToEditor(getNoteFromStorage(id));
 }
+// ---------------- OLD NOTE TITLE: WHEN CLICK IN NOTE LIST: FIND WHICH NOTE AND DISPLAY TEXT IN EDITOR ------------------------
+// function getTitleFromNoteList() {
+// 	let titlestr;
+// 	if (event.target.tagName === "H4" || event.target.tagName === "P") {
+// 		let noteObj = event.target.parentElement;
+// 		titlestr = noteObj.firstChild.textContent;
+// 	} else {
+// 		titlestr = event.target.firstChild.textContent;
+// 	}
+// 	textToEditor(getNoteFromStorage(titlestr.trim()))
+// }
+// ---------------- OLD NOTE TITLE: WHEN CLICK IN NOTE LIST: FIND WHICH NOTE AND DISPLAY TEXT IN EDITOR ------------------------
 
 // DISPLAY TEXT OF GIVEN NOTE IN EDITOR
 function textToEditor(noteObj) {
@@ -59,43 +97,84 @@ function textToEditor(noteObj) {
 }
 
 // GET OBJECT OF GIVEN NOTE FROM STORAGE
-function getNoteFromStorage(title) {
-	return JSON.parse(localStorage.getItem(title));
+function getNoteFromStorage(id) {
+	return JSON.parse(localStorage.getItem(id));
 }
+// ---------------- OLD NOTE TITLE: GET OBJECT OF GIVEN NOTE FROM STORAGE ------------------------
+// function getNoteFromStorage(title) {
+// 	return JSON.parse(localStorage.getItem(title));
+// }
+// ---------------- OLD NOTE TITLE: GET OBJECT OF GIVEN NOTE FROM STORAGE ------------------------
 
 // WHEN CLICKING ON SAVE ICON
 function saveIcon() {
-	savingAnimation();
-	let boolIS = false;
-	let textObj = getText();
+	savingAnimation(); // Animation lets user knows save is executed
+	let textObj = getText(); //Gets all text in editor
+
+
 	// returnerar true om den title finns.
-	boolIS = checkForNote(textObj.title);
-	if (textObj.text.length > 1) {
-		if (boolIS) {
-			// Finns redan hämta objekt och fortsätt.
-			// Uppdatera enbart Title ,text och dateTime inte id.
-			// object.title = title; etc
-			getNoteFromStorage(textObj.title).dateTime = getTime();
-			console.log("Already existing , please continue")
-		}
-		save();
-		displayNoteList();
+	let noteExist = checkForNote(textObj.id); // True if note exist
+
+	if (noteExist == true) {
+
 	} else {
-		// SPARA INTE TOM TEXT
-		console.log("PLZ WRITE SOMETHING")
+
 	}
+	
 }
 
-// CHECK IF NOTE ALREADY EXIST
-function checkForNote(title) {
-	return (localStorage.getItem(title) ? true : false);
+function updateNote(id, title, text) {
+	//uppdatera title
+//uppdatera text
+//uppdatera tid
+//Skriv över i local stotrage
 }
+
+// ?
+function save() {
+	let notis = newNote(title, text);
+}
+
+
+// ---------------- OLD NOTE TITLE: WHEN CLICKING ON SAVE ICON ------------------------
+// function saveIcon() {
+// 	savingAnimation();
+// 	let boolIS = false;
+// 	let textObj = getText();
+// 	// returnerar true om den title finns.
+// 	boolIS = checkForNote(textObj.title);
+// 	if (textObj.text.length > 1) {
+// 		if (boolIS) {
+// 			// Finns redan hämta objekt och fortsätt.
+// 			// Uppdatera enbart Title ,text och dateTime inte id.
+// 			// object.title = title; etc
+// 			getNoteFromStorage(textObj.title).dateTime = getTime();
+// 			console.log("Already existing , please continue")
+// 		}
+// 		save();
+// 		displayNoteList();
+// 	} else {
+// 		// SPARA INTE TOM TEXT
+// 		console.log("PLZ WRITE SOMETHING")
+// 	}
+// }
+// ---------------- OLD NOTE TITLE: WHEN CLICKING ON SAVE ICON ------------------------
+
+// CHECK IF NOTE ALREADY EXIST
+function checkForNote(id) {
+	return (localStorage.getItem(id) ? true : false);
+}
+// ---------------- OLD NOTE TITLE: CHECK IF NOTE ALREADY EXIST------------------------
+// function checkForNote(title) {
+// 	return (localStorage.getItem(title) ? true : false);
+// }
+// ---------------- OLD NOTE TITLE: CHECK IF NOTE ALREADY EXIST------------------------
 
 // GET ALL TEXT IN EDITOR
 function getText() {
 	title = document.getElementById("editor").firstChild.firstChild.textContent;
 	text = quill.root.innerHTML;
-	return textObj = { title: title, text: text };
+	return obj = { title: title, text: text };
 }
 
 // CREATE NEW NOTE
@@ -115,10 +194,7 @@ function createNote(title, text) {
 	}
 }
 
-// ?
-function save() {
-	let notis = newNote(title, text);
-}
+
 
 // GET LOWEST AVAILABLE ID - Nina 
 function getAvailID() {
@@ -165,22 +241,26 @@ function savingAnimation() {
 	setTimeout(function () {
 		saveIcon.classList.toggle('none');
 		loadWrapp.classList.toggle('none');
-
 	}, 1000);
 };
 
 // ADD NOTE TO LOCAL STORAGE
 function addToLocalStorage(newNote) {
-	localStorage.setItem(newNote.title, JSON.stringify(newNote));
+	localStorage.setItem(newNote.id, JSON.stringify(newNote));
 }
+// ---------------- OLD NOTE TITLE: ADD NOTE TO LOCAL STORAGE ------------------------
+// function addToLocalStorage(newNote) {
+// 	localStorage.setItem(newNote.title, JSON.stringify(newNote));
+// }
+// ---------------- OLD NOTE TITLE: ADD NOTE TO LOCAL STORAGE ------------------------
 
 // CREATE NEW PAGE IN NOTE LIST
 function newPage() {
 	let newDiv = document.createElement("div");
 	let newH = document.createElement("h4");
-	document.getElementById("clickNoteList").appendChild(newDiv);
-	newDiv.appendChild(newH);
 	newH.innerHTML = 'NY ANTECKNING';
+	newDiv.appendChild(newH);
+	document.getElementById("clickNoteList").appendChild(newDiv);
 }
 
 // DELETE ALL NOTES

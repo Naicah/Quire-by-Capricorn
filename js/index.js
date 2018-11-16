@@ -2,10 +2,9 @@
 window.onload = function () {
     showTutuorial(); // Show tutorial on first visit
 
-
     // WHEN CLICK IN TUTORIAL POP UP
     document.getElementById("tutorial").addEventListener("click", () => {
-        tutorial.style.display = "none"; // Hide tutorial
+        document.getElementById("tutorial").style.display = "none"; // Hide tutorial
     });
 
     // WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT
@@ -18,7 +17,6 @@ window.onload = function () {
     document.getElementById("newPage").addEventListener("click", function () {
         newPage();
     });
-
 
     // WHEN CLICK ON SAVE ICON
     document.getElementById("save").addEventListener("click", function () {
@@ -40,5 +38,4 @@ window.onload = function () {
     } else {
         console.log("there is no documents")
     }
-    getTitleFromNoteList();
 }
