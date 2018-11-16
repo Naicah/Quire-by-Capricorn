@@ -1,10 +1,10 @@
 // SHOW OR HIDE MENU WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT - William
-function toggleMenu () {
+function toggleMenu() {
 	var menu = document.getElementById("menu");
-	 menu.classList.toggle('none');
-	 menu.classList.toggle('flex');
+	menu.classList.toggle('none');
+	menu.classList.toggle('flex');
 }
-function toggleNoteList () {
+function toggleNoteList() {
 	document.getElementById("noteList").classList.toggle('none');
 }
 

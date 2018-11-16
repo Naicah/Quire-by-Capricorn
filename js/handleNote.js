@@ -1,33 +1,33 @@
 // INITIALIZE QUILL EDITOR - Nina
 var quill = new Quill('#editor', {
-modules: {
-	toolbar: [
-	{ 'font': [] }, { header: [1, 2, false] }, 
-	'bold', 'italic', 'underline', 
-	{ 'align': [] }, { 'indent': '-1'}, { 'indent': '+1' }, 
-	{ 'list': 'ordered'}, { 'list': 'bullet' }, 
-	'image', 'video', 'code-block', 'clean',
-	],
+	modules: {
+		toolbar: [
+			{ 'font': [] }, { header: [1, 2, false] },
+			'bold', 'italic', 'underline',
+			{ 'align': [] }, { 'indent': '-1' }, { 'indent': '+1' },
+			{ 'list': 'ordered' }, { 'list': 'bullet' },
+			'image', 'video', 'code-block', 'clean',
+		],
 	},
 	placeholder: 'Compose an epic...',
 	theme: 'snow'  // or 'bubble'
 });
 
 // FIND ALL SAVED NOTES IN STORAGE AND SAVE KEY IN STRING - Jonathan
-function loopNoteObjects (){
-	let noteArr =[];
-	Object.keys(localStorage).forEach((key)=>{
+function loopNoteObjects() {
+	let noteArr = [];
+	Object.keys(localStorage).forEach((key) => {
 		noteArr.push(JSON.parse(localStorage.getItem(key)));
 	})
 	return noteArr;
 }
 
 // DISPLAY NOTES IN NOTELIST
-function displayNoteList(){
+function displayNoteList() {
 	let noteArr = loopNoteObjects();
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
-	noteArr.forEach((obj)=>{
+	noteArr.forEach((obj) => {
 		let newDiv = document.createElement("div");
 		let newH = document.createElement("h4");
 		let newP = document.createElement("p");
@@ -41,25 +41,25 @@ function displayNoteList(){
 
 // WHEN CLICK IN NOTE LIST: FIND WHICH NOTE AND DISPLAY TEXT IN EDITOR
 
-function getTitleFromNoteList(){
+function getTitleFromNoteList() {
 	let titlestr;
-	if(event.target.tagName === "H4" || event.target.tagName === "P"){
+	if (event.target.tagName === "H4" || event.target.tagName === "P") {
 		let noteObj = event.target.parentElement;
 		titlestr = noteObj.firstChild.textContent;
-	}else{
+	} else {
 		titlestr = event.target.firstChild.textContent;
 	}
 	textToEditor(getNoteFromStorage(titlestr.trim()))
 }
 
 // DISPLAY TEXT OF GIVEN NOTE IN EDITOR
-function textToEditor(noteObj){
- 	quill.root.innerHTML = "";
+function textToEditor(noteObj) {
+	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
 }
 
 // GET OBJECT OF GIVEN NOTE FROM STORAGE
-function getNoteFromStorage(title){
+function getNoteFromStorage(title) {
 	return JSON.parse(localStorage.getItem(title));
 }
 
@@ -70,8 +70,8 @@ function saveIcon() {
 	let textObj = getText();
 	// returnerar true om den title finns.
 	boolIS = checkForNote(textObj.title);
-	if(textObj.text.length > 1){
-		if(boolIS){
+	if (textObj.text.length > 1) {
+		if (boolIS) {
 			// Finns redan hämta objekt och fortsätt.
 			// Uppdatera enbart Title ,text och dateTime inte id.
 			// object.title = title; etc
@@ -80,35 +80,35 @@ function saveIcon() {
 		}
 		save();
 		displayNoteList();
-	}else{
+	} else {
 		// SPARA INTE TOM TEXT
 		console.log("PLZ WRITE SOMETHING")
 	}
 }
 
 // CHECK IF NOTE ALREADY EXIST
-function checkForNote (title) {
-	return (localStorage.getItem(title) ?  true : false);
+function checkForNote(title) {
+	return (localStorage.getItem(title) ? true : false);
 }
 
 // GET ALL TEXT IN EDITOR
-function getText () {
+function getText() {
 	title = document.getElementById("editor").firstChild.firstChild.textContent;
 	text = quill.root.innerHTML;
-	return textObj = {title: title, text: text};
+	return textObj = { title: title, text: text };
 }
 
 // CREATE NEW NOTE
-function newNote(title, text){
+function newNote(title, text) {
 	title = title.trim();
 	let note = createNote(title, text);
 	addToLocalStorage(note);
 }
 
 // CREATE NOTE OBJECT
-function createNote(title, text){
+function createNote(title, text) {
 	return obj = {
-	   	id: getAvailID(),
+		id: getAvailID(),
 		title: title,
 		dateTime: getTime(),
 		text: text
@@ -116,7 +116,7 @@ function createNote(title, text){
 }
 
 // ?
-function save () {
+function save() {
 	let notis = newNote(title, text);
 }
 
@@ -128,41 +128,41 @@ function getAvailID() {
 
 	notes.forEach((n) => { //For each note
 		noteIDs.push(n["id"]); // Get ID and put it in the array of all IDs
-    });
+	});
 
-	noteIDs.sort(function(a, b) { return a-b; });   // Sort all IDs numeric
+	noteIDs.sort(function (a, b) { return a - b; });   // Sort all IDs numeric
 
 	if (noteIDs.length == 0) { //If there aren't any notes
 		lowest = 0; // ID = 0
 	} else { // 1 note or more
-		for (i = 0;  i <= noteIDs.length;  ++i) { //Start at 0 and increase by 1 until value does not exist in list of IDs
+		for (i = 0; i <= noteIDs.length; ++i) { //Start at 0 and increase by 1 until value does not exist in list of IDs
 			if (noteIDs[i] != i) {
 				lowest = i;
 				break; // Stops the loop when the lowest ID is found
 			}
 		}
 	}
-	  return lowest; //Return lowest available ID
+	return lowest; //Return lowest available ID
 }
 
 // GET CURRENT TIME AND DATE - Jonathan
-function getTime(){
+function getTime() {
 	let date = new Date();
-	return  date.getHours() + ":" + 
-			date.getMinutes() + " " + 
-			date.getDate() + "-" + 
-			(date.getMonth()+1) + "-" + 
-			date.getFullYear();
+	return date.getHours() + ":" +
+		date.getMinutes() + " " +
+		date.getDate() + "-" +
+		(date.getMonth() + 1) + "-" +
+		date.getFullYear();
 }
 
 // SHOW LOAD SYMBOL WHEN SAVING - William
-function savingAnimation () {
+function savingAnimation() {
 	let saveIcon = document.getElementById("saveIcon");
 	let loadWrapp = document.getElementById("load-wrapp");
 
 	saveIcon.classList.toggle('none');
 	loadWrapp.classList.toggle('none');
-	setTimeout(function(){
+	setTimeout(function () {
 		saveIcon.classList.toggle('none');
 		loadWrapp.classList.toggle('none');
 
@@ -170,12 +170,12 @@ function savingAnimation () {
 };
 
 // ADD NOTE TO LOCAL STORAGE
-function addToLocalStorage(newNote){
+function addToLocalStorage(newNote) {
 	localStorage.setItem(newNote.title, JSON.stringify(newNote));
 }
 
 // CREATE NEW PAGE IN NOTE LIST
-function newPage () {
+function newPage() {
 	let newDiv = document.createElement("div");
 	let newH = document.createElement("h4");
 	document.getElementById("clickNoteList").appendChild(newDiv);
@@ -184,7 +184,7 @@ function newPage () {
 }
 
 // DELETE ALL NOTES
-function deleteAll(){
+function deleteAll() {
 	localStorage.clear();
 	quill.root.innerHTML = "";
 	displayNoteList();

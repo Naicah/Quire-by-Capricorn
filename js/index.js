@@ -1,15 +1,15 @@
 // ON LOAD
-window.onload = function(){
+window.onload = function () {
     showTutuorial(); // Show tutorial on first visit
 
 
     // WHEN CLICK IN TUTORIAL POP UP
-    document.getElementById("tutorial").addEventListener("click", ()=>{
+    document.getElementById("tutorial").addEventListener("click", () => {
         tutorial.style.display = "none"; // Hide tutorial
     });
 
     // WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT
-    document.getElementById("hamburgerIcon").addEventListener("click",function(){
+    document.getElementById("hamburgerIcon").addEventListener("click", function () {
         toggleMenu(); // Show or hide menu
         toggleNoteList(); // Show or hide note list
     });
@@ -35,10 +35,10 @@ window.onload = function(){
     })
 
     // DISPLAY
-	if (localStorage.length > 0){
-		displayNoteList();
-	} else {
-		console.log("there is no documents")
-	}
-	getTitleFromNoteList();
+    if (localStorage.length > 0) {
+        displayNoteList();
+    } else {
+        console.log("there is no documents")
+    }
+    getTitleFromNoteList();
 }
