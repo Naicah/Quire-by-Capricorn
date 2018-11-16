@@ -81,6 +81,7 @@
         background-color: #ebebeb;
         min-height: 5em;
         max-height: 100%;
+        display: block;
     }
     #clickNoteList div{
         height: 78px;

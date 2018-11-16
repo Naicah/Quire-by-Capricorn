@@ -13,17 +13,6 @@ modules: {
 	theme: 'snow'  // or 'bubble'
 });
 
-// ON LOAD
-window.onload = function(){
-	
-	if (localStorage.length > 0){
-		displayNoteList();
-	} else {
-		console.log("there is no documents")
-	}
-	getTitleFromNoteList();
-}
-
 // FIND ALL SAVED NOTES IN STORAGE AND SAVE KEY IN STRING - Jonathan
 function loopNoteObjects (){
 	let noteArr =[];
@@ -52,7 +41,7 @@ function displayNoteList(){
 
 // WHEN CLICK IN NOTE LIST: FIND WHICH NOTE AND DISPLAY TEXT IN EDITOR
 function getTitleFromNoteList(){
-	//  let noteList = document.getElementById("clickNoteList"); ------------------- ANVÄNDS INTE - TA BORT?
+	 let clickNoteList = document.getElementById("clickNoteList");
 		clickNoteList.addEventListener("click", function(event){
 		   if(event.target.tagName === "H4" || event.target.tagName === "P"){
 			   let noteObj = event.target.parentElement;
@@ -76,12 +65,11 @@ function getNoteFromStorage(title){
 	return JSON.parse(localStorage.getItem(title));
 }
 
-// WHEN CLICK ON SAVE ICON
-document.getElementById("save").addEventListener("click", function () {
+function saveIcon() {
 	savedStatus();
 	let boolIS = false;
 	let textObj = getText();
-	// returnerar true om den  title finns.
+	// returnerar true om den title finns.
 	boolIS = checkForNote(textObj.title);
 	if(textObj.text.length > 1){
 		if(boolIS){
@@ -103,7 +91,7 @@ document.getElementById("save").addEventListener("click", function () {
 		// SPARA INTE TOM TEXT
 		console.log("PLZ WRITE SOMETHING")
 	}
-})
+}
 
 // CHECK IF NOTE ALREADY EXIST
 function checkForNote (title) {
@@ -136,6 +124,7 @@ function createNote(title, text){
 function save () {
 	let notis = newNote(title, text);
 }
+
 // GET LOWEST AVAILABLE ID - Nina 
 function getAvailID() {
 
@@ -161,9 +150,10 @@ function getAvailID() {
 	  return lowest; //Return lowest available ID
 }
 
-// GET TIME FOR DATE TIME WHEN CREATING NOTE -Jonathan
+// GET CURRENT TIME AND DATE - Jonathan
 function getTime(){
-	return new Date().getHours() + ":" + new Date().getMinutes() + " " + new Date().getDate() + "/" + (new Date().getMonth()+1) + " " + new Date().getFullYear();
+	let date = new Date();
+	return date.getHours() + ":" + date.getMinutes() + " " + date.getDate() + "/" + (date.getMonth()+1) + " " + date.getFullYear();
 }
 
 // SHOW LOAD SYMBOL WHEN SAVING - William
@@ -182,21 +172,14 @@ function addToLocalStorage(newNote){
 	localStorage.setItem(newNote.title, JSON.stringify(newNote));
 }
 
-// WHEN CLICKING ON ICON FOR NEW PAGE
-document.getElementById("newPage").addEventListener("click", function () {
-	let container = document.getElementById("clickNoteList");
+// CREATE NEW PAGE IN NOTE LIST
+function newPage () {
 	let newDiv = document.createElement("div");
 	let newH = document.createElement("h4");
-	container.appendChild(newDiv);
+	document.getElementById("clickNoteList").appendChild(newDiv);
 	newDiv.appendChild(newH);
 	newH.innerHTML = 'NY ANTECKNING';
-});
-
-// WHEN CLICKING ON TRASHCAN ICON 
-let trashcan = document.getElementById("deleteAll");
-	trashcan.addEventListener("click", ()=>{
-		deleteAll();
-})
+}
 
 // DELETE ALL NOTES
 function deleteAll(){
