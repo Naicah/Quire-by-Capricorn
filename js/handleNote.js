@@ -34,6 +34,7 @@ function displayNoteList() {
 		newH.innerHTML = `${obj.title.substring(0, 35)} `;
 		newP.innerHTML = `${obj.dateTime}`;
 		container.appendChild(newDiv);
+		newDiv.classList.add("noteDiv");
 		newDiv.appendChild(newH);
 		newDiv.appendChild(newP);
 	})
@@ -189,3 +190,69 @@ function deleteAll() {
 	quill.root.innerHTML = "";
 	displayNoteList();
 }
+
+// function to filter out text feild from oopNoteObjects
+
+function getFields(input, field) {
+	    var output = [];
+	    for (var i=0; i < input.length ; ++i)
+	        output.push(input[i][field]);
+	    return output;
+	}
+	
+	
+	// On click på NoteList. 
+	
+	function checkContent() {
+	    let match = false; 
+	    loopNoteObjects();
+	    let loopObj = loopNoteObjects();
+	    let getcontent = quill.root.innerHTML;
+	
+	    let textObj = getFields(loopObj, "text")
+	    for (var i = 0; i < textObj.length; i++){
+	        if(getcontent.match(textObj[i])){
+	            // console.log('match found. stop searching')
+	             
+	            return match = true;
+	
+	        } else if(getcontent.length < 12) { 
+	        // console.log('no content to save');
+	        return match = true;
+	        
+	        } else {
+	            // console.log('none match has been found');
+	                }
+	    }
+	     return match = false;
+	}   
+	
+
+// Make warnings popuo visible it content not saved
+	
+	    function contentNotSaved() {
+	        let popUp = document.getElementById("popUp");
+	        checkContent();
+	        var isSaved = checkContent();
+	        if(isSaved === true){
+	        } else {
+	            popUp.style.visibility = 'visible';
+	        }   
+	};
+	
+	
+	
+	// Run check if content saved when klicking on noteList div
+	
+	
+	document.querySelector("#clickNoteList").addEventListener("click", function(){
+	    contentNotSaved();
+	    document.querySelector("#popUpIgnore").addEventListener("click", function(){
+	        popUp.style.visibility = 'hidden';
+	    })
+	
+	    document.querySelector("#popUpSave").addEventListener("click", function(){
+	        save()
+	    })
+	})
+	

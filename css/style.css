@@ -203,6 +203,41 @@ body, html{
     max-height: 100%;
 }
 
+/* Styling popup when to warn non saved content  */
 
-
-
+#popUp{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.5s linear;
+    
+  }
+  
+  #popUp:target{
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  #popUp div {
+    background-color: white;
+    width: 65%;
+    height: auto;
+    margin: auto;
+    margin-top: 20%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+  }
+  
+  #popUp button{
+    height: 30px;
+    margin-bottom: 20px;
+    width: 2cm;
+    outline-color: rgba(255, 255, 255, .5);
+    outline-offset: 0px;
+    background: #ebebeb;
+  }
+  
