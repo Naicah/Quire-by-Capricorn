@@ -7,7 +7,6 @@ window.onload = function () {
         displayFirstNote(); // Display content of first note of note list in editor
     } else {
         newPage(); // Create new object in note list
-        setCurrentNoteID("");
     }
     // WHEN CLICK IN TUTORIAL POP UP
     document.getElementById("tutorial").addEventListener("click", () => {
