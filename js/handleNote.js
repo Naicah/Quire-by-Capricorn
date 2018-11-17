@@ -10,7 +10,7 @@ var quill = new Quill('#editor', {
 		],
 	},
 	placeholder: 'Compose an epic...',
-	theme: 'snow' 
+	theme: 'snow'
 });
 
 // SET ID OF EDITOR CONTAINER TO ID OF CURRENTLY DISPLAYED NOTE - Nina
@@ -111,7 +111,7 @@ function checkForNote(id) {
 // UPDATE CURRENT NOTE
 function updateNote(id, text) {
 	note = getNoteFromStorage(id);
-	note.title = text.title;	
+	note.title = text.title;
 	note.text = text.text;
 	note.dateTime = getTime();
 	localStorage.setItem(id, JSON.stringify(note));
@@ -212,68 +212,67 @@ function deleteAll() {
 
 
 
-// function to filter out text feild from oopNoteObjects
+// function to filter out text feild from loopNoteObjects
 
-function getFields(input, field) {
-	    var output = [];
-	    for (var i=0; i < input.length ; ++i)
-	        output.push(input[i][field]);
-	    return output;
+// function getFields(input, field) {
+// 	var output = [];
+// 	for (var i = 0; i < input.length; ++i)
+// 		output.push(input[i][field]);
+// 	return output;
+// }
+
+
+// // On click på NoteList. 
+
+// function checkContent() {
+// 	let match = false;
+// 	let loopObj = loopNoteObjects();
+// 	let getcontent = getText();
+
+// 	let textObj = getFields(loopObj, "text")
+// 	for (var i = 0; i < textObj.length; i++) {
+// 		if (getcontent.match(textObj[i])) {
+// 			// console.log('match found. stop searching')
+
+// 			return match = true;
+
+// 		} else if (getcontent.length < 12) {
+// 			// console.log('no content to save');
+// 			return match = true;
+
+// 		} else {
+// 			// console.log('none match has been found');
+// 		}
+// 	}
+// 	return match = false;
+// }
+
+// // SHOW WARNING POP UP IF CONTENT IS NOT SAVED
+// function contentNotSaved() {
+// 	var isSaved = checkContent();
+// 	if (isSaved === true) {
+// 		getNoteFromNoteList(); // Display note that was clicked on
+// 	} else {
+// 		document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
+// 	}
+// };
+
+
+function checkIfSaved() {
+	let note = getNoteFromStorage(getCurrentNoteID());
+	let savedText = note.text;
+	let currentText = getText().text;
+	console.log("saved text: " + savedText);
+	console.log("current text: " + currentText);
+
+	if (savedText != currentText) {
+		document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
+		console.log("olika");
+	} else {
+		getNoteFromNoteList(); // Display note that was clicked on
+		console.log("samma");
 	}
-	
-	
-	// On click på NoteList. 
-	
-	function checkContent() {
-	    let match = false; 
-	    loopNoteObjects();
-	    let loopObj = loopNoteObjects();
-	    let getcontent = quill.root.innerHTML;
-	
-	    let textObj = getFields(loopObj, "text")
-	    for (var i = 0; i < textObj.length; i++){
-	        if(getcontent.match(textObj[i])){
-	            // console.log('match found. stop searching')
-	             
-	            return match = true;
-	
-	        } else if(getcontent.length < 12) { 
-	        // console.log('no content to save');
-	        return match = true;
-	        
-	        } else {
-	            // console.log('none match has been found');
-	                }
-	    }
-	     return match = false;
-	}   
-	
 
-// Make warnings popuo visible it content not saved
-	
-	    function contentNotSaved() {
-	        let popUp = document.getElementById("popUp");
-	        checkContent();
-	        var isSaved = checkContent();
-	        if(isSaved === true){
-	        } else {
-	            popUp.style.visibility = 'visible';
-	        }   
-	};
-	
-	
-	
-	// Run check if content saved when klicking on noteList div
-	
-	
-	document.querySelector("#clickNoteList").addEventListener("click", function(){
-	    contentNotSaved();
-	    document.querySelector("#popUpIgnore").addEventListener("click", function(){
-	        popUp.style.visibility = 'hidden';
-	    })
-	
-	    document.querySelector("#popUpSave").addEventListener("click", function(){
-	        save()
-	    })
-	})
-	
+
+}
+

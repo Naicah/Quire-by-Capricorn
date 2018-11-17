@@ -35,7 +35,21 @@ window.onload = function () {
     });
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
-        getNoteFromNoteList();
+        // contentNotSaved(); // Check if changes were made and not saved
+        // getNoteFromNoteList(); // Display note that was clicked on
+        checkIfSaved();
+        
+    
+        // WHEN CLICK ON BUTTON POP UP SAVE
+        document.getElementById("popUpSave").addEventListener("click", function () {
+            save(); // Save note
+            document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
+        });
+
+        // WHEN CLICK ON BUTTON POP UP IGNORE
+        document.getElementById("popUpIgnore").addEventListener("click", function () {
+            // getNoteFromNoteList(); // Display note that was clicked on
+            document.getElementById("popUp").classList.toggle('none');
+        });
     });
 }
-
