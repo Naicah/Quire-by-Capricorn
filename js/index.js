@@ -7,6 +7,7 @@ window.onload = function () {
         displayFirstNote(); // Display content of first note of note list in editor
     } else {
         newPage(); // Create new object in note list
+        setCurrentNoteID("");
     }
     // WHEN CLICK IN TUTORIAL POP UP
     document.getElementById("tutorial").addEventListener("click", () => {
@@ -22,7 +23,6 @@ window.onload = function () {
     // WHEN CLICKING ON ICON FOR NEW PAGE
     document.getElementById("newPage").addEventListener("click", function () {
         newPage(); // Create new object in note list
-        getNoteFromNoteList(); // Show new note in editor (= no text)
     });
 
     // WHEN CLICK ON SAVE ICON
@@ -39,3 +39,4 @@ window.onload = function () {
         getNoteFromNoteList();
     });
 }
+

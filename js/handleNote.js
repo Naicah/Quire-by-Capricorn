@@ -1,5 +1,3 @@
-let currentNoteID = 0;
-
 // INITIALIZE QUILL EDITOR - Nina
 var quill = new Quill('#editor', {
 	modules: {
@@ -14,6 +12,16 @@ var quill = new Quill('#editor', {
 	placeholder: 'Compose an epic...',
 	theme: 'snow' 
 });
+
+// SET ID OF EDITOR CONTAINER TO ID OF CURRENTLY DISPLAYED NOTE - Nina
+function setCurrentNoteID(id) {
+	document.getElementById("main").firstChild.id = id;
+}
+
+// GET ID OF CURRENTLY DISPLAYED NOTE IN - Nina
+function getCurrentNoteID() {
+	return document.getElementById("main").firstChild.id;
+}
 
 // FIND ALL SAVED NOTES IN STORAGE AND SAVE KEY IN STRING - Jonathan
 function loopNoteObjects() {
@@ -42,6 +50,8 @@ function displayNoteList() {
 		let title = obj.title;
 		if (title.length > 20) {
 			title = title.substring(0, 20) + "...";
+		} else if (title == "") {
+			title = "NY ANTECKNING";
 		}
 		newH.innerHTML = title;
 		newP.innerHTML = `${obj.dateTime}`;
@@ -49,7 +59,7 @@ function displayNoteList() {
 		newDiv.appendChild(newH);
 		newDiv.appendChild(newP);
 		container.appendChild(newDiv);
-	})
+	});
 }
 
 // WHEN CLICK IN NOTE LIST: FIND WHICH NOTE AND DISPLAY TEXT IN EDITOR
@@ -63,14 +73,8 @@ function getNoteFromNoteList() {
 		note = event.target;
 		id = note.id;
 	}
-
-	if (id == "") { // If it is a new note (= no id)
-		id = getAvailID();
-		quill.root.innerHTML = "";
-	} else {
-		textToEditor(getNoteFromStorage(id));
-	}
-	currentNoteID = id; // Keep track of id of currently displayed note in editor
+	textToEditor(getNoteFromStorage(id));
+	setCurrentNoteID(id);
 }
 
 // DISPLAY TEXT OF GIVEN NOTE IN EDITOR
@@ -88,16 +92,20 @@ function getNoteFromStorage(id) {
 function save() {
 	savingAnimation(); // Animation lets user knows save is executed
 	var text = getText(); //Gets all text in editor
-
-	let noteExist = checkForNote(currentNoteID); // True if note exist
+	let noteExist = checkForNote(getCurrentNoteID()); // True if note exist
 	if (noteExist == true) { // Note exist
-		updateNote(currentNoteID, text);
+		updateNote(getCurrentNoteID(), text);
 	} else { // New note
 		let note = newNote(text.title, text.text);
 		addToLocalStorage(note);
-		currentNoteID = note.id;
+		setCurrentNoteID(note.id);
 	}
-	displayNoteList();
+	displayNoteList(); // Update note list
+}
+
+// CHECK IF NOTE ALREADY EXIST
+function checkForNote(id) {
+	return (localStorage.getItem(id) ? true : false);
 }
 
 // UPDATE CURRENT NOTE
@@ -107,11 +115,6 @@ function updateNote(id, text) {
 	note.text = text.text;
 	note.dateTime = getTime();
 	localStorage.setItem(id, JSON.stringify(note));
-}
-
-// CHECK IF NOTE ALREADY EXIST
-function checkForNote(id) {
-	return (localStorage.getItem(id) ? true : false);
 }
 
 // GET ALL TEXT IN EDITOR
@@ -134,7 +137,6 @@ function newNote(title, text) {
 
 // GET LOWEST AVAILABLE ID - Nina 
 function getAvailID() {
-
 	let notes = loopNoteObjects(); //Get all notes
 	let noteIDs = []; //Array of all Note IDs
 
@@ -189,10 +191,15 @@ function addToLocalStorage(note) {
 function newPage() {
 	let newDiv = document.createElement("div");
 	let newH = document.createElement("h4");
-	newH.innerHTML = 'NY ANTECKNING';
 	newDiv.appendChild(newH);
 	document.getElementById("clickNoteList").appendChild(newDiv);
-	newNote("", "");
+	let note = newNote("", "");
+	quill.root.innerHTML = "";
+	addToLocalStorage(note);
+	setCurrentNoteID(note.id);
+	textToEditor(note);
+	displayNoteList();
+
 }
 
 // DELETE ALL NOTES
@@ -201,6 +208,9 @@ function deleteAll() {
 	quill.root.innerHTML = "";
 	displayNoteList();
 }
+
+
+
 
 // function to filter out text feild from oopNoteObjects
 
