@@ -23,6 +23,16 @@ function getCurrentNoteID() {
 	return document.getElementById("main").firstChild.id;
 }
 
+// SET ID OF EDITOR CONTAINER TO ID OF CURRENTLY DISPLAYED NOTE - Nina
+function setNextNoteID(id) {
+	document.getElementById(getCurrentNoteID()).firstChild.id = id;
+}
+
+// GET ID OF CURRENTLY DISPLAYED NOTE IN - Nina
+function getNextNoteID() {
+	return document.getElementById(getCurrentNoteID()).firstChild.id;
+}
+
 // FIND ALL SAVED NOTES IN STORAGE AND SAVE KEY IN STRING - Jonathan
 function loopNoteObjects() {
 	let noteArr = [];
@@ -36,6 +46,7 @@ function loopNoteObjects() {
 function displayFirstNote() {
 	let notes = loopNoteObjects();
 	textToEditor(notes[0]);
+	setCurrentNoteID(notes[0].id)
 }
 
 // DISPLAY NOTES IN NOTELIST
@@ -73,8 +84,11 @@ function getNoteFromNoteList() {
 		note = event.target;
 		id = note.id;
 	}
-	textToEditor(getNoteFromStorage(id));
-	setCurrentNoteID(id);
+	// setNextNoteID(id);
+	return id;
+	
+	// textToEditor(getNoteFromStorage(id));
+	
 }
 
 // DISPLAY TEXT OF GIVEN NOTE IN EDITOR
@@ -89,12 +103,12 @@ function getNoteFromStorage(id) {
 }
 
 // WHEN CLICKING ON SAVE ICON
-function save() {
+function save(id) {
 	savingAnimation(); // Animation lets user knows save is executed
 	var text = getText(); //Gets all text in editor
-	let noteExist = checkForNote(getCurrentNoteID()); // True if note exist
+	let noteExist = checkForNote(id); // True if note exist
 	if (noteExist == true) { // Note exist
-		updateNote(getCurrentNoteID(), text);
+		updateNote(id, text);
 	} else { // New note
 		let note = newNote(text.title, text.text);
 		addToLocalStorage(note);
@@ -111,7 +125,7 @@ function checkForNote(id) {
 // UPDATE CURRENT NOTE
 function updateNote(id, text) {
 	note = getNoteFromStorage(id);
-	note.title = text.title;
+	note.title = text.title + " " + id;
 	note.text = text.text;
 	note.dateTime = getTime();
 	localStorage.setItem(id, JSON.stringify(note));
@@ -258,21 +272,29 @@ function deleteAll() {
 // };
 
 
-function checkIfSaved() {
-	let note = getNoteFromStorage(getCurrentNoteID());
+function checkIfSaved(currentID, nextID) {
+	console.log("current: " + currentID);
+	console.log("next: " + nextID);
+	let note = getNoteFromStorage(currentID);
 	let savedText = note.text;
 	let currentText = getText().text;
-	console.log("saved text: " + savedText);
-	console.log("current text: " + currentText);
-
-	if (savedText != currentText) {
-		document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
-		console.log("olika");
-	} else {
-		getNoteFromNoteList(); // Display note that was clicked on
-		console.log("samma");
+	setNextNoteID(nextID);
+	if (currentID != nextID) {
+		if (savedText != currentText) {
+			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
+		} else {
+			textToEditor(getNoteFromStorage(nextID)); // Display note that was clicked on
+		}
 	}
-
-
+}
+function popUpSave(currentID, nextID) {
+	updateNote(currentID, getText());// Save note
+	displayNoteList(); // Update note list
+	textToEditor(getNoteFromStorage(nextID));
+	setCurrentNoteID(nextID);
+}
+function popUpIgnore(nextID) {
+	textToEditor(getNoteFromStorage(nextID));
+	setCurrentNoteID(nextID);
 }
 
