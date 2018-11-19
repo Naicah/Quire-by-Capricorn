@@ -2,16 +2,14 @@
 window.onload = function () {
     showTutuorial(); // Show tutorial on first visit
     displayNoteList(); // Display list of saved notes
-    
 
     if (localStorage.length > 1) { // If there are any stored notes
         displayFirstNote(); // Display content of first note of note list in editor
-    } else {
+    } else { // If storage is empty
         newPage(); // Create new object in note list
     }
     setNextNoteID(-1);
-    console.log("onload current: " + getCurrentNoteID());
-    console.log("onload next: " + getNextNoteID());
+
     // WHEN CLICK IN TUTORIAL POP UP
     document.getElementById("tutorial").addEventListener("click", () => {
         document.getElementById("tutorial").style.display = "none"; // Hide tutorial
@@ -37,27 +35,21 @@ window.onload = function () {
     document.getElementById("deleteAll").addEventListener("click", function () {
         deleteAll();
     });
+
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
-        // contentNotSaved(); // Check if changes were made and not saved
-        // Display note that was clicked on
-        console.log("clickNoteList current: " + getCurrentNoteID());
-        console.log("clickNoteList next: " + getNoteFromNoteList());
-        checkIfSaved(getCurrentNoteID(), getNoteFromNoteList());
-       
+        checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList()); // Check if there are any unsaved changes in displayed note
     });
-    // WHEN CLICK ON BUTTON POP UP SAVE
+
+    // WHEN CLICK ON SAVE IN POP UP
     document.getElementById("popUpSave").addEventListener("click", function () {
-        popUpSave(getCurrentNoteID(), getNextNoteID());
-        console.log("popUpSave current: " + getCurrentNoteID());
-        console.log("popUpSave next: " + getNextNoteID());
+        popUpSave(getCurrentNoteID(), getNextNoteID()); // Save changes and display next note
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // WHEN CLICK ON BUTTON POP UP IGNORE
+    // WHEN CLICK ON IGNORE IN POP UP 
     document.getElementById("popUpIgnore").addEventListener("click", function () {
-        // getNoteFromNoteList(); // Display note that was clicked on
-        popUpIgnore(getNextNoteID());
+        popUpIgnore(getNextNoteID()); // Ignore changes and display next note
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 }
