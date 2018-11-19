@@ -2,7 +2,7 @@
 var quill = new Quill('#editor', {
 	modules: {
 		toolbar: [
-			{ 'font': [] }, { header: [1, 2, false] },
+			{ header: [1, 2, false] },
 			'bold', 'italic', 'underline',
 			{ 'align': [] }, { 'indent': '-1' }, { 'indent': '+1' },
 			{ 'list': 'ordered' }, { 'list': 'bullet' },
@@ -46,7 +46,8 @@ function loopNoteObjects() {
 function displayFirstNote() {
 	let notes = loopNoteObjects();
 	textToEditor(notes[0]);
-	setCurrentNoteID(notes[0].id)
+	setCurrentNoteID(notes[0].id);
+	
 }
 
 // DISPLAY NOTES IN NOTELIST
@@ -84,7 +85,7 @@ function getNoteFromNoteList() {
 		note = event.target;
 		id = note.id;
 	}
-	// setNextNoteID(id);
+	setNextNoteID(id);
 	return id;
 	
 	// textToEditor(getNoteFromStorage(id));
@@ -95,6 +96,8 @@ function getNoteFromNoteList() {
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
+	setCurrentNoteID(noteObj.id);
+	console.log("textToEditor current: " + getCurrentNoteID());
 }
 
 // GET OBJECT OF GIVEN NOTE FROM STORAGE
@@ -128,6 +131,7 @@ function updateNote(id, text) {
 	note.title = text.title + " " + id;
 	note.text = text.text;
 	note.dateTime = getTime();
+	note.sortTime = new Date().getTime(),
 	localStorage.setItem(id, JSON.stringify(note));
 }
 
@@ -145,6 +149,7 @@ function newNote(title, text) {
 		id: getAvailID(),
 		title: title,
 		dateTime: getTime(),
+		sortTime: new Date().getTime(),
 		text: text
 	};
 }
@@ -273,17 +278,20 @@ function deleteAll() {
 
 
 function checkIfSaved(currentID, nextID) {
-	console.log("current: " + currentID);
-	console.log("next: " + nextID);
 	let note = getNoteFromStorage(currentID);
 	let savedText = note.text;
 	let currentText = getText().text;
-	setNextNoteID(nextID);
+	console.log("savedText: " + savedText);
+	console.log("currentText: " + currentText);
+
 	if (currentID != nextID) {
 		if (savedText != currentText) {
+			console.log("olika");
 			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
 		} else {
+			console.log("samma");
 			textToEditor(getNoteFromStorage(nextID)); // Display note that was clicked on
+			setCurrentNoteID(nextID);
 		}
 	}
 }
