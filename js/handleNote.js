@@ -33,6 +33,8 @@ function getNextNoteID() {
 	return document.getElementById(getCurrentNoteID()).firstChild.id; // ID stored in hidden Div in main
 }
 
+
+
 // FIND ALL SAVED NOTES IN STORAGE AND RETURN ARRAY WITH NOTE OBJECTS - Jonathan
 function loopNoteObjects() {
 	let noteArr = [];
@@ -52,6 +54,7 @@ function displayFirstNote() {
 // DISPLAY NOTES IN NOTELIST
 function displayNoteList() {
 	let noteArr = loopNoteObjects(); // Get all saved notes
+	noteArr.sort(sortTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
 	noteArr.forEach((obj) => { // Create Div with note info for each saved note
@@ -155,7 +158,7 @@ function updateNote(id, text) {
 	note.title = text.title; // Reset title to title from editor (given as argument)
 	note.text = text.text; // Reset text to text from editor (given as argument)
 	note.dateTime = getTime(); // Get current time = time that last save occured
-	note.sortTime = new Date().getTime(), // Get current time in number to be able to sort note list after time last saved
+	note.lastEdit = new Date().getTime(), // Get current time in number to be able to sort note list after time last saved
 		localStorage.setItem(id, JSON.stringify(note)); // Save changes in storage
 }
 
@@ -173,12 +176,27 @@ function newNote(title, text) {
 		id: getAvailID(),
 		title: title,
 		dateTime: getTime(), // Current time = time that note was created (last saved)
-		sortTime: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
+		lastEdit: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
 		text: text
 	};
 }
 
-// GET LOWEST AVAILABLE ID - Nina 
+
+// Get created time in millisecs to compare list priority. - jonathan
+function sortTime(a,b){
+	const timeA = a.lastEdit;
+	const timeB = b.lastEdit;
+
+	let comparison = 0;
+	if(timeA > timeB){
+		comparison = -1;
+	}else{
+		comparison = 1;
+	}
+	return comparison;
+}
+
+// GET LOWEST AVAILABLE ID - Nina
 function getAvailID() {
 	let notes = loopNoteObjects(); //Get all notes
 	let noteIDs = []; //Array of all Note IDs
@@ -251,6 +269,3 @@ function deleteAll() {
 	quill.root.innerHTML = "";
 	displayNoteList();
 }
-
-
-
