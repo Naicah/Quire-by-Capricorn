@@ -29,8 +29,7 @@ body, html{
 #navSec {
     grid-area: navSec;
     background-color: #105493;
-    min-width: 80px;
-    max-width: 100px;
+
 }
 /*-------------------------------------------------
   -                      TOPNAV                   -
