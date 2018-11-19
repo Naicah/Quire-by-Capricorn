@@ -42,6 +42,7 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: left;
+    height: 94px;
 }
 #logo {
     height: 2.5em;
@@ -120,6 +121,7 @@ body, html{
   ------------------------------------------------------------ */
 #notes {
     grid-area: notes;
+    overflow: -webkit-paged-y;
 }
 /*-------------------------------------------------
   -                   NOTE LIST                   -
@@ -128,6 +130,7 @@ body, html{
     grid-area: searchField;
     background-color:#213d57;
     display: none;
+    height: 94px;
 }
 /*-------------------------------------------------
   -                   NOTE LIST                   -
