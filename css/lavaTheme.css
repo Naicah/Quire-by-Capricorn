@@ -1,0 +1,27 @@
+#editor {
+background-image: linear-gradient(to bottom right, #ff9800, #fff9af);
+font-family:"";
+color:#252525;
+}
+.ql-container *{
+   font-family: sans-serif;
+   color: 000;
+   font-size: 1.2em;
+   line-height: 1.2em;
+}
+#editor H1{
+  font-family: "serif";
+  font-size: 2em;
+}
+
+#editor H2{
+  font-family: "serif";
+  font-size: 1.7em;
+}
+#topNav, #searchField  {
+  background-color: #cc7402;
+}
+
+#navSec{
+    background-color: #ff9800;
+}
