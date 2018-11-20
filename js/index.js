@@ -36,6 +36,21 @@ window.onload = function () {
         deleteAll();
     });
 
+    // // WHEN CLICK ON DROPDOWN FOR THEMES
+    // document.getElementById("").addEventListener("click", function () {
+    //     let theme = ""; //Based on which option is saved
+    //     let cssFile;
+    //     switch (theme) {
+    //         case "water":
+    //         cssFile = "../css/water.css";
+    //             break;
+    //         case "forrest":  
+    //         cssFile = "../css/forrest.css";
+    //             break;
+    //     }
+    //     changTheme(cssFile);
+    // });
+
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
         checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList()); // Check if there are any unsaved changes in displayed note
@@ -52,4 +67,11 @@ window.onload = function () {
         popUpIgnore(getNextNoteID()); // Ignore changes and display next note
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
+
+
+}
+
+function changTheme(cssFile) {
+    oldlink = document.getElementsByTagName("link").item(3);
+    oldlink.setAttribute("href", cssFile);
 }

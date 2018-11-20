@@ -150,7 +150,7 @@ body, html{
     width: auto;
     height: auto;
 }
-#clickNoteList *:hover { /* When hovering over any notelist obj */
+#clickNoteList div:hover { /* When hovering over any notelist obj */
     background: #f2f2f2;
     cursor: pointer;
 }
