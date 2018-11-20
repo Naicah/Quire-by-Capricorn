@@ -42,7 +42,7 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: left;
-    
+
 }
 #logo {
     height: 2.5em;
@@ -91,7 +91,7 @@ body, html{
 
 /*---------------------------------------
   -            LOADING ICON             -
-  --------------------------------------- */ 
+  --------------------------------------- */
 /*- William*/
 #load-wrapp {
     float: left;
@@ -167,13 +167,13 @@ body, html{
 }
 /*---------------------------------------
   -            CLICK NOTE LIST          -
-  --------------------------------------- */ 
+  --------------------------------------- */
 #clickNoteList { /* Div containing all note divs in note list - click lo show text in edito */
     display: block;
     width: auto;
     height: auto;
 }
-#clickNoteList *:hover { /* When hovering over any notelist obj */
+#clickNoteList div:hover { /* When hovering over any notelist obj */
     background: #f2f2f2;
     cursor: pointer;
 }
@@ -204,19 +204,18 @@ body, html{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 9fr;
-
      grid-template-areas:
         'ql-toolbar'
         'editor';
     padding: 0;
-    height: 100vh;   
+    height: 100vh;
 }
 /*-------------------------------------------------
   -                      EDITOR                   -
   ------------------------------------------------- */
 #editor {
     grid-area: editor;
-    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .ql-toolbar { grid-area: ql-toolbar;}
 
@@ -236,7 +235,7 @@ body, html{
     transition: visibility 0s, opacity 0.5s linear;
      */
   }
-  
+
   #popUp:target{
     visibility: visible;
     opacity: 1;
@@ -252,7 +251,7 @@ body, html{
     font-family: 'Roboto', sans-serif;
     border-radius: 5px;
   }
-  
+
   #popUp button{
     height: 30px;
     margin-bottom: 20px;
