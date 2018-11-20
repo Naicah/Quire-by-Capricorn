@@ -53,3 +53,8 @@ window.onload = function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 }
+
+function changTheme(cssFile) {
+    oldlink = document.getElementsByTagName("link").item(3);
+    oldlink.setAttribute("href", cssFile);
+}
