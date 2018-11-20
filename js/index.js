@@ -36,6 +36,15 @@ window.onload = function () {
         deleteAll();
     });
 
+    // WHEN CLICKING ON THEME ICON
+    document.getElementById("themeIcon").addEventListener("click", function () {
+        themeToggle();
+    });
+
+    document.getElementById("themeContent").addEventListener("click", function () {
+        document.getElementById("theme2").classList.toggle('none');
+    });
+
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
         checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList()); // Check if there are any unsaved changes in displayed note

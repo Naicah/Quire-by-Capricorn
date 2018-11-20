@@ -147,6 +147,7 @@ function save(id) {
 	displayNoteList(); // Update note list
 }
 
+
 // CHECK IF NOTE ALREADY EXIST
 function checkForNote(id) {
 	return (localStorage.getItem(id) ? true : false); // Returns true if a note with given ID exists in storage
@@ -243,6 +244,12 @@ function savingAnimation() {
 	}, 1000);
 };
 
+// Toggle THEME SYMBOL 
+function themeToggle(){
+	let themes = document.getElementById("theme2")
+	themes.classList.toggle('none');
+}
+
 // ADD NOTE TO LOCAL STORAGE
 function addToLocalStorage(note) {
 	localStorage.setItem(note.id, JSON.stringify(note));
@@ -268,4 +275,9 @@ function deleteAll() {
 	localStorage.clear();
 	quill.root.innerHTML = "";
 	displayNoteList();
+}
+
+
+function changeTheme (cssFile){
+	var oldlink = document.getElementsByTagName("link").item();	
 }
