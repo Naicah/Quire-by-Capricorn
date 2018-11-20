@@ -42,7 +42,7 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: left;
-    
+
 }
 #logo {
     height: 2.5em;
@@ -181,7 +181,6 @@ body, html{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 9fr;
-
      grid-template-areas:
         'ql-toolbar'
         'editor';
@@ -193,6 +192,7 @@ body, html{
   ------------------------------------------------- */
 #editor {
     grid-area: editor;
+    overflow-x: hidden;
 }
 .ql-toolbar { grid-area: ql-toolbar;}
 
