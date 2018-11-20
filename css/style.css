@@ -90,7 +90,7 @@ body, html{
 
 /*---------------------------------------
   -            LOADING ICON             -
-  --------------------------------------- */ 
+  --------------------------------------- */
 /*- William*/
 #load-wrapp {
     float: left;
@@ -142,7 +142,7 @@ body, html{
 }
 /*---------------------------------------
   -            CLICK NOTE LIST          -
-  --------------------------------------- */ 
+  --------------------------------------- */
 #clickNoteList { /* Div containing all note divs in note list - click lo show text in edito */
     display: block;
     width: auto;
@@ -184,14 +184,13 @@ body, html{
         'ql-toolbar'
         'editor';
     padding: 0;
-    height: 100vh;   
+    height: 100vh;
 }
 /*-------------------------------------------------
   -                      EDITOR                   -
   ------------------------------------------------- */
 #editor {
     grid-area: editor;
-    overflow-y: scroll;
 }
 .ql-toolbar { grid-area: ql-toolbar;}
 
@@ -211,12 +210,12 @@ body, html{
     transition: visibility 0s, opacity 0.5s linear;
      */
   }
-  
+
   #popUp:target{
     visibility: visible;
     opacity: 1;
   }
-  
+
   #popUp div {
     background-color: white;
     width: 65%;
@@ -227,7 +226,7 @@ body, html{
     font-family: 'Roboto', sans-serif;
     border-radius: 5px;
   }
-  
+
   #popUp button{
     height: 30px;
     margin-bottom: 20px;
@@ -236,4 +235,3 @@ body, html{
     outline-offset: 0px;
     background: #ebebeb;
   }
-  
