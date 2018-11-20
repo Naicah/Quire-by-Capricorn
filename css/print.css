@@ -1,3 +1,4 @@
+/* Printar inte ut färgerna.. */
 @media print{
   section{
     display:none;
