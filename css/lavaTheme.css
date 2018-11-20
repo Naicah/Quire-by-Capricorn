@@ -32,7 +32,6 @@ color:#252525;
     background: #5b1f0a;
 }
 #noteList, .ql-toolbar.ql-snow {
-    border:none;
     background-color: #ffa530;
 }
 #editor .ql-editor.ql-blank::before{
