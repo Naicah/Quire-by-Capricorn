@@ -37,12 +37,12 @@ body, html{
 #topNav {
     grid-area: topNav;
     background-color:#213d57;
-    height: 5em;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: left;
-    height: 94px;
+    
 }
 #logo {
     height: 2.5em;
@@ -130,7 +130,6 @@ body, html{
     grid-area: searchField;
     background-color:#213d57;
     display: none;
-    height: 94px;
 }
 /*-------------------------------------------------
   -                   NOTE LIST                   -
