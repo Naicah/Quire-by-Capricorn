@@ -36,6 +36,14 @@ window.onload = function () {
         deleteAll();
     });
 
+    // WHEN CLICKING ON THEME ICON
+    document.getElementById("themeIcon").addEventListener("click", function () {
+        themeToggle();
+    });
+
+    document.getElementById("themeContent").addEventListener("click", function () {
+        document.getElementById("theme2").classList.toggle('none');
+    });
     // // WHEN CLICK ON DROPDOWN FOR THEMES
     // document.getElementById("").addEventListener("click", function () {
     //     let theme = ""; //Based on which option is saved

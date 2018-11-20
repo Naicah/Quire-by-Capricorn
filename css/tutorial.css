@@ -19,14 +19,15 @@
   width: 90%;
   padding: 20px;
   height: auto;
-  background: #fff;
+  background: #f1fff2;
   border: none;
 }
+
 #tutorial-content h2{
   font-family: serif;
   letter-spacing: 1px;
-  font-size: 1.5rem;
-  color: #101e2b;
+  font-size: 2rem;
+  color: #9c8fcd;
 }
 /* ---------------- UL ---------------------- */
 #tutorial-content ul {
@@ -42,6 +43,7 @@
 }
 #tutorial-content ul li b {
   border: none;
+  color: green;
 }
 /* ---------------- BUTTON ------------------ */
 #tutorial-btn {
