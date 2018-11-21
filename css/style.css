@@ -37,7 +37,7 @@ body, html{
 #topNav {
     grid-area: topNav;
     background-color:#213d57;
-    height: 100%;
+    height: 94px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -243,13 +243,14 @@ body, html{
 
   #popUp div, #themeContent {
     background-color: white;
-    width: 65%;
+    width: 100%;
     height: auto;
     margin: auto;
     margin-top: 20%;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     border-radius: 5px;
+    margin-bottom: 5%;
   }
 
   #popUp button{
@@ -265,20 +266,23 @@ body, html{
 
   #themeChoice {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
-  #themeChoice div{
+  #themeChoice div,{
       width: 100px;
       height: auto;
       margin:auto;
   }
 
   #themeChoice img {
-    width: 100%;
-    height: 100px;
+    width: 151px;
+    height: 151px;
     opacity: 0.8;
     border-radius: 50%;
+    margin: auto;
   }
   #themeChoice img:hover{
       opacity: 1;
