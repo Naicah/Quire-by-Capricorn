@@ -23,8 +23,8 @@ window.onload = function () {
 
     // WHEN CLICKING ON ICON FOR NEW PAGE
     document.getElementById("newPage").addEventListener("click", function () {
-        newPage(); // Create new object in note list
         updateNote(getCurrentNoteID(), getText());
+        newPage(); // Create new object in note list
     });
 
     // WHEN CLICK ON SAVE ICON
