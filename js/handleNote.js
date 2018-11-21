@@ -252,9 +252,11 @@ function newPage() {
 	let newH = document.createElement("h4");
 	newDiv.appendChild(newH);
 	document.getElementById("clickNoteList").appendChild(newDiv);
-	let note = newNote("", "<p><br></p>");
+	let note = newNote("", "");
+	quill.root.innerHTML = "";
 	addToLocalStorage(note);
-	setNextNoteID(note.id);
+	setCurrentNoteID(note.id);
+	textToEditor(note);
 	displayNoteList();
 }
 
@@ -289,16 +291,4 @@ function changeTheme(theme) {
 		oldlink.setAttribute("href", cssFile);
 }
 
-// // CREATE NEW PAGE IN NOTE LIST
-// function newPage() {
-// 	let newDiv = document.createElement("div");
-// 	let newH = document.createElement("h4");
-// 	newDiv.appendChild(newH);
-// 	document.getElementById("clickNoteList").appendChild(newDiv);
-// 	let note = newNote("", "");
-// 	quill.root.innerHTML = "";
-// 	addToLocalStorage(note);
-// 	setCurrentNoteID(note.id);
-// 	textToEditor(note);
-// 	displayNoteList();
-// }
+

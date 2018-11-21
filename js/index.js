@@ -24,7 +24,7 @@ window.onload = function () {
 
     // WHEN CLICKING ON ICON FOR NEW PAGE
     document.getElementById("newPage").addEventListener("click", function () {
-        checkIfSaved(getCurrentNoteID(), getNextNoteID()); // Check if there are any unsaved changes in displayed note
+        updateNote(getCurrentNoteID(), getText());
         newPage(); // Create new object in note list
     });
 
