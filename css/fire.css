@@ -31,8 +31,11 @@ color:#252525;
 .menuIcon:hover{
     background: #5b1f0a;
 }
-#noteList, .ql-toolbar.ql-snow {
+.ql-toolbar.ql-snow {
     background-color: #ffa530;
+}
+#noteList{
+  background-color: #ffa233;
 }
 #editor .ql-editor.ql-blank::before{
   color: #fff;

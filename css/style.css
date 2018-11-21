@@ -135,7 +135,7 @@ body, html{
 /*-------------------------------------------------
   -                   NOTE LIST                   -
   ------------------------------------------------- */
- 
+
 
 .custom-dropdown {
     background-color: #115493;
@@ -153,7 +153,7 @@ body, html{
     font-size: inherit;
     outline: 0;
 }
- 
+
 /*-------------------------------------------------
   -                   NOTE LIST                   -
   ------------------------------------------------- */
@@ -240,7 +240,7 @@ body, html{
     visibility: visible;
     opacity: 1;
   }
-  
+
   #popUp div, #themeContent {
     background-color: white;
     width: 65%;
@@ -260,7 +260,7 @@ body, html{
     outline-offset: 0px;
     background: #ebebeb;
   }
-  
+
 /* Styling popup when for choosing theme  */
 
   #themeChoice {
@@ -282,8 +282,4 @@ body, html{
   }
   #themeChoice img:hover{
       opacity: 1;
-  }
-
-  .ql-editor {
-position: fixed;
   }

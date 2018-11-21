@@ -13,10 +13,10 @@
     nav {
         display: grid;
         grid-template-areas:
-            'navSec notes';  
+            'navSec notes';
         grid-template-columns: 1fr 3fr;
         grid-template-rows: 1fr;
-        max-height: 100vh;
+        height: 100vh;
     }
     /* -------------------------- NAVSEC --------------------------- */
     #navSec {
@@ -25,10 +25,10 @@
             'topNav'
             'menu';
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 9fr;  
+        grid-template-rows: 1fr 9fr;
         max-height:100%;
     }
-    
+
     /* --------------------- TOPNAV ------------------ */
     #topNav {
         display: flex;
@@ -52,9 +52,9 @@
         justify-content: flex-start;
         align-items: center;
         height: 25em;/* 5x5 so that every icon is 5em */
-        
+
     }
-  
+
 
     /* ---------------------------- NOTES --------------------------- */
     #notes {
@@ -63,7 +63,7 @@
             'searchField'
             'noteList';
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 9fr;  
+            grid-template-rows: 1fr 9fr;
             max-height:100%;
     }
 
@@ -72,7 +72,7 @@
     #searchField {
         display: block;
     }
-    
+
     /* -------------------- NOTE LIST ---------------------- */
     #noteList {
         grid-area: noteList;
@@ -131,13 +131,13 @@
         padding-bottom: 5%;
         margin-top: 5%;
     }
-    
+
       #themeChoice div{
           width: 200px;
           height: auto;
           margin:auto;
       }
-    
+
       #themeChoice img {
         width: 100%;
         height: 200px;
@@ -151,27 +151,32 @@
     /* -------------------------------- MAIN -------------------------------- */
     /* ---------------------- QUILL EDITOR ------------------ */
     /* ---------------- EDITOR CONTAINER ------------ */
-    #eitorContainer {
+    #editorContainer {
+        position: relative;
         display: grid;
         grid-template-areas:
         'ql-toolbar'
         'editor';
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 11fr;
+        position: fixed;
+        right:0;
+        left:25%;
+        bottom:0;
     }
     /* ---------- TOOLBAR ------------- */
     .ql-toolbar {
         display: flex;
         align-items: center;
     }
-} 
+}
 /*--------------------------------------------------------------------------
   -              Large devices (laptops/desktops, 992px and up)            -
   -------------------------------------------------------------------------- */
 
 @media only screen and (min-width: 992px) {
 
-} 
+}
 /*--------------------------------------------------------------------------
   -    Extra large devices (large laptops and desktops, 1200px and up)     -
   -------------------------------------------------------------------------- */
@@ -179,4 +184,3 @@
 @media only screen and (min-width: 1200px) {
 
 }
-
