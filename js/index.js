@@ -44,20 +44,6 @@ window.onload = function () {
     document.getElementById("themeContent").addEventListener("click", function () {
         document.getElementById("theme2").classList.toggle('none');
     });
-    // // WHEN CLICK ON DROPDOWN FOR THEMES
-    // document.getElementById("").addEventListener("click", function () {
-    //     let theme = ""; //Based on which option is saved
-    //     let cssFile;
-    //     switch (theme) {
-    //         case "water":
-    //         cssFile = "../css/water.css";
-    //             break;
-    //         case "forrest":  
-    //         cssFile = "../css/forrest.css";
-    //             break;
-    //     }
-    //     changTheme(cssFile);
-    // });
 
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
@@ -77,9 +63,38 @@ window.onload = function () {
     });
 
 
-}
 
-function changTheme(cssFile) {
-    oldlink = document.getElementsByTagName("link").item(3);
-    oldlink.setAttribute("href", cssFile);
-}
+
+     // // WHEN CLICK ON FORREST THEME
+     document.getElementById("forrest").addEventListener("click", function () {
+        changeTheme("forrest");
+    });
+     // // WHEN CLICK ON FIRE THEMW
+    document.getElementById("fire").addEventListener("click", function () {
+        changeTheme("fire");
+    });
+
+     // // WHEN CLICK ON WATER THEME
+     document.getElementById("water").addEventListener("click", function () {
+        changeTheme("water");
+    });
+
+
+
+    function changeTheme(theme) {
+        let cssFile;
+        switch (theme) {
+            case "water":
+            cssFile = "../css/water.css";
+                break;
+            case "forrest":  
+            cssFile = "../css/forrest.css";
+                break;
+            case "fire":  
+            cssFile = "../css/fire.css";
+                break;
+        }
+            oldlink = document.getElementsByTagName("link").item(3);
+            oldlink.setAttribute("href", cssFile);
+        }
+    }
