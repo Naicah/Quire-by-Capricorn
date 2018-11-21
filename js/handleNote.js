@@ -289,6 +289,9 @@ function changeTheme(theme) {
 		case "fire":
 		cssFile = "../css/fire.css";
 			break;
+			case "standard":
+		cssFile = "";
+			break;
 	}
 		oldlink = document.getElementsByTagName("link").item(3);
 		oldlink.setAttribute("href", cssFile);

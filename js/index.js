@@ -83,6 +83,9 @@ window.onload = function () {
     document.getElementById("water").addEventListener("click", function () {
         changeTheme("water");
     });
-
+    // WHEN CLICK ON STANDARD THEME
+    document.getElementById("standard").addEventListener("click", function () {
+        changeTheme("");
+    });
 
 }
