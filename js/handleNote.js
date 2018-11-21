@@ -33,8 +33,6 @@ function getNextNoteID() {
 	return document.getElementById(getCurrentNoteID()).firstChild.id; // ID stored in hidden Div in main
 }
 
-
-
 // FIND ALL SAVED NOTES IN STORAGE AND RETURN ARRAY WITH NOTE OBJECTS - Jonathan
 function loopNoteObjects() {
 	let noteArr = [];
@@ -93,10 +91,11 @@ function getNoteIDFromNoteList() {
 
 // CHECK IF THERE ARE ANY UNSAVED CHANGES, DISPLAY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
+	console.log("nextID");
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
-
-	if (currentID != nextID) { // If click on currently displayed note in nite list
+	
+		if (currentID != nextID) { // If click on currently displayed note in nite list
 		if (savedText != currentText) { // If text in editor is different from what is stored
 			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
 		} else { // No unsaved changes
@@ -147,7 +146,6 @@ function save(id) {
 	displayNoteList(); // Update note list
 }
 
-
 // CHECK IF NOTE ALREADY EXIST
 function checkForNote(id) {
 	return (localStorage.getItem(id) ? true : false); // Returns true if a note with given ID exists in storage
@@ -181,7 +179,6 @@ function newNote(title, text) {
 		text: text
 	};
 }
-
 
 // Get created time in millisecs to compare list priority. - jonathan
 function sortTime(a,b){
@@ -244,12 +241,6 @@ function savingAnimation() {
 	}, 1000);
 };
 
-// Toggle THEME SYMBOL 
-function themeToggle(){
-	let themes = document.getElementById("theme2")
-	themes.classList.toggle('none');
-}
-
 // ADD NOTE TO LOCAL STORAGE
 function addToLocalStorage(note) {
 	localStorage.setItem(note.id, JSON.stringify(note));
@@ -267,7 +258,6 @@ function newPage() {
 	setCurrentNoteID(note.id);
 	textToEditor(note);
 	displayNoteList();
-
 }
 
 // DELETE ALL NOTES
@@ -277,7 +267,28 @@ function deleteAll() {
 	displayNoteList();
 }
 
-
-function changeTheme (cssFile){
-	var oldlink = document.getElementsByTagName("link").item();	
+// Toggle THEME SYMBOL 
+function themeToggle(){
+	let themes = document.getElementById("theme2")
+	themes.classList.toggle('none');
 }
+
+// CHANGE THEME
+function changeTheme(theme) {
+	let cssFile;
+	switch (theme) {
+		case "water":
+		cssFile = "../css/water.css";
+			break;
+		case "forrest":  
+		cssFile = "../css/forrest.css";
+			break;
+		case "fire":  
+		cssFile = "../css/fire.css";
+			break;
+	}
+		oldlink = document.getElementsByTagName("link").item(3);
+		oldlink.setAttribute("href", cssFile);
+}
+
+

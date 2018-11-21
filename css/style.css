@@ -283,3 +283,7 @@ body, html{
   #themeChoice img:hover{
       opacity: 1;
   }
+
+  .ql-editor {
+position: fixed;
+  }
