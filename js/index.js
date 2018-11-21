@@ -66,7 +66,7 @@ window.onload = function () {
         themeToggle();
     });
 
-    document.getElementById("themeContent").addEventListener("click", function () {
+    document.getElementById("theme2").addEventListener("click", function () {
         document.getElementById("theme2").classList.toggle('none');
     });
 
