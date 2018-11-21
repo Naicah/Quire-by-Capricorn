@@ -33,8 +33,6 @@ function getNextNoteID() {
 	return document.getElementById(getCurrentNoteID()).firstChild.id; // ID stored in hidden Div in main
 }
 
-
-
 // FIND ALL SAVED NOTES IN STORAGE AND RETURN ARRAY WITH NOTE OBJECTS - Jonathan
 function loopNoteObjects() {
 	let noteArr = [];
@@ -93,10 +91,11 @@ function getNoteIDFromNoteList() {
 
 // CHECK IF THERE ARE ANY UNSAVED CHANGES, DISPLAY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
+	console.log("nextID");
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
-
-	if (currentID != nextID) { // If click on currently displayed note in nite list
+	
+		if (currentID != nextID) { // If click on currently displayed note in nite list
 		if (savedText != currentText) { // If text in editor is different from what is stored
 			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
 		} else { // No unsaved changes
@@ -181,7 +180,6 @@ function newNote(title, text) {
 	};
 }
 
-
 // Get created time in millisecs to compare list priority. - jonathan
 function sortTime(a,b){
 	const timeA = a.lastEdit;
@@ -254,13 +252,10 @@ function newPage() {
 	let newH = document.createElement("h4");
 	newDiv.appendChild(newH);
 	document.getElementById("clickNoteList").appendChild(newDiv);
-	let note = newNote("", "");
-	quill.root.innerHTML = "";
+	let note = newNote("", "<p><br></p>");
 	addToLocalStorage(note);
-	setCurrentNoteID(note.id);
-	textToEditor(note);
+	setNextNoteID(note.id);
 	displayNoteList();
-
 }
 
 // DELETE ALL NOTES
@@ -269,3 +264,18 @@ function deleteAll() {
 	quill.root.innerHTML = "";
 	displayNoteList();
 }
+
+
+// // CREATE NEW PAGE IN NOTE LIST
+// function newPage() {
+// 	let newDiv = document.createElement("div");
+// 	let newH = document.createElement("h4");
+// 	newDiv.appendChild(newH);
+// 	document.getElementById("clickNoteList").appendChild(newDiv);
+// 	let note = newNote("", "");
+// 	quill.root.innerHTML = "";
+// 	addToLocalStorage(note);
+// 	setCurrentNoteID(note.id);
+// 	textToEditor(note);
+// 	displayNoteList();
+// }

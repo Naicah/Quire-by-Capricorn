@@ -7,8 +7,9 @@ window.onload = function () {
         displayFirstNote(); // Display content of first note of note list in editor
     } else { // If storage is empty
         newPage(); // Create new object in note list
+        displayNoteList(); // Display list of saved notes
     }
-    setNextNoteID(-1);
+    // setNextNoteID(-1);
 
     // WHEN CLICK IN TUTORIAL POP UP
     document.getElementById("tutorial").addEventListener("click", () => {
@@ -23,6 +24,7 @@ window.onload = function () {
 
     // WHEN CLICKING ON ICON FOR NEW PAGE
     document.getElementById("newPage").addEventListener("click", function () {
+        checkIfSaved(getCurrentNoteID(), getNextNoteID()); // Check if there are any unsaved changes in displayed note
         newPage(); // Create new object in note list
     });
 
@@ -36,20 +38,34 @@ window.onload = function () {
         deleteAll();
     });
 
-    // // WHEN CLICK ON DROPDOWN FOR THEMES
-    // document.getElementById("").addEventListener("click", function () {
-    //     let theme = ""; //Based on which option is saved
-    //     let cssFile;
-    //     switch (theme) {
-    //         case "water":
-    //         cssFile = "../css/water.css";
-    //             break;
-    //         case "forrest":  
-    //         cssFile = "../css/forrest.css";
-    //             break;
-    //     }
-    //     changTheme(cssFile);
-    // });
+    // // WHEN CLICK ON FORREST THEME
+    document.getElementById("forrest").addEventListener("click", function () {
+        changeTheme("forrest");
+    });
+     // // WHEN CLICK ON FIRE THEMW
+    document.getElementById("fire").addEventListener("click", function () {
+        changeTheme("fire");
+    });
+
+     // // WHEN CLICK ON WATER THEME
+     document.getElementById("water").addEventListener("click", function () {
+        changeTheme("water");
+    });
+
+    function changeTheme(theme) {
+        let cssFile;
+        switch (theme) {
+            case "water":
+            cssFile = "../css/water.css";
+                break;
+            case "forrest":  
+            cssFile = "../css/forrest.css";
+                break;
+        }
+            oldlink = document.getElementsByTagName("link").item(3);
+            oldlink.setAttribute("href", cssFile);
+        }
+    }
 
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
@@ -68,10 +84,10 @@ window.onload = function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
+     // WHEN CLICK ON IGNORE IN POP UP 
+     document.getElementById("popUpCancel").addEventListener("click", function () {
+        document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
+    });
 
 }
 
-function changTheme(cssFile) {
-    oldlink = document.getElementsByTagName("link").item(3);
-    oldlink.setAttribute("href", cssFile);
-}
