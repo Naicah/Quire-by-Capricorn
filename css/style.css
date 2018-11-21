@@ -217,12 +217,7 @@ body, html{
     grid-area: editor;
     overflow-x: hidden;
 }
-.ql-toolbar { grid-area: ql-toolbar;
-position:fixed;
-left:0;
-right:0;
-z-index: 2;
-}
+.ql-toolbar { grid-area: ql-toolbar;}
 
 .ql-container {
     max-height: 100%;
