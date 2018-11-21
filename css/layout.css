@@ -81,6 +81,22 @@
         max-height: 100%;
         display: block;
     }
+    .custom-dropdown {
+        background-color: #115493;
+        position: absolute;
+        top: 436px;
+        z-index: 1;
+        width: 18.9%;
+        height: 5%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 18%;
+        border-radius: initial;
+        border: none;
+        color: #fff;
+        font-size: inherit;
+        outline: 0;
+      }
     /* ------------- CLICK NOTE LIST ------------- */
     #clickNoteList div{
         height: 78px;
@@ -107,6 +123,31 @@
     #tutorial-content {
         width: 50%;
     }
+
+    /* ---------------------- THEME CONTENT -------------- */
+    #themeChoice {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 5%;
+        margin-top: 5%;
+    }
+    
+      #themeChoice div{
+          width: 200px;
+          height: auto;
+          margin:auto;
+      }
+    
+      #themeChoice img {
+        width: 100%;
+        height: 200px;
+        opacity: 0.8;
+        border-radius: 50%;
+      }
+      #themeChoice img:hover{
+          opacity: 1;
+      }
+
     /* -------------------------------- MAIN -------------------------------- */
     /* ---------------------- QUILL EDITOR ------------------ */
     /* ---------------- EDITOR CONTAINER ------------ */

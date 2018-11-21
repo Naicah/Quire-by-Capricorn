@@ -38,35 +38,6 @@ window.onload = function () {
         deleteAll();
     });
 
-    // // WHEN CLICK ON FORREST THEME
-    document.getElementById("forrest").addEventListener("click", function () {
-        changeTheme("forrest");
-    });
-     // // WHEN CLICK ON FIRE THEMW
-    document.getElementById("fire").addEventListener("click", function () {
-        changeTheme("fire");
-    });
-
-     // // WHEN CLICK ON WATER THEME
-     document.getElementById("water").addEventListener("click", function () {
-        changeTheme("water");
-    });
-
-    function changeTheme(theme) {
-        let cssFile;
-        switch (theme) {
-            case "water":
-            cssFile = "../css/water.css";
-                break;
-            case "forrest":  
-            cssFile = "../css/forrest.css";
-                break;
-        }
-            oldlink = document.getElementsByTagName("link").item(3);
-            oldlink.setAttribute("href", cssFile);
-        }
-    }
-
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
         checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList()); // Check if there are any unsaved changes in displayed note
@@ -89,5 +60,28 @@ window.onload = function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-}
+    // WHEN CLICKING ON THEME ICON
+    document.getElementById("themeIcon").addEventListener("click", function () {
+        themeToggle();
+    });
 
+    document.getElementById("themeContent").addEventListener("click", function () {
+        document.getElementById("theme2").classList.toggle('none');
+    });
+
+    // WHEN CLICK ON FORREST THEME
+    document.getElementById("forrest").addEventListener("click", function () {
+        changeTheme("forrest");
+    });
+    // WHEN CLICK ON FIRE THEMW
+    document.getElementById("fire").addEventListener("click", function () {
+        changeTheme("fire");
+    });
+
+    // WHEN CLICK ON WATER THEME
+    document.getElementById("water").addEventListener("click", function () {
+        changeTheme("water");
+    });
+
+  
+}

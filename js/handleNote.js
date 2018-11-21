@@ -265,6 +265,29 @@ function deleteAll() {
 	displayNoteList();
 }
 
+// Toggle THEME SYMBOL 
+function themeToggle(){
+	let themes = document.getElementById("theme2")
+	themes.classList.toggle('none');
+}
+
+// CHANGE THEME
+function changeTheme(theme) {
+	let cssFile;
+	switch (theme) {
+		case "water":
+		cssFile = "../css/water.css";
+			break;
+		case "forrest":  
+		cssFile = "../css/forrest.css";
+			break;
+		case "fire":  
+		cssFile = "../css/fire.css";
+			break;
+	}
+		oldlink = document.getElementsByTagName("link").item(3);
+		oldlink.setAttribute("href", cssFile);
+}
 
 // // CREATE NEW PAGE IN NOTE LIST
 // function newPage() {
