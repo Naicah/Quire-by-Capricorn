@@ -11,12 +11,16 @@
     }
     /* -------------------------------- NAV -------------------------------- */
     nav {
+      position: fixed;
+      top:0;
+      bottom:0;
+      left:0;
+      right: 75%;
         display: grid;
         grid-template-areas:
             'navSec notes';
         grid-template-columns: 1fr 3fr;
         grid-template-rows: 1fr;
-        height: 100vh;
     }
     /* -------------------------- NAVSEC --------------------------- */
     #navSec {
@@ -159,15 +163,26 @@
         'editor';
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 11fr;
-        position: fixed;
+        position: absolute;
         right:0;
         left:25%;
         bottom:0;
     }
     /* ---------- TOOLBAR ------------- */
-    .ql-toolbar {
+    .ql-toolbar{
         display: flex;
         align-items: center;
+        position: fixed;
+        right:0;
+        left:25%;
+        z-index: 2;
+    }
+    .ql-editor{
+      position:fixed;
+      right:0;
+      bottom:0;
+      left:25%;
+      top: 42px;
     }
 }
 /*--------------------------------------------------------------------------
