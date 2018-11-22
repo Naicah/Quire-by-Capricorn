@@ -89,33 +89,6 @@ body, html{
     color: white;
 }
 
-/*---------------------------------------
-  -            LOADING ICON             -
-  --------------------------------------- */
-/*- William*/
-#load-wrapp {
-    float: left;
-    width: 100%;
-    height: auto;
-    padding: 20px 0 6px;
-    border-radius: 5px;
-    text-align: center;
-}
-.line {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
-    background-color: #4b9cdb;
-}
-.load-8 .line {
-    animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
-}
-@keyframes loadingH {
-    0% {width: 15px;}
-    50% {width: 35px; padding: 4px;}
-    100% {width: 15px;}
-}
 /*------------------------------------------------------------
   -                      NOTES                               -
   ------------------------------------------------------------ */
@@ -209,6 +182,60 @@ body, html{
         'editor';
     padding: 0;
     height: 100vh;
+}
+
+.ql-toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+.ql-toolbar.ql-snow .ql-formats {
+    margin-right: 0 !important;
+}
+.ql-snow.ql-toolbar:after, .ql-snow .ql-toolbar:after {
+    content: none !important;
+}
+/*---------------------------------------
+  -                SAVE                 -
+  --------------------------------------- */
+#save {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    height: 100%;
+    margin: 0;
+    width: 5em;
+}
+#save:hover {
+    cursor: pointer;
+}
+#saveIcon {
+    font-size: 2em;
+}
+
+  /*- William*/
+#load-wrapp {
+    float: left;
+    width: 100%;
+    height: auto;
+    padding: 20px 0 6px;
+    border-radius: 5px;
+    text-align: center;
+}
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #4b9cdb;
+}
+.load-8 .line {
+    animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
+}
+@keyframes loadingH {
+    0% {width: 15px;}
+    50% {width: 35px; padding: 4px;}
+    100% {width: 15px;}
 }
 /*-------------------------------------------------
   -                      EDITOR                   -

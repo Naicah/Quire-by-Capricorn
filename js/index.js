@@ -8,6 +8,7 @@ window.onload = function () {
         newPage(); // Create new object in note list
         displayNoteList()
     }
+    positionSave();
     // setNextNoteID(-1);
 
     // WHEN CLICK IN TUTORIAL POP UP

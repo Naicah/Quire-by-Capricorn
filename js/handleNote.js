@@ -13,6 +13,12 @@ var quill = new Quill('#editor', {
 	theme: 'snow'
 });
 
+// POSITION SAVE BUTTON
+function positionSave() {
+	document.querySelector(".ql-toolbar").appendChild(document.getElementById("save"));
+	console.log("visa save");
+}
+
 // SET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function setCurrentNoteID(id) {
 	document.getElementById("main").firstChild.id = id; // Store ID in hidden Div in main
