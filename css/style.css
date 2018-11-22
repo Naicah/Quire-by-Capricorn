@@ -283,6 +283,7 @@ body, html{
     opacity: 0.8;
     border-radius: 50%;
     margin: auto;
+    border: 1px solid;
   }
   #themeChoice img:hover{
       opacity: 1;
