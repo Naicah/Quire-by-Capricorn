@@ -158,7 +158,7 @@ function updateNote(id, text) {
 	note.text = text.text; // Reset text to text from editor (given as argument)
 	note.dateTime = getTime(); // Get current time = time that last save occured
 	note.lastEdit = new Date().getTime(), // Get current time in number to be able to sort note list after time last saved
-		localStorage.setItem(id, JSON.stringify(note)); // Save changes in storage
+	localStorage.setItem(id, JSON.stringify(note)); // Save changes in storage
 }
 
 // GET ALL TEXT IN EDITOR
