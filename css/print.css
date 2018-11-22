@@ -1,0 +1,15 @@
+@media print{
+  .conainer, .ql-toolbar, #topNav{
+    display:none !important;
+  }
+  #editor{
+    height:100%;
+    width: 100%;
+    border:none;
+  }
+  .ql-editor{
+    height:100%;
+    width:100%;
+    display:block;
+  }
+}
