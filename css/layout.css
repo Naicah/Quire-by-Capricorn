@@ -136,7 +136,7 @@
     margin:0;
     padding:0;
   }
-  #theme2{
+    .theme2-display-flex{
     display:flex;
     flex-flow: column wrap;
     justify-content: center;

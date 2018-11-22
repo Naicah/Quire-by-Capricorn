@@ -61,13 +61,13 @@ window.onload = function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // WHEN CLICKING ON THEME ICON
+    // // WHEN CLICKING ON THEME ICON
     document.getElementById("themeIcon").addEventListener("click", function () {
         themeToggle();
     });
 
     document.getElementById("theme2").addEventListener("click", function () {
-        document.getElementById("theme2").classList.toggle('none');
+        themeToggle();
     });
 
     // WHEN CLICK ON FORREST THEME
