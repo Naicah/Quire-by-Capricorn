@@ -129,8 +129,20 @@
     }
 
     /* -------------------------------- popUP --------------------------- */
-
-    #popUp div, #themeContent {
+  #themeContent{
+    background-color: white;
+    width: 770px;
+    height: 290px;
+    margin:0;
+    padding:0;
+  }
+  #theme2{
+    display:flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+  }
+    #popUp div {
         background-color: white;
         width: 770px;
         height: 290px;
@@ -150,7 +162,7 @@
     }
 
       #themeChoice div{
-       
+
       }
 
       #themeChoice img {
