@@ -1,13 +1,12 @@
 // ON LOAD
 window.onload = function () {
     showTutuorial(); // Show tutorial on first visit
-    displayNoteList(); // Display list of saved notes
-
-    if (localStorage.length > 1) { // If there are any stored notes
+    displayNoteList()
+    if (localStorage.length > 0) { // If there are any stored notes
         displayFirstNote(); // Display content of first note of note list in editor
     } else { // If storage is empty
         newPage(); // Create new object in note list
-        displayNoteList(); // Display list of saved notes
+        displayNoteList()
     }
     // setNextNoteID(-1);
 
@@ -30,12 +29,14 @@ window.onload = function () {
 
     // WHEN CLICK ON SAVE ICON
     document.getElementById("save").addEventListener("click", function () {
-        save(getCurrentNoteID()); 
+        save(getCurrentNoteID());
     });
 
     // WHEN CLICKING ON TRASHCAN ICON
     document.getElementById("deleteAll").addEventListener("click", function () {
         deleteAll();
+        newPage(); // Create new object in note list
+        displayNoteList()
     });
 
     // WHEN CLICK IN NOTE LIST
@@ -49,24 +50,24 @@ window.onload = function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // WHEN CLICK ON IGNORE IN POP UP 
+    // WHEN CLICK ON IGNORE IN POP UP
     document.getElementById("popUpIgnore").addEventListener("click", function () {
         popUpIgnore(getNextNoteID()); // Ignore changes and display next note
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-     // WHEN CLICK ON IGNORE IN POP UP 
+     // WHEN CLICK ON IGNORE IN POP UP
      document.getElementById("popUpCancel").addEventListener("click", function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // WHEN CLICKING ON THEME ICON
+    // // WHEN CLICKING ON THEME ICON
     document.getElementById("themeIcon").addEventListener("click", function () {
         themeToggle();
     });
 
-    document.getElementById("themeContent").addEventListener("click", function () {
-        document.getElementById("theme2").classList.toggle('none');
+    document.getElementById("theme2").addEventListener("click", function () {
+        themeToggle();
     });
 
     // WHEN CLICK ON FORREST THEME
@@ -82,6 +83,9 @@ window.onload = function () {
     document.getElementById("water").addEventListener("click", function () {
         changeTheme("water");
     });
+    // WHEN CLICK ON STANDARD THEME
+    document.getElementById("standard").addEventListener("click", function () {
+        changeTheme("");
+    });
 
-  
 }

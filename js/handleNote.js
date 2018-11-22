@@ -60,9 +60,12 @@ function displayNoteList() {
 		let newH = document.createElement("h4");
 		let newP = document.createElement("p");
 		let title = obj.title;
+
 		if (title.length > 20) {
 			title = title.substring(0, 20) + "..."; // Only show first 20 characters of title in note list
-		} else if (title == "") { // If user hasn't written a title
+		}
+		if (title == "") { // If user hasn't written a title
+			obj.title = "NY ANTECKNING";
 			title = "NY ANTECKNING";
 		}
 		newH.innerHTML = title;
@@ -94,9 +97,9 @@ function checkIfSaved(currentID, nextID) {
 	console.log("nextID");
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
-	
-		if (currentID != nextID) { // If click on currently displayed note in nite list
-		if (savedText != currentText) { // If text in editor is different from what is stored
+
+		if (currentID != nextID) { // If click on currently displayed note in note list
+		if (savedText != currentText && currentText !== "<p><br></p>") { // If text in editor is different from what is stored
 			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
 		} else { // No unsaved changes
 			textToEditor(getNoteFromStorage(nextID)); // Display note that was clicked on
@@ -267,10 +270,10 @@ function deleteAll() {
 	displayNoteList();
 }
 
-// Toggle THEME SYMBOL 
+// Toggle THEME SYMBOL
 function themeToggle(){
 	let themes = document.getElementById("theme2")
-	themes.classList.toggle('none');
+		document.getElementById("theme2").classList.toggle('theme2-display-flex');
 }
 
 // CHANGE THEME
@@ -280,15 +283,16 @@ function changeTheme(theme) {
 		case "water":
 		cssFile = "../css/water.css";
 			break;
-		case "forrest":  
+		case "forrest":
 		cssFile = "../css/forrest.css";
 			break;
-		case "fire":  
+		case "fire":
 		cssFile = "../css/fire.css";
+			break;
+			case "standard":
+		cssFile = "";
 			break;
 	}
 		oldlink = document.getElementsByTagName("link").item(3);
 		oldlink.setAttribute("href", cssFile);
 }
-
-
