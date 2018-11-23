@@ -1,13 +1,20 @@
 /* Printar inte ut färgerna.. */
 @media print{
+body {
+  -webkit-print-color-adjust: exact !important;
+}
+
   section{
     display:none;
+    visibility:hidden;
   }
   .ql-toolbar{
     display: none;
+    visibility:hidden;
   }
   #editorContainer{
     display:block;
+    visibility: visible;
   }
   #editor{
     display:block;
@@ -17,6 +24,7 @@
     border:none;
     padding:0;
     margin:0;
-    -webkit-print-color-adjust: exact !important;
+    
+    visibility: visible;
   }
 }
