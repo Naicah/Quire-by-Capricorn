@@ -39,6 +39,7 @@ function loopNoteObjects() {
 	Object.keys(localStorage).forEach((key) => {
 		noteArr.push(JSON.parse(localStorage.getItem(key)));
 	})
+
 	return noteArr;
 }
 
@@ -50,11 +51,18 @@ function displayFirstNote() {
 }
 
 // DISPLAY NOTES IN NOTELIST
-function displayNoteList() {
-	let noteArr = loopNoteObjects(); // Get all saved notes
+// Skicka med alternativ funktion, annars retuneras true.
+function displayNoteList(func = () => {return true;}) {
+	//let noteArr = func(); // LOPPING IN OBJECTS FROM ARRAY
+	let noteArr = loopNoteObjects();
+	//console.log(noteArr);
 	noteArr.sort(sortTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
+
+	// displayNoteList((n)=> n.fav==true); Till favorite click icon.
+	// om inget argument specificeras körs den bara true.
+	noteArr = noteArr.filter((n) => func(n));
 	noteArr.forEach((obj) => { // Create Div with note info for each saved note
 		let newDiv = document.createElement("div");
 		let newH = document.createElement("h4");
@@ -92,37 +100,37 @@ function getNoteIDFromNoteList() {
 	return id;
 }
 
-// CHECK IF THERE ARE ANY UNSAVED CHANGES, DISPLAY NEXT NOTE - NIna
+// CHECK IF THERE ARE ANY UNSAVED CHANGES, displayNoteY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
 	console.log("nextID");
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
 
-		if (currentID != nextID) { // If click on currently displayed note in note list
+		if (currentID != nextID) { // If click on currently displayNoteyed note in note list
 		if (savedText != currentText && currentText !== "<p><br></p>") { // If text in editor is different from what is stored
 			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
 		} else { // No unsaved changes
-			textToEditor(getNoteFromStorage(nextID)); // Display note that was clicked on
+			textToEditor(getNoteFromStorage(nextID)); // displayNotey note that was clicked on
 			setCurrentNoteID(nextID);
 		}
 	}
 }
 
-// SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
+// SAVE CHANGES AND displayNoteY NEXT NOTE - Nina
 function popUpSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
-	displayNoteList(); // Update note list
-	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
+	displayNoteyNoteList(loopNoteObjects()); // Update note list
+	textToEditor(getNoteFromStorage(nextID)); // displayNotey next note in editor
 	setCurrentNoteID(nextID);
 }
 
-// DON'T SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
+// DON'T SAVE CHANGES AND displayNoteY NEXT NOTE - Nina
 function popUpIgnore(nextID) {
-	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
+	textToEditor(getNoteFromStorage(nextID)); // displayNotelisty next note in editor
 	setCurrentNoteID(nextID);
 }
 
-// DISPLAY TEXT OF GIVEN NOTE IN EDITOR
+// displayNotelistY TEXT OF GIVEN NOTE IN EDITOR
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
