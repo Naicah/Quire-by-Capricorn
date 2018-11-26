@@ -23,7 +23,7 @@ function getCurrentNoteID() {
 	return document.getElementById("main").firstChild.id; // ID stored in hidden Div in main
 }
 
-// GET ID OF NEXT NOTE TO DISPLAY, AFTER CLICKING IN NOTE LIST - Nina
+// SET ID OF NEXT NOTE TO DISPLAY, AFTER CLICKING IN NOTE LIST - Nina
 function setNextNoteID(id) {
 	document.getElementById(getCurrentNoteID()).firstChild.id = id; // Store ID in hidden Div in main
 }
@@ -39,6 +39,7 @@ function loopNoteObjects() {
 	Object.keys(localStorage).forEach((key) => {
 		noteArr.push(JSON.parse(localStorage.getItem(key)));
 	})
+
 	return noteArr;
 }
 
@@ -50,11 +51,18 @@ function displayFirstNote() {
 }
 
 // DISPLAY NOTES IN NOTELIST
-function displayNoteList() {
-	let noteArr = loopNoteObjects(); // Get all saved notes
+// Skicka med alternativ funktion, annars retuneras true.
+function displayNoteList(func = () => {return true;}) {
+	//let noteArr = func(); // LOPPING IN OBJECTS FROM ARRAY
+	let noteArr = loopNoteObjects();
+	//console.log(noteArr);
 	noteArr.sort(sortTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
+
+	// displayNoteList((n)=> n.fav==true); Till favorite click icon.
+	// om inget argument specificeras körs den bara true.
+	noteArr = noteArr.filter((n) => func(n));
 	noteArr.forEach((obj) => { // Create Div with note info for each saved note
 		let newDiv = document.createElement("div");
 		let newH = document.createElement("h4");
@@ -65,7 +73,6 @@ function displayNoteList() {
 			title = title.substring(0, 20) + "..."; // Only show first 20 characters of title in note list
 		}
 		if (title == "") { // If user hasn't written a title
-			// obj.title = "NY ANTECKNING";
 			title = "NY ANTECKNING";
 		}
 		newH.innerHTML = title;
@@ -83,46 +90,44 @@ function getNoteIDFromNoteList() {
 	let id = "";
 	if (event.target.tagName === "H4" || event.target.tagName === "P") {
 		note = event.target.parentElement;
-		id = note.id;
 	} else {
 		note = event.target;
-		id = note.id;
 	}
+	id = note.id;
 	setNextNoteID(id);
 	return id;
 }
 
-// CHECK IF THERE ARE ANY UNSAVED CHANGES, DISPLAY NEXT NOTE - NIna
+// CHECK IF THERE ARE ANY UNSAVED CHANGES, displayNoteY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
-	console.log("nextID");
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
 
-		if (currentID != nextID) { // If click on currently displayed note in note list
+		if (currentID != nextID) { // If click on currently displayNoteyed note in note list
 		if (savedText != currentText && currentText !== "<p><br></p>") { // If text in editor is different from what is stored
 			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
 		} else { // No unsaved changes
-			textToEditor(getNoteFromStorage(nextID)); // Display note that was clicked on
+			textToEditor(getNoteFromStorage(nextID)); // displayNotey note that was clicked on
 			setCurrentNoteID(nextID);
 		}
 	}
 }
 
-// SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
+// SAVE CHANGES AND displayNoteY NEXT NOTE - Nina
 function popUpSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
-	displayNoteList(); // Update note list
-	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
+	displayNoteyNoteList(loopNoteObjects()); // Update note list
+	textToEditor(getNoteFromStorage(nextID)); // displayNotey next note in editor
 	setCurrentNoteID(nextID);
 }
 
-// DON'T SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
+// DON'T SAVE CHANGES AND displayNoteY NEXT NOTE - Nina
 function popUpIgnore(nextID) {
-	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
+	textToEditor(getNoteFromStorage(nextID)); // displayNotelisty next note in editor
 	setCurrentNoteID(nextID);
 }
 
-// DISPLAY TEXT OF GIVEN NOTE IN EDITOR
+// displayNotelistY TEXT OF GIVEN NOTE IN EDITOR
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
@@ -143,7 +148,7 @@ function save(id) {
 		updateNote(id, text); // Save updated note
 	} else { // New note
 		let note = newNote(text.title, text.text); // Create new note
-		addToLocalStorage(note); // Sore new note
+		addToLocalStorage(note); // Store new note
 		setCurrentNoteID(note.id);
 	}
 	displayNoteList(); // Update note list
@@ -159,9 +164,9 @@ function updateNote(id, text) {
 	note = getNoteFromStorage(id); // Get stored note
 	note.title = text.title; // Reset title to title from editor (given as argument)
 	note.text = text.text; // Reset text to text from editor (given as argument)
-	note.dateTime = getTime(); // Get current time = time that last save occured
+	note.dateTime = getTimeString(); // Get current time = time that last save occured
 	note.lastEdit = new Date().getTime(), // Get current time in number to be able to sort note list after time last saved
-		localStorage.setItem(id, JSON.stringify(note)); // Save changes in storage
+	localStorage.setItem(id, JSON.stringify(note)); // Save changes in storage
 }
 
 // GET ALL TEXT IN EDITOR
@@ -177,7 +182,7 @@ function newNote(title, text) {
 	return {
 		id: getAvailID(),
 		title: title,
-		dateTime: getTime(), // Current time = time that note was created (last saved)
+		dateTime: getTimeString(), // Current time = time that note was created (last saved)
 		lastEdit: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
 		text: text
 	};
@@ -222,13 +227,8 @@ function getAvailID() {
 }
 
 // GET CURRENT TIME AND DATE - Jonathan
-function getTime() {
-	let date = new Date();
-	return date.getHours() + ":" +
-		date.getMinutes() + " " +
-		date.getDate() + "-" +
-		(date.getMonth() + 1) + "-" +
-		date.getFullYear();
+function getTimeString() {
+	return new Date().toLocaleString().substring(0,16); 
 }
 
 // SHOW LOAD SYMBOL WHEN SAVING - William
