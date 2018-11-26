@@ -23,7 +23,7 @@ function getCurrentNoteID() {
 	return document.getElementById("main").firstChild.id; // ID stored in hidden Div in main
 }
 
-// GET ID OF NEXT NOTE TO DISPLAY, AFTER CLICKING IN NOTE LIST - Nina
+// SET ID OF NEXT NOTE TO DISPLAY, AFTER CLICKING IN NOTE LIST - Nina
 function setNextNoteID(id) {
 	document.getElementById(getCurrentNoteID()).firstChild.id = id; // Store ID in hidden Div in main
 }
@@ -73,7 +73,6 @@ function displayNoteList(func = () => {return true;}) {
 			title = title.substring(0, 20) + "..."; // Only show first 20 characters of title in note list
 		}
 		if (title == "") { // If user hasn't written a title
-			obj.title = "NY ANTECKNING";
 			title = "NY ANTECKNING";
 		}
 		newH.innerHTML = title;
@@ -91,18 +90,16 @@ function getNoteIDFromNoteList() {
 	let id = "";
 	if (event.target.tagName === "H4" || event.target.tagName === "P") {
 		note = event.target.parentElement;
-		id = note.id;
 	} else {
 		note = event.target;
-		id = note.id;
 	}
+	id = note.id;
 	setNextNoteID(id);
 	return id;
 }
 
 // CHECK IF THERE ARE ANY UNSAVED CHANGES, displayNoteY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
-	console.log("nextID");
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
 
@@ -151,7 +148,7 @@ function save(id) {
 		updateNote(id, text); // Save updated note
 	} else { // New note
 		let note = newNote(text.title, text.text); // Create new note
-		addToLocalStorage(note); // Sore new note
+		addToLocalStorage(note); // Store new note
 		setCurrentNoteID(note.id);
 	}
 	displayNoteList(); // Update note list
@@ -167,9 +164,9 @@ function updateNote(id, text) {
 	note = getNoteFromStorage(id); // Get stored note
 	note.title = text.title; // Reset title to title from editor (given as argument)
 	note.text = text.text; // Reset text to text from editor (given as argument)
-	note.dateTime = getTime(); // Get current time = time that last save occured
+	note.dateTime = getTimeString(); // Get current time = time that last save occured
 	note.lastEdit = new Date().getTime(), // Get current time in number to be able to sort note list after time last saved
-		localStorage.setItem(id, JSON.stringify(note)); // Save changes in storage
+	localStorage.setItem(id, JSON.stringify(note)); // Save changes in storage
 }
 
 // GET ALL TEXT IN EDITOR
@@ -185,7 +182,7 @@ function newNote(title, text) {
 	return {
 		id: getAvailID(),
 		title: title,
-		dateTime: getTime(), // Current time = time that note was created (last saved)
+		dateTime: getTimeString(), // Current time = time that note was created (last saved)
 		lastEdit: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
 		text: text
 	};
@@ -230,13 +227,8 @@ function getAvailID() {
 }
 
 // GET CURRENT TIME AND DATE - Jonathan
-function getTime() {
-	let date = new Date();
-	return date.getHours() + ":" +
-		date.getMinutes() + " " +
-		date.getDate() + "-" +
-		(date.getMonth() + 1) + "-" +
-		date.getFullYear();
+function getTimeString() {
+	return new Date().toLocaleString().substring(0,16); 
 }
 
 // SHOW LOAD SYMBOL WHEN SAVING - William
