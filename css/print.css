@@ -1,5 +1,5 @@
 @media print{
-  .conainer, .ql-toolbar, #topNav{
+  .conainer, .ql-toolbar, #topNav,#menu,#noteList{
     display:none !important;
   }
   #editor{
