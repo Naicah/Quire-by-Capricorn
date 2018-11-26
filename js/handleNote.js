@@ -65,7 +65,7 @@ function displayNoteList() {
 			title = title.substring(0, 20) + "..."; // Only show first 20 characters of title in note list
 		}
 		if (title == "") { // If user hasn't written a title
-			obj.title = "NY ANTECKNING";
+			// obj.title = "NY ANTECKNING";
 			title = "NY ANTECKNING";
 		}
 		newH.innerHTML = title;
