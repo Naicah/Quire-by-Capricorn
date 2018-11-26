@@ -1,13 +1,14 @@
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 body, html{
     margin:0;
 }
-.container {
+body {
+    height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-
+    grid-template-rows: 1fr;
      grid-template-areas:
         'nav'
         'main';
@@ -42,7 +43,7 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: left;
-
+    overflow: auto;
 }
 #logo {
     height: 2.5em;
@@ -67,6 +68,7 @@ body, html{
     align-items: center;
     height: 5em;
     justify-content: space-evenly;
+    overflow: auto;
 }
 .menuIcon{
     background-color: inherit;
@@ -103,6 +105,7 @@ body, html{
     grid-area: searchField;
     background-color:#213d57;
     display: none;
+    overflow: auto;
 }
 
 /*-------------------------------------------------
@@ -137,6 +140,7 @@ body, html{
     max-height: 10em;
     overflow-y: scroll;
     border-bottom: 1px solid darkgrey;
+    overflow: auto;
 }
 /*---------------------------------------
   -            CLICK NOTE LIST          -
@@ -170,18 +174,31 @@ body, html{
 /*---------------------------------------------------------------------------
   -                      MAIN                                               -
   --------------------------------------------------------------------------- */
-/*------------------------------------------------------------
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    'editorContainer';
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+  }
+  /*------------------------------------------------------------
   -                      EDITOR CONTAINER                    -
   ------------------------------------------------------------ */
   #editorContainer {
-    display: grid;
+    grid-area: editor;
+    display: editorContainer;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 9fr;
      grid-template-areas:
         'ql-toolbar'
         'editor';
     padding: 0;
-    height: 100vh;
+    height: 100%;
+    overflow: auto;
 }
 
 .ql-toolbar {
