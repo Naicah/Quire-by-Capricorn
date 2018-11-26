@@ -1,12 +1,12 @@
 // ON LOAD
 window.onload = function () {
     showTutuorial(); // Show tutorial on first visit
-    displayNoteList()
+    displayNoteList();
     if (localStorage.length > 0) { // If there are any stored notes
         displayFirstNote(); // Display content of first note of note list in editor
     } else { // If storage is empty
         newPage(); // Create new object in note list
-        displayNoteList()
+        displayNoteList();
     }
     positionSave();
     // setNextNoteID(-1);
@@ -57,12 +57,12 @@ window.onload = function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-     // WHEN CLICK ON IGNORE IN POP UP
+    // WHEN CLICK ON CANCEL IN POP UP
      document.getElementById("popUpCancel").addEventListener("click", function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // // WHEN CLICKING ON THEME ICON
+    // WHEN CLICKING ON THEME ICON
     document.getElementById("themeIcon").addEventListener("click", function () {
         themeToggle();
     });
