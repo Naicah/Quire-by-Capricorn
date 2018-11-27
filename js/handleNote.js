@@ -92,14 +92,18 @@ function displayNoteList(func = () => {return true;}) {
 
 // WHEN CLICK IN NOTE LIST: RETURN ID OF CLICKED NOTE
 function getNoteIDFromNoteList() {
-	let note;
-	let id = "";
+	// let note;
+	let id = (event.target.parentElement).id;
+	console.log("init " + (event.target.parentElement).id);
 	if (event.target.tagName === "H4" || event.target.tagName === "P") {
-		note = event.target.parentElement;
+	console.log("child " + (event.target.parentElement).id);
+		
 	} else {
-		note = event.target;
+		id = (event.target).id;
 	}
-	id = note.id;
+	
+
+	console.log("noteID: " + id);
 	setNextNoteID(id);
 	return id;
 }
