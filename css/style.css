@@ -298,7 +298,7 @@ body, html{
 
 /* star icon  */
 
-  .fa-star{
+  #noteList .fa-star{
     float: right;
     margin-right: 5%;
     margin-top: 10%;
@@ -306,6 +306,10 @@ body, html{
     opacity: 0.2;
   }
 
-  .fa-star:hover{
+  #noteList .fa-star:hover{
       opacity: 1;
   }
+
+ #favIcon {
+     padding-right: 7px;
+ }
