@@ -15,19 +15,16 @@ var quill = new Quill('#editor', {
 
 // SET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function setCurrentNoteID(id) {
-	console.log("setCurrentNoteID " + id);
 	document.getElementById("main").firstChild.id = id; // Store ID in hidden Div in main
 }
 
 // GET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function getCurrentNoteID() {
-	console.log("getCurrentNoteID " + document.getElementById("main").firstChild.id);
 	return document.getElementById("main").firstChild.id; // ID stored in hidden Div in main
 }
 
 // SET ID OF NEXT NOTE TO DISPLAY, AFTER CLICKING IN NOTE LIST - Nina
 function setNextNoteID(id) {
-	console.log("setNextNoteID " + id);
 	let mainDiv = document.getElementById("main");
 	mainDiv.getElementsByTagName('div')[1].id = id; // Store ID in hidden Div in main
 }
