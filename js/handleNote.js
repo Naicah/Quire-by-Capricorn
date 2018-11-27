@@ -27,7 +27,10 @@ function getCurrentNoteID() {
 
 // SET ID OF NEXT NOTE TO DISPLAY, AFTER CLICKING IN NOTE LIST - Nina
 function setNextNoteID(id) {
+<<<<<<< HEAD
 	console.log("setNextNoteID " + id);
+=======
+>>>>>>> master
 	let mainDiv = document.getElementById("main");
 	mainDiv.getElementsByTagName('div')[1].id = id; // Store ID in hidden Div in main
 }
@@ -58,9 +61,11 @@ function displayFirstNote() {
 // DISPLAY NOTES IN NOTELIST
 // Skicka med alternativ funktion, annars retuneras true.
 function displayNoteList(func = () => true) {
+<<<<<<< HEAD
 	//let noteArr = func(); // LOPPING IN OBJECTS FROM ARRAY
+=======
+>>>>>>> master
 	let noteArr = loopNoteObjects();
-	//console.log(noteArr);
 	noteArr.sort(sortTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
@@ -99,6 +104,7 @@ function displayNoteList(func = () => true) {
 
 // WHEN CLICK IN NOTE LIST: RETURN ID OF CLICKED NOTE
 function getNoteIDFromNoteList() {
+<<<<<<< HEAD
 	console.log(" ---------------- getNoteIDFromNoteList -------------- ");
 	console.log(" current id " + getCurrentNoteID());
 	let id = "";
@@ -108,6 +114,13 @@ function getNoteIDFromNoteList() {
 	} else {
 		id = (event.target.parentElement).id;
 		// console.log("child " + id);
+=======
+	let id = "";
+	if (event.target.tagName === "DIV"){
+		id = (event.target).id;
+	} else {
+		id = (event.target.parentElement).id;
+>>>>>>> master
 		if (event.target.tagName === "I"){
 			let star = event.target;
 			star.classList.toggle("fas");
@@ -115,14 +128,13 @@ function getNoteIDFromNoteList() {
 
 		}
 	}
-	console.log("getNoteIDFromNoteList before setNext " + id);
 	setNextNoteID(id);
 	console.log("getNoteIDFromNoteList after setNext " + id);
 	return id;
 }
 
 function isFavTrue (star){
-	return star.classList.contains("fas") ? true : false;
+	return  star.classList.contains("fas") ? true : false;
 }
 
 function setFavState(state,id){
@@ -343,4 +355,8 @@ function changeTheme(theme) {
 // 			fav.classList.toggle('fas');
 // 		})
 // 	})
+<<<<<<< HEAD
 // }
+=======
+// }
+>>>>>>> master
