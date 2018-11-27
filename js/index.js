@@ -93,6 +93,8 @@ window.onload = function () {
     document.getElementById("favIcon").addEventListener("click", function () {
         state = setStateOfFavDisplay(state);
         document.getElementById("favIcon").firstElementChild.classList.toggle("yellowStar");
+        document.getElementById("favIcon").firstElementChild.classList.toggle("fas");
+      
     });
 
 }
