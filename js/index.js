@@ -89,6 +89,10 @@ window.onload = function () {
         changeTheme("");
     });
 
+    // SHOW FAVORITES
+    document.getElementById("favIcon").addEventListener("click", function () {
+        displayNoteList((n)=> n.fav==true);
+    });
 
 }
 
