@@ -67,6 +67,12 @@ function displayNoteList(func = () => {return true;}) {
 		let newDiv = document.createElement("div");
 		let newH = document.createElement("h4");
 		let newP = document.createElement("p");
+		let newI = document.createElement("i");
+		newI.classList.add("far");
+		newI.classList.add("fa-star");
+		if (obj.fav){
+			newI.classList.add("fas");
+		}
 		let title = obj.title;
 
 		if (title.length > 20) {
@@ -74,10 +80,12 @@ function displayNoteList(func = () => {return true;}) {
 		}
 		if (title == "") { // If user hasn't written a title
 			title = "NY ANTECKNING";
+			obj.title = "NY ANTECKNING";
 		}
 		newH.innerHTML = title;
 		newP.innerHTML = `${obj.dateTime}`;
 		newDiv.id = `${obj.id}`;
+		newDiv.appendChild(newI);
 		newDiv.appendChild(newH);
 		newDiv.appendChild(newP);
 		container.appendChild(newDiv);
@@ -86,17 +94,36 @@ function displayNoteList(func = () => {return true;}) {
 
 // WHEN CLICK IN NOTE LIST: RETURN ID OF CLICKED NOTE
 function getNoteIDFromNoteList() {
-	let note;
 	let id = "";
-	if (event.target.tagName === "H4" || event.target.tagName === "P") {
-		note = event.target.parentElement;
+	if (event.target.tagName === "DIV"){
+		id = (event.target).id;
+		console.log("div " + id);
 	} else {
-		note = event.target;
+		id = (event.target.parentElement).id;
+		console.log("child " + id);
+		if (event.target.tagName === "I"){ 
+			let star = event.target;
+			star.classList.toggle("fas");
+			setFavState(isFavTrue(star),id);
+		
+		}
 	}
-	id = note.id;
+	console.log("result " + id);
 	setNextNoteID(id);
 	return id;
 }
+
+function isFavTrue (star){
+	return  star.classList.contains("fas") ? true : false;
+}
+
+function setFavState(state,id){
+	let note = getNoteFromStorage(id);
+	note.fav = state;
+	localStorage.setItem(id,JSON.stringify(note));
+	displayNoteList();
+}
+
 
 // CHECK IF THERE ARE ANY UNSAVED CHANGES, displayNoteY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
@@ -184,7 +211,8 @@ function newNote(title, text) {
 		title: title,
 		dateTime: getTimeString(), // Current time = time that note was created (last saved)
 		lastEdit: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
-		text: text
+		text: text,
+		fav: false
 	};
 }
 
@@ -296,3 +324,14 @@ function changeTheme(theme) {
 		oldlink = document.getElementsByTagName("link").item(3);
 		oldlink.setAttribute("href", cssFile);
 }
+
+
+// TOGGLE FAV ICON
+// function colorFavIcon(){
+// 	var favIcon = document.getElementsByClassName("fa-star");
+//     [...favIcon].forEach(function(fav){
+// 		fav.addEventListener("click",function(){
+// 			fav.classList.toggle('fas');
+// 		})
+// 	})
+// }

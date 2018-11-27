@@ -56,12 +56,12 @@ window.onload = function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // WHEN CLICK ON CANCEL IN POP UP
+     // WHEN CLICK ON IGNORE IN POP UP
      document.getElementById("popUpCancel").addEventListener("click", function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // WHEN CLICKING ON THEME ICON
+    // // WHEN CLICKING ON THEME ICON
     document.getElementById("themeIcon").addEventListener("click", function () {
         themeToggle();
     });
@@ -88,4 +88,8 @@ window.onload = function () {
         changeTheme("");
     });
 
+
 }
+
+
+
