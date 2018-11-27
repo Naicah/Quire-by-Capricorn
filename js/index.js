@@ -1,5 +1,6 @@
 // ON LOAD
 window.onload = function () {
+    var state = false;
     showTutuorial(); // Show tutorial on first visit
     displayNoteList();
     if (localStorage.length > 0) { // If there are any stored notes
@@ -90,10 +91,7 @@ window.onload = function () {
 
     // SHOW FAVORITES
     document.getElementById("favIcon").addEventListener("click", function () {
-        displayNoteList((n)=> n.fav==true);
+      state = setStateOfFavDisplay(state);
     });
 
 }
-
-
-
