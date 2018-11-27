@@ -91,7 +91,8 @@ window.onload = function () {
 
     // SHOW FAVORITES
     document.getElementById("favIcon").addEventListener("click", function () {
-      state = setStateOfFavDisplay(state);
+        state = setStateOfFavDisplay(state);
+        document.getElementById("favIcon").firstElementChild.classList.toggle("yellowStar");
     });
 
 }
