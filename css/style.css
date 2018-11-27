@@ -339,3 +339,17 @@ body {
   #themeChoice img:hover{
       opacity: 1;
   }
+
+/* star icon  */
+
+  .fa-star{
+    float: right;
+    margin-right: 5%;
+    margin-top: 10%;
+    font-size: 18px;
+    opacity: 0.2;
+  }
+
+  .fa-star:hover{
+      opacity: 1;
+  }

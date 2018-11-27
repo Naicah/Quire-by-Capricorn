@@ -16,7 +16,6 @@ var quill = new Quill('#editor', {
 // POSITION SAVE BUTTON
 function positionSave() {
 	document.querySelector(".ql-toolbar").appendChild(document.getElementById("save"));
-	console.log("visa save");
 }
 
 // SET ID OF CURRENTLY DISPLAYED NOTE - Nina
@@ -31,12 +30,14 @@ function getCurrentNoteID() {
 
 // SET ID OF NEXT NOTE TO DISPLAY, AFTER CLICKING IN NOTE LIST - Nina
 function setNextNoteID(id) {
-	document.getElementById(getCurrentNoteID()).firstChild.id = id; // Store ID in hidden Div in main
+	let mainDiv = document.getElementById("main");
+	mainDiv.getElementsByTagName('div')[1].id = id; // Store ID in hidden Div in main
 }
 
 // GET ID OF NEXT NOTE TO DISPLAY (NEXT = AFTER CLICKING IN NOTE LIST) - Nina
 function getNextNoteID() {
-	return document.getElementById(getCurrentNoteID()).firstChild.id; // ID stored in hidden Div in main
+	let mainDiv = document.getElementById("main");
+	return mainDiv.getElementsByTagName('div')[1].id; // ID stored in hidden Div in main
 }
 
 // FIND ALL SAVED NOTES IN STORAGE AND RETURN ARRAY WITH NOTE OBJECTS - Jonathan
@@ -58,21 +59,25 @@ function displayFirstNote() {
 
 // DISPLAY NOTES IN NOTELIST
 // Skicka med alternativ funktion, annars retuneras true.
-function displayNoteList(func = () => {return true;}) {
-	//let noteArr = func(); // LOPPING IN OBJECTS FROM ARRAY
+function displayNoteList(func = () => true) {
 	let noteArr = loopNoteObjects();
-	//console.log(noteArr);
 	noteArr.sort(sortTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
 
 	// displayNoteList((n)=> n.fav==true); Till favorite click icon.
 	// om inget argument specificeras körs den bara true.
-	noteArr = noteArr.filter((n) => func(n));
-	noteArr.forEach((obj) => { // Create Div with note info for each saved note
+	//noteArr = noteArr.filter((n) => func(n));
+	noteArr.filter((n) => func(n)).forEach((obj) => { // Create Div with note info for each saved note
 		let newDiv = document.createElement("div");
 		let newH = document.createElement("h4");
 		let newP = document.createElement("p");
+		let newI = document.createElement("i");
+		newI.classList.add("far");
+		newI.classList.add("fa-star");
+		if (obj.fav){
+			newI.classList.add("fas");
+		}
 		let title = obj.title;
 
 		if (title.length > 20) {
@@ -80,10 +85,12 @@ function displayNoteList(func = () => {return true;}) {
 		}
 		if (title == "") { // If user hasn't written a title
 			title = "NY ANTECKNING";
+			obj.title = "NY ANTECKNING";
 		}
 		newH.innerHTML = title;
 		newP.innerHTML = `${obj.dateTime}`;
 		newDiv.id = `${obj.id}`;
+		newDiv.appendChild(newI);
 		newDiv.appendChild(newH);
 		newDiv.appendChild(newP);
 		container.appendChild(newDiv);
@@ -92,52 +99,63 @@ function displayNoteList(func = () => {return true;}) {
 
 // WHEN CLICK IN NOTE LIST: RETURN ID OF CLICKED NOTE
 function getNoteIDFromNoteList() {
-	// let note;
-	let id = (event.target.parentElement).id;
-	console.log("init " + (event.target.parentElement).id);
-	if (event.target.tagName === "H4" || event.target.tagName === "P") {
-	console.log("child " + (event.target.parentElement).id);
-		
-	} else {
+	let id = "";
+	if (event.target.tagName === "DIV"){
 		id = (event.target).id;
+	} else {
+		id = (event.target.parentElement).id;
+		if (event.target.tagName === "I"){
+			let star = event.target;
+			star.classList.toggle("fas");
+			setFavState(isFavTrue(star),id);
+		}
 	}
-	
-
-	console.log("noteID: " + id);
 	setNextNoteID(id);
 	return id;
 }
 
-// CHECK IF THERE ARE ANY UNSAVED CHANGES, displayNoteY NEXT NOTE - NIna
+function isFavTrue (star){
+	return  star.classList.contains("fas") ? true : false;
+}
+
+function setFavState(state,id){
+	let note = getNoteFromStorage(id);
+	note.fav = state;
+	localStorage.setItem(id,JSON.stringify(note));
+	displayNoteList();
+}
+
+
+// CHECK IF THERE ARE ANY UNSAVED CHANGES, DISPLAY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
 
-		if (currentID != nextID) { // If click on currently displayNoteyed note in note list
+		if (currentID != nextID) { // If click on currently displayed note in note list
 		if (savedText != currentText && currentText !== "<p><br></p>") { // If text in editor is different from what is stored
 			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
 		} else { // No unsaved changes
-			textToEditor(getNoteFromStorage(nextID)); // displayNotey note that was clicked on
+			textToEditor(getNoteFromStorage(nextID)); // Display note that was clicked on
 			setCurrentNoteID(nextID);
 		}
 	}
 }
 
-// SAVE CHANGES AND displayNoteY NEXT NOTE - Nina
+// SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
 function popUpSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
-	displayNoteyNoteList(loopNoteObjects()); // Update note list
-	textToEditor(getNoteFromStorage(nextID)); // displayNotey next note in editor
+	displayNoteList(); // Update note list
+	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	setCurrentNoteID(nextID);
 }
 
-// DON'T SAVE CHANGES AND displayNoteY NEXT NOTE - Nina
+// DON'T SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
 function popUpIgnore(nextID) {
-	textToEditor(getNoteFromStorage(nextID)); // displayNotelisty next note in editor
+	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	setCurrentNoteID(nextID);
 }
 
-// displayNotelistY TEXT OF GIVEN NOTE IN EDITOR
+// DISPLAY TEXT OF GIVEN NOTE IN EDITOR
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
@@ -194,7 +212,8 @@ function newNote(title, text) {
 		title: title,
 		dateTime: getTimeString(), // Current time = time that note was created (last saved)
 		lastEdit: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
-		text: text
+		text: text,
+		fav: false
 	};
 }
 
@@ -238,7 +257,7 @@ function getAvailID() {
 
 // GET CURRENT TIME AND DATE - Jonathan
 function getTimeString() {
-	return new Date().toLocaleString().substring(0,16); 
+	return new Date().toLocaleString().substring(0,16);
 }
 
 // SHOW LOAD SYMBOL WHEN SAVING - William
@@ -297,7 +316,7 @@ function changeTheme(theme) {
 		cssFile = "../css/forrest.css";
 			break;
 		case "fire":
-		cssFile = "../css/fire.css";
+		cssFile = "../css/fire.css";	
 			break;
 			case "standard":
 		cssFile = "";
@@ -306,3 +325,14 @@ function changeTheme(theme) {
 		oldlink = document.getElementsByTagName("link").item(3);
 		oldlink.setAttribute("href", cssFile);
 }
+
+
+// TOGGLE FAV ICON
+// function colorFavIcon(){
+// 	var favIcon = document.getElementsByClassName("fa-star");
+//     [...favIcon].forEach(function(fav){
+// 		fav.addEventListener("click",function(){
+// 			fav.classList.toggle('fas');
+// 		})
+// 	})
+// }
