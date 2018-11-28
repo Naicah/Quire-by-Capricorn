@@ -20,7 +20,7 @@ function setToolbarPositionStatus(){
 	let distanceToBottomTopNav = topNav.getBoundingClientRect().bottom;
 	let distanceToBottomNoteList = noteList.getBoundingClientRect().bottom;
 	let distanceToTop = toolbar.getBoundingClientRect().top;
-	if(distanceToBottomTopNav >= 1 || distanceToBottomNoteList >= 1){
+	if(distanceToBottomTopNav >= 0 || distanceToBottomNoteList >= 1){
 		state = false;
 	}
 	if(distanceToTop <= 0  && state == true){
