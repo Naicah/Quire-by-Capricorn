@@ -19,7 +19,7 @@ window.onload = function () {
     // WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT
     document.getElementById("hamburgerIcon").addEventListener("click", function () {
         toggleMenu(); // Show or hide menu
-        toggleNoteList(); // Show or hide note list
+        toggleNoteList(); // toggle note list
     });
 
     // WHEN CLICKING ON ICON FOR NEW PAGE
@@ -94,7 +94,7 @@ window.onload = function () {
         state = setStateOfFavDisplay(state);
         document.getElementById("favIcon").firstElementChild.classList.toggle("yellowStar");
         document.getElementById("favIcon").firstElementChild.classList.toggle("fas");
-      
+
     });
 
 }
