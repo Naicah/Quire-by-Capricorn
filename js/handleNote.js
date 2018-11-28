@@ -183,8 +183,13 @@ function save(id) {
 		addToLocalStorage(note); // Store new note
 		setCurrentNoteID(note.id);
 	}
-	displayNoteList(); // Update note list
+	if(document.getElementById("favIcon").firstElementChild.classList.contains("fas")){
+		displayNoteList((n)=> n.fav==true)
+	} else {
+		displayNoteList(); 
+	}
 }
+
 
 // CHECK IF NOTE ALREADY EXIST
 function checkForNote(id) {
@@ -210,6 +215,10 @@ function getText() {
 
 // CREATE NEW NOTE
 function newNote(title, text) {
+	if(document.getElementById("favIcon").firstElementChild.classList.contains("fas")){
+		document.getElementById("favIcon").firstElementChild.classList.toggle("fas");
+		document.getElementById("favIcon").firstElementChild.classList.toggle("yellowStar");
+	}
 	title = title.trim();
 	return {
 		id: getAvailID(),
