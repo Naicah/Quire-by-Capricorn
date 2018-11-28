@@ -234,6 +234,9 @@
       left:25%;
       top: 42px;
     }
+    .collapse-mobile{
+      display: block;
+    }
 }
 /*--------------------------------------------------------------------------
   -              Large devices (laptops/desktops, 992px and up)            -

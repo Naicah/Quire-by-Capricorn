@@ -20,7 +20,7 @@ window.onload = function () {
     // WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT
     document.getElementById("hamburgerIcon").addEventListener("click", function () {
         toggleMenu(); // Show or hide menu
-        toggleNoteList(); // Show or hide note list
+        toggleNoteList(); // toggle note list
     });
 
     // WHEN CLICKING ON ICON FOR NEW PAGE
@@ -58,12 +58,12 @@ window.onload = function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // WHEN CLICK ON CANCEL IN POP UP
+     // WHEN CLICK ON IGNORE IN POP UP
      document.getElementById("popUpCancel").addEventListener("click", function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // WHEN CLICKING ON THEME ICON
+    // // WHEN CLICKING ON THEME ICON
     document.getElementById("themeIcon").addEventListener("click", function () {
         themeToggle();
     });
@@ -95,7 +95,7 @@ window.onload = function () {
         state = setStateOfFavDisplay(state);
         document.getElementById("favIcon").firstElementChild.classList.toggle("yellowStar");
         document.getElementById("favIcon").firstElementChild.classList.toggle("fas");
-      
+
     });
 
 }

@@ -20,11 +20,13 @@ function positionSave() {
 
 // SET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function setCurrentNoteID(id) {
+	console.log("setCurrentNoteID " + id);
 	document.getElementById("main").firstChild.id = id; // Store ID in hidden Div in main
 }
 
 // GET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function getCurrentNoteID() {
+	console.log("getCurrentNoteID " + document.getElementById("main").firstChild.id);
 	return document.getElementById("main").firstChild.id; // ID stored in hidden Div in main
 }
 
@@ -111,6 +113,7 @@ function getNoteIDFromNoteList() {
 		}
 	}
 	setNextNoteID(id);
+	console.log("getNoteIDFromNoteList after setNext " + id);
 	return id;
 }
 
@@ -128,6 +131,7 @@ function setFavState(state,id){
 
 // CHECK IF THERE ARE ANY UNSAVED CHANGES, DISPLAY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
+	console.log("checkIfSaved next ID " + nextID);
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
 
@@ -316,7 +320,7 @@ function changeTheme(theme) {
 		cssFile = "../css/forrest.css";
 			break;
 		case "fire":
-		cssFile = "../css/fire.css";	
+		cssFile = "../css/fire.css";
 			break;
 			case "standard":
 		cssFile = "";

@@ -58,6 +58,24 @@ body {
     right: 0.7em;
     font-size: 42px;
 }
+.ham1, .ham2, .ham3{
+  width: 35px;
+  height: 5px;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.merge .ham1{
+  -webkit-transform: rotate(-45deg) translate(-8px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+.merge .ham2{
+ opacity: 0;
+}
+.merge .ham3{
+  -webkit-transform: rotate(45deg) translate(-10px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
 
 /*-------------------------------------------------
   -                      MENU                     -
@@ -68,6 +86,7 @@ body {
     align-items: center;
     height: 5em;
     justify-content: space-evenly;
+    display:flex;
 }
 .menuIcon{
     background-color: inherit;
@@ -89,7 +108,6 @@ body {
     font-size: 25px;
     color: white;
 }
-
 /*------------------------------------------------------------
   -                      NOTES                               -
   ------------------------------------------------------------ */
