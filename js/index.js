@@ -96,8 +96,8 @@ window.onload = function () {
         document.getElementById("favIcon").firstElementChild.classList.toggle("fas");
 
     });
-
 }
+// Firing State of toolbox  position inherit/fixed;
 window.onscroll = function(){
   setToolbarPositionStatus();
 }
