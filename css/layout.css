@@ -104,6 +104,24 @@
         font-size: inherit;
         outline: 0;
       }
+
+      /* star icon  */
+
+  #noteList .fa-star{
+    float: right;
+    margin-right: 5%;
+    margin-top: 15%;
+    font-size: 18px;
+    opacity: 0.2;
+  }
+
+  #noteList .fa-star:hover{
+      opacity: 1;
+  }
+
+ #favIcon {
+     padding-right: 7px;
+ }
     /* ------------- CLICK NOTE LIST ------------- */
     #clickNoteList div{
         height: 78px;

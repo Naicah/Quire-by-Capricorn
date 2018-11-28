@@ -95,7 +95,7 @@ body {
   ------------------------------------------------------------ */
 #notes {
     grid-area: notes;
-    overflow: -webkit-paged-y;
+    overflow: auto;
 }
 /*-------------------------------------------------
   -                   NOTE LIST                   -
@@ -339,20 +339,12 @@ body {
       opacity: 1;
   }
 
-/* star icon  */
-
   #noteList .fa-star{
     float: right;
-    margin-right: 5%;
-    margin-top: 10%;
-    font-size: 18px;
-    opacity: 0.2;
+    margin-right: 2%;
+    margin-top: 3%;
   }
 
-  #noteList .fa-star:hover{
-      opacity: 1;
+  .yellowStar{
+      color:goldenrod;
   }
-
- #favIcon {
-     padding-right: 7px;
- }

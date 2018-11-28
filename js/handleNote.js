@@ -326,13 +326,14 @@ function changeTheme(theme) {
 		oldlink.setAttribute("href", cssFile);
 }
 
+// TOGGLE SHOWING FAV NOTES
 
-// TOGGLE FAV ICON
-// function colorFavIcon(){
-// 	var favIcon = document.getElementsByClassName("fa-star");
-//     [...favIcon].forEach(function(fav){
-// 		fav.addEventListener("click",function(){
-// 			fav.classList.toggle('fas');
-// 		})
-// 	})
-// }
+function setStateOfFavDisplay(state){
+    if(!state){
+        displayNoteList((n)=> n.fav==true);
+        return !state;
+    } else {
+        displayNoteList()
+        return !state;
+    }
+}
