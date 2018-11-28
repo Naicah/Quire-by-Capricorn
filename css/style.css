@@ -107,7 +107,18 @@ body, html{
     font-size: 25px;
     color: white;
 }
-
+/* sticky verktyg in menu*/
+.ql-toolbar-fixed{
+  position: fixed;
+  background: #fff;
+  z-index: 10;
+  left:0;
+  top:0;
+  right:0;
+}
+.ql-toolbar-inherit{
+  position: inherit;
+}
 /*------------------------------------------------------------
   -                      NOTES                               -
   ------------------------------------------------------------ */
@@ -202,7 +213,7 @@ body, html{
     padding: 0;
     height: 100vh;
 }
-  
+
 
 /*-------------------------------------------------
   -                      EDITOR                   -
