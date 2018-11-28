@@ -2,14 +2,12 @@
   -              Medium devices (landscape tablets, 768px and up)          -
   -------------------------------------------------------------------------- */
 
-@media only screen and (min-width: 768px) {
-    body {
+  @media only screen and (min-width: 768px) {
+    .container {
         grid-template-areas:
             'nav main';
         padding: 0;
         grid-template-columns: 3fr 9fr;
-        grid-template-rows: 1fr;
-        height:95vh;
     }
     /* -------------------------------- NAV -------------------------------- */
     nav {
@@ -23,7 +21,6 @@
             'navSec notes';
         grid-template-columns: 1fr 3fr;
         grid-template-rows: 1fr;
-        overflow: auto;
     }
     /* -------------------------- NAVSEC --------------------------- */
     #navSec {
@@ -197,11 +194,6 @@
       }
 
     /* -------------------------------- MAIN -------------------------------- */
-    main {
-        overflow: auto;
-        height: 100%;
-        width: 100%;
-    }
     /* ---------------------- QUILL EDITOR ------------------ */
     /* ---------------- EDITOR CONTAINER ------------ */
     #editorContainer {
@@ -216,7 +208,6 @@
         right:0;
         left:25%;
         bottom:0;
-        overflow: auto;
     }
     /* ---------- TOOLBAR ------------- */
     .ql-toolbar{

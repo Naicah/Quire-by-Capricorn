@@ -1,14 +1,13 @@
 * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 body, html{
     margin:0;
 }
-body {
-    height: 100vh;
+.container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+
      grid-template-areas:
         'nav'
         'main';
@@ -43,7 +42,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: left;
-    overflow: auto;
+
 }
 #logo {
     height: 2.5em;
@@ -108,6 +107,7 @@ body {
     font-size: 25px;
     color: white;
 }
+
 /*------------------------------------------------------------
   -                      NOTES                               -
   ------------------------------------------------------------ */
@@ -122,7 +122,6 @@ body {
     grid-area: searchField;
     background-color:#213d57;
     display: none;
-    overflow: auto;
 }
 
 /*-------------------------------------------------
@@ -157,7 +156,6 @@ body {
     max-height: 10em;
     overflow-y: scroll;
     border-bottom: 1px solid darkgrey;
-    overflow: auto;
 }
 /*---------------------------------------
   -            CLICK NOTE LIST          -
@@ -191,33 +189,28 @@ body {
 /*---------------------------------------------------------------------------
   -                      MAIN                                               -
   --------------------------------------------------------------------------- */
-
-  main {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-    'editorContainer';
-    padding: 0;
-    height: 100%;
-    overflow: auto;
-  }
-  /*------------------------------------------------------------
+/*------------------------------------------------------------
   -                      EDITOR CONTAINER                    -
   ------------------------------------------------------------ */
   #editorContainer {
-    grid-area: editor;
-    display: editorContainer;
+    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 9fr;
      grid-template-areas:
         'ql-toolbar'
         'editor';
     padding: 0;
-    height: 100%;
-    overflow: auto;
+    height: 100vh;
 }
+  
 
+/*-------------------------------------------------
+  -                      EDITOR                   -
+  ------------------------------------------------- */
+#editor {
+    grid-area: editor;
+    overflow-x: hidden;
+}
 .ql-toolbar {
     display: flex;
     justify-content: space-between;
@@ -228,6 +221,7 @@ body {
 .ql-snow.ql-toolbar:after, .ql-snow .ql-toolbar:after {
     content: none !important;
 }
+
 /*---------------------------------------
   -                SAVE                 -
   --------------------------------------- */
@@ -270,18 +264,6 @@ body {
     0% {width: 15px;}
     50% {width: 35px; padding: 4px;}
     100% {width: 15px;}
-}
-/*-------------------------------------------------
-  -                      EDITOR                   -
-  ------------------------------------------------- */
-#editor {
-    grid-area: editor;
-    overflow-x: hidden;
-}
-.ql-toolbar { grid-area: ql-toolbar;}
-
-.ql-container {
-    max-height: 100%;
 }
 
 /* Styling popup when to warn non saved content  */

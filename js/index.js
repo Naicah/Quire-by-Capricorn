@@ -10,7 +10,6 @@ window.onload = function () {
         displayNoteList();
     }
     positionSave();
-    // setNextNoteID(-1);
 
     // WHEN CLICK IN TUTORIAL POP UP
     document.getElementById("tutorial").addEventListener("click", () => {
