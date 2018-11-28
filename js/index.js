@@ -86,7 +86,7 @@ window.onload = function () {
     });
     // WHEN CLICK ON STANDARD THEME
     document.getElementById("standard").addEventListener("click", function () {
-        changeTheme("");
+        changeTheme("standard");
     });
 
     // SHOW FAVORITES

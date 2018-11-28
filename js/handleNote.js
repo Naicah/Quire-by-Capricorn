@@ -323,16 +323,16 @@ function changeTheme(theme) {
 	let cssFile;
 	switch (theme) {
 		case "water":
-		cssFile = "../css/water.css";
+			cssFile = "../css/water.css";
 			break;
 		case "forrest":
-		cssFile = "../css/forrest.css";
+			cssFile = "../css/forrest.css";
 			break;
 		case "fire":
-		cssFile = "../css/fire.css";
+			cssFile = "../css/fire.css";
 			break;
-			case "standard":
-		cssFile = "";
+		case "standard":
+			cssFile = "";
 			break;
 	}
 		oldlink = document.getElementsByTagName("link").item(3);
