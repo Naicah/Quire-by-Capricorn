@@ -121,7 +121,7 @@ body, html{
   ------------------------------------------------------------ */
 #notes {
     grid-area: notes;
-    overflow: -webkit-paged-y;
+    overflow: auto;
 }
 /*-------------------------------------------------
   -                   NOTE LIST                   -
@@ -294,4 +294,14 @@ body, html{
   }
   #themeChoice img:hover{
       opacity: 1;
+  }
+
+  #noteList .fa-star{
+    float: right;
+    margin-right: 2%;
+    margin-top: 3%;
+  }
+
+  .yellowStar{
+      color:goldenrod;
   }
