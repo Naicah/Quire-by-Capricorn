@@ -68,7 +68,6 @@ body {
     align-items: center;
     height: 5em;
     justify-content: space-evenly;
-    overflow: auto;
 }
 .menuIcon{
     background-color: inherit;
