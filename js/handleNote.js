@@ -183,8 +183,13 @@ function save(id) {
 		addToLocalStorage(note); // Store new note
 		setCurrentNoteID(note.id);
 	}
-	displayNoteList(); // Update note list
+	if(document.getElementById("favIcon").firstElementChild.classList.contains("fas")){
+		displayNoteList((n)=> n.fav==true)
+	} else {
+		displayNoteList(); 
+	}
 }
+
 
 // CHECK IF NOTE ALREADY EXIST
 function checkForNote(id) {
@@ -210,6 +215,10 @@ function getText() {
 
 // CREATE NEW NOTE
 function newNote(title, text) {
+	if(document.getElementById("favIcon").firstElementChild.classList.contains("fas")){
+		document.getElementById("favIcon").firstElementChild.classList.toggle("fas");
+		document.getElementById("favIcon").firstElementChild.classList.toggle("yellowStar");
+	}
 	title = title.trim();
 	return {
 		id: getAvailID(),
@@ -314,16 +323,16 @@ function changeTheme(theme) {
 	let cssFile;
 	switch (theme) {
 		case "water":
-		cssFile = "../css/water.css";
+			cssFile = "../css/water.css";
 			break;
 		case "forrest":
-		cssFile = "../css/forrest.css";
+			cssFile = "../css/forrest.css";
 			break;
 		case "fire":
-		cssFile = "../css/fire.css";
+			cssFile = "../css/fire.css";
 			break;
-			case "standard":
-		cssFile = "";
+		case "standard":
+			cssFile = "";
 			break;
 	}
 		oldlink = document.getElementsByTagName("link").item(3);
