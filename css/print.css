@@ -1,15 +1,22 @@
 @media print{
-  .conainer, .ql-toolbar, #topNav,#menu,#noteList{
-    display:none !important;
+  nav, .conainer, .collapse-mobile, .ql-toolbar, #popUp, #navSec,
+  #topNav, #menu, #noteList, #notes, #searchField{
+    display: none !important;
+  }
+  #editorContainer{
+    display:block;
+    margin:0;
+    padding:0;
   }
   #editor{
-    height:100%;
-    width: 100%;
-    border:none;
+    display:block;
+    border:1px solid black;
   }
+ /* Ql-editor size of a a4; */
   .ql-editor{
-    height:100%;
+    height: 100%;
     width:100%;
     display:block;
+    border: 1px solid black;
   }
 }
