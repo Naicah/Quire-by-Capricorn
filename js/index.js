@@ -2,12 +2,12 @@
 window.onload = function () {
     // var state = false;
     showTutuorial(); // Show tutorial on first visit
-    displayNoteList();
+    filterNoteList();
     if (localStorage.length > 0) { // If there are any stored notes
         displayFirstNote(); // Display content of first note of note list in editor
     } else { // If storage is empty
         newPage(); // Create new object in note list
-        displayNoteList();
+        filterNoteList();
     }
     positionSave();
 
@@ -37,13 +37,13 @@ window.onload = function () {
     document.getElementById("deleteAll").addEventListener("click", function () {
         deleteAll();
         newPage(); // Create new object in note list
-        displayNoteList()
+        filterNoteList();
     });
 
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
         checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList()); // Check if there are any unsaved changes in displayed note
-        setStateOfFavDisplay();
+        filterNoteList();
     });
 
     // WHEN CLICK ON SAVE IN POP UP
@@ -103,7 +103,7 @@ window.onload = function () {
         favIcon.classList.toggle("yellowStar");
         favIcon.classList.toggle("fas");
         
-        setStateOfFavDisplay();
+        filterNoteList();
         
         
     });

@@ -128,8 +128,7 @@ function setFavState(state,id){
 	let note = getNoteFromStorage(id);
 	note.fav = state;
 	localStorage.setItem(id,JSON.stringify(note));
-	// displayNoteList();
-	setStateOfFavDisplay();
+	filterNoteList();
 }
 
 
@@ -152,7 +151,7 @@ function checkIfSaved(currentID, nextID) {
 // SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
 function popUpSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
-	displayNoteList(); // Update note list
+	filterNoteList(); // Update note list
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	setCurrentNoteID(nextID);
 }
@@ -187,11 +186,12 @@ function save(id) {
 		addToLocalStorage(note); // Store new note
 		setCurrentNoteID(note.id);
 	}
-	if(document.getElementById("favIcon").firstElementChild.classList.contains("fas")){
-		displayNoteList((n)=> n.fav==true)
-	} else {
-		displayNoteList(); 
-	}
+	// if(document.getElementById("favIcon").firstElementChild.classList.contains("fas")){
+	// 	displayNoteList((n)=> n.fav==true)
+	// } else {
+	// 	displayNoteList(); 
+	// }
+	filterNoteList();
 }
 
 
@@ -306,14 +306,14 @@ function newPage() {
 	addToLocalStorage(note);
 	setCurrentNoteID(note.id);
 	textToEditor(note);
-	displayNoteList();
+	filterNoteList();
 }
 
 // DELETE ALL NOTES
 function deleteAll() {
 	localStorage.clear();
 	quill.root.innerHTML = "";
-	displayNoteList();
+	filterNoteList();
 }
 
 // Toggle THEME SYMBOL
@@ -343,8 +343,13 @@ function changeTheme(theme) {
 		oldlink.setAttribute("href", cssFile);
 }
 
+// FILTER WHICH NOTES SHOULD BE DISPLAYED IN NOTE LIST
+function filterNoteList(){
+	filterFav();
+}
+
 // TOGGLE SHOWING FAV NOTES
-function setStateOfFavDisplay(){
+function filterFav() {
 	let favIcon = document.getElementById("favIcon").firstElementChild;
 
 	if (favIcon.classList.contains("yellowStar")) {
