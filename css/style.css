@@ -37,7 +37,7 @@ body, html{
 #topNav {
     grid-area: topNav;
     background-color:#213d57;
-    height: 94px;
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;
@@ -107,7 +107,15 @@ body, html{
     font-size: 25px;
     color: white;
 }
-/* sticky verktyg in menu*/
+
+    /* -------------------------------- MAIN -------------------------------- */
+    /* ---------------------- QUILL EDITOR ------------------ */
+    /* ---------------- EDITOR CONTAINER ------------ */
+
+.ql-toolbar.ql-snow {
+    padding: 0.7em !important;
+}
+
 .ql-toolbar-fixed{
   position: fixed;
   background: #fff;
@@ -115,6 +123,7 @@ body, html{
   left:0;
   top:0;
   right:0;
+  
 }
 .ql-toolbar-inherit{
   position: inherit;
