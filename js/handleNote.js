@@ -14,19 +14,17 @@ var quill = new Quill('#editor', {
 });
 
 // POSITION SAVE BUTTON
-function positionSave() {
+function positionSaveButton() {
 	document.querySelector(".ql-toolbar").appendChild(document.getElementById("save"));
 }
 
 // SET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function setCurrentNoteID(id) {
-	console.log("setCurrentNoteID " + id);
 	document.getElementById("main").firstChild.id = id; // Store ID in hidden Div in main
 }
 
 // GET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function getCurrentNoteID() {
-	console.log("getCurrentNoteID " + document.getElementById("main").firstChild.id);
 	return document.getElementById("main").firstChild.id; // ID stored in hidden Div in main
 }
 
@@ -54,15 +52,19 @@ function loopNoteObjects() {
 
 // DISPLAY CONTENT OF FIRST NOTE FROM THE NOTE LIST IN THE EDITOR - Nina
 function displayFirstNote() {
-	let notes = loopNoteObjects(); // Get all saved notes
-	textToEditor(notes[0]); // Display the first note of the list in editor
-	setCurrentNoteID(notes[0].id);
+	let id = -1;
+	if (document.getElementById("clickNoteList").innerHTML == "") {
+		quill.root.innerHTML = "";
+	} else {
+		id = document.getElementById("clickNoteList").firstChild.id;
+		textToEditor(getNoteFromStorage(id)); // Display the first note of the list in editor
+	}
+	setCurrentNoteID(id);
 }
 
 // DISPLAY NOTES IN NOTELIST
 // Skicka med alternativ funktion, annars retuneras true.
 function displayNoteList(func = () => true) {
-	console.log("displayNoteList");
 	let noteArr = loopNoteObjects();
 	noteArr.sort(sortTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
@@ -114,7 +116,6 @@ function getNoteIDFromNoteList() {
 		}
 	}
 	setNextNoteID(id);
-	console.log("getNoteIDFromNoteList after setNext " + id);
 	return id;
 }
 
@@ -131,10 +132,8 @@ function setFavState(state,id){
 	filterNoteList();
 }
 
-
 // CHECK IF THERE ARE ANY UNSAVED CHANGES, DISPLAY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
-	console.log("checkIfSaved next ID " + nextID);
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
 
@@ -186,11 +185,6 @@ function save(id) {
 		addToLocalStorage(note); // Store new note
 		setCurrentNoteID(note.id);
 	}
-	// if(document.getElementById("favIcon").firstElementChild.classList.contains("fas")){
-	// 	displayNoteList((n)=> n.fav==true)
-	// } else {
-	// 	displayNoteList(); 
-	// }
 	filterNoteList();
 }
 
@@ -339,8 +333,8 @@ function changeTheme(theme) {
 			cssFile = "";
 			break;
 	}
-		oldlink = document.getElementsByTagName("link").item(3);
-		oldlink.setAttribute("href", cssFile);
+	oldlink = document.getElementsByTagName("link").item(3);
+	oldlink.setAttribute("href", cssFile);
 }
 
 // FILTER WHICH NOTES SHOULD BE DISPLAYED IN NOTE LIST
@@ -358,6 +352,3 @@ function filterFav() {
 		displayNoteList();
 	}
 }
-
-
-
