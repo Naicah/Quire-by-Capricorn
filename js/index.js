@@ -1,6 +1,6 @@
 // ON LOAD
 window.onload = function () {
-    var state = false;
+    // var state = false;
     showTutuorial(); // Show tutorial on first visit
     displayNoteList();
     if (localStorage.length > 0) { // If there are any stored notes
@@ -43,6 +43,7 @@ window.onload = function () {
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
         checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList()); // Check if there are any unsaved changes in displayed note
+        setStateOfFavDisplay();
     });
 
     // WHEN CLICK ON SAVE IN POP UP
@@ -91,12 +92,32 @@ window.onload = function () {
 
     // SHOW FAVORITES
     document.getElementById("favIcon").addEventListener("click", function () {
-        state = setStateOfFavDisplay(state);
-        document.getElementById("favIcon").firstElementChild.classList.toggle("yellowStar");
-        document.getElementById("favIcon").firstElementChild.classList.toggle("fas");
+        // let state = false;
+        let favIcon = document.getElementById("favIcon").firstElementChild;
 
+        // if (favIcon.classList.contains("yellowStar")) {
+        //       console.log("visade endast favoriter innan klick");
+        //     state = true;
+
+        // }
+        favIcon.classList.toggle("yellowStar");
+        favIcon.classList.toggle("fas");
+        
+        setStateOfFavDisplay();
+        
+        
     });
 
+    
+
+
+    // // SHOW FAVORITES
+    // document.getElementById("favIcon").addEventListener("click", function () {
+    //     state = setStateOfFavDisplay(state);
+    //     document.getElementById("favIcon").firstElementChild.classList.toggle("yellowStar");
+    //     document.getElementById("favIcon").firstElementChild.classList.toggle("fas");
+        
+    // });
 }
 window.onscroll = function(){
   setToolbarPositionStatus();

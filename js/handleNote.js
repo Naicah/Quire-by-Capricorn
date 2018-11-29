@@ -62,6 +62,7 @@ function displayFirstNote() {
 // DISPLAY NOTES IN NOTELIST
 // Skicka med alternativ funktion, annars retuneras true.
 function displayNoteList(func = () => true) {
+	console.log("displayNoteList");
 	let noteArr = loopNoteObjects();
 	noteArr.sort(sortTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
@@ -117,15 +118,18 @@ function getNoteIDFromNoteList() {
 	return id;
 }
 
+// CHECK IF FAVSTAR IS FILLED OR NOT
 function isFavTrue (star){
 	return  star.classList.contains("fas") ? true : false;
 }
 
+// MAKE A NOTE AS FAVORITE
 function setFavState(state,id){
 	let note = getNoteFromStorage(id);
 	note.fav = state;
 	localStorage.setItem(id,JSON.stringify(note));
-	displayNoteList();
+	// displayNoteList();
+	setStateOfFavDisplay();
 }
 
 
@@ -340,13 +344,15 @@ function changeTheme(theme) {
 }
 
 // TOGGLE SHOWING FAV NOTES
+function setStateOfFavDisplay(){
+	let favIcon = document.getElementById("favIcon").firstElementChild;
 
-function setStateOfFavDisplay(state){
-    if(!state){
-        displayNoteList((n)=> n.fav==true);
-        return !state;
-    } else {
-        displayNoteList()
-        return !state;
-    }
+	if (favIcon.classList.contains("yellowStar")) {
+		displayNoteList((n)=> n.fav==true);
+	} else {
+		displayNoteList();
+	}
 }
+
+
+
