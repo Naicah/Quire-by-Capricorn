@@ -38,7 +38,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
+        height: auto;
     }
     #logo {
         height: 2.5em;
