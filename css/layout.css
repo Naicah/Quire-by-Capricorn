@@ -217,6 +217,7 @@
         right:0;
         left:25%;
         z-index: 2;
+        background: #fff;
     }
     .ql-editor{
       position:fixed;

@@ -22,10 +22,9 @@ function setToolbarPositionStatus(){
 	let distanceToTop = toolbar.getBoundingClientRect().top;
 	if(distanceToBottomTopNav >= 0 || distanceToBottomNoteList >= 1){
 		state = false;
+		toolbar.classList.remove("ql-toolbar-fixed")
 	}
 	if(distanceToTop <= 0  && state == true){
 		toolbar.classList.add("ql-toolbar-fixed")
-	}else{
-		toolbar.classList.remove("ql-toolbar-fixed")
 	}
 }
