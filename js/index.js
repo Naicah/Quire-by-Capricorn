@@ -1,14 +1,12 @@
 // ON LOAD
 window.onload = function () {
     showTutuorial(); // Show tutorial on first visit
-    filterNoteList();
-    if (localStorage.length > 0) { // If there are any stored notes
-        displayFirstNote(); // Display content of first note of note list in editor
-    } else { // If storage is empty
+    if (localStorage.length == 0) { // If there are any stored notes
         newPage(); // Create new object in note list
-        filterNoteList();
     }
-    positionSave();
+    filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
+    displayFirstNote(); // Display content of first note of note list in editor
+    positionSaveButton(); //Move the save button to be within toolbar
 
     // WHEN CLICK IN TUTORIAL POP UP
     document.getElementById("tutorial").addEventListener("click", () => {
@@ -23,26 +21,26 @@ window.onload = function () {
 
     // WHEN CLICKING ON ICON FOR NEW PAGE
     document.getElementById("newPage").addEventListener("click", function () {
-        updateNote(getCurrentNoteID(), getText());
+        updateNote(getCurrentNoteID(), getText()); // Save changes of displayed note
         newPage(); // Create new object in note list
     });
 
     // WHEN CLICK ON SAVE ICON
     document.getElementById("save").addEventListener("click", function () {
-        save(getCurrentNoteID());
+        save(getCurrentNoteID()); // Save note
     });
 
     // WHEN CLICKING ON TRASHCAN ICON
     document.getElementById("deleteAll").addEventListener("click", function () {
-        deleteAll();
+        deleteAll(); // Delete all notes
         newPage(); // Create new object in note list
-        filterNoteList();
+        filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
     });
 
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function () {
         checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList()); // Check if there are any unsaved changes in displayed note
-        filterNoteList();
+        filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
     });
 
     // WHEN CLICK ON SAVE IN POP UP
@@ -57,36 +55,37 @@ window.onload = function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-     // WHEN CLICK ON IGNORE IN POP UP
+    // WHEN CLICK ON IGNORE IN POP UP
      document.getElementById("popUpCancel").addEventListener("click", function () {
         document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
     });
 
-    // // WHEN CLICKING ON THEME ICON
+    // WHEN CLICKING ON THEME ICON
     document.getElementById("themeIcon").addEventListener("click", function () {
-        themeToggle();
+        themeToggle(); // Show pop up to choose theme
     });
 
+    // WHEN CLICKING OUTSIDE POP UP TO CHOOSE THEME
     document.getElementById("theme2").addEventListener("click", function () {
-        themeToggle();
+        themeToggle(); // Hide pop up to choose theme
     });
 
     // WHEN CLICK ON FORREST THEME
     document.getElementById("forrest").addEventListener("click", function () {
-        changeTheme("forrest");
+        changeTheme("forrest"); // Change theme
     });
     // WHEN CLICK ON FIRE THEMW
     document.getElementById("fire").addEventListener("click", function () {
-        changeTheme("fire");
+        changeTheme("fire"); // Change theme
     });
 
     // WHEN CLICK ON WATER THEME
     document.getElementById("water").addEventListener("click", function () {
-        changeTheme("water");
+        changeTheme("water"); // Change theme
     });
     // WHEN CLICK ON STANDARD THEME
     document.getElementById("standard").addEventListener("click", function () {
-        changeTheme("standard");
+        changeTheme("standard"); // Change theme
     });
 
     // SHOW FAVORITES
@@ -97,10 +96,11 @@ window.onload = function () {
         favIcon.classList.toggle("yellowStar");
         favIcon.classList.toggle("fas");
         
-        filterNoteList();
+        filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
+        displayFirstNote(); // Display first note of note list in editor
     });
 }
-// FIRINGSTATE OF TOOLBOX POSITION INHERIT/FIXED
-window.onscroll = function(){
+// FIRING STATE OF TOOLBOX POSITION INHERIT/FIXED
+window.onscroll = function() {
   setToolbarPositionStatus();
 }
