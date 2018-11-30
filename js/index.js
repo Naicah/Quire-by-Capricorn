@@ -99,8 +99,29 @@ window.onload = function () {
         filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
         displayFirstNote(); // Display first note of note list in editor
     });
+
+    document.getElementById("search").addEventListener("click", function () {
+        document.getElementById("searchField").classList.toggle('none');
+    });
 }
-// FIRING STATE OF TOOLBOX POSITION INHERIT/FIXED
-window.onscroll = function() {
+
+
+
+ // SEARCH FUNCTION / WILLIAM 
+ function SearchFunction(){
+    var search = document.getElementById("searchField").firstElementChild.value.trim().toLocaleLowerCase();
+    displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
+    }
+
+
+
+// FIRINGSTATE OF TOOLBOX POSITION INHERIT/FIXED
+window.onscroll = function(){
   setToolbarPositionStatus();
 }
+
+
+    
+
+
+

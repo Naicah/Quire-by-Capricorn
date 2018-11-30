@@ -340,7 +340,19 @@ function changeTheme(theme) {
 // FILTER WHICH NOTES SHOULD BE DISPLAYED IN NOTE LIST
 function filterNoteList(){
 	filterFav();
+	// filterSearch();
 }
+
+// FILTER NOTELIST FILTER ON KEY WORD 
+
+// function filterSearch (){
+// 	var search = document.getElementById("searchField").firstElementChild.value.trim().toLocaleLowerCase();
+// 	if(search.value === ""){
+// 		displayNoteList();
+// 	} else {
+// 		SearchFunction();
+// 	}
+// }
 
 // TOGGLE SHOWING FAV NOTES
 function filterFav() {
@@ -352,3 +364,9 @@ function filterFav() {
 		displayNoteList();
 	}
 }
+
+// SEARCH FUNCTION 
+
+document.getElementById("searchField").firstElementChild.addEventListener("keyup", function(event) {
+      SearchFunction();
+  });

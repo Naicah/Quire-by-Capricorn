@@ -141,7 +141,7 @@ body, html{
 #searchField {
     grid-area: searchField;
     background-color:#213d57;
-    display: none;
+    
 }
 
 /*-------------------------------------------------
@@ -370,4 +370,16 @@ body, html{
 
   .yellowStar{
       color:goldenrod;
+  }
+
+
+  #searchField textarea {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #213d57;
+    color: white;
+    border: none;
+    resize: none;
   }
