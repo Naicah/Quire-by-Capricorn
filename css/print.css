@@ -7,10 +7,13 @@
     display:block;
     margin:0;
     padding:0;
+    height: auto;
+    width:595px;
   }
   #editor{
     display:block;
     border:none;
+    height: auto;
   }
  /* Ql-editor size of a a4; */
   .ql-editor{
