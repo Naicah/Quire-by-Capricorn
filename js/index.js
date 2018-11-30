@@ -99,8 +99,29 @@ window.onload = function () {
         
         filterNoteList();
     });
+
+    document.getElementById("search").addEventListener("click", function () {
+        document.getElementById("searchField").classList.toggle('none');
+    });
 }
+
+
+
+ // SEARCH FUNCTION / WILLIAM 
+ function SearchFunction(){
+    var search = document.getElementById("searchField").firstElementChild.value.trim().toLocaleLowerCase();
+    displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
+    }
+
+
+
 // FIRINGSTATE OF TOOLBOX POSITION INHERIT/FIXED
 window.onscroll = function(){
   setToolbarPositionStatus();
 }
+
+
+    
+
+
+

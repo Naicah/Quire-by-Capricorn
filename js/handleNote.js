@@ -20,13 +20,11 @@ function positionSave() {
 
 // SET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function setCurrentNoteID(id) {
-	console.log("setCurrentNoteID " + id);
 	document.getElementById("main").firstChild.id = id; // Store ID in hidden Div in main
 }
 
 // GET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function getCurrentNoteID() {
-	console.log("getCurrentNoteID " + document.getElementById("main").firstChild.id);
 	return document.getElementById("main").firstChild.id; // ID stored in hidden Div in main
 }
 
@@ -62,7 +60,6 @@ function displayFirstNote() {
 // DISPLAY NOTES IN NOTELIST
 // Skicka med alternativ funktion, annars retuneras true.
 function displayNoteList(func = () => true) {
-	console.log("displayNoteList");
 	let noteArr = loopNoteObjects();
 	noteArr.sort(sortTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
@@ -114,7 +111,6 @@ function getNoteIDFromNoteList() {
 		}
 	}
 	setNextNoteID(id);
-	console.log("getNoteIDFromNoteList after setNext " + id);
 	return id;
 }
 
@@ -134,7 +130,6 @@ function setFavState(state,id){
 
 // CHECK IF THERE ARE ANY UNSAVED CHANGES, DISPLAY NEXT NOTE - NIna
 function checkIfSaved(currentID, nextID) {
-	console.log("checkIfSaved next ID " + nextID);
 	let savedText = getNoteFromStorage(currentID).text; // Text in storage
 	let currentText = getText().text; // Text in editor
 
@@ -346,7 +341,19 @@ function changeTheme(theme) {
 // FILTER WHICH NOTES SHOULD BE DISPLAYED IN NOTE LIST
 function filterNoteList(){
 	filterFav();
+	// filterSearch();
 }
+
+// FILTER NOTELIST FILTER ON KEY WORD 
+
+// function filterSearch (){
+// 	var search = document.getElementById("searchField").firstElementChild.value.trim().toLocaleLowerCase();
+// 	if(search.value === ""){
+// 		displayNoteList();
+// 	} else {
+// 		SearchFunction();
+// 	}
+// }
 
 // TOGGLE SHOWING FAV NOTES
 function filterFav() {
@@ -361,3 +368,8 @@ function filterFav() {
 
 
 
+// SEARCH FUNCTION 
+
+document.getElementById("searchField").firstElementChild.addEventListener("keyup", function(event) {
+      SearchFunction();
+  });
