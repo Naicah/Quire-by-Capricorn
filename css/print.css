@@ -17,6 +17,8 @@
   }
  /* Ql-editor size of a a4; */
   .ql-editor{
+    padding:0;
+    margin:0;
     height: auto;
     width:595px;
     display:block;
