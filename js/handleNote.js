@@ -366,8 +366,6 @@ function filterFav() {
 	}
 }
 
-
-
 // SEARCH FUNCTION 
 
 document.getElementById("searchField").firstElementChild.addEventListener("keyup", function(event) {
