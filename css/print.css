@@ -10,13 +10,14 @@
   }
   #editor{
     display:block;
-    border:1px solid black;
+    border:none;
   }
  /* Ql-editor size of a a4; */
   .ql-editor{
-    height: 100%;
-    width:100%;
+    height: auto;
+    width:595px;
     display:block;
-    border: 1px solid black;
+    border:none;
+    overflow:none;
   }
 }
