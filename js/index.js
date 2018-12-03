@@ -44,20 +44,20 @@ window.onload = function () {
     });
 
     // WHEN CLICK ON SAVE IN POP UP
-    document.getElementById("popUpSave").addEventListener("click", function () {
-        popUpSave(getCurrentNoteID(), getNextNoteID()); // Save changes and display next note
-        document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
+    document.getElementById("unsavedContentSave").addEventListener("click", function () {
+        unsavedContentSave(getCurrentNoteID(), getNextNoteID()); // Save changes and display next note
+        document.getElementById("unsavedContent").classList.toggle('none'); // Hide warning pop up
     });
 
     // WHEN CLICK ON IGNORE IN POP UP
-    document.getElementById("popUpIgnore").addEventListener("click", function () {
-        popUpIgnore(getNextNoteID()); // Ignore changes and display next note
-        document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
+    document.getElementById("unsavedContentIgnore").addEventListener("click", function () {
+        unsavedContentIgnore(getNextNoteID()); // Ignore changes and display next note
+        document.getElementById("unsavedContent").classList.toggle('none'); // Hide warning pop up
     });
 
     // WHEN CLICK ON IGNORE IN POP UP
-     document.getElementById("popUpCancel").addEventListener("click", function () {
-        document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
+     document.getElementById("unsavedContentCancel").addEventListener("click", function () {
+        document.getElementById("unsavedContent").classList.toggle('none'); // Hide warning pop up
     });
 
     // WHEN CLICKING ON THEME ICON

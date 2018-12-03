@@ -139,7 +139,7 @@ function checkIfSaved(currentID, nextID) {
 
 		if (currentID != nextID) { // If click on currently displayed note in note list
 		if (savedText != currentText && currentText !== "<p><br></p>") { // If text in editor is different from what is stored
-			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
+			document.getElementById("unsavedContent").classList.toggle('none'); // Show warning pop up
 		} else { // No unsaved changes
 			textToEditor(getNoteFromStorage(nextID)); // Display note that was clicked on
 			setCurrentNoteID(nextID);
@@ -148,7 +148,7 @@ function checkIfSaved(currentID, nextID) {
 }
 
 // SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
-function popUpSave(currentID, nextID) {
+function unsavedContentSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
 	filterNoteList(); // Update note list
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
@@ -156,7 +156,7 @@ function popUpSave(currentID, nextID) {
 }
 
 // DON'T SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
-function popUpIgnore(nextID) {
+function unsavedContentIgnore(nextID) {
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	setCurrentNoteID(nextID);
 }
