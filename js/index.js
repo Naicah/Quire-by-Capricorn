@@ -107,7 +107,11 @@ window.onload = function () {
 
 }
 
-
+ // SEARCH FUNCTION / WILLIAM 
+ function SearchFunction(){
+    var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
+    displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
+    }
 
 
 
