@@ -9,6 +9,10 @@
         padding: 0;
         grid-template-columns: 3fr 9fr;
     }
+
+    .popUpContent {
+        padding: 2em 5em;
+    }
     /* -------------------------------- NAV -------------------------------- */
     nav {
       position: fixed;

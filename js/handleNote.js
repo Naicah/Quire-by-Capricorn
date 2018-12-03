@@ -312,8 +312,8 @@ function deleteAll() {
 
 // Toggle THEME SYMBOL
 function themeToggle(){
-	let themes = document.getElementById("theme2")
-		document.getElementById("theme2").classList.toggle('theme2-display-flex');
+	let themes = document.getElementById("chooseTheme")
+		document.getElementById("chooseTheme").classList.toggle('theme2-display-flex');
 }
 
 // CHANGE THEME
