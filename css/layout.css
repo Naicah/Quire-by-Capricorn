@@ -2,7 +2,7 @@
   -              Medium devices (landscape tablets, 768px and up)          -
   -------------------------------------------------------------------------- */
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 764px) {
     .container {
         grid-template-areas:
             'nav main';
@@ -73,9 +73,9 @@
 
      /* ------------------ SEARCH FIELD -------------------- */
 
-    /* #searchField {
+    #searchField {
         display: block;
-    } */
+    }
 
     /* -------------------- NOTE LIST ---------------------- */
     #noteList {
@@ -222,13 +222,16 @@
     .ql-editor{
       overflow-y:auto;
       position:fixed;
-      height:93vh;
+      height:90%;
       right:0;
       bottom:0;
       left:25%;
       top: 42px;
       margin-top: 1em;
     }
+    /* .ql-container{
+
+    } */
     .collapse-mobile{
       display: block;
     }

@@ -1,3 +1,9 @@
+/* bugg fix for layout.css, that cannot be inserted there */
+  @media only screen and (min-width: 764px){
+    .ql-editor{
+      height:93%;
+    }
+  }
 @media print{
   nav, .collapse-mobile, .ql-toolbar, #popUp, #navSec,
   #topNav, #menu, #noteList, #notes, #searchField{
@@ -19,7 +25,7 @@
   .ql-editor{
     padding:0;
     margin:0;
-    height: auto;
+    min-height: 100%;
     width:595px;
     display:block;
     border:none;
