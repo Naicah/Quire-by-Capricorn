@@ -111,10 +111,10 @@ window.onload = function () {
 
 
 
-// FIRINGSTATE OF TOOLBOX POSITION INHERIT/FIXED
-window.onscroll = function(){
-  setToolbarPositionStatus();
-}
+// // FIRINGSTATE OF TOOLBOX POSITION INHERIT/FIXED
+// window.onscroll = function(){
+//   setToolbarPositionStatus();
+// }
 
 
     

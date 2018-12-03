@@ -21,9 +21,9 @@ body, html{
 }
 
 /*---------------------------------------------------------------------------
-  -                 TUTORIAL, UNSAVED CONTENT, THEME VIEW                   -
+  -                               POP-UPS                                   -
   --------------------------------------------------------------------------- */
-.popUpContainer {
+  .popUpContainer {
     z-index: 1;
     position: absolute;
     width: 100%;
@@ -43,27 +43,25 @@ body, html{
     padding: 2em 1em;
     color: #213d57;
 }
-.popUpContent button{
-    height: 30px;
-    margin-bottom: 20px;
-    width: auto;
-    outline-color: rgba(255, 255, 255, .5);
-    outline-offset: 0px;
-    background: #105493;
-  }
-
-/* Styling popup when for choosing theme  */
-
-.theme2-display-flex{
-  display:flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
+.popUpContent h2 {
+    margin: 0;
 }
-/* #unsavedContent:target{
-    visibility: visible;
-    opacity: 1;
-} */
+.popUpContent button{
+    padding: 1em;
+    border: rgba(255, 255, 255, .5);
+    border-radius: 5%;
+    background-color: #105493;
+    color: white;
+    cursor: pointer;
+    margin: 0.5em;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.popUpContent button:hover{
+    background-color: #213d57;
+}
+/*------------------------------------------------------------
+  -                      THEME VIEW                          -
+  ------------------------------------------------------------ */
 #themeChoice {
     display: flex;
     flex-direction: row;
@@ -71,16 +69,16 @@ body, html{
     justify-content: space-between;
 }
 #themeChoice div {
-    width: 5em;
-    height: auto;
+    width: 8em;
+    height: 8em;
     margin:auto;
+    margin-top: 1em;
 }
 #themeChoice img {
     width: 100%;
     height: 100%;
     opacity: 0.8;
     border-radius: 50%;
-    margin: auto;
     border: 1px solid;
 }
 #themeChoice img:hover{
@@ -193,7 +191,6 @@ body, html{
 .yellowStar{
     color:goldenrod;
 }
-
 
 /*------------------------------------------------------------
   -                      NOTES                               -
