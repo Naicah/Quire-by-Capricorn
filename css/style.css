@@ -368,10 +368,13 @@ body, html{
     margin-top: 3%;
   }
 
+  /* Sryling Fav Icon */
+
   .yellowStar{
       color:goldenrod;
   }
 
+/* Styling Search Field */
 
   #searchField textarea {
     cursor: pointer;
@@ -382,4 +385,47 @@ body, html{
     color: white;
     border: none;
     resize: none;
+    /* text-align: center; */
+    padding-top: 11px;
   }
+
+/* Transparant placeholder text as defult in search field  */
+
+    textarea::-webkit-input-placeholder {
+    color: transparent;
+    }
+
+    textarea:-moz-placeholder { /* Firefox 18- */
+    color: transparent;  
+    }
+    textarea::-moz-placeholder {  /* Firefox 19+ */
+    color: transparent;  
+    }
+    textarea:-ms-input-placeholder {
+    color: transparent;  
+    }
+
+
+    /* Toggle white placeholder text when clicking on search Icon  */
+
+        .textarea::-webkit-input-placeholder {
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        opacity: 0.8;
+        }
+    
+        .textarea:-moz-placeholder { /* Firefox 18- */
+        color: #fff;
+        font-size: 20px;
+        }
+        .textarea::-moz-placeholder {  /* Firefox 19+ */
+        color: #fff;
+        font-size: 20px; 
+        }
+        .textarea:-ms-input-placeholder {
+        color: #fff;
+        font-size: 20px;  
+        }
+
+   
