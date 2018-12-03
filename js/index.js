@@ -43,6 +43,11 @@ window.onload = function () {
         filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
     });
 
+    // WHEN CLICKING SEARCH ICON TOGGLE PLACEHOLDER 
+    document.getElementById("search").addEventListener("click", function () {
+        document.getElementById("searchField").firstElementChild.classList.toggle('textarea');
+    });
+
     // WHEN CLICK ON SAVE IN POP UP
     document.getElementById("popUpSave").addEventListener("click", function () {
         popUpSave(getCurrentNoteID(), getNextNoteID()); // Save changes and display next note
@@ -100,16 +105,11 @@ window.onload = function () {
         displayFirstNote(); // Display first note of note list in editor
     });
 
-    document.getElementById("search").addEventListener("click", function () {
-        document.getElementById("searchField").classList.toggle('none');
-    });
 }
-
-
 
  // SEARCH FUNCTION / WILLIAM 
  function SearchFunction(){
-    var search = document.getElementById("searchField").firstElementChild.value.trim().toLocaleLowerCase();
+    var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
     displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
     }
 
