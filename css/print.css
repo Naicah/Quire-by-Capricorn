@@ -1,5 +1,5 @@
 @media print{
-  nav, .conainer, .collapse-mobile, .ql-toolbar, #popUp, #navSec,
+  nav, .collapse-mobile, .ql-toolbar, #popUp, #navSec,
   #topNav, #menu, #noteList, #notes, #searchField{
     display: none !important;
   }
