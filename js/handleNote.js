@@ -83,6 +83,12 @@ function displayNoteList(func = () => true) {
 		if (obj.fav){
 			newI.classList.add("fas");
 		}
+		console.log(obj);
+		if(obj.active){
+			newDiv.classList.add("active-style");
+		}else{
+			newDiv.classList.remove("active-style");
+		}
 		let title = obj.title;
 
 		if (title.length > 20) {
@@ -128,7 +134,7 @@ function isFavTrue (star){
 function setFavState(state,id){
 	let note = getNoteFromStorage(id);
 	note.fav = state;
-	localStorage.setItem(id,JSON.stringify(note));
+	addToLocalStorage(note);
 	filterNoteList();
 }
 
@@ -161,10 +167,24 @@ function unsavedContentIgnore(nextID) {
 	setCurrentNoteID(nextID);
 }
 
-// DISPLAY TEXT OF GIVEN NOTE IN EDITOR
+// Highlight function adding focus to target that's displayed - jonathan
+function highlight(obj){
+		// getting current obj from textToEditor,
+	let arr = loopNoteObjects();
+	// gathering all objets
+	arr.forEach((n)=>{
+		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
+		(n.id === obj.id) ? n.active = true : n.active = false;
+		// save down all objects
+		addToLocalStorage(n);
+	})
+}
+
+// DISPLAY TEXT OF GIVEN NOTE IN EDITOR - setting up hightlight menu
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
+	highlight(noteObj);
 	setCurrentNoteID(noteObj.id);
 }
 
@@ -201,7 +221,7 @@ function updateNote(id, text) {
 	note.text = text.text; // Reset text to text from editor (given as argument)
 	note.dateTime = getTimeString(); // Get current time = time that last save occured
 	note.lastEdit = new Date().getTime(), // Get current time in number to be able to sort note list after time last saved
-	localStorage.setItem(id, JSON.stringify(note)); // Save changes in storage
+	addToLocalStorage(note); // Save changes in storage
 }
 
 // GET ALL TEXT IN EDITOR
@@ -224,7 +244,8 @@ function newNote(title, text) {
 		dateTime: getTimeString(), // Current time = time that note was created (last saved)
 		lastEdit: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
 		text: text,
-		fav: false
+		fav: false,
+		active: false,
 	};
 }
 
@@ -343,7 +364,7 @@ function filterNoteList(){
 	// filterSearch();
 }
 
-// FILTER NOTELIST FILTER ON KEY WORD 
+// FILTER NOTELIST FILTER ON KEY WORD
 
 // function filterSearch (){
 // 	var search = document.getElementById("searchField").firstElementChild.value.trim().toLocaleLowerCase();
@@ -365,7 +386,7 @@ function filterFav() {
 	}
 }
 
-// SEARCH FUNCTION 
+// SEARCH FUNCTION
 
 document.getElementById("searchField").firstElementChild.addEventListener("keyup", function(event) {
       SearchFunction();
