@@ -12,7 +12,7 @@ function toggleNoteList() {
 
 
 //STICKY NAV MOBILE
-function setToolbarPositionStatus(){
+/* function setToolbarPositionStatus(){
 	let state = true;
 	let noteList = document.querySelector("#noteList");
 	let topNav = document.querySelector("#topNav");
@@ -28,3 +28,34 @@ function setToolbarPositionStatus(){
 		toolbar.classList.add("ql-toolbar-fixed")
 	}
 }
+*/
+
+var prevScrollpos = window.pageYOffset;
+var qltoolbar = document.getElementsByClassName('ql-toolbar')[0];
+
+qltoolbar.classList.add("ql-toolbar-fixed");
+
+window.onscroll = function() {
+
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+	document.getElementById('nav').style.top = "0";
+	qltoolbar.style.top = "4em";
+  } else {
+	document.getElementById('nav').style.top = "-4em";
+	qltoolbar.style.top = "0";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+// var prevToolbarScrollpos = window.pageYOffset;
+// window.onscroll = function() {
+// var currentToolbarScrollPos = window.pageYOffset;
+//   if (prevToolbarScrollpos > currentToolbarScrollPos) {
+//     document.getElementsByClassName('.ql-toolbar').style.top = "5em";
+//   } else {
+//     document.getElementsByClassName('.ql-toolbar').style.top = "-8em";
+//   }
+//   prevToolbarScrollpos = currentToolbarScrollPos;
+// }
+

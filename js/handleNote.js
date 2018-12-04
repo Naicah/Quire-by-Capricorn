@@ -370,3 +370,4 @@ function filterFav() {
 document.getElementById("searchField").firstElementChild.addEventListener("keyup", function(event) {
       SearchFunction();
   });
+
