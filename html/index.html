@@ -8,11 +8,11 @@
     <title>Quire</title>
 
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/tutorial.css">
     <link rel="stylesheet" type="text/css" href="../css/layout.css">
     <link rel="stylesheet" type="text/css" href=""> <!-- DO NOT TOUCH -- Has to be href changes depending on which theme user uses -->
-    <link rel="stylesheet" type="text/css" href="../css/print.css">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/print.css">
+
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Great+Vibes|Montserrat|Mr+De+Haviland|Open+Sans+Condensed:300">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
@@ -24,8 +24,8 @@
 <body class="container ">
 
     <!-- ------------------------- TUTORIAL --------------------------------------------------------------------------------------- -->
-    <section id="tutorial" class="none">
-        <div id="tutorial-content">
+    <section id="tutorial" class="popUpContainer none">
+        <div class="popUpContent">
             <h2>Tutorial</h2>
             <h4>Meny</h4>
                 <p>Meny för att skapa dokument, sök bland dokument</p>
@@ -38,36 +38,36 @@
     </section> <!-- End Tutorial -->
 
     <!-- ------------------------- UNSAVED CONTENT --------------------------------------------------------------------------------------- -->
-    <div id="popUp" class="none">
-        <div>
+    <div id="unsavedContent" class="popUpContainer none">
+        <div class="popUpContent">
             <h2>VARNING!</h2>
             <p>Du har osparat material.<br>
             Vänligen spara för att inte förlora ditt innhehåll.</p>
-            <button id="popUpSave">SPARA</button>
-            <button id="popUpIgnore">IGNORERA</button>
-            <button id="popUpCancel">AVBRYT</button>
+            <button id="unsavedContentSave">SPARA</button>
+            <button id="unsavedContentIgnore">IGNORERA</button>
+            <button id="unsavedContentCancel">AVBRYT</button>
         </div>
     </div> <!-- End Unsaved content -->
 
     <!-- ------------------------- THEME VIEW --------------------------------------------------------------------------------------- -->
-    <section id = "theme2" class="none">
-        <div id ="themeContent">
-                <h2>Välj tema</h2>
-                <div id="themeChoice">
-                    <div id="forrest">
-                        <img src="https://images.unsplash.com/photo-1530799750-13f7b374d113?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6386bdd75049d070cca6ed0ac55ea294&auto=format&fit=crop&w=2250&q=80" alt="Forrest theme">
-                    </div>
-                    <div id="fire">
-                        <img src="https://images.unsplash.com/photo-1531418580067-04bc72baa73c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43956108ea3e65a0d922fde8dc676913&auto=format&fit=crop&w=1534&q=80" alt="Fire theme">
-                    </div>
-                    <div id="water">
-                        <img src="https://images.unsplash.com/photo-1533201357341-8d79b10dd0f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=28bf8cd814da8b4413f83a6d50cde55b&auto=format&fit=crop&w=1868&q=80" alt="Water theme">
-                    </div>
-                    <div id="standard">
-                        <img src="../media//standard.png" alt="Standard theme">
-                    </div>
-
+    <section id = "chooseTheme" class="popUpContainer none">
+        <div class ="popUpContent">
+            <h2>Välj tema</h2>
+            <div id="themeChoice">
+                <div id="forrest">
+                    <img src="https://images.unsplash.com/photo-1530799750-13f7b374d113?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6386bdd75049d070cca6ed0ac55ea294&auto=format&fit=crop&w=2250&q=80" alt="Forrest theme">
                 </div>
+                <div id="fire">
+                    <img src="https://images.unsplash.com/photo-1531418580067-04bc72baa73c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43956108ea3e65a0d922fde8dc676913&auto=format&fit=crop&w=1534&q=80" alt="Fire theme">
+                </div>
+                <div id="water">
+                    <img src="https://images.unsplash.com/photo-1533201357341-8d79b10dd0f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=28bf8cd814da8b4413f83a6d50cde55b&auto=format&fit=crop&w=1868&q=80" alt="Water theme">
+                </div>
+                <div id="standard">
+                    <img src="../media//standard.png" alt="Standard theme">
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -118,9 +118,9 @@
 
               <!-- ---------------------- NOTES ------------------------------------------------------------------------------------------ -->
               <section id="notes">
-                  <div id="searchField" class ="none">
-                        
-                        <textarea name="search" cols="10" rows="7"></textarea>
+                  <div id="searchField">
+
+                        <textarea class = "" name="search" cols="10" rows="3t" placeholder="SÖK HÄR"></textarea>
                   </div>
 
                   <div id="noteList" class="none">

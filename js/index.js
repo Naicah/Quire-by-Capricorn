@@ -43,21 +43,26 @@ window.onload = function () {
         filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
     });
 
+    // WHEN CLICKING SEARCH ICON TOGGLE PLACEHOLDER 
+    document.getElementById("search").addEventListener("click", function () {
+        document.getElementById("searchField").firstElementChild.classList.toggle('textarea');
+    });
+
     // WHEN CLICK ON SAVE IN POP UP
-    document.getElementById("popUpSave").addEventListener("click", function () {
-        popUpSave(getCurrentNoteID(), getNextNoteID()); // Save changes and display next note
-        document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
+    document.getElementById("unsavedContentSave").addEventListener("click", function () {
+        unsavedContentSave(getCurrentNoteID(), getNextNoteID()); // Save changes and display next note
+        document.getElementById("unsavedContent").classList.toggle('none'); // Hide warning pop up
     });
 
     // WHEN CLICK ON IGNORE IN POP UP
-    document.getElementById("popUpIgnore").addEventListener("click", function () {
-        popUpIgnore(getNextNoteID()); // Ignore changes and display next note
-        document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
+    document.getElementById("unsavedContentIgnore").addEventListener("click", function () {
+        unsavedContentIgnore(getNextNoteID()); // Ignore changes and display next note
+        document.getElementById("unsavedContent").classList.toggle('none'); // Hide warning pop up
     });
 
     // WHEN CLICK ON IGNORE IN POP UP
-     document.getElementById("popUpCancel").addEventListener("click", function () {
-        document.getElementById("popUp").classList.toggle('none'); // Hide warning pop up
+     document.getElementById("unsavedContentCancel").addEventListener("click", function () {
+        document.getElementById("unsavedContent").classList.toggle('none'); // Hide warning pop up
     });
 
     // WHEN CLICKING ON THEME ICON
@@ -66,7 +71,7 @@ window.onload = function () {
     });
 
     // WHEN CLICKING OUTSIDE POP UP TO CHOOSE THEME
-    document.getElementById("theme2").addEventListener("click", function () {
+    document.getElementById("chooseTheme").addEventListener("click", function () {
         themeToggle(); // Hide pop up to choose theme
     });
 
@@ -100,26 +105,21 @@ window.onload = function () {
         displayFirstNote(); // Display first note of note list in editor
     });
 
-    document.getElementById("search").addEventListener("click", function () {
-        document.getElementById("searchField").classList.toggle('none');
-    });
 }
-
-
 
  // SEARCH FUNCTION / WILLIAM 
  function SearchFunction(){
-    var search = document.getElementById("searchField").firstElementChild.value.trim().toLocaleLowerCase();
+    var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
     displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
     }
 
 
-/*
-// FIRINGSTATE OF TOOLBOX POSITION INHERIT/FIXED
-window.onscroll = function(){
-  setToolbarPositionStatus();
-}
-*/
+
+// // FIRINGSTATE OF TOOLBOX POSITION INHERIT/FIXED
+// window.onscroll = function(){
+//   setToolbarPositionStatus();
+// }
+
 
     
 
