@@ -116,10 +116,15 @@ body, html{
   --------------------------------------------------------------------------- */
 #nav {
     z-index: 15;
-    position: fixed;
+    display: block;
+    position: relative;
     top: 0;
     width: 100%;
     transition: top 0.3s;
+}
+
+fixed-position {
+  position: fixed
 }
 
 
@@ -202,7 +207,7 @@ body, html{
     height: 5em;
     justify-content: space-evenly;
     display:flex;
-    
+
 }
 .menuIcon{
     background-color: inherit;
@@ -230,15 +235,7 @@ body, html{
     margin-top: 3%;
 }
 
-.ql-toolbar-fixed{
-  position: fixed;
-  background: #fff;
-  z-index: 10;
-  left:0;
-  top:0;    
-  right:0;
-    transition: top 0.3s;
-}
+
 .ql-toolbar-inherit{
   position: inherit;
 }
@@ -390,11 +387,12 @@ color: transparent;
     height: 100vh;
 }
 /*-------------------------------------------------
-  -                      TOLBAR                   -
+  -                      TOOLBAR                   -
   ------------------------------------------------- */
 .ql-toolbar.ql-snow {
     padding: 0.7em !important;
 }
+
 .ql-toolbar-fixed{
   position: fixed;
   background: #fff;
@@ -402,7 +400,9 @@ color: transparent;
   left:0;
   top:0;
   right:0;
+    transition: top 0.3s;
 }
+
 .ql-toolbar-inherit{
   position: inherit;
 }
