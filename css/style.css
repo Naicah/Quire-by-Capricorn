@@ -297,7 +297,7 @@ color: transparent;
     height: auto;
 }
 #clickNoteList div:hover { /* When hovering over any notelist obj */
-    background: #fff;
+    background: #f5f5f5;
     cursor: pointer;
 }
 #clickNoteList div{ /* Divs created for each note in notelist */

@@ -140,9 +140,9 @@
         font-size: 14px;
         margin-top: 22px;
     }
-    #clickNoteList div:hover {
+    /* #clickNoteList div:hover {
       background: #fff;
-    }
+    } */
     /* -------------------------------- TUTORIAL --------------------------- */
     /* ---------------------- TUTORIAL CONTENT -------------- */
     #tutorial-content {
