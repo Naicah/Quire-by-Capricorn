@@ -43,11 +43,6 @@ window.onload = function () {
         filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
     });
 
-    // WHEN CLICKING SEARCH ICON TOGGLE PLACEHOLDER 
-    document.getElementById("search").addEventListener("click", function () {
-        document.getElementById("searchField").firstElementChild.classList.toggle('textarea');
-    });
-
     // WHEN CLICK ON SAVE IN POP UP
     document.getElementById("unsavedContentSave").addEventListener("click", function () {
         unsavedContentSave(getCurrentNoteID(), getNextNoteID()); // Save changes and display next note

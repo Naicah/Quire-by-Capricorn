@@ -77,7 +77,8 @@
      /* ------------------ SEARCH FIELD -------------------- */
 
     #searchField {
-        display: block;
+        display: flex;
+        flex-direction: row;
     }
 
     /* -------------------- NOTE LIST ---------------------- */

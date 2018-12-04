@@ -392,6 +392,6 @@ document.getElementById("searchField").firstElementChild.addEventListener("keyup
 
    // SEARCH FUNCTION / WILLIAM 
  function SearchFunction(){
-    var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
+	var search = document.getElementById("searchInput").value.toLocaleLowerCase();
     displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
     }
