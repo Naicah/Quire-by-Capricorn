@@ -109,6 +109,14 @@ body, html{
 /*---------------------------------------------------------------------------
   -                      NAV                                                -
   --------------------------------------------------------------------------- */
+#nav {
+    z-index: 15;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: top 0.3s;
+}
+
 
 /*------------------------------------------------------------
   -                      NAVSEC                              -
@@ -129,8 +137,15 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: left;
-
 }
+
+
+/* .sticky  {
+    position: fixed;
+    top: 4em;
+    width: 100%;
+  } */
+
 #logo {
     height: 2.5em;
     width: auto;
@@ -182,6 +197,7 @@ body, html{
     height: 5em;
     justify-content: space-evenly;
     display:flex;
+    
 }
 .menuIcon{
     background-color: inherit;
@@ -207,6 +223,19 @@ body, html{
     float: right;
     margin-right: 2%;
     margin-top: 3%;
+}
+
+.ql-toolbar-fixed{
+  position: fixed;
+  background: #fff;
+  z-index: 10;
+  left:0;
+  top:0;    
+  right:0;
+    transition: top 0.3s;
+}
+.ql-toolbar-inherit{
+  position: inherit;
 }
 
 .yellowStar{
@@ -308,6 +337,7 @@ color: transparent;
 }
 .active-style{
   background: #fff;
+  outline: 1px solid #115493;
 }
 /*---------------------------------------
   -            CLICK NOTE LIST          -
