@@ -388,39 +388,75 @@ color: transparent;
         'editor';
     padding: 0;
     height: 100vh;
+    margin-top:30vh;
 }
 /*-------------------------------------------------
   -                      TOLBAR                   -
   ------------------------------------------------- */
 .ql-toolbar.ql-snow {
     padding: 0.7em !important;
-}
-.ql-toolbar-fixed{
-  position: fixed;
-  background: #fff;
-  z-index: 10;
-  left:0;
-  top:0;
-  right:0;
-}
-.ql-toolbar-inherit{
-  position: inherit;
-}
-#save {
     display: flex;
     justify-content: center;
-    align-items: center;
-    color: black;
-    height: 100%;
-    margin: 0;
-    width: 5em;
 }
+.ql-toolbar-fixed{
+    position: fixed;
+    background: #fff;
+    z-index: 10;
+}
+.ql-toolbar-inherit{
+    position: inherit;
+}
+/* Toolbar content */
+#editorContainer > div > span > span:nth-child(6) {
+    font-size: 1.7em !important;
+    width: 2em !important;
+}
+#editorContainer > div > span > span:first-child { /* Drop down Header*/
+ width: 6em !important;
+}
+
+
+#editorContainer > div > span > span:first-child > span:last-child > span{
+    font-size: 0.5em !important;
+}
+
+#saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
+    font-size: 2em !important;
+    height: 2em !important;
+    width: auto !important;
+    padding: 0.5em 0.25em !important;
+    color: #444;
+}
+
+
+
+
+
+/* .ql-snow .ql-color-picker, .ql-snow .ql-icon-picker {
+    width: auto !important;
+    
+}
+
+.ql-snow .ql-picker {
+    font-size: 2em !important;
+    font-weight: 500;
+    height: auto;
+    position: relative;
+    vertical-align: middle;
+}
+.ql-snow.ql-toolbar button, .ql-snow .ql-toolbar button {
+    height: 2em !important;
+    padding: 0.5em 1em !important;
+    width: auto !important;
+}*/
+
 #save:hover {
     cursor: pointer;
 }
-#saveIcon {
+/* #saveIcon {
     font-size: 2em;
-}
+    color: #444;
+} */
 
   /*- William*/
 #load-wrapp {

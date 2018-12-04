@@ -4,7 +4,7 @@ var quill = new Quill('#editor', {
 		toolbar: [
 			{ header: [1, 2, false] },
 			'bold', 'italic', 'underline',
-			{ 'align': [] }, { 'indent': '-1' }, { 'indent': '+1' },
+			{ 'align': [] },
 			{ 'list': 'ordered' }, { 'list': 'bullet' },
 			'image', 
 		],
