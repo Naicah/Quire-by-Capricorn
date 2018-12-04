@@ -30,30 +30,30 @@ function toggleNoteList() {
 }
 */
 
-var prevScrollpos = window.pageYOffset;
-var qltoolbar = document.getElementsByClassName('ql-toolbar')[0];
+// var prevScrollpos = window.pageYOffset;
+// var qltoolbar = document.getElementsByClassName('ql-toolbar')[0];
 
-qltoolbar.classList.add("ql-toolbar-fixed");
-	window.onscroll = function() {
-	if(window.matchMedia("(max-width: 740px)").matches){
-		var currentScrollPos = window.pageYOffset;
-	  if (prevScrollpos > currentScrollPos) {
-			document.getElementById('nav').style.top = "0";
-			qltoolbar.style.top = "7.7em";
-	  } else {
-			document.getElementById('nav').style.top = "-7.7em";
-			qltoolbar.style.top = "0";
-	  }
-	  prevScrollpos = currentScrollPos;
-	}
-}
+// qltoolbar.classList.add("ql-toolbar-fixed");
+// 	window.onscroll = function() {
+// 	if(window.matchMedia("(max-width: 740px)").matches){
+// 		var currentScrollPos = window.pageYOffset;
+// 	  if (prevScrollpos > currentScrollPos) {
+// 			document.getElementById('nav').style.top = "0";
+// 			qltoolbar.style.top = "7.7em";
+// 	  } else {
+// 			document.getElementById('nav').style.top = "-7.7em";
+// 			qltoolbar.style.top = "0";
+// 	  }
+// 	  prevScrollpos = currentScrollPos;
+// 	}
+// }
 
-window.onresize = () => {
-	  console.log("EXECUTING BITCH	")
-	if(window.matchMedia("(min-width: 764px)").matches){
-			qltoolbar.style.top = "0";
-	}
-}
+// window.onresize = () => {
+// 	  console.log("EXECUTING BITCH	")
+// 	if(window.matchMedia("(min-width: 764px)").matches){
+// 			qltoolbar.style.top = "0";
+// 	}
+// }
 
 
 

@@ -6,7 +6,7 @@ var quill = new Quill('#editor', {
 			'bold', 'italic', 'underline',
 			{ 'align': [] }, { 'indent': '-1' }, { 'indent': '+1' },
 			{ 'list': 'ordered' }, { 'list': 'bullet' },
-			'image', 'video', 'code-block', 'clean',
+			'image', 
 		],
 	},
 	placeholder: 'Compose an epic...',

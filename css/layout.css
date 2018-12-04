@@ -9,9 +9,11 @@
         padding: 0;
         grid-template-columns: 3fr 9fr;
     }
-
     .popUpContent {
         padding: 2em;
+    }
+    #chooseTheme.popUpContainer {
+        top: 30vh;
     }
     /* -------------------------------- NAV -------------------------------- */
     nav {
