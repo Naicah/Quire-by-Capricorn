@@ -365,12 +365,10 @@ function filterNoteList(){
 // FILTER NOTELIST FILTER ON KEY WORD
 
 // function filterSearch (){
-// 	var search = document.getElementById("searchField").firstElementChild.value.trim().toLocaleLowerCase();
-// 	if(search.value === ""){
-// 		displayNoteList();
-// 	} else {
+// 	var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
+// 	if(!search.value === ""){
 // 		SearchFunction();
-// 	}
+// 	} 
 // }
 
 // TOGGLE SHOWING FAV NOTES
@@ -390,3 +388,9 @@ document.getElementById("searchField").firstElementChild.addEventListener("keyup
       SearchFunction();
   });
 
+
+   // SEARCH FUNCTION / WILLIAM 
+ function SearchFunction(){
+	var search = document.getElementById("searchInput").value.toLocaleLowerCase();
+    displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
+    }

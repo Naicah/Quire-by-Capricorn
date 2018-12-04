@@ -105,9 +105,9 @@
                       <i class="far fa-file icon" alt="New file icon"></i>
                   </div>
                   <!-- SEARCH -->
-                  <div id="search" class="menuIcon">
+                  <!-- <div id="search" class="menuIcon">
                       <i class="fas fa-search icon" alt="Search icon"></i>
-                  </div>
+                  </div> -->
                   <!-- ANALYTICS -->
                   <div id="analytics" class="menuIcon">
                       <i class="far fa-chart-bar icon" alt="Analytics icon"></i>
@@ -129,13 +129,15 @@
               </section> <!-- End NavSec -->
 
               <!-- ---------------------- NOTES ------------------------------------------------------------------------------------------ -->
-              <section id="notes">
-                  <div id="searchField">
-
-                        <textarea class = "" name="search" cols="10" rows="3t" placeholder="SÖK HÄR"></textarea>
+              <section id="notes" class="none">
+                  <div id="searchField" >
+                        <form>                                        
+                            <input id ="searchInput"  type="search" placeholder="SÖK">
+                            <i id="searchIcon" class="fas fa-search" alt="Search icon"></i>       
+                        </form>
                   </div>
 
-                  <div id="noteList" class="none">
+                  <div id="noteList" >
                       <div id="clickNoteList">
 
                       </div>

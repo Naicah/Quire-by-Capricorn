@@ -6,7 +6,7 @@ function toggleMenu() {
 	collapse.classList.toggle('none');
 }
 function toggleNoteList() {
-	document.getElementById("noteList").classList.toggle('none');
+	document.getElementById("notes").classList.toggle('none');
 }
 
 
