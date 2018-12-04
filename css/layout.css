@@ -155,38 +155,6 @@
         width: 50%;
     }
 
-    /* -------------------------------- popUP --------------------------- */
-  /* #themeContent{
-    background-color: white;
-    width: 770px;
-    height: 290px;
-    margin:0;
-    padding:0;
-  }
-    .theme2-display-flex{
-    display:flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-  }
-    #popUp div {
-        background-color: white;
-        width: 770px;
-        height: 290px;
-        margin: auto;
-        margin-top: 20%;
-        text-align: center;
-        font-family: 'Roboto', sans-serif;
-        border-radius: 5px;
-    } */
-
-    /* ---------------------- THEME CONTENT -------------- */
-    /* #themeChoice {
-        display: flex;
-        flex-direction: row;
-        padding-bottom: 5%;
-        margin-top: 5%;
-    } */
     /* -------------------------------- MAIN -------------------------------- */
     /* ---------------------- QUILL EDITOR ------------------ */
     /* ---------------- EDITOR CONTAINER ------------ */
@@ -228,6 +196,25 @@
     } */
     .collapse-mobile{
       display: block;
+    }
+    #editorContainer > div > span > span:nth-child(6) {
+        font-size: 1.7em !important;
+        width: 2em !important;
+    }
+    #editorContainer > div > span > span:first-child { /* Drop down Header*/
+     width: 6em !important;
+    }
+    
+    #editorContainer > div > span > span:first-child > span:last-child > span{
+        font-size: 0.5em !important;
+    }
+    
+    #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
+        font-size: 2em !important;
+        height: 2em !important;
+        width: auto !important;
+        padding: 0.5em 0.25em !important;
+        color: #444;
     }
 }
 /*--------------------------------------------------------------------------
