@@ -6,7 +6,7 @@ var quill = new Quill('#editor', {
 			'bold', 'italic', 'underline',
 			{ 'align': [] }, { 'indent': '-1' }, { 'indent': '+1' },
 			{ 'list': 'ordered' }, { 'list': 'bullet' },
-			'image', 'video', 'code-block', 'clean',
+			'image', 
 		],
 	},
 	placeholder: 'Compose an epic...',
@@ -144,7 +144,7 @@ function checkIfSaved(currentID, nextID) {
 
 		if (currentID != nextID) { // If click on currently displayed note in note list
 		if (savedText != currentText && currentText !== "<p><br></p>") { // If text in editor is different from what is stored
-			document.getElementById("unsavedContent").classList.toggle('none'); // Show warning pop up
+			popUpToggle(document.getElementById("unsavedContent")); // Show warning pop up
 		} else { // No unsaved changes
 			textToEditor(getNoteFromStorage(nextID)); // Display note that was clicked on
 			setCurrentNoteID(nextID);
@@ -206,7 +206,6 @@ function save(id) {
 	}
 	filterNoteList();
 }
-
 
 // CHECK IF NOTE ALREADY EXIST
 function checkForNote(id) {
@@ -330,10 +329,10 @@ function deleteAll() {
 	filterNoteList();
 }
 
-// Toggle THEME SYMBOL
-function themeToggle(){
-	let themes = document.getElementById("chooseTheme")
-		document.getElementById("chooseTheme").classList.toggle('none');
+// HIDE OR SHOW GIVEN POP UP
+function popUpToggle (popUp) {
+	document.getElementById("popUpBg").classList.toggle('none'); //Pop up background
+	popUp.classList.toggle('none');
 }
 
 // CHANGE THEME

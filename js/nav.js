@@ -49,7 +49,6 @@ qltoolbar.classList.add("ql-toolbar-fixed");
 }
 
 window.onresize = () => {
-	  console.log("EXECUTING BITCH	")
 	if(window.matchMedia("(min-width: 764px)").matches){
 			qltoolbar.style.top = "0";
 	}
