@@ -83,7 +83,6 @@ function displayNoteList(func = () => true) {
 		if (obj.fav){
 			newI.classList.add("fas");
 		}
-		console.log(obj);
 		if(obj.active){
 			newDiv.classList.add("active-style");
 		}else{
