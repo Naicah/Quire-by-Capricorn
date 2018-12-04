@@ -2,12 +2,16 @@
   -              Medium devices (landscape tablets, 768px and up)          -
   -------------------------------------------------------------------------- */
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 764px) {
     .container {
         grid-template-areas:
             'nav main';
         padding: 0;
         grid-template-columns: 3fr 9fr;
+    }
+
+    .popUpContent {
+        padding: 2em;
     }
     /* -------------------------------- NAV -------------------------------- */
     nav {
@@ -59,7 +63,6 @@
 
     }
 
-
     /* ---------------------------- NOTES --------------------------- */
     #notes {
         display: grid;
@@ -73,9 +76,9 @@
 
      /* ------------------ SEARCH FIELD -------------------- */
 
-    /* #searchField {
+    #searchField {
         display: block;
-    } */
+    }
 
     /* -------------------- NOTE LIST ---------------------- */
     #noteList {
@@ -137,9 +140,9 @@
         font-size: 14px;
         margin-top: 22px;
     }
-    #clickNoteList div:hover {
-      background: #f2f2f2;
-    }
+    /* #clickNoteList div:hover {
+      background: #fff;
+    } */
     /* -------------------------------- TUTORIAL --------------------------- */
     /* ---------------------- TUTORIAL CONTENT -------------- */
     #tutorial-content {
@@ -147,7 +150,7 @@
     }
 
     /* -------------------------------- popUP --------------------------- */
-  #themeContent{
+  /* #themeContent{
     background-color: white;
     width: 770px;
     height: 290px;
@@ -169,30 +172,15 @@
         text-align: center;
         font-family: 'Roboto', sans-serif;
         border-radius: 5px;
-    }
+    } */
 
     /* ---------------------- THEME CONTENT -------------- */
-    #themeChoice {
+    /* #themeChoice {
         display: flex;
         flex-direction: row;
         padding-bottom: 5%;
         margin-top: 5%;
-    }
-
-      #themeChoice div{
-
-      }
-
-      #themeChoice img {
-        width: 180px;
-        height: 180px;
-        opacity: 0.8;
-        border-radius: 50%;
-      }
-      #themeChoice img:hover{
-          opacity: 1;
-      }
-
+    } */
     /* -------------------------------- MAIN -------------------------------- */
     /* ---------------------- QUILL EDITOR ------------------ */
     /* ---------------- EDITOR CONTAINER ------------ */
@@ -222,13 +210,16 @@
     .ql-editor{
       overflow-y:auto;
       position:fixed;
-      height:93vh;
+      height:90%;
       right:0;
       bottom:0;
       left:25%;
       top: 42px;
       margin-top: 1em;
     }
+    /* .ql-container{
+
+    } */
     .collapse-mobile{
       display: block;
     }

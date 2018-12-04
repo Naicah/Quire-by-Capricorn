@@ -83,6 +83,11 @@ function displayNoteList(func = () => true) {
 		if (obj.fav){
 			newI.classList.add("fas");
 		}
+		if(obj.active){
+			newDiv.classList.add("active-style");
+		}else{
+			newDiv.classList.remove("active-style");
+		}
 		let title = obj.title;
 
 		if (title.length > 20) {
@@ -128,7 +133,7 @@ function isFavTrue (star){
 function setFavState(state,id){
 	let note = getNoteFromStorage(id);
 	note.fav = state;
-	localStorage.setItem(id,JSON.stringify(note));
+	addToLocalStorage(note);
 	filterNoteList();
 }
 
@@ -139,7 +144,7 @@ function checkIfSaved(currentID, nextID) {
 
 		if (currentID != nextID) { // If click on currently displayed note in note list
 		if (savedText != currentText && currentText !== "<p><br></p>") { // If text in editor is different from what is stored
-			document.getElementById("popUp").classList.toggle('none'); // Show warning pop up
+			document.getElementById("unsavedContent").classList.toggle('none'); // Show warning pop up
 		} else { // No unsaved changes
 			textToEditor(getNoteFromStorage(nextID)); // Display note that was clicked on
 			setCurrentNoteID(nextID);
@@ -148,7 +153,7 @@ function checkIfSaved(currentID, nextID) {
 }
 
 // SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
-function popUpSave(currentID, nextID) {
+function unsavedContentSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
 	filterNoteList(); // Update note list
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
@@ -156,15 +161,29 @@ function popUpSave(currentID, nextID) {
 }
 
 // DON'T SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
-function popUpIgnore(nextID) {
+function unsavedContentIgnore(nextID) {
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	setCurrentNoteID(nextID);
 }
 
-// DISPLAY TEXT OF GIVEN NOTE IN EDITOR
+// Highlight function adding focus to target that's displayed - jonathan
+function highlight(obj){
+		// getting current obj from textToEditor,
+	let arr = loopNoteObjects();
+	// gathering all objets
+	arr.forEach((n)=>{
+		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
+		(n.id === obj.id) ? n.active = true : n.active = false;
+		// save down all objects
+		addToLocalStorage(n);
+	})
+}
+
+// DISPLAY TEXT OF GIVEN NOTE IN EDITOR - setting up hightlight menu
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
+	highlight(noteObj);
 	setCurrentNoteID(noteObj.id);
 }
 
@@ -201,7 +220,7 @@ function updateNote(id, text) {
 	note.text = text.text; // Reset text to text from editor (given as argument)
 	note.dateTime = getTimeString(); // Get current time = time that last save occured
 	note.lastEdit = new Date().getTime(), // Get current time in number to be able to sort note list after time last saved
-	localStorage.setItem(id, JSON.stringify(note)); // Save changes in storage
+	addToLocalStorage(note); // Save changes in storage
 }
 
 // GET ALL TEXT IN EDITOR
@@ -224,7 +243,8 @@ function newNote(title, text) {
 		dateTime: getTimeString(), // Current time = time that note was created (last saved)
 		lastEdit: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
 		text: text,
-		fav: false
+		fav: false,
+		active: false,
 	};
 }
 
@@ -312,8 +332,8 @@ function deleteAll() {
 
 // Toggle THEME SYMBOL
 function themeToggle(){
-	let themes = document.getElementById("theme2")
-		document.getElementById("theme2").classList.toggle('theme2-display-flex');
+	let themes = document.getElementById("chooseTheme")
+		document.getElementById("chooseTheme").classList.toggle('none');
 }
 
 // CHANGE THEME
@@ -343,7 +363,7 @@ function filterNoteList(){
 	// filterSearch();
 }
 
-// FILTER NOTELIST FILTER ON KEY WORD 
+// FILTER NOTELIST FILTER ON KEY WORD
 
 // function filterSearch (){
 // 	var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
@@ -363,7 +383,7 @@ function filterFav() {
 	}
 }
 
-// SEARCH FUNCTION 
+// SEARCH FUNCTION
 
 document.getElementById("searchField").firstElementChild.addEventListener("keyup", function(event) {
       SearchFunction();

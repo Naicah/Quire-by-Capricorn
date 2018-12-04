@@ -19,6 +19,72 @@ body, html{
 .flex {
     display: flex;
 }
+
+/*---------------------------------------------------------------------------
+  -                               POP-UPS                                   -
+  --------------------------------------------------------------------------- */
+  .popUpContainer {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+.popUpContent {
+    background-color: white;
+    width: 70%;
+    height: auto;
+    margin: auto;
+    margin-top: 20%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    margin-bottom: 5%;
+    padding: 2em 1em;
+    color: #213d57;
+}
+.popUpContent h2 {
+    margin: 0;
+}
+.popUpContent button{
+    padding: 1em;
+    border: rgba(255, 255, 255, .5);
+    border-radius: 5%;
+    background-color: #105493;
+    color: white;
+    cursor: pointer;
+    margin: 0.5em;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.popUpContent button:hover{
+    background-color: #213d57;
+}
+/*------------------------------------------------------------
+  -                      THEME VIEW                          -
+  ------------------------------------------------------------ */
+#themeChoice {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#themeChoice div {
+    width: 8em;
+    height: 8em;
+    margin:auto;
+    margin-top: 1em;
+}
+#themeChoice img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    border-radius: 50%;
+    border: 1px solid;
+}
+#themeChoice img:hover{
+    opacity: 1;
+}
+
 /*---------------------------------------------------------------------------
   -                      NAV                                                -
   --------------------------------------------------------------------------- */
@@ -75,7 +141,16 @@ body, html{
   -webkit-transform: rotate(45deg) translate(-10px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
-
+#searchField textarea {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #213d57;
+    color: white;
+    border: none;
+    resize: none;
+  }
 /*-------------------------------------------------
   -                      MENU                     -
   ------------------------------------------------- */
@@ -107,27 +182,16 @@ body, html{
     font-size: 25px;
     color: white;
 }
-
-    /* -------------------------------- MAIN -------------------------------- */
-    /* ---------------------- QUILL EDITOR ------------------ */
-    /* ---------------- EDITOR CONTAINER ------------ */
-
-.ql-toolbar.ql-snow {
-    padding: 0.7em !important;
+#noteList .fa-star{
+    float: right;
+    margin-right: 2%;
+    margin-top: 3%;
 }
 
-.ql-toolbar-fixed{
-  position: fixed;
-  background: #fff;
-  z-index: 10;
-  left:0;
-  top:0;
-  right:0;
+.yellowStar{
+    color:goldenrod;
+}
 
-}
-.ql-toolbar-inherit{
-  position: inherit;
-}
 /*------------------------------------------------------------
   -                      NOTES                               -
   ------------------------------------------------------------ */
@@ -136,19 +200,67 @@ body, html{
     overflow: auto;
 }
 /*-------------------------------------------------
-  -                   NOTE LIST                   -
+  -                   SEARCH FIELD                   -
   ------------------------------------------------- */
 #searchField {
     grid-area: searchField;
     background-color:#213d57;
-    
+
+}
+#searchField textarea {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #213d57;
+    color: white;
+    border: none;
+    resize: none;
+    /* text-align: center; */
+    padding-top: 11px;
+}
+
+/* Transparant placeholder text as defult in search field  */
+
+textarea::-webkit-input-placeholder {
+    color: transparent;
+}
+
+textarea:-moz-placeholder { /* Firefox 18- */
+    color: transparent;
+}
+textarea::-moz-placeholder {  /* Firefox 19+ */
+    color: transparent;
+}
+    textarea:-ms-input-placeholder {
+color: transparent;
+}
+
+/* Toggle white placeholder text when clicking on search Icon  */
+
+.textarea::-webkit-input-placeholder {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.textarea:-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+    font-size: 20px;
+}
+.textarea::-moz-placeholder {  /* Firefox 19+ */
+    color: #fff;
+    font-size: 20px;
+}
+.textarea:-ms-input-placeholder {
+    color: #fff;
+    font-size: 20px;
 }
 
 /*-------------------------------------------------
   -                   NOTE LIST                   -
   ------------------------------------------------- */
-
-
 .custom-dropdown {
     background-color: #115493;
     position: absolute;
@@ -165,10 +277,6 @@ body, html{
     font-size: inherit;
     outline: 0;
 }
-
-/*-------------------------------------------------
-  -                   NOTE LIST                   -
-  ------------------------------------------------- */
 #noteList {
     grid-area: noteList;
     background-color: #ebebeb;
@@ -176,6 +284,9 @@ body, html{
     max-height: 10em;
     overflow-y: scroll;
     border-bottom: 1px solid darkgrey;
+}
+.active-style{
+  background: #fff;
 }
 /*---------------------------------------
   -            CLICK NOTE LIST          -
@@ -186,7 +297,7 @@ body, html{
     height: auto;
 }
 #clickNoteList div:hover { /* When hovering over any notelist obj */
-    background: #f2f2f2;
+    background: #f5f5f5;
     cursor: pointer;
 }
 #clickNoteList div{ /* Divs created for each note in notelist */
@@ -212,7 +323,7 @@ body, html{
 /*------------------------------------------------------------
   -                      EDITOR CONTAINER                    -
   ------------------------------------------------------------ */
-  #editorContainer {
+#editorContainer {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 9fr;
@@ -222,32 +333,23 @@ body, html{
     padding: 0;
     height: 100vh;
 }
-
-
 /*-------------------------------------------------
-  -                      EDITOR                   -
+  -                      TOLBAR                   -
   ------------------------------------------------- */
-#editor {
-    grid-area: editor;
-    overflow-x: hidden;
+.ql-toolbar.ql-snow {
+    padding: 0.7em !important;
 }
-.ql-editor{
-    overflow:hidden;
-  }
-.ql-toolbar {
-    display: flex;
-    justify-content: space-between;
+.ql-toolbar-fixed{
+  position: fixed;
+  background: #fff;
+  z-index: 10;
+  left:0;
+  top:0;
+  right:0;
 }
-.ql-toolbar.ql-snow .ql-formats {
-    margin-right: 0 !important;
+.ql-toolbar-inherit{
+  position: inherit;
 }
-.ql-snow.ql-toolbar:after, .ql-snow .ql-toolbar:after {
-    content: none !important;
-}
-
-/*---------------------------------------
-  -                SAVE                 -
-  --------------------------------------- */
 #save {
     display: flex;
     justify-content: center;
@@ -288,144 +390,23 @@ body, html{
     50% {width: 35px; padding: 4px;}
     100% {width: 15px;}
 }
-
-/* Styling popup when to warn non saved content  */
-
-#popUp, #theme2 {
-    z-index: 1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    /* visibility: hidden;
-    transition: visibility 0s, opacity 0.5s linear;
-     */
-  }
-
-.theme2-display-flex{
-  display:flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
+/*-------------------------------------------------
+  -                      EDITOR                   -
+  ------------------------------------------------- */
+#editor {
+    grid-area: editor;
+    overflow-x: hidden;
 }
-
-  #popUp:target{
-    visibility: visible;
-    opacity: 1;
+.ql-editor{
+    overflow:hidden;
   }
-
-  #popUp div, #themeContent {
-    background-color: white;
-    width: 100%;
-    height: auto;
-    margin: auto;
-    margin-top: 20%;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    border-radius: 5px;
-    margin-bottom: 5%;
-  }
-
-  #popUp button{
-    height: 30px;
-    margin-bottom: 20px;
-    width: 2cm;
-    outline-color: rgba(255, 255, 255, .5);
-    outline-offset: 0px;
-    background: #ebebeb;
-  }
-
-/* Styling popup when for choosing theme  */
-
-  #themeChoice {
+.ql-toolbar {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
-
-  #themeChoice div,{
-      width: 100px;
-      height: auto;
-      margin:auto;
-  }
-
-  #themeChoice img {
-    width: 151px;
-    height: 151px;
-    opacity: 0.8;
-    border-radius: 50%;
-    margin: auto;
-    border: 1px solid;
-  }
-  #themeChoice img:hover{
-      opacity: 1;
-  }
-
-  #noteList .fa-star{
-    float: right;
-    margin-right: 2%;
-    margin-top: 3%;
-  }
-
-  /* Sryling Fav Icon */
-
-  .yellowStar{
-      color:goldenrod;
-  }
-
-/* Styling Search Field */
-
-  #searchField textarea {
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: #213d57;
-    color: white;
-    border: none;
-    resize: none;
-    /* text-align: center; */
-    padding-top: 11px;
-  }
-
-/* Transparant placeholder text as defult in search field  */
-
-    textarea::-webkit-input-placeholder {
-    color: transparent;
-    }
-
-    textarea:-moz-placeholder { /* Firefox 18- */
-    color: transparent;  
-    }
-    textarea::-moz-placeholder {  /* Firefox 19+ */
-    color: transparent;  
-    }
-    textarea:-ms-input-placeholder {
-    color: transparent;  
-    }
-
-
-    /* Toggle white placeholder text when clicking on search Icon  */
-
-        .textarea::-webkit-input-placeholder {
-        color: #fff;
-        font-size: 20px;
-        text-align: center;
-        opacity: 0.8;
-        }
-    
-        .textarea:-moz-placeholder { /* Firefox 18- */
-        color: #fff;
-        font-size: 20px;
-        }
-        .textarea::-moz-placeholder {  /* Firefox 19+ */
-        color: #fff;
-        font-size: 20px; 
-        }
-        .textarea:-ms-input-placeholder {
-        color: #fff;
-        font-size: 20px;  
-        }
-
-   
+.ql-toolbar.ql-snow .ql-formats {
+    margin-right: 0 !important;
+}
+.ql-snow.ql-toolbar:after, .ql-snow .ql-toolbar:after {
+    content: none !important;
+}
