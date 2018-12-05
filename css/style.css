@@ -341,6 +341,7 @@ input::-webkit-input-placeholder {
     max-height: 10em;
     overflow-y: scroll;
     border-bottom: 1px solid darkgrey;
+    font-family: sans-serif;
 }
 .active-style{
   background: #fff;

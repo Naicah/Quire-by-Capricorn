@@ -84,9 +84,10 @@
 
      #searchField {
         grid-area: searchField;
-        background-color:#213d57;
+        background-color: #213d57;
         display: flex;
         flex-direction: row;
+        align-items: center;
     
     }
     
@@ -101,7 +102,6 @@
     form {
         width: 100%;
         padding-right: 0%;
-        margin-top: 7%;
         display: block;
     }   
     
@@ -123,6 +123,9 @@
         border: solid 1px #ccc;
         padding: 9px 10px 9px 32px;
         width: 20%;
+        
+        margin:0;
+        margin-left: 5%;
         
         -webkit-border-radius: 10em;
         -moz-border-radius: 10em;
