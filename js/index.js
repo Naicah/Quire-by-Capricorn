@@ -112,15 +112,10 @@ window.onload = function () {
         filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
     });
 
-    // WHEN CLICKING SEARCH ICON TOGGLE PLACEHOLDER 
-    document.getElementById("search").addEventListener("click", function () {
-        document.getElementById("searchField").firstElementChild.classList.toggle('textarea');
-    });
-
 
     // SHOW FAVORITES
     document.getElementById("favIcon").addEventListener("click", function () {
-        
+
         let favIcon = document.getElementById("favIcon").firstElementChild;
 
         favIcon.classList.toggle("yellowStar");
@@ -132,11 +127,7 @@ window.onload = function () {
 
 }
 
- // SEARCH FUNCTION / WILLIAM 
- function SearchFunction(){
-    var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
-    displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
-    }
+
 
 
 

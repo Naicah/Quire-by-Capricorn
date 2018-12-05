@@ -202,7 +202,7 @@ body, html{
     height: 5em;
     justify-content: space-evenly;
     display:flex;
-    
+
 }
 .menuIcon{
     background-color: inherit;
@@ -235,7 +235,7 @@ body, html{
   background: #fff;
   z-index: 10;
   left:0;
-  top:0;    
+  top:0;
   right:0;
     transition: top 0.3s;
 }
@@ -257,61 +257,63 @@ body, html{
 /*-------------------------------------------------
   -                   SEARCH FIELD                   -
   ------------------------------------------------- */
-#searchField {
+
+  #searchField {
     grid-area: searchField;
-    background-color:#213d57;
+    background-color:#115493;
 
 }
-#searchField textarea {
-    cursor: pointer;
-    display: block;
+
+#searchIcon{
+    display: none;
+}
+
+form {
     width: 100%;
-    height: 100%;
-    background: #213d57;
-    color: white;
-    border: none;
-    resize: none;
-    /* text-align: center; */
-    padding-top: 11px;
+    display: flex;
+    flex-direction: row;
 }
 
-/* Transparant placeholder text as defult in search field  */
-
-textarea::-webkit-input-placeholder {
-    color: transparent;
+input {
+	outline: none;
 }
 
-textarea:-moz-placeholder { /* Firefox 18- */
-    color: transparent;
-}
-textarea::-moz-placeholder {  /* Firefox 19+ */
-    color: transparent;
-}
-    textarea:-ms-input-placeholder {
-color: transparent;
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none;
 }
 
-/* Toggle white placeholder text when clicking on search Icon  */
+#searchInput {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
 
-.textarea::-webkit-input-placeholder {
-    color: #fff;
-    font-size: 20px;
+	border: none;
+	padding: 9px 10px 9px 32px;
+    width: 60%;
+    margin:auto;
+    margin-bottom: 3%;
+
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+
+
+input:-moz-placeholder {
+    color: #999;
     text-align: center;
-    opacity: 0.8;
+}
+input::-webkit-input-placeholder {
+    color: #999;
+    text-align: center;
 }
 
-.textarea:-moz-placeholder { /* Firefox 18- */
-    color: #fff;
-    font-size: 20px;
-}
-.textarea::-moz-placeholder {  /* Firefox 19+ */
-    color: #fff;
-    font-size: 20px;
-}
-.textarea:-ms-input-placeholder {
-    color: #fff;
-    font-size: 20px;
-}
 
 /*-------------------------------------------------
   -                   NOTE LIST                   -
@@ -339,7 +341,11 @@ color: transparent;
     max-height: 10em;
     overflow-y: scroll;
     border-bottom: 1px solid darkgrey;
+    font-family: sans-serif;
 }
+/*
+The active style for a note in notelist that is currently focused.
+*/
 .active-style{
   background: #fff;
   outline: 1px solid #115493;
