@@ -352,7 +352,7 @@ function changeTheme(theme) {
 			cssFile = "";
 			break;
 	}
-	oldlink = document.getElementsByTagName("link").item(3);
+	oldlink = document.getElementsByTagName("link").item(2);
 	oldlink.setAttribute("href", cssFile);
 }
 
