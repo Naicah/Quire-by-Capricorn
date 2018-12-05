@@ -268,12 +268,12 @@
     .collapse-mobile{
       display: block;
     }
-    #editorContainer > div > span > span:nth-child(6) {
+    /* #editorContainer > div > span > span:nth-child(6) {
         font-size: 1.7em !important;
         width: 2em !important;
     }
-    #editorContainer > div > span > span:first-child { /* Drop down Header*/
-     width: 6em !important;
+    #editorContainer > div > span > span:first-child { Drop down Header */
+     /* width: 6em !important;
     }
     
     #editorContainer > div > span > span:first-child > span:last-child > span{
@@ -286,7 +286,7 @@
         width: auto !important;
         padding: 0.5em 0.25em !important;
         color: #444;
-    }
+    } */
 }
 /*--------------------------------------------------------------------------
   -              Large devices (laptops/desktops, 992px and up)            -

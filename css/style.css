@@ -89,9 +89,7 @@ body, html{
   ------------------------------------------------------------ */
 #themeChoice {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 #themeChoice div {
     width: 8em;
@@ -142,6 +140,8 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: left;
+    padding: 0.7em !important;
+    font-size: 4vw !important;
 }
 
 
@@ -400,10 +400,15 @@ The active style for a note in notelist that is currently focused.
   -                      TOLBAR                   -
   ------------------------------------------------- */
 .ql-toolbar.ql-snow {
-    padding: 0.7em !important;
+    /* padding: 0.7em !important;
+    font-size: 3vw !important; */
     display: flex;
     justify-content: center;
 }
+/* .ql-toolbar.ql-snow > *{
+    font-size: 5vw !important;
+} */
+
 .ql-toolbar-fixed{
     position: fixed;
     background: #fff;
@@ -412,29 +417,38 @@ The active style for a note in notelist that is currently focused.
 .ql-toolbar-inherit{
     position: inherit;
 }
-/* Toolbar content */
-#editorContainer > div > span > span:nth-child(6) {
-    font-size: 1.7em !important;
-    width: 2em !important;
+span.ql-formats {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
 }
-#editorContainer > div > span > span:first-child { /* Drop down Header*/
- width: 6em !important;
+/*-----------------------------------------
+  -             TOLBAR CONTENT            -
+  ----------------------------------------- */
+#editorContainer > div > span > span:nth-child(6) { /* Text align */
+    width: 10vw !important;
+    height: 8vw !important; 
 }
 
-#editorContainer > div > span > span:first-child > span:last-child > span{
-    font-size: 0.5em !important;
+#editorContainer > div > span > span:first-child span { /* Drop down Header*/
+    padding: 0 !important;
+}
+
+#editorContainer > div > span > span:first-child > span:last-child > span{ /* Alternativew in drop down header */
+    /* font-size: 2.5vw !important; */
+    height: 8vw !important;
 }
 
 #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
-    font-size: 2em !important;
-    height: 2em !important;
+    /* font-size: 5vw !important; */
+    height: 8vw !important;
     width: auto !important;
     padding: 0.5em 0.25em !important;
     color: #444;
-}
-
-#save {
-    width: 2em;
+} 
+#saveIcon i{
+    font-size: 5vw !important;
 }
 #save:hover {
     cursor: pointer;
