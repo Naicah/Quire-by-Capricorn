@@ -6,7 +6,7 @@ var quill = new Quill('#editor', {
 			'bold', 'italic', 'underline',
 			{ 'align': [] }, { 'indent': '-1' }, { 'indent': '+1' },
 			{ 'list': 'ordered' }, { 'list': 'bullet' },
-			'image', 
+			'image',
 		],
 	},
 	placeholder: 'Compose an epic...',
@@ -83,6 +83,7 @@ function displayNoteList(func = () => true) {
 		if (obj.fav){
 			newI.classList.add("fas");
 		}
+		// Checking for active obj in list to display focused
 		if(obj.active){
 			newDiv.classList.add("active-style");
 		}else{
@@ -368,7 +369,7 @@ function filterNoteList(){
 // 	var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
 // 	if(!search.value === ""){
 // 		SearchFunction();
-// 	} 
+// 	}
 // }
 
 // TOGGLE SHOWING FAV NOTES
@@ -389,7 +390,7 @@ document.getElementById("searchField").firstElementChild.addEventListener("keyup
   });
 
 
-   // SEARCH FUNCTION / WILLIAM 
+   // SEARCH FUNCTION / WILLIAM
  function SearchFunction(){
 	var search = document.getElementById("searchInput").value.toLocaleLowerCase();
     displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
