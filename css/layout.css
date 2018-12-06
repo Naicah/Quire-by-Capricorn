@@ -3,33 +3,44 @@
   -------------------------------------------------------------------------- */
 
   @media only screen and (min-width: 764px) {
+      
+    /* -------------------------------- GRID -------------------------------- */
+    #nav { grid-area: nav; }
+    #main { grid-area: main; }
+    #navSec { grid-area: navSec; }
+    #topNav { grid-area: topNav; }
+    #menu { grid-area: menu; }
+    #notes { grid-area: notes; }
+    #searchField { grid-area: searchField; }
+    #noteList { grid-area: noteList; }
+    #editor { grid-area: editor; }
+   .ql-toolbar { grid-area: ql-toolbar; }
+
     .container {
+        display: grid;
         grid-template-areas:
             'nav main';
         padding: 0;
         grid-template-columns: 3fr 9fr;
+        overflow: hidden;
     }
-    .popUpContent {
-        padding: 2em;
+    #nav {
+          display: grid;
+          grid-template-areas:
+              'navSec notes';
+          grid-template-columns: 1fr 5fr;
+          grid-template-rows: 100vh;
+          z-index: 0;
     }
-    #chooseTheme.popUpContainer {
-        top: 30vh;
-    }
-    /* -------------------------------- NAV -------------------------------- */
-    nav {
-      position: fixed;
-      top:0;
-      bottom:0;
-      left:0;
-      right:75%;
+
+    #editorContainer {
         display: grid;
-        grid-template-areas:
-            'navSec notes';
-        grid-template-columns: 1fr 5fr;
-        grid-template-rows: 1fr;
-        z-index: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 11fr;
+         grid-template-areas:
+            'ql-toolbar'
+            'editor';
     }
-    /* -------------------------- NAVSEC --------------------------- */
     #navSec {
         display: grid;
         grid-template-areas:
@@ -39,6 +50,27 @@
         grid-template-rows: 1fr 11fr;
         max-height:100%;
     }
+    #notes {
+        display: grid;
+        grid-template-areas:
+            'searchField'
+            'noteList';
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 11fr;
+            max-height:100%;
+    }
+   
+    /* -------------------------------- POP UPS -------------------------------- */
+    .popUpContent {
+        padding: 2em;
+    }
+    #chooseTheme.popUpContainer {
+        top: 30vh;
+    }
+    /* -------------------------------- NAV -------------------------------- */
+   
+    /* -------------------------- NAVSEC --------------------------- */
+   
 
     /* --------------------- TOPNAV ------------------ */
     #topNav {
@@ -67,25 +99,15 @@
     }
 
     /* ---------------------------- NOTES --------------------------- */
-    #notes {
-        display: grid;
-        grid-template-areas:
-            'searchField'
-            'noteList';
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 11fr;
-            max-height:100%;
-    }
+   
 
      /* ------------------ SEARCH FIELD -------------------- */
 
      #searchField {
-        grid-area: searchField;
         background-color: #213d57;
         display: flex;
         flex-direction: row;
         align-items: center;
-
     }
 
     #searchIcon{
@@ -156,7 +178,6 @@
 
     /* -------------------- NOTE LIST ---------------------- */
     #noteList {
-        grid-area: noteList;
         background-color: #ebebeb;
         min-height: 5em;
         max-height: 100%;
@@ -164,7 +185,7 @@
     }
     .custom-dropdown {
         background-color: #115493;
-        position: absolute;
+        /* position: absolute; */
         top: 436px;
         z-index: 1;
         width: 18.9%;
@@ -181,21 +202,21 @@
 
       /* star icon  */
 
-  #noteList .fa-star{
-    float: right;
-    margin-right: 5%;
-    margin-top: 15%;
-    font-size: 18px;
-    opacity: 0.2;
-  }
+    #noteList .fa-star{
+        float: right;
+        margin-right: 5%;
+        margin-top: 15%;
+        font-size: 18px;
+        opacity: 0.2;
+    }
 
-  #noteList .fa-star:hover{
-      opacity: 1;
-  }
+    #noteList .fa-star:hover{
+        opacity: 1;
+    }
 
- #favIcon {
-     padding-right: 7px;
- }
+    #favIcon {
+        padding-right: 7px;
+    }
     /* ------------- CLICK NOTE LIST ------------- */
     #clickNoteList div{
         height: 78px;
@@ -226,26 +247,11 @@
     /* -------------------------------- MAIN -------------------------------- */
     /* ---------------------- QUILL EDITOR ------------------ */
     /* ---------------- EDITOR CONTAINER ------------ */
-    #editorContainer {
-        position: relative;
-        display: grid;
-        grid-template-areas:
-        'ql-toolbar'
-        'editor';
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 11fr;
-        position: absolute;
-        right:0;
-        left:25%;
-        bottom:0;
-    }
+   
     /* ---------- TOOLBAR ------------- */
     .ql-toolbar{
         display: flex;
         align-items: center;
-        position: fixed;
-        right:0;
-        left:25%;
         z-index: 2;
         background: #fff;
     }
@@ -293,25 +299,7 @@
     #saveIcon i{
         font-size: 2.5vw !important;
     }
-    /* #editorContainer > div > span > span:nth-child(6) {
-        font-size: 1.7em !important;
-        width: 2em !important;
-    }
-    #editorContainer > div > span > span:first-child {
-        width: 6em !important;
-    }
-
-    #editorContainer > div > span > span:first-child > span:last-child > span{
-        font-size: 0.5em !important;
-    }
-
-    #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
-        font-size: 2em !important;
-        height: 2em !important;
-        width: auto !important;
-        padding: 0.5em 0.25em !important;
-        color: #444;
-    } */
+   
 }
 /*--------------------------------------------------------------------------
   -              Large devices (laptops/desktops, 992px and up)            -

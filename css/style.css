@@ -4,20 +4,44 @@
 body, html{
     margin:0;
 }
-.container {
-    display: grid;
-    grid-template-columns: 1fr;
 
-     grid-template-areas:
-        'nav'
-        'main';
-    padding: 0;
-}
 .none {
     display: none;
 }
 .flex {
     display: flex;
+}
+/*---------------------------------------------------------------------------
+  -                               GRID                                      -
+  --------------------------------------------------------------------------- */
+#nav { grid-area: nav; }
+#main { grid-area: main; }
+#navSec { grid-area: navSec; }
+#topNav { grid-area: topNav; }
+#menu { grid-area: menu; }
+#notes { grid-area: notes; }
+#searchField { grid-area: searchField; }
+#noteList { grid-area: noteList; }
+#editor { grid-area: editor; }
+#ql-toolbar { grid-area: ql-toolbar; }
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+     grid-template-areas:
+        'nav'
+        'main';
+    padding: 0;
+}
+#editorContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 9fr;
+     grid-template-areas:
+        'ql-toolbar'
+        'editor';
+    padding: 0;
+    height: 100vh;
 }
 
 /*---------------------------------------------------------------------------
@@ -49,7 +73,7 @@ body, html{
     top: 10vh;
 }
 .exit {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     right: 0;
     margin: 2vw;
@@ -125,30 +149,19 @@ body, html{
   -                      NAVSEC                              -
   ------------------------------------------------------------ */
 #navSec {
-    grid-area: navSec;
     background-color: #105493;
-
 }
 /*-------------------------------------------------
   -                      TOPNAV                   -
   ------------------------------------------------- */
 #topNav {
-    grid-area: topNav;
     background-color:#213d57;
     height: 4em;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
 }
-
-
-/* .sticky  {
-    position: fixed;
-    top: 4em;
-    width: 100%;
-  } */
-
 #logo {
     height: 2.5em;
     width: auto;
@@ -158,9 +171,9 @@ body, html{
 #hamburgerIcon{
     display: block;
     color: white;
-    position: absolute;
     right: 0.7em;
-    font-size: 42px;
+    font-size: 42px; /* BYYYYYYYYYYYYYYYYYYYYYYYYYYYYYT */
+    margin-right: 1.5rem;
 }
 .ham1, .ham2, .ham3{
   width: 35px;
@@ -184,7 +197,6 @@ body, html{
   -                      MENU                     -
   ------------------------------------------------- */
 #menu {
-    grid-area: menu;
     flex-direction: row;
     align-items: center;
     height: 5em;
@@ -217,8 +229,6 @@ body, html{
     margin-right: 2%;
     margin-top: 3%;
 }
-
-
 .yellowStar{
     color:goldenrod;
 }
@@ -227,17 +237,14 @@ body, html{
   -                      NOTES                               -
   ------------------------------------------------------------ */
 #notes {
-    grid-area: notes;
     overflow: auto;
 }
 /*-------------------------------------------------
   -                   SEARCH FIELD                   -
   ------------------------------------------------- */
 
-  #searchField {
-    grid-area: searchField;
+#searchField {
     background-color:#115493;
-
 }
 
 #searchIcon{
@@ -296,7 +303,7 @@ input::-webkit-input-placeholder {
   ------------------------------------------------- */
 .custom-dropdown {
     background-color: #115493;
-    position: absolute;
+    /* position: absolute; */
     top: 120px;
     z-index: 1;
     width: 100%;
@@ -311,7 +318,6 @@ input::-webkit-input-placeholder {
     outline: 0;
 }
 #noteList {
-    grid-area: noteList;
     background-color: #ebebeb;
     min-height: 3em;
     max-height: 10em;
@@ -361,16 +367,6 @@ The active style for a note in notelist that is currently focused.
 /*------------------------------------------------------------
   -                      EDITOR CONTAINER                    -
   ------------------------------------------------------------ */
-#editorContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 9fr;
-     grid-template-areas:
-        'ql-toolbar'
-        'editor';
-    padding: 0;
-    height: 100vh;
-}
 /*-------------------------------------------------
   -                      TOOLBAR                   -
   ------------------------------------------------- */
@@ -470,7 +466,6 @@ The active style for a note in notelist that is currently focused.
   -                      EDITOR                   -
   ------------------------------------------------- */
 #editor {
-    grid-area: editor;
     overflow-x: hidden;
 }
 .ql-editor{
