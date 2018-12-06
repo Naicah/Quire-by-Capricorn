@@ -114,10 +114,15 @@ body, html{
   --------------------------------------------------------------------------- */
 #nav {
     z-index: 15;
-    position: fixed;
+    display: block;
+    position: relative;
     top: 0;
     width: 100%;
     transition: top 0.3s;
+}
+
+fixed-position {
+  position: fixed
 }
 
 
@@ -396,23 +401,22 @@ The active style for a note in notelist that is currently focused.
     margin-top:30vh;
 }
 /*-------------------------------------------------
-  -                      TOLBAR                   -
+  -                      TOOLBAR                   -
   ------------------------------------------------- */
 .ql-toolbar.ql-snow {
-    /* padding: 0.7em !important;
-    font-size: 3vw !important; */
-    /* display: flex;
-    justify-content: center; */
+    padding: 0.7em !important;
 }
-/* .ql-toolbar.ql-snow > *{
-    font-size: 5vw !important;
-} */
 
 .ql-toolbar-fixed{
-    position: fixed;
-    background: #fff;
-    z-index: 10;
+  position: fixed;
+  background: #fff;
+  z-index: 10;
+  left:0;
+  top:0;
+  right:0;
+    transition: top 0.3s;
 }
+
 .ql-toolbar-inherit{
     position: inherit;
 }

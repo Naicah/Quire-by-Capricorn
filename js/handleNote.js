@@ -288,7 +288,7 @@ function getAvailID() {
 
 // GET CURRENT TIME AND DATE - Jonathan
 function getTimeString() {
-	return new Date().toLocaleString().substring(0,16);
+	return new Date().toLocaleTimeString([], {year:'2-digit', hour: '2-digit', minute:'2-digit'});
 }
 
 // SHOW LOAD SYMBOL WHEN SAVING - William
@@ -353,7 +353,7 @@ function changeTheme(theme) {
 			cssFile = "";
 			break;
 	}
-	oldlink = document.getElementsByTagName("link").item(2);
+	oldlink = document.getElementsByTagName("link").item(3);
 	oldlink.setAttribute("href", cssFile);
 }
 

@@ -17,6 +17,7 @@
     }
     /* -------------------------------- NAV -------------------------------- */
     nav {
+
       position: fixed;
       top:0;
       bottom:0;
@@ -29,6 +30,7 @@
         grid-template-rows: 1fr;
     }
     #nav{
+      display:flex;
       width: auto;
       z-index: 0;
     }
