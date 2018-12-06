@@ -475,6 +475,7 @@ The active style for a note in notelist that is currently focused.
 }
 .ql-editor{
     overflow:hidden;
+    max-height: 93vh;
   }
 /* .ql-toolbar {
     display: flex;
