@@ -34,7 +34,8 @@ var prevScrollpos = window.pageYOffset;
 var qltoolbar = document.getElementsByClassName('ql-toolbar')[0];
 
 qltoolbar.classList.add("ql-toolbar-fixed");
-	window.onscroll = function() {
+
+window.onscroll = function() {
 	if(window.matchMedia("(max-width: 740px)").matches){
 		var currentScrollPos = window.pageYOffset;
 	  if (prevScrollpos > currentScrollPos) {
