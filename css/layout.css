@@ -9,7 +9,7 @@
         padding: 0;
         grid-template-columns: 3fr 9fr;
     }
-    .popUpContent {
+    .popUpContent { 
         padding: 2em;
     }
     #chooseTheme.popUpContainer {
@@ -227,38 +227,6 @@
         width: 50%;
     }
 
-    /* -------------------------------- popUP --------------------------- */
-  /* #themeContent{
-    background-color: white;
-    width: 770px;
-    height: 290px;
-    margin:0;
-    padding:0;
-  }
-    .theme2-display-flex{
-    display:flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-  }
-    #popUp div {
-        background-color: white;
-        width: 770px;
-        height: 290px;
-        margin: auto;
-        margin-top: 20%;
-        text-align: center;
-        font-family: 'Roboto', sans-serif;
-        border-radius: 5px;
-    } */
-
-    /* ---------------------- THEME CONTENT -------------- */
-    /* #themeChoice {
-        display: flex;
-        flex-direction: row;
-        padding-bottom: 5%;
-        margin-top: 5%;
-    } */
     /* -------------------------------- MAIN -------------------------------- */
     /* ---------------------- QUILL EDITOR ------------------ */
     /* ---------------- EDITOR CONTAINER ------------ */
@@ -295,12 +263,59 @@
       top: 42px;
       margin-top: 1em;
     }
-    /* .ql-container{
-
-    } */
-    .collapse-mobile{
-      display: block;
+    .ql-toolbar.ql-snow .ql-formats { /* Container for toolbar content */
+        margin-right: 0 !important;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        width: 100%;
     }
+    .collapse-mobile{
+        display: block;
+    }
+    /*-----------------------------------------
+      -             TOLBAR CONTENT            -
+      ----------------------------------------- */
+  
+    #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
+        height: 3.5vw !important;
+    } 
+    #editorContainer > div > span > span:first-child { /* Drop down Header container*/
+        width: 15vw !important;
+    }
+    .ql-toolbar.ql-snow .ql-picker-label { /* Drop down Header lable */
+        font-size: 2vw !important;
+    }
+    #editorContainer > div > span > span:first-child > span:last-child > span{ /* Alternative in drop down header */
+        font-size: 1.2vw !important;
+        height: 3.3vw !important;
+    }
+    #editorContainer > div > span > span:nth-child(6) { /* Text align */
+        width: 3.5vw !important;
+        height: 3.5vw !important; 
+    }
+    #saveIcon i{
+        font-size: 2.5vw !important;
+    }
+    /* #editorContainer > div > span > span:nth-child(6) {
+        font-size: 1.7em !important;
+        width: 2em !important;
+    }
+    #editorContainer > div > span > span:first-child { 
+        width: 6em !important;
+    }
+    
+    #editorContainer > div > span > span:first-child > span:last-child > span{
+        font-size: 0.5em !important;
+    }
+    
+    #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
+        font-size: 2em !important;
+        height: 2em !important;
+        width: auto !important;
+        padding: 0.5em 0.25em !important;
+        color: #444;
+    } */
 }
 /*--------------------------------------------------------------------------
   -              Large devices (laptops/desktops, 992px and up)            -
