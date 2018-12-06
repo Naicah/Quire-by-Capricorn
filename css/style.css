@@ -417,11 +417,12 @@ The active style for a note in notelist that is currently focused.
 .ql-toolbar-inherit{
     position: inherit;
 }
-.ql-toolbar.ql-snow .ql-formats {
+.ql-toolbar.ql-snow .ql-formats { /* Container for toolbar content */
     margin-right: 0 !important;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 100%;
 }
 /*-----------------------------------------
   -             TOLBAR CONTENT            -
