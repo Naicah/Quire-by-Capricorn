@@ -15,7 +15,7 @@ var quill = new Quill('#editor', {
 
 // POSITION SAVE BUTTON
 function positionSaveButton() {
-	document.querySelector(".ql-toolbar").appendChild(document.getElementById("save"));
+	document.querySelector(".ql-formats").appendChild(document.getElementById("save"));
 }
 
 // SET ID OF CURRENTLY DISPLAYED NOTE - Nina

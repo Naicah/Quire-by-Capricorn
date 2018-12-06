@@ -402,8 +402,8 @@ The active style for a note in notelist that is currently focused.
 .ql-toolbar.ql-snow {
     /* padding: 0.7em !important;
     font-size: 3vw !important; */
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
 }
 /* .ql-toolbar.ql-snow > *{
     font-size: 5vw !important;
@@ -417,38 +417,49 @@ The active style for a note in notelist that is currently focused.
 .ql-toolbar-inherit{
     position: inherit;
 }
-span.ql-formats {
+.ql-toolbar.ql-snow .ql-formats {
+    margin-right: 0 !important;
     display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
+    flex-wrap: nowrap;
     justify-content: space-between;
 }
 /*-----------------------------------------
   -             TOLBAR CONTENT            -
   ----------------------------------------- */
-#editorContainer > div > span > span:nth-child(6) { /* Text align */
-    width: 10vw !important;
-    height: 8vw !important; 
-}
-
-#editorContainer > div > span > span:first-child span { /* Drop down Header*/
-    padding: 0 !important;
-}
-
-#editorContainer > div > span > span:first-child > span:last-child > span{ /* Alternativew in drop down header */
-    /* font-size: 2.5vw !important; */
-    height: 8vw !important;
-}
-
+/* Everything in toolbar */
 #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
-    /* font-size: 5vw !important; */
     height: 8vw !important;
     width: auto !important;
     padding: 0.5em 0.25em !important;
     color: #444;
 } 
+#editorContainer > div > span > span:first-child { /* Drop down Header container*/
+    padding: 0 !important;
+    width: 20vw !important;
+}
+.ql-toolbar.ql-snow .ql-picker-label { /* Drop down Header lable */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 !important;
+    font-size: 4vw !important;
+}
+#editorContainer > div > span > span:first-child > span:last-child > span{ /* Alternative in drop down header */
+    font-size: 2.5vw !important;
+    height: 7vw !important;
+}
+#editorContainer > div > span > span:nth-child(6) { /* Text align */
+    width: 10vw !important;
+    height: 8vw !important; 
+}
+#saveIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 #saveIcon i{
-    font-size: 5vw !important;
+    font-size: 6vw !important;
+
 }
 #save:hover {
     cursor: pointer;
@@ -489,13 +500,13 @@ span.ql-formats {
 .ql-editor{
     overflow:hidden;
   }
-.ql-toolbar {
+/* .ql-toolbar {
     display: flex;
     justify-content: space-between;
 }
 .ql-toolbar.ql-snow .ql-formats {
     margin-right: 0 !important;
-}
+} */
 .ql-snow.ql-toolbar:after, .ql-snow .ql-toolbar:after {
     content: none !important;
 }
