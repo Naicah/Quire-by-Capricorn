@@ -458,8 +458,7 @@ The active style for a note in notelist that is currently focused.
     justify-content: center;
 }
 #saveIcon i{
-    font-size: 6vw !important;
-
+    font-size: 5vw !important;
 }
 #save:hover {
     cursor: pointer;

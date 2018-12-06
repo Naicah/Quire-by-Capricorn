@@ -268,12 +268,40 @@
     .collapse-mobile{
       display: block;
     }
+    #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
+        height: 5vw !important;
+        width: auto !important;
+        padding: 0.5em 0.25em !important;
+        color: #444;
+    } 
+    #editorContainer > div > span > span:first-child { /* Drop down Header container*/
+        padding: 0 !important;
+        width: 20vw !important;
+    }
+    .ql-toolbar.ql-snow .ql-picker-label { /* Drop down Header lable */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 !important;
+        font-size: 2.5vw !important;
+    }
+    #editorContainer > div > span > span:first-child > span:last-child > span{ /* Alternative in drop down header */
+        font-size: 1.5vw !important;
+        height: 4vw !important;
+    }
+    #editorContainer > div > span > span:nth-child(6) { /* Text align */
+        width: 5vw !important;
+        height: 5vw !important; 
+    }
+    #saveIcon i{
+        font-size: 3vw !important;
+    }
     /* #editorContainer > div > span > span:nth-child(6) {
         font-size: 1.7em !important;
         width: 2em !important;
     }
-    #editorContainer > div > span > span:first-child { Drop down Header */
-     /* width: 6em !important;
+    #editorContainer > div > span > span:first-child { 
+        width: 6em !important;
     }
     
     #editorContainer > div > span > span:first-child > span:last-child > span{
