@@ -235,7 +235,15 @@ fixed-position {
     margin-top: 3%;
 }
 
-
+.ql-toolbar-fixed{
+  position: fixed;
+  background: #fff;
+  z-index: 10;
+  left:0;
+  top:0;
+  right:0;
+    transition: top 0.3s;
+}
 .ql-toolbar-inherit{
   position: inherit;
 }
@@ -258,7 +266,7 @@ fixed-position {
   #searchField {
     grid-area: searchField;
     background-color:#115493;
-   
+
 }
 
 #searchIcon{
@@ -266,10 +274,10 @@ fixed-position {
 }
 
 form {
-    width: 100%; 
+    width: 100%;
     display: flex;
     flex-direction: row;
-}   
+}
 
 input {
 	outline: none;
@@ -277,7 +285,7 @@ input {
 
 input::-webkit-search-decoration,
 input::-webkit-search-cancel-button {
-	display: none; 
+	display: none;
 }
 
 #searchInput {
@@ -291,11 +299,11 @@ input::-webkit-search-cancel-button {
     width: 60%;
     margin:auto;
     margin-bottom: 3%;
-	
+
 	-webkit-border-radius: 10em;
 	-moz-border-radius: 10em;
 	border-radius: 10em;
-	
+
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
 	transition: all .5s;
@@ -338,7 +346,11 @@ input::-webkit-input-placeholder {
     max-height: 10em;
     overflow-y: scroll;
     border-bottom: 1px solid darkgrey;
+    font-family: sans-serif;
 }
+/*
+The active style for a note in notelist that is currently focused.
+*/
 .active-style{
   background: #fff;
   outline: 1px solid #115493;

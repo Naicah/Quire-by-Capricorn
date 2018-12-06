@@ -1,3 +1,4 @@
+
 #editorContainer{
   background-image: url("https://images.unsplash.com/photo-1531418580067-04bc72baa73c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43956108ea3e65a0d922fde8dc676913&auto=format&fit=crop&w=1534&q=80");
   background-size:cover;
@@ -9,20 +10,22 @@ font-family:"";
 color:#252525;
 }
 .ql-container *{
-   font-family: sans-serif;
+  font-family: 'Varela Round', sans-serif;
    color: #fff;
    font-size: 1.2em;
    line-height: 1.2em;
 }
 #editor H1{
-  font-family: "serif";
+  font-family: 'Lobster', cursive;
   font-size: 3em;
+  letter-spacing: 1.5px;
 }
 
 #editor H2{
-  font-family: "serif";
+  font-family: 'Lora', serif;
   font-size: 1.8em;
 }
+
 #topNav, #searchField  {
   background-color: #5b1f0a;
 }

@@ -6,7 +6,7 @@ var quill = new Quill('#editor', {
 			'bold', 'italic', 'underline',
 			{ 'align': [] }, { 'indent': '-1' }, { 'indent': '+1' },
 			{ 'list': 'ordered' }, { 'list': 'bullet' },
-			'image', 
+			'image',
 		],
 	},
 	placeholder: 'Compose an epic...',
@@ -83,6 +83,7 @@ function displayNoteList(func = () => true) {
 		if (obj.fav){
 			newI.classList.add("fas");
 		}
+		// Checking for active obj in list to display focused
 		if(obj.active){
 			newDiv.classList.add("active-style");
 		}else{
@@ -287,7 +288,7 @@ function getAvailID() {
 
 // GET CURRENT TIME AND DATE - Jonathan
 function getTimeString() {
-	return new Date().toLocaleString().substring(0,16);
+	return new Date().toLocaleTimeString([], {year:'2-digit', hour: '2-digit', minute:'2-digit'});
 }
 
 // SHOW LOAD SYMBOL WHEN SAVING - William
@@ -368,7 +369,7 @@ function filterNoteList(){
 // 	var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
 // 	if(!search.value === ""){
 // 		SearchFunction();
-// 	} 
+// 	}
 // }
 
 // TOGGLE SHOWING FAV NOTES
@@ -389,7 +390,7 @@ document.getElementById("searchField").firstElementChild.addEventListener("keyup
   });
 
 
-   // SEARCH FUNCTION / WILLIAM 
+   // SEARCH FUNCTION / WILLIAM
  function SearchFunction(){
 	var search = document.getElementById("searchInput").value.toLocaleLowerCase();
     displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
