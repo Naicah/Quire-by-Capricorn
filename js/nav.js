@@ -10,9 +10,11 @@ function toggleNoteList() {
 }
 
 
-
+window.onscroll = () => {
+	setToolbarPositionStatus();
+}
 //STICKY NAV MOBILE
-/* function setToolbarPositionStatus(){
+	function setToolbarPositionStatus(){
 	let state = true;
 	let noteList = document.querySelector("#noteList");
 	let topNav = document.querySelector("#topNav");
@@ -28,52 +30,3 @@ function toggleNoteList() {
 		toolbar.classList.add("ql-toolbar-fixed")
 	}
 }
-*/
-
-var prevScrollpos = window.pageYOffset;
-var qltoolbar = document.getElementsByClassName('ql-toolbar')[0];
-qltoolbar.classList.add("ql-toolbar-fixed");
-
-	window.onscroll = function() {
-
-	if(window.matchMedia("(max-width: 740px)").matches){
-
-		var currentScrollPos = window.pageYOffset;
-	  if (prevScrollpos > currentScrollPos) {
-
-			document.getElementById('nav').style.top = "0";
-			qltoolbar.style.top = "7.7em";
-			document.querySelector("#hamburgerIcon").classList.remove("merge");
-			document.querySelector(".collapse-mobile").classList.add("none");
-
-
-
-	  } else {
-			document.getElementById('nav').style.top = "-10em";
-			document.getElementById("noteList").classList.add('none');
-			qltoolbar.style.top = "0";
-
-
-	  }
-	  prevScrollpos = currentScrollPos;
-	}
-}
-
-window.onresize = () => {
-	if(window.matchMedia("(min-width: 764px)").matches){
-			qltoolbar.style.top = "0";
-	}
-}
-
-
-
-// var prevToolbarScrollpos = window.pageYOffset;
-// window.onscroll = function() {
-// var currentToolbarScrollPos = window.pageYOffset;
-//   if (prevToolbarScrollpos > currentToolbarScrollPos) {
-//     document.getElementsByClassName('.ql-toolbar').style.top = "5em";
-//   } else {
-//     document.getElementsByClassName('.ql-toolbar').style.top = "-8em";
-//   }
-//   prevToolbarScrollpos = currentToolbarScrollPos;
-// }

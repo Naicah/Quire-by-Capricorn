@@ -9,7 +9,7 @@
         padding: 0;
         grid-template-columns: 3fr 9fr;
     }
-    .popUpContent { 
+    .popUpContent {
         padding: 2em;
     }
     #chooseTheme.popUpContainer {
@@ -17,7 +17,7 @@
     }
     /* -------------------------------- NAV -------------------------------- */
     nav {
-      position: relative;
+      position: fixed;
       top:0;
       bottom:0;
       left:0;
@@ -27,11 +27,7 @@
             'navSec notes';
         grid-template-columns: 1fr 5fr;
         grid-template-rows: 1fr;
-        display:flex;
         z-index: 0;
-    }
-    #nav{
-      display:flex;
     }
     /* -------------------------- NAVSEC --------------------------- */
     #navSec {
@@ -256,7 +252,7 @@
     .ql-editor{
       overflow-y:auto;
       position:fixed;
-      height:90%;
+      height:93vh;
       right:0;
       bottom:0;
       left:25%;
@@ -276,10 +272,10 @@
     /*-----------------------------------------
       -             TOLBAR CONTENT            -
       ----------------------------------------- */
-  
+
     #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
         height: 3.5vw !important;
-    } 
+    }
     #editorContainer > div > span > span:first-child { /* Drop down Header container*/
         width: 15vw !important;
     }
@@ -292,7 +288,7 @@
     }
     #editorContainer > div > span > span:nth-child(6) { /* Text align */
         width: 3.5vw !important;
-        height: 3.5vw !important; 
+        height: 3.5vw !important;
     }
     #saveIcon i{
         font-size: 2.5vw !important;
@@ -301,14 +297,14 @@
         font-size: 1.7em !important;
         width: 2em !important;
     }
-    #editorContainer > div > span > span:first-child { 
+    #editorContainer > div > span > span:first-child {
         width: 6em !important;
     }
-    
+
     #editorContainer > div > span > span:first-child > span:last-child > span{
         font-size: 0.5em !important;
     }
-    
+
     #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
         font-size: 2em !important;
         height: 2em !important;

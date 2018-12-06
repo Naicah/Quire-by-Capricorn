@@ -112,19 +112,14 @@ body, html{
 /*---------------------------------------------------------------------------
   -                      NAV                                                -
   --------------------------------------------------------------------------- */
-#nav {
+/* #nav {
     z-index: 15;
     display: block;
     position: relative;
     top: 0;
     width: 100%;
     transition: top 0.3s;
-}
-
-fixed-position {
-  position: fixed
-}
-
+} */
 
 /*------------------------------------------------------------
   -                      NAVSEC                              -
@@ -145,7 +140,6 @@ fixed-position {
     display: flex;
     align-items: center;
     justify-content: left;
-    padding: 0.7em !important;
 }
 
 
@@ -186,16 +180,6 @@ fixed-position {
   -webkit-transform: rotate(45deg) translate(-10px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
-#searchField textarea {
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: #213d57;
-    color: white;
-    border: none;
-    resize: none;
-  }
 /*-------------------------------------------------
   -                      MENU                     -
   ------------------------------------------------- */
@@ -234,18 +218,6 @@ fixed-position {
     margin-top: 3%;
 }
 
-.ql-toolbar-fixed{
-  position: fixed;
-  background: #fff;
-  z-index: 10;
-  left:0;
-  top:0;
-  right:0;
-    transition: top 0.3s;
-}
-.ql-toolbar-inherit{
-  position: inherit;
-}
 
 .yellowStar{
     color:goldenrod;
@@ -398,14 +370,10 @@ The active style for a note in notelist that is currently focused.
         'editor';
     padding: 0;
     height: 100vh;
-    margin-top:30vh;
 }
 /*-------------------------------------------------
   -                      TOOLBAR                   -
   ------------------------------------------------- */
-.ql-toolbar.ql-snow {
-    padding: 0.7em !important;
-}
 
 .ql-toolbar-fixed{
   position: fixed;
@@ -415,6 +383,9 @@ The active style for a note in notelist that is currently focused.
   top:0;
   right:0;
     transition: top 0.3s;
+}
+.ql-toolbar.ql-snow{
+  padding: 0,7em !important;
 }
 
 .ql-toolbar-inherit{
@@ -438,7 +409,7 @@ The active style for a note in notelist that is currently focused.
     width: auto !important;
     padding: 0.5em 0.25em !important;
     color: #444;
-} 
+}
 #editorContainer > div > span > span:first-child { /* Drop down Header container*/
     padding: 0 !important;
     width: 20vw !important;
@@ -456,7 +427,7 @@ The active style for a note in notelist that is currently focused.
 }
 #editorContainer > div > span > span:nth-child(6) { /* Text align */
     width: 10vw !important;
-    height: 8vw !important; 
+    height: 8vw !important;
 }
 #saveIcon {
     display: flex;
