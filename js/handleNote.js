@@ -288,6 +288,7 @@ function getAvailID() {
 
 // GET CURRENT TIME AND DATE - Jonathan
 function getTimeString() {
+	// gets the current date and only sets year, hour and minut
 	return new Date().toLocaleTimeString([], {year:'2-digit', hour: '2-digit', minute:'2-digit'});
 }
 
