@@ -8,9 +8,13 @@ background-repeat: no-repeat;
 .ql-toolbar.ql-snow {
     background-color: white;
 }
+.ql-editor{
+  border-right: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+}
 
 #editor {
-color:cornsilk; 
+color:cornsilk;
 text-align: center;
 }
 
@@ -25,7 +29,7 @@ button{
 
 #editor H1{
     font-family: initial;
-    
+
 }
 
 #editor H2{

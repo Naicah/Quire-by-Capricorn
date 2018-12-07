@@ -7,16 +7,17 @@
 @media print{
   nav, .collapse-mobile, .ql-toolbar, #popUp, #navSec,
   #topNav, #menu, #noteList, #notes, #searchField{
-    display: none !important;
+    display: none;
   }
   #editorContainer{
-    display:block;
+    display:none;
     margin:0;
     padding:0;
     height: auto;
     width:595px;
   }
   #editor{
+    width: 100%;
     display:block;
     border:none;
     height: auto;

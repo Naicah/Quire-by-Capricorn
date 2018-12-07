@@ -45,3 +45,7 @@ color:#252525;
 #editor .ql-editor.ql-blank::before{
   color: #fff;
 }
+.ql-editor{
+  border-right: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+}

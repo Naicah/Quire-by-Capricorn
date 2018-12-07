@@ -3,8 +3,6 @@
   -------------------------------------------------------------------------- */
 
   @media only screen and (min-width: 764px) {
-      
-
     * {
         font-size: 1.2vw;
     }
@@ -63,7 +61,7 @@
             grid-template-rows: 1fr 11fr;
             max-height:100%;
     }
-   
+
     /* -------------------------------- POP UPS -------------------------------- */
     .popUpContent {
         padding: 2em;
@@ -72,9 +70,9 @@
         top: 30vh;
     }
     /* -------------------------------- NAV -------------------------------- */
-   
+
     /* -------------------------- NAVSEC --------------------------- */
-   
+
 
     /* --------------------- TOPNAV ------------------ */
     #topNav {
@@ -103,7 +101,7 @@
     }
 
     /* ---------------------------- NOTES --------------------------- */
-   
+
 
      /* ------------------ SEARCH FIELD -------------------- */
 
@@ -249,7 +247,7 @@
     /* -------------------------------- MAIN -------------------------------- */
     /* ---------------------- QUILL EDITOR ------------------ */
     /* ---------------- EDITOR CONTAINER ------------ */
-   
+
     /* ---------- TOOLBAR ------------- */
     .ql-toolbar{
         display: flex;
@@ -264,8 +262,12 @@
       right:0;
       bottom:0;
       left:25%;
-      top: 42px;
+      top: 15%;
       margin-top: 1em;
+      margin:auto;
+      width:60%;
+      border-right: 1px solid rgba(55,55,55,0.5);
+      border-left: 1px solid rgba(55,55,55,0.5);
     }
     .ql-toolbar.ql-snow .ql-formats { /* Container for toolbar content */
         margin-right: 0 !important;
@@ -301,7 +303,7 @@
     #saveIcon i{
         font-size: 2.5vw !important;
     }
-   
+
 }
 /*--------------------------------------------------------------------------
   -              Large devices (laptops/desktops, 992px and up)            -
