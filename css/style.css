@@ -94,14 +94,14 @@ body, html{
 .popUpContent h2 {
     margin: 0;
 }
-.popUpContent button{
-    padding: 1em;
+.popUpContent button {
+    height: 1cm;
     border: rgba(255, 255, 255, .5);
     border-radius: 5%;
     background-color: #105493;
     color: white;
     cursor: pointer;
-    margin: 0.5em;
+    /* margin: 0.1em; */
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .popUpContent button:hover{
@@ -446,9 +446,7 @@ input::-webkit-input-placeholder {
 /*-------------------------------------------------
   -                      EDITOR                   -
   ------------------------------------------------- */
-#editor {
-    overflow-x: hidden;
-}
+
 .ql-editor{
     overflow:hidden;
     max-height: 93vh;

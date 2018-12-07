@@ -64,6 +64,10 @@
     /* -------------------------------- POP UPS -------------------------------- */
     .popUpContent {
         padding: 2em;
+        padding: 1em;
+    }
+    .popUpContent button{
+        margin: 0.3em;
     }
     #tutorial-content {
         width: 50%;
@@ -102,6 +106,11 @@
         display: block;
         font-size: 1.5em;
         color: white;
+        
+        
+        
+
+        
     }
     
     /* ---------------------------- NOTES --------------------------- */
@@ -118,9 +127,11 @@
     #searchIcon{
         color: white; 
         float: right;
-        padding-top: 0.8em;
-        margin-right: 1em;
+        padding-top: 6%;
+        margin-right: 0.5em;
         display: block;
+        font-size: 1.4em;
+        
     }
 
     form {
@@ -161,13 +172,14 @@
 
     }
     #searchInput:focus {
-        width: 60%;
+     
+        width: 37%;
         background-color: #fff;
         border-color: #66CC75;
 
-        -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+        /* -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
         -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
-        box-shadow: 0 0 5px rgba(109,207,246,.5);
+        box-shadow: 0 0 5px rgba(109,207,246,.5); */
     }
 
 
@@ -212,6 +224,7 @@
         font-size: 1.2em;
         padding: 1em 0;
         opacity: 0.2;
+        margin-top: 0;
     }
 
     #noteList .fa-star:hover{
