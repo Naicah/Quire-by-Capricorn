@@ -4,7 +4,7 @@
 
   @media only screen and (min-width: 764px) {
     * {
-        font-size: 1.2vw;
+        font-size: 1.0vw;
     }
     /* -------------------------------- GRID -------------------------------- */
     #nav { grid-area: nav; }
@@ -23,14 +23,14 @@
         grid-template-areas:
             'nav main';
         padding: 0;
-        grid-template-columns: 3fr 9fr;
+        grid-template-columns: 2fr 10fr;
         overflow: hidden;
     }
     #nav {
           display: grid;
           grid-template-areas:
               'navSec notes';
-          grid-template-columns: 1fr 5fr;
+          grid-template-columns: 2fr 10fr;
           grid-template-rows: 100vh;
           z-index: 0;
     }
@@ -97,9 +97,14 @@
         justify-content: flex-start;
         align-items: center;
         height: 25em;/* 5x5 so that every icon is 5em */
-
     }
 
+    .icon{
+        display: block;
+        font-size: 1.5em;
+        color: white;
+    }
+    
     /* ---------------------------- NOTES --------------------------- */
 
 
@@ -110,16 +115,17 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        font-size: 1.5em;
     }
 
     #searchIcon{
-        color: white;
-        font-size: 20px;
+        color: white; 
         float: right;
-        margin-top: 4%;
-        margin-right: 4%;
+        padding-top: 0.8em;
+        margin-right: 1em;
         display: block;
     }
+
     form {
         width: 100%;
         padding-right: 0%;
@@ -133,7 +139,7 @@
         -webkit-appearance: textfield;
         -webkit-box-sizing: content-box;
         font-family: inherit;
-        font-size: 100%;
+        
     }
     input::-webkit-search-decoration,
     input::-webkit-search-cancel-button {
@@ -214,13 +220,9 @@
     #noteList .fa-star:hover{
         opacity: 1;
     }
-
-    #favIcon {
-        padding-right: 7px;
-    }
     /* ------------- CLICK NOTE LIST ------------- */
     #clickNoteList div{
-        height: 5em;
+        height: 4em;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
     #clickNoteList div h4, #clickNoteList div p {
@@ -229,11 +231,11 @@
         margin: 0;
     }
     #clickNoteList div h4{
-        padding-top: 0.7em;
+        padding-top: 0.5em;
     }
     #clickNoteList div p{
         margin:0;
-        padding-top: 2em;
+        padding-top: 1.5em;
     }
     /* #clickNoteList div:hover {
       background: #fff;
