@@ -66,14 +66,14 @@
     .popUpContent {
         padding: 2em;
     }
+    #tutorial-content {
+        width: 50%;
+    }
     #chooseTheme.popUpContainer {
         top: 30vh;
     }
     /* -------------------------------- NAV -------------------------------- */
-
     /* -------------------------- NAVSEC --------------------------- */
-
-
     /* --------------------- TOPNAV ------------------ */
     #topNav {
         display: flex;
@@ -101,11 +101,9 @@
     }
 
     /* ---------------------------- NOTES --------------------------- */
+    /* ------------------ SEARCH FIELD -------------------- */
 
-
-     /* ------------------ SEARCH FIELD -------------------- */
-
-     #searchField {
+    #searchField {
         background-color: #213d57;
         display: flex;
         flex-direction: row;
@@ -238,37 +236,19 @@
     /* #clickNoteList div:hover {
       background: #fff;
     } */
-    /* -------------------------------- TUTORIAL --------------------------- */
-    /* ---------------------- TUTORIAL CONTENT -------------- */
-    #tutorial-content {
-        width: 50%;
-    }
+  
 
     /* -------------------------------- MAIN -------------------------------- */
-    /* ---------------------- QUILL EDITOR ------------------ */
-    /* ---------------- EDITOR CONTAINER ------------ */
+    /* ------------------  EDITOR CONTAINER (QUILL EDITOR) -------- */
 
-    /* ---------- TOOLBAR ------------- */
+    /* --------------------- TOOLBAR ----------------------- */
     .ql-toolbar{
         display: flex;
         align-items: center;
         z-index: 2;
         background: #fff;
     }
-    .ql-editor{
-      overflow-y:auto;
-      position:fixed;
-      height:93vh;
-      right:0;
-      bottom:0;
-      left:25%;
-      top: 15%;
-      margin-top: 1em;
-      margin:auto;
-      width:60%;
-      border-right: 1px solid rgba(55,55,55,0.5);
-      border-left: 1px solid rgba(55,55,55,0.5);
-    }
+
     .ql-toolbar.ql-snow .ql-formats { /* Container for toolbar content */
         margin-right: 0 !important;
         display: flex;
@@ -279,9 +259,7 @@
     .collapse-mobile{
         display: block;
     }
-    /*-----------------------------------------
-      -             TOLBAR CONTENT            -
-      ----------------------------------------- */
+    /* ----------- TOOLBAR CONTENT  -------------- */
 
     #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
         height: 3.5vw !important;
@@ -303,6 +281,22 @@
     #saveIcon i{
         font-size: 2.5vw !important;
     }
+
+     /* --------------------- EDITOR ----------------------- */
+    .ql-editor{
+        overflow-y:auto;
+        position:fixed;
+        height:93vh;
+        right:0;
+        bottom:0;
+        left:25%;
+        top: 15%;
+        margin-top: 1em;
+        margin:auto;
+        width:60%;
+        border-right: 1px solid rgba(55,55,55,0.5);
+        border-left: 1px solid rgba(55,55,55,0.5);
+      }
 
 }
 /*--------------------------------------------------------------------------
