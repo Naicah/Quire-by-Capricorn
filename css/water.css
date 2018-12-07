@@ -36,3 +36,7 @@ nav  {
     text-align: center;
     font-size: 2em !important;
 }
+.ql-editor{
+  border-right: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+}
