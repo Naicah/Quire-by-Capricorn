@@ -95,8 +95,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        height: 25em;/* 5x5 so that every icon is 5em */
-
+        height: auto;
     }
 
     /* ---------------------------- NOTES --------------------------- */
