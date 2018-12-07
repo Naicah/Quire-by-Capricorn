@@ -286,7 +286,6 @@
     .ql-editor{
         overflow-y:auto;
         position: absolute;
-        height:93vh;
         left:15%;
         margin-top: 1em;
         width:70%;
