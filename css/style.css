@@ -207,8 +207,8 @@ body, html{
 }
 .icon{
     margin: 1em auto;
-    max-height: 25px;
-    max-width: 20px;
+    max-height: 2em;
+    max-width: 2em;
     display: block;
     font-size: 25px;
     color: white;
