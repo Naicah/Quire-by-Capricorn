@@ -4,6 +4,10 @@
 
   @media only screen and (min-width: 764px) {
       
+
+    * {
+        font-size: 1.2vw;
+    }
     /* -------------------------------- GRID -------------------------------- */
     #nav { grid-area: nav; }
     #main { grid-area: main; }
@@ -204,9 +208,8 @@
 
     #noteList .fa-star{
         float: right;
-        margin-right: 5%;
-        margin-top: 15%;
-        font-size: 18px;
+        font-size: 1.2em;
+        padding: 1em 0;
         opacity: 0.2;
     }
 
@@ -219,21 +222,20 @@
     }
     /* ------------- CLICK NOTE LIST ------------- */
     #clickNoteList div{
-        height: 78px;
+        height: 5em;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
     #clickNoteList div h4, #clickNoteList div p {
-        padding-left: 10px;
+        padding-left: 0.7em;
         color: black;
-        padding-top:10px;
+        margin: 0;
     }
     #clickNoteList div h4{
-        margin:0;
+        padding-top: 0.7em;
     }
     #clickNoteList div p{
         margin:0;
-        font-size: 14px;
-        margin-top: 22px;
+        padding-top: 2em;
     }
     /* #clickNoteList div:hover {
       background: #fff;
