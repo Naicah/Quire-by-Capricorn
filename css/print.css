@@ -7,10 +7,10 @@
 @media print{
   nav, .collapse-mobile, .ql-toolbar, #popUp, #navSec,
   #topNav, #menu, #noteList, #notes, #searchField{
-    display: none;
+    display: none !important;
   }
   #editorContainer{
-    display:none;
+    display:block;
     margin:0;
     padding:0;
     height: auto;
