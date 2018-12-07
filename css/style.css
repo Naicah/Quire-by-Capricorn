@@ -4,7 +4,6 @@
 body, html{
     margin:0;
 }
-
 .none {
     display: none;
 }
@@ -30,13 +29,13 @@ body, html{
     grid-template-columns: 1fr;
      grid-template-areas:
         'nav'
-        'main';
+        'main'; /* Main = Editor container but has to be specified as main to work */
     padding: 0;
 }
 #editorContainer {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 9fr;
+    grid-template-rows: 1fr 14fr;
      grid-template-areas:
         'ql-toolbar'
         'editor';
@@ -136,15 +135,6 @@ body, html{
 /*---------------------------------------------------------------------------
   -                      NAV                                                -
   --------------------------------------------------------------------------- */
-/* #nav {
-    z-index: 15;
-    display: block;
-    position: relative;
-    top: 0;
-    width: 100%;
-    transition: top 0.3s;
-} */
-
 /*------------------------------------------------------------
   -                      NAVSEC                              -
   ------------------------------------------------------------ */
@@ -202,7 +192,6 @@ body, html{
     height: 5em;
     justify-content: space-evenly;
     display:flex;
-
 }
 .menuIcon{
     background-color: inherit;
@@ -246,26 +235,21 @@ body, html{
 #searchField {
     background-color:#115493;
 }
-
 #searchIcon{
     display: none;
 }
-
 form {
     width: 100%;
     display: flex;
     flex-direction: row;
 }
-
 input {
 	outline: none;
 }
-
 input::-webkit-search-decoration,
 input::-webkit-search-cancel-button {
 	display: none;
 }
-
 #searchInput {
 	-webkit-appearance: textfield;
 	-webkit-box-sizing: content-box;
@@ -286,8 +270,6 @@ input::-webkit-search-cancel-button {
 	-moz-transition: all .5s;
 	transition: all .5s;
 }
-
-
 input:-moz-placeholder {
     color: #999;
     text-align: center;
@@ -296,7 +278,6 @@ input::-webkit-input-placeholder {
     color: #999;
     text-align: center;
 }
-
 
 /*-------------------------------------------------
   -                   NOTE LIST                   -
@@ -325,9 +306,7 @@ input::-webkit-input-placeholder {
     border-bottom: 1px solid darkgrey;
     font-family: sans-serif;
 }
-/*
-The active style for a note in notelist that is currently focused.
-*/
+/* The active style for a note in notelist that is currently focused. */
 .active-style{
   background: #fff;
   outline: 1px solid #115493;
@@ -372,18 +351,19 @@ The active style for a note in notelist that is currently focused.
   ------------------------------------------------- */
 
 .ql-toolbar-fixed{
-  position: fixed;
-  background: #fff;
-  z-index: 10;
-  left:0;
-  top:0;
-  right:0;
+    position: fixed;
+    background: #fff;
+    z-index: 10;
+    left:0;
+    top:0;
+    right:0;
     transition: top 0.3s;
 }
 .ql-toolbar.ql-snow{
-  padding: 0,7em !important;
+    padding: 0.7em !important;
+    display: flex;
+    align-items: center;
 }
-
 .ql-toolbar-inherit{
     position: inherit;
 }
@@ -436,8 +416,6 @@ The active style for a note in notelist that is currently focused.
 #save:hover {
     cursor: pointer;
 }
-
-/*- William*/
 #load-wrapp {
     text-align: center;
     float: left;
@@ -462,6 +440,9 @@ The active style for a note in notelist that is currently focused.
     50% {width: 35px; padding: 4px;}
     100% {width: 15px;}
 }
+.ql-snow.ql-toolbar:after, .ql-snow .ql-toolbar:after {
+    content: none !important;
+}
 /*-------------------------------------------------
   -                      EDITOR                   -
   ------------------------------------------------- */
@@ -471,14 +452,5 @@ The active style for a note in notelist that is currently focused.
 .ql-editor{
     overflow:hidden;
     max-height: 93vh;
-  }
-/* .ql-toolbar {
-    display: flex;
-    justify-content: space-between;
 }
-.ql-toolbar.ql-snow .ql-formats {
-    margin-right: 0 !important;
-} */
-.ql-snow.ql-toolbar:after, .ql-snow .ql-toolbar:after {
-    content: none !important;
-}
+

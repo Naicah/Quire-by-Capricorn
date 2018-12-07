@@ -21,7 +21,7 @@
     .container {
         display: grid;
         grid-template-areas:
-            'nav main';
+            'nav main';  /* Main = Editor container but has to be specified as main to work */
         padding: 0;
         grid-template-columns: 3fr 9fr;
         overflow: hidden;
@@ -34,7 +34,6 @@
           grid-template-rows: 100vh;
           z-index: 0;
     }
-
     #editorContainer {
         display: grid;
         grid-template-columns: 1fr;
@@ -253,33 +252,35 @@
         margin-right: 0 !important;
         display: flex;
         flex-wrap: nowrap;
-        justify-content: space-around;
+        justify-content: left;
         width: 100%;
     }
     .collapse-mobile{
         display: block;
     }
     /* ----------- TOOLBAR CONTENT  -------------- */
-
+    /* All content types */
     #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
-        height: 3.5vw !important;
+        height: 2.5vw !important;
+        margin-right: 1vw;
     }
     #editorContainer > div > span > span:first-child { /* Drop down Header container*/
-        width: 15vw !important;
+        width: 10vw !important;
+        margin-left: 1vw;
     }
     .ql-toolbar.ql-snow .ql-picker-label { /* Drop down Header lable */
-        font-size: 2vw !important;
+        font-size: 1.5vw !important;
     }
     #editorContainer > div > span > span:first-child > span:last-child > span{ /* Alternative in drop down header */
-        font-size: 1.2vw !important;
-        height: 3.3vw !important;
+        font-size: 0.8vw !important;
+        height: 2.5vw !important;
     }
     #editorContainer > div > span > span:nth-child(6) { /* Text align */
-        width: 3.5vw !important;
-        height: 3.5vw !important;
+        width: 2.5vw !important;
+        height: 2.5vw !important;
     }
     #saveIcon i{
-        font-size: 2.5vw !important;
+        font-size: 1.5vw !important;
     }
 
      /* --------------------- EDITOR ----------------------- */
