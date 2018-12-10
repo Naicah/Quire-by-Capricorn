@@ -1,0 +1,74 @@
+README 
+CAPRICORN TEXT EDITOR 
+Capricorn text editor is a project created by William Nordqvist, Oliver Vasquez, Jonathan Silkewall and Nina Hedman. 
+This was the first group project that we got assigned from KYH Front-end development school. 
+
+The main focus with the project was to create a web-based text editor with a focus on agile work methodic.
+
+Our's requirements for the project was the following: 
+1. Adjusted for Chrome, Firefox and Safari browser for both desktop and mobile.
+2. Responsive design and need to work on all mobile devices, desktop and 4k displays.
+3. HTML5 and CSS3.
+4. No frameworks such as JQuery, Reach, Angular mfl.
+5. Semantic HTML, SEO and accessibility optimized.
+
+
+Current files are used for the project. 
+index.html - here is where we wrote all the semantics HTML where we used grit system as a base. 
+style.css -  css for mobile design code. 
+layout.css - css for desktop and 4k displays. 
+print.css - css for content adjust to print.
+fire.css - css for the "fire" theme. 
+forrest.css - css for the "Forrest" theme. 
+water.css - css for the "water" theme. 
+index.js - Javascript code for all the listener where we call the callbacks functions.
+handleNote.js - Main file for all the callbacks functions. 
+nav.js -  Javascript code that is connected to the Navbar in mobile view. 
+tutorial.js - Javascript code for our popup windows. 
+
+UX/UI 
+
+The gound components in the editor are build up with Grid where we tried to work as modular as possible.
+ Here is the following list with the components and with a short description.
+
+ Searchfield - a field where the user can search for a keyword that listened to keyUp event. The list will be filtered based on the content in each article.
+
+ Menu - this is where we keep all the icon related to function.
+ Menu New page Icon - This icon allows the user to create a new document. A warning popUp window will alert if the user has unsaved data.
+ Menu Star icon - This icons filters on all the favourite marked articles.
+ Menu Theme icon - This icons open up a new window where the user can choose between 4 different themes to work with. Every theme has its own background picture and font family. 
+ Menu Trashcan - This icon deletes all the articles. 
+
+ NoteList - NoteList is the container that stores all the different articles. 
+ You can save as many articles as you want (or as many your browser allows you to). All the articles will be saved in your Browser local storage. 
+ The hole Notelist are saved in one Array each article is then saved in one Object. 
+ Each object does then contain following keys.
+  Object active - Boolean. To mark if this is an active article. The article will then change the background color to show at this is the active article the user is working on. 
+  Object dateTime - Contains date where the article was last saved. 
+  Object Fave - Boolean. To mark if the user has marked this as a favourite article. All article that is marked true here will be filtered out when the user clicks on the Star icon. 
+  Object ID - Sets the article ID. This comes handful for us as developers when we need to grab a specific article in a function etc. 
+  Object text - Saves the text that contains in the editor. 
+  Object title - Stores the first line in the editor that then will be displayed as a title in the noteList. 
+
+Toolbar - The editor toolbar is a toolbar that we could borrow directly from "https://quilljs.com/". We could manually adjust what we wanted it to contain. 
+We choose to have:
+    Font size editor where the user can choose between heading1, heading2 or normal text.
+    Bolded text. 
+    Italics text. 
+    Underlined text.   
+    Left, centre or right justify text. 
+    Order lists. 
+    Unordered list. 
+    Attach pictures. 
+    Save button. 
+
+    Editor - The editor is the biggest component of the site and where is the user writes it´s text. 
+    We borrowed the editor from "https://quilljs.com/".
+
+
+
+
+
+
+
+
