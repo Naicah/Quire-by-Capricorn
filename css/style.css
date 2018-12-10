@@ -72,7 +72,7 @@ body, html{
     top: 10vh;
 }
 .exit {
-    /* position: absolute; */
+    position: absolute;
     top: 0;
     right: 0;
     margin: 2vw;
@@ -261,6 +261,7 @@ input::-webkit-search-cancel-button {
     width: 60%;
     margin:auto;
     margin-bottom: 3%;
+    margin-top: 3%;
 
 	-webkit-border-radius: 10em;
 	-moz-border-radius: 10em;
@@ -334,6 +335,7 @@ input::-webkit-input-placeholder {
 }
 #clickNoteList div h4{ /* Heading (title) for notes in notelist */
     font-size: 1em;
+    margin: 0;
 }
 #clickNoteList div p{ /* Text (time & date) in div for notes in notelist */
     font-size: 0.8em;
