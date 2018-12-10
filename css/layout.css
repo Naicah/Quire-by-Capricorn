@@ -254,26 +254,22 @@
         opacity: 1;
     }
     /* ------------- CLICK NOTE LIST ------------- */
-    #clickNoteList div{
+    #clickNoteList article{
         height: 4em;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
-    #clickNoteList div h4, #clickNoteList div p {
+    #clickNoteList article h4, #clickNoteList article p {
         padding-left: 0.7em;
         color: black;
         margin: 0;
     }
-    #clickNoteList div h4{
+    #clickNoteList article h4{
         padding-top: 0.5em;
     }
-    #clickNoteList div p{
+    #clickNoteList article p{
         margin:0;
         padding-top: 1.5em;
     }
-    /* #clickNoteList div:hover {
-      background: #fff;
-    } */
-
 
     /* -------------------------------- MAIN -------------------------------- */
     /* ------------------  EDITOR CONTAINER (QUILL EDITOR) -------- */

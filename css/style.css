@@ -356,24 +356,24 @@ input::-webkit-input-placeholder {
     width: auto;
     height: auto;
 }
-#clickNoteList div:hover { /* When hovering over any notelist obj */
+#clickNoteList article:hover { /* When hovering over any notelist obj */
     background: #f5f5f5;
     cursor: pointer;
 }
-#clickNoteList div{ /* Divs created for each note in notelist */
+#clickNoteList article{ /* Divs created for each note in notelist */
     height: 3em;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-#clickNoteList div h4, #clickNoteList div p { /* All text in div for notes in notelist */
+#clickNoteList article h4, #clickNoteList article p { /* All text in div for notes in notelist */
     padding-left: 10px;
     color: black;
     margin: 0.3em 0 0 0;
 }
-#clickNoteList div h4{ /* Heading (title) for notes in notelist */
+#clickNoteList article h4{ /* Heading (title) for notes in notelist */
     font-size: 1em;
     margin: 0;
 }
-#clickNoteList div p{ /* Text (time & date) in div for notes in notelist */
+#clickNoteList article p{ /* Text (time & date) in div for notes in notelist */
     font-size: 0.8em;
     color: #777;
 }
