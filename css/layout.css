@@ -6,7 +6,6 @@
     * {
         font-size: 1.0vw;
     }
-  }
 
 ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
