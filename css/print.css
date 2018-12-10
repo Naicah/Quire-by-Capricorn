@@ -30,6 +30,6 @@
     width:595px;
     display:block;
     border:none;
-    overflow:none;
+   overflow: auto;
   }
 }

@@ -6,7 +6,7 @@
     * {
         font-size: 1.0vw;
     }
-    
+
 ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
@@ -84,9 +84,15 @@
     /* -------------------------- NAVSEC --------------------------- */
     /* --------------------- TOPNAV ------------------ */
     #topNav {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         height: auto;
     }
     #logo {
@@ -100,10 +106,19 @@
     }
     /* ---------------------- MENU -------------------- */
     #menu {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         height: auto;/* 5x5 so that every icon is 5em */
     }
 
@@ -111,32 +126,39 @@
         display: block;
         font-size: 1.5em;
         color: white;
-        
-        
-        
 
-        
+
+
+
+
     }
-    
+
     /* ---------------------------- NOTES --------------------------- */
     /* ------------------ SEARCH FIELD -------------------- */
 
     #searchField {
         background-color: #213d57;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         font-size: 1.5em;
     }
 
     #searchIcon{
-        color: white; 
+        color: white;
         float: right;
         padding-top: 6%;
         margin-right: 0.5em;
         display: block;
         font-size: 1.4em;
-        
+
     }
 
     form {
@@ -152,7 +174,7 @@
         -webkit-appearance: textfield;
         -webkit-box-sizing: content-box;
         font-family: inherit;
-        
+
     }
     input::-webkit-search-decoration,
     input::-webkit-search-cancel-button {
@@ -166,18 +188,14 @@
 
         margin:0;
         margin-left: 5%;
-
-        -webkit-border-radius: 10em;
-        -moz-border-radius: 10em;
         border-radius: 10em;
 
         -webkit-transition: all .5s;
-        -moz-transition: all .5s;
         transition: all .5s;
 
     }
     #searchInput:focus {
-     
+
         width: 37%;
         background-color: #fff;
         border-color: #66CC75;
@@ -236,43 +254,48 @@
         opacity: 1;
     }
     /* ------------- CLICK NOTE LIST ------------- */
-    #clickNoteList div{
+    #clickNoteList article{
         height: 4em;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
-    #clickNoteList div h4, #clickNoteList div p {
+    #clickNoteList article h4, #clickNoteList article p {
         padding-left: 0.7em;
         color: black;
         margin: 0;
     }
-    #clickNoteList div h4{
+    #clickNoteList article h4{
         padding-top: 0.5em;
     }
-    #clickNoteList div p{
+    #clickNoteList article p{
         margin:0;
         padding-top: 1.5em;
     }
-    /* #clickNoteList div:hover {
-      background: #fff;
-    } */
-
 
     /* -------------------------------- MAIN -------------------------------- */
     /* ------------------  EDITOR CONTAINER (QUILL EDITOR) -------- */
 
     /* --------------------- TOOLBAR ----------------------- */
     .ql-toolbar{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         z-index: 2;
         background: #fff;
     }
 
     .ql-toolbar.ql-snow .ql-formats { /* Container for toolbar content */
         margin-right: 0 !important;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-wrap: nowrap;
-        justify-content: left;
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+        -webkit-box-pack: left;
+            -ms-flex-pack: left;
+                justify-content: left;
         width: 100%;
     }
     .collapse-mobile{
@@ -329,7 +352,7 @@
 @media only screen and (min-width: 3000px) {
 
     #searchIcon{
-        padding-top: 0; 
+        padding-top: 0;
     }
 
     #searchInput:focus {

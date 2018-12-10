@@ -74,7 +74,7 @@ function displayNoteList(func = () => true) {
 	// om inget argument specificeras körs den bara true.
 	//noteArr = noteArr.filter((n) => func(n));
 	noteArr.filter((n) => func(n)).forEach((obj) => { // Create Div with note info for each saved note
-		let newDiv = document.createElement("div");
+		let newArticle = document.createElement("article");
 		let newH = document.createElement("h4");
 		let newP = document.createElement("p");
 		let newI = document.createElement("i");
@@ -85,9 +85,9 @@ function displayNoteList(func = () => true) {
 		}
 		// Checking for active obj in list to display focused
 		if(obj.active){
-			newDiv.classList.add("active-style");
+			newArticle.classList.add("active-style");
 		}else{
-			newDiv.classList.remove("active-style");
+			newArticle.classList.remove("active-style");
 		}
 		let title = obj.title;
 
@@ -100,18 +100,18 @@ function displayNoteList(func = () => true) {
 		}
 		newH.innerHTML = title;
 		newP.innerHTML = `${obj.dateTime}`;
-		newDiv.id = `${obj.id}`;
-		newDiv.appendChild(newI);
-		newDiv.appendChild(newH);
-		newDiv.appendChild(newP);
-		container.appendChild(newDiv);
+		newArticle.id = `${obj.id}`;
+		newArticle.appendChild(newI);
+		newArticle.appendChild(newH);
+		newArticle.appendChild(newP);
+		container.appendChild(newArticle);
 	});
 }
 
 // WHEN CLICK IN NOTE LIST: RETURN ID OF CLICKED NOTE
-function getNoteIDFromNoteList() {
+function getNoteIDFromNoteList(event) {
 	let id = "";
-	if (event.target.tagName === "DIV"){
+	if (event.target.tagName === "ARTICLE"){
 		id = (event.target).id;
 	} else {
 		id = (event.target.parentElement).id;
@@ -312,10 +312,10 @@ function addToLocalStorage(note) {
 
 // CREATE NEW PAGE IN NOTE LIST
 function newPage() {
-	let newDiv = document.createElement("div");
+	let newArticle = document.createElement("article");
 	let newH = document.createElement("h4");
-	newDiv.appendChild(newH);
-	document.getElementById("clickNoteList").appendChild(newDiv);
+	newArticle.appendChild(newH);
+	document.getElementById("clickNoteList").appendChild(newArticle);
 	let note = newNote("", "");
 	quill.root.innerHTML = "";
 	addToLocalStorage(note);
@@ -386,7 +386,7 @@ function filterFav() {
 
 // SEARCH FUNCTION
 
-document.getElementById("searchField").firstElementChild.addEventListener("keyup", function(event) {
+document.getElementById("searchField").firstElementChild.addEventListener("keyup", function() {
       SearchFunction();
   });
 
