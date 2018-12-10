@@ -109,7 +109,7 @@ function displayNoteList(func = () => true) {
 }
 
 // WHEN CLICK IN NOTE LIST: RETURN ID OF CLICKED NOTE
-function getNoteIDFromNoteList() {
+function getNoteIDFromNoteList(event) {
 	let id = "";
 	if (event.target.tagName === "DIV"){
 		id = (event.target).id;
@@ -386,7 +386,7 @@ function filterFav() {
 
 // SEARCH FUNCTION
 
-document.getElementById("searchField").firstElementChild.addEventListener("keyup", function(event) {
+document.getElementById("searchField").firstElementChild.addEventListener("keyup", function() {
       SearchFunction();
   });
 

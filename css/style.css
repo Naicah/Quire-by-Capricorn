@@ -1,5 +1,6 @@
 * {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 body, html{
     margin:0;
@@ -8,6 +9,8 @@ body, html{
     display: none;
 }
 .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -108,7 +111,8 @@ body, html{
     color: white;
     cursor: pointer;
     /* margin: 0.1em; */
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .popUpContent button:hover{
     background-color: #213d57;
@@ -117,8 +121,11 @@ body, html{
   -                      THEME VIEW                          -
   ------------------------------------------------------------ */
 #themeChoice {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 #themeChoice div {
     width: 8em;
@@ -154,9 +161,15 @@ body, html{
     background-color:#213d57;
     height: 4em;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 #logo {
     height: 2.5em;
@@ -176,6 +189,7 @@ body, html{
   height: 5px;
   background-color: #fff;
   margin: 6px 0;
+  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 .merge .ham1{
@@ -193,10 +207,19 @@ body, html{
   -                      MENU                     -
   ------------------------------------------------- */
 #menu {
-    flex-direction: row;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 5em;
-    justify-content: space-evenly;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    display:-webkit-box;
+    display:-ms-flexbox;
     display:flex;
 }
 .menuIcon{
@@ -204,9 +227,15 @@ body, html{
     width: 100%;
     height: 100%;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .menuIcon:hover{
     background-color: #213d57;
@@ -246,8 +275,13 @@ body, html{
 }
 form {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 input {
 	outline: none;
@@ -268,13 +302,9 @@ input::-webkit-search-cancel-button {
     margin:auto;
     margin-bottom: 3%;
     margin-top: 3%;
-
-	-webkit-border-radius: 10em;
-	-moz-border-radius: 10em;
 	border-radius: 10em;
 
 	-webkit-transition: all .5s;
-	-moz-transition: all .5s;
 	transition: all .5s;
 }
 input:-moz-placeholder {
@@ -365,21 +395,30 @@ input::-webkit-input-placeholder {
     left:0;
     top:0;
     right:0;
+    -webkit-transition: top 0.3s;
     transition: top 0.3s;
 }
 .ql-toolbar.ql-snow{
     padding: 0.7em !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .ql-toolbar-inherit{
     position: inherit;
 }
 .ql-toolbar.ql-snow .ql-formats { /* Container for toolbar content */
     margin-right: 0 !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     width: 100%;
 }
 
@@ -388,6 +427,8 @@ input::-webkit-input-placeholder {
   ----------------------------------------- */
 
   #save{
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
   }
 /* Everything in toolbar */
@@ -402,9 +443,16 @@ input::-webkit-input-placeholder {
     width: 20vw !important;
 }
 .ql-toolbar.ql-snow .ql-picker-label { /* Drop down Header lable */
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding: 0 !important;
     font-size: 4vw !important;
 }
@@ -417,8 +465,13 @@ input::-webkit-input-placeholder {
     height: 8vw !important;
 }
 #saveIcon {
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 #saveIcon i{
     font-size: 5vw !important;
@@ -443,7 +496,13 @@ input::-webkit-input-placeholder {
     background-color: #4b9cdb;
 }
 .load-8 .line {
-    animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
+    -webkit-animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
+            animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
+}
+@-webkit-keyframes loadingH {
+    0% {width: 15px;}
+    50% {width: 35px; padding: 4px;}
+    100% {width: 15px;}
 }
 @keyframes loadingH {
     0% {width: 15px;}

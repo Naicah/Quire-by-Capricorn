@@ -19,7 +19,8 @@ text-align: center;
 }
 
 .ql-snow * {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     text-align: center;
 }
 

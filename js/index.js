@@ -79,7 +79,7 @@ window.onload = function () {
      document.getElementById('chooseTheme').addEventListener('click', function () {
         popUpToggle(document.getElementById("chooseTheme")); // Hide warning pop up
     });
-    
+
     //---------------------------- Slut pop-ups --------------------------- //
 
     // WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT
@@ -107,8 +107,8 @@ window.onload = function () {
     });
 
     // WHEN CLICK IN NOTE LIST
-    document.getElementById("clickNoteList").addEventListener("click", function () {
-        checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList()); // Check if there are any unsaved changes in displayed note
+    document.getElementById("clickNoteList").addEventListener("click", function (event) {
+        checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList(event)); // Check if there are any unsaved changes in displayed note
         filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
     });
 
@@ -120,7 +120,7 @@ window.onload = function () {
 
         favIcon.classList.toggle("yellowStar");
         favIcon.classList.toggle("fas");
-        
+
         filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
         displayFirstNote(); // Display first note of note list in editor
     });
@@ -135,9 +135,3 @@ window.onload = function () {
 // window.onscroll = function(){
 //   setToolbarPositionStatus();
 // }
-
-
-    
-
-
-
