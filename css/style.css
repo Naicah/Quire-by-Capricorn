@@ -381,6 +381,10 @@ input::-webkit-input-placeholder {
 /*-----------------------------------------
   -             TOLBAR CONTENT            -
   ----------------------------------------- */
+
+  #save{
+      display: flex;
+  }
 /* Everything in toolbar */
 #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
     height: 8vw !important;
@@ -408,7 +412,6 @@ input::-webkit-input-placeholder {
     height: 8vw !important;
 }
 #saveIcon {
-    display: flex;
     flex-direction: column;
     justify-content: center;
 }
