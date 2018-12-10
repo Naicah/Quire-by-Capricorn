@@ -2,170 +2,170 @@
 <html lang="sv">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quire</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quire</title>
 
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/layout.css">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href=""> <!-- DO NOT TOUCH -- Has to be nr 3 style, href changes depending on which theme user uses -->
-    <link rel="stylesheet" type="text/css" href="../css/print.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/layout.css">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href=""> <!-- DO NOT TOUCH -- Has to be nr 3 style, href changes depending on which theme user uses -->
+  <link rel="stylesheet" type="text/css" href="../css/print.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Great+Vibes|Montserrat|Mr+De+Haviland|Open+Sans+Condensed:300">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Lora|Varela+Round" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Great+Vibes|Montserrat|Mr+De+Haviland|Open+Sans+Condensed:300">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Lora|Varela+Round" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+  crossorigin="anonymous">
 </head>
 
 <body class="container">
 
-    <!-- FADED BACKGROUND BEHIND POP UPS  -->
-    <div id="popUpBg" class="none"></div>
+  <!-- FADED BACKGROUND BEHIND POP UPS  -->
+  <div id="popUpBg" class="none"></div>
 
-    <!-- ------------------------- TUTORIAL --------------------------------------------------------------------------------------- -->
-    <section id="tutorial" class="popUpContainer none">
-        <div class="popUpContent">
-            <div>
-                <p class="exit">&#x2718;</p>
-            </div>
-            <h2>Tutorial</h2>
-            <h4>Meny</h4>
-                <p>Meny för att skapa dokument, sök bland dokument</p>
-            <h4>Titlar</h4>
-                <p>Här hittar du alla dina tidigare sparade dokument.</p>
-            <h4>Vertyg</h4>
-                <p>Här kan du modifiera texten byta teckensnitt, öka på storlek, bestämma dokumentsformat.</p>
-            <button type="button" id="tutorial-btn" name="button">Jag förstår</button>
-        </div>
-    </section> <!-- End Tutorial -->
+  <!-- ------------------------- TUTORIAL --------------------------------------------------------------------------------------- -->
+  <section id="tutorial" class="popUpContainer none">
+    <div class="popUpContent">
+      <div>
+        <p class="exit">&#x2718;</p>
+      </div>
+      <h2>Tutorial</h2>
+      <h4>Meny</h4>
+      <p>Meny för att skapa dokument, sök bland dokument</p>
+      <h4>Titlar</h4>
+      <p>Här hittar du alla dina tidigare sparade dokument.</p>
+      <h4>Vertyg</h4>
+      <p>Här kan du modifiera texten byta teckensnitt, öka på storlek, bestämma dokumentsformat.</p>
+      <button type="button" id="tutorial-btn" name="button">Jag förstår</button>
+    </div>
+  </section> <!-- End Tutorial -->
 
-    <!-- ------------------------- UNSAVED CONTENT --------------------------------------------------------------------------------------- -->
-    <div id="unsavedContent" class="popUpContainer none">
-        <div class="popUpContent">
-            <div id="exitunsavedContent">
-                <p class="exit">&#x2718;</p>
-            </div>
-            <h2>VARNING!</h2>
-            <p>Du har osparat material.<br>
-            Vänligen spara för att inte förlora ditt innhehåll.</p>
-            <button id="unsavedContentSave">SPARA</button>
-            <button id="unsavedContentIgnore">IGNORERA</button>
-            <button id="unsavedContentCancel">AVBRYT</button>
-        </div>
+  <!-- ------------------------- UNSAVED CONTENT --------------------------------------------------------------------------------------- -->
+  <div id="unsavedContent" class="popUpContainer none">
+    <div class="popUpContent">
+      <div id="exitunsavedContent">
+        <p class="exit">&#x2718;</p>
+      </div>
+      <h2>VARNING!</h2>
+      <p>Du har osparat material.<br>
+        Vänligen spara för att inte förlora ditt innhehåll.</p>
+        <button id="unsavedContentSave">SPARA</button>
+        <button id="unsavedContentIgnore">IGNORERA</button>
+        <button id="unsavedContentCancel">AVBRYT</button>
+      </div>
     </div> <!-- End Unsaved content -->
 
     <!-- ------------------------- THEME VIEW --------------------------------------------------------------------------------------- -->
     <section id = "chooseTheme" class="popUpContainer none">
-        <div class ="popUpContent">
-            <div>
-                <p class="exit">&#x2718;</p>
-            </div>
-            <h2>Välj tema</h2>
-            <div id="themeChoice">
-                <div id="forrest">
-                    <img src="../media/forestpre.JPG" alt="Forrest theme">
-                </div>
-                <div id="fire">
-                    <img src="../media/firepre.JPG" alt="Fire theme">
-                </div>
-                <div id="water">
-                    <img src="../media/waterpre.JPG" alt="Water theme">
-                </div>
-                <div id="standard">
-                    <img src="../media/standard.png" alt="Standard theme">
-                </div>
-
-            </div>
+      <div class ="popUpContent">
+        <div>
+          <p class="exit">&#x2718;</p>
         </div>
+        <h2>Välj tema</h2>
+        <div id="themeChoice">
+          <div id="forrest">
+            <img src="../media/forestpre.JPG" alt="Forrest theme">
+          </div>
+          <div id="fire">
+            <img src="../media/firepre.JPG" alt="Fire theme">
+          </div>
+          <div id="water">
+            <img src="../media/waterpre.JPG" alt="Water theme">
+          </div>
+          <div id="standard">
+            <img src="../media/standard.png" alt="Standard theme">
+          </div>
+
+        </div>
+      </div>
     </section>
 
     <nav id="nav">
-        <!-- -------------------------- NAVSEC ---------------------------------------------------------------------------------------- -->
-        <div id="navSec">
-            <!-- ---------------------- TOPNAV ---------------------------------------------------------------------------------------- -->
-            <div id="topNav">
-                <img id="logo" src="../media/quire.png" alt="image of the Quire-logo">
-                <div id="hamburgerIcon">
-                  <div class="ham1"></div>
-                  <div class="ham2"></div>
-                  <div class="ham3"></div>
-                </div>
-            </div> <!-- End TopNav -->
+      <!-- -------------------------- NAVSEC ---------------------------------------------------------------------------------------- -->
+      <div id="navSec">
+        <!-- ---------------------- TOPNAV ---------------------------------------------------------------------------------------- -->
+        <div id="topNav">
+          <img id="logo" src="../media/quire.png" alt="image of the Quire-logo">
+          <div id="hamburgerIcon">
+            <div class="ham1"></div>
+            <div class="ham2"></div>
+            <div class="ham3"></div>
+          </div>
+        </div> <!-- End TopNav -->
 
 
-            <!-- ---------------------- MENU ------------------------------------------------------------------------------------------ -->
-            <div class="collapse-mobile none">
-              <div id="menu">
-                    <!-- NEW -->
-                    <div id="newPage" class="menuIcon">
-                        <i class="far fa-file icon" alt="New file icon"></i>
-                    </div>                   
-                    <!-- FAV ICON -->
-                    <div id="favIcon" class="menuIcon">
-                        <i class="far fa-star icon" alt="Fav icon"></i>
-                    </div>
-                    <!-- THEMES -->
-                    <div id="themeIcon" class="menuIcon">
-                        <i class="far fa-caret-square-down icon" alt="Trash icon"></i>
-                    </div>
-                    <!-- DELETE -->
-                    <div id="deleteAll" class="menuIcon">
-                        <i class="far fa-trash-alt icon" alt="Trash icon"></i>
-                    </div>
+        <!-- ---------------------- MENU ------------------------------------------------------------------------------------------ -->
+        <div class="collapse-mobile none">
+          <div id="menu">
+            <!-- NEW -->
+            <div id="newPage" class="menuIcon">
+              <i class="far fa-file icon" alt="New file icon"></i>
+            </div>
+            <!-- FAV ICON -->
+            <div id="favIcon" class="menuIcon">
+              <i class="far fa-star icon" alt="Fav icon"></i>
+            </div>
+            <!-- THEMES -->
+            <div id="themeIcon" class="menuIcon">
+              <i class="far fa-caret-square-down icon" alt="Trash icon"></i>
+            </div>
+            <!-- DELETE -->
+            <div id="deleteAll" class="menuIcon">
+              <i class="far fa-trash-alt icon" alt="Trash icon"></i>
+            </div>
 
-                    </div> <!-- End Menu -->
-                </div>
-            </div> <!-- End NavSec -->
+          </div> <!-- End Menu -->
+        </div>
+      </div> <!-- End NavSec -->
 
-              <!-- ---------------------- NOTES ------------------------------------------------------------------------------------------ -->
-              <div id="notes" class="none">
-                  <div id="searchField" >
-                        <form>
-                            <input id ="searchInput"  type="search" placeholder="SÖK">
-                            <i id="searchIcon" class="fas fa-search" alt="Search icon"></i>
-                        </form>
-                  </div>
+      <!-- ---------------------- NOTES ------------------------------------------------------------------------------------------ -->
+      <div id="notes" class="none">
+        <div id="searchField" >
+          <form>
+            <input id ="searchInput"  type="search" placeholder="SÖK">
+            <i id="searchIcon" class="fas fa-search" alt="Search icon"></i>
+          </form>
+        </div>
 
-                  <div id="noteList" >
-                      <div id="clickNoteList">
+        <div id="noteList" >
+          <div id="clickNoteList">
 
-                      </div>
-                  </div>
-                </div> <!-- End Notes -->
-        </nav>
+          </div>
+        </div>
+      </div> <!-- End Notes -->
+    </nav>
 
 
 
     <main id="main">
-        <!-- DO NOT TOUCH -->
-            <div class="none"></div>    <!-- Gets CurrentNoteID as ID (hidden) -->
-            <div class="none"></div>    <!-- Gets NextNoteID as ID (hidden) -->
-        <!-- DO NOT TOUCH -->
+      <!-- DO NOT TOUCH -->
+      <div class="none"></div>    <!-- Gets CurrentNoteID as ID (hidden) -->
+      <div class="none"></div>    <!-- Gets NextNoteID as ID (hidden) -->
+      <!-- DO NOT TOUCH -->
 
-        <!-- ---------------------- QUILL EDITOR ----------------------------------------------------------------------------------------- -->
-        <div id="editorContainer">
+      <!-- ---------------------- QUILL EDITOR ----------------------------------------------------------------------------------------- -->
+      <div id="editorContainer">
 
 
-            <div id="editor">
-            </div>
-        </div> <!-- End Editor Container -->
-
-        <!-- SAVE Appendas via JS i toolbar -->
-        <div id="save">
-            <div id="saveIcon" class="" >
-                <i class="far fa-save " alt="Save file icon"></i>
-            </div>
-
-            <div id="load-wrapp" class="none">
-                <div class="load-8">
-                    <div class="line"></div>
-                </div>
-            </div>
+        <div id="editor">
         </div>
+      </div> <!-- End Editor Container -->
+
+      <!-- SAVE Appendas via JS i toolbar -->
+      <div id="save">
+        <div id="saveIcon" class="" >
+          <i class="far fa-save " alt="Save file icon"></i>
+        </div>
+
+        <div id="load-wrapp" class="none">
+          <div class="load-8">
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
     </main>
 
 
@@ -179,6 +179,6 @@
     <script src="../js/nav.js"></script>
     <script src="../js/index.js"></script>
 
-</body>
+  </body>
 
 </html>
