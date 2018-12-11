@@ -364,15 +364,6 @@ function filterNoteList(){
 	// filterSearch();
 }
 
-// FILTER NOTELIST FILTER ON KEY WORD
-
-// function filterSearch (){
-// 	var search = document.getElementById("searchField").firstElementChild.value.toLocaleLowerCase();
-// 	if(!search.value === ""){
-// 		SearchFunction();
-// 	}
-// }
-
 // TOGGLE SHOWING FAV NOTES
 function filterFav() {
 	let favIcon = document.getElementById("favIcon").firstElementChild;

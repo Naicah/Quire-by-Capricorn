@@ -28,7 +28,7 @@ tutorial.js - Javascript code for our popup windows.
 
 UX/UI 
 
-The gound components in the editor are build up with Grid where we tried to work as modular as possible.
+The ground components in the editor are build up with Grid where we tried to work as modular as possible.
  Here is the following list with the components and with a short description.
 
  Searchfield - a field where the user can search for a keyword that listened to keyUp event. The list will be filtered based on the content in each article.
