@@ -13,7 +13,7 @@ var quill = new Quill('#editor', {
 	theme: 'snow'
 });
 
-// POSITION SAVE BUTTON
+// POSITION SAVE BUTTON - Nina
 function positionSaveButton() {
 	document.querySelector(".ql-formats").appendChild(document.getElementById("save"));
 }
@@ -21,6 +21,7 @@ function positionSaveButton() {
 // SET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function setCurrentNoteID(id) {
 	document.getElementById("main").firstChild.id = id; // Store ID in hidden Div in main
+	changeActiveNote(id);
 }
 
 // GET ID OF CURRENTLY DISPLAYED NOTE - Nina
@@ -66,9 +67,12 @@ function displayFirstNote() {
 // Skicka med alternativ funktion, annars retuneras true.
 function displayNoteList(func = () => true) {
 	let noteArr = getAllNotes();
-	noteArr.sort(sortTime); // sorting them by last edited
+	noteArr.sort(compareTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
+
+	
+
 
 	// displayNoteList((n)=> n.fav==true); Till favorite click icon.
 	// om inget argument specificeras körs den bara true.
@@ -167,19 +171,6 @@ function unsavedContentIgnore(nextID) {
 	setCurrentNoteID(nextID);
 }
 
-// Highlight function adding focus to target that's displayed - jonathan
-function highlight(obj){
-		// getting current obj from textToEditor,
-	let arr = getAllNotes();
-	// gathering all objets
-	arr.forEach((n)=>{
-		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
-		(n.id === obj.id) ? n.active = true : n.active = false;
-		// save down all objects
-		addToLocalStorage(n);
-	})
-}
-
 // DISPLAY TEXT OF GIVEN NOTE IN EDITOR - setting up hightlight menu
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
@@ -248,7 +239,7 @@ function newNote(title, text) {
 }
 
 // Get created time in millisecs to compare list priority. - jonathan
-function sortTime(a,b){
+function compareTime(a,b){
 	const timeA = a.lastEdit;
 	const timeB = b.lastEdit;
 
@@ -361,13 +352,50 @@ function changeTheme(theme) {
 function filterNoteList(){
 	filterFav();
 	// filterSearch();
-	highlight(noteObj);
 }
+
+function changeActiveNote(newActiveNote) {
+
+	// let changeActiveNote = getNoteFromStorage(getCurrentNoteID());
+	let notes = getAllNotes();
+	notes.forEach((n)=>{ //For each saved note
+		(n.id == newActiveNote.id) ? n.active = true : n.active = false; // Change all notes to not active except current note
+		addToLocalStorage(n);
+		// let note = document.getElementById(n.id);
+		// if (n.active) {
+		// 	note.classList.add("active-style");
+		// } else {
+		// 	note.classList.remove("active-style");
+		// }
+	})
+}
+
+// Checking for active obj in list to display focused
+		// if(obj.active){
+		// 	newArticle.classList.add("active-style");
+		// }else{
+		// 	newArticle.classList.remove("active-style");
+		// }
+
+
+// // Highlight function adding focus to target that's displayed - jonathan
+// function highlight(obj){
+// 		// getting current obj from textToEditor,
+// 	let arr = getAllNotes();
+// 	// gathering all objets
+// 	arr.forEach((n)=>{
+// 		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
+// 		(n.id === obj.id) ? n.active = true : n.active = false;
+// 		// save down all objects
+// 		addToLocalStorage(n);
+// 	})
+// }
 
 // TOGGLE SHOWING FAV NOTES
 function filterFav() {
 	let favIcon = document.getElementById("favIcon").firstElementChild;
 
+	
 	if (favIcon.classList.contains("yellowStar")) {
 		displayNoteList((n)=> n.fav==true);
 	} else {

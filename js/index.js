@@ -7,6 +7,7 @@ window.onload = function () {
     filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
     displayFirstNote(); // Display content of first note of note list in editor
     positionSaveButton(); //Move the save button to be within toolbar
+    
 
     //----------------------------  POP-UPS ------------------------------ //
     // WHEN CLICK OUTSIDE A POP UP
