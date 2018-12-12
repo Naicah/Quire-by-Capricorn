@@ -41,7 +41,7 @@ function getNextNoteID() {
 }
 
 // FIND ALL SAVED NOTES IN STORAGE AND RETURN ARRAY WITH NOTE OBJECTS - Jonathan
-function loopNoteObjects() {
+function getAllNotes() {
 	let noteArr = [];
 	Object.keys(localStorage).forEach((key) => {
 		noteArr.push(JSON.parse(localStorage.getItem(key)));
@@ -65,7 +65,7 @@ function displayFirstNote() {
 // DISPLAY NOTES IN NOTELIST
 // Skicka med alternativ funktion, annars retuneras true.
 function displayNoteList(func = () => true) {
-	let noteArr = loopNoteObjects();
+	let noteArr = getAllNotes();
 	noteArr.sort(sortTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
@@ -170,7 +170,7 @@ function unsavedContentIgnore(nextID) {
 // Highlight function adding focus to target that's displayed - jonathan
 function highlight(obj){
 		// getting current obj from textToEditor,
-	let arr = loopNoteObjects();
+	let arr = getAllNotes();
 	// gathering all objets
 	arr.forEach((n)=>{
 		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
@@ -184,7 +184,6 @@ function highlight(obj){
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
-	highlight(noteObj);
 	setCurrentNoteID(noteObj.id);
 }
 
@@ -264,7 +263,7 @@ function sortTime(a,b){
 
 // GET LOWEST AVAILABLE ID - Nina
 function getAvailID() {
-	let notes = loopNoteObjects(); //Get all notes
+	let notes = getAllNotes(); //Get all notes
 	let noteIDs = []; //Array of all Note IDs
 
 	notes.forEach((n) => { //For each note
@@ -362,6 +361,7 @@ function changeTheme(theme) {
 function filterNoteList(){
 	filterFav();
 	// filterSearch();
+	highlight(noteObj);
 }
 
 // TOGGLE SHOWING FAV NOTES
@@ -375,14 +375,7 @@ function filterFav() {
 	}
 }
 
-// SEARCH FUNCTION
-
-document.getElementById("searchField").firstElementChild.addEventListener("keyup", function() {
-      SearchFunction();
-  });
-
-
-   // SEARCH FUNCTION / WILLIAM
+// SEARCH FUNCTION - William
  function SearchFunction(){
 	var search = document.getElementById("searchInput").value.toLocaleLowerCase();
     displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));

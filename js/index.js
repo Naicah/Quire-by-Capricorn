@@ -1,7 +1,7 @@
 // ON LOAD
 window.onload = function () {
     showTutuorial(); // Show tutorial on first visit
-    if (localStorage.length == 0) { // If there are any stored notes
+    if (localStorage.length == 0) { // If there aren't any stored notes
         newPage(); // Create new object in note list
     }
     filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
@@ -80,7 +80,7 @@ window.onload = function () {
         popUpToggle(document.getElementById("chooseTheme")); // Hide warning pop up
     });
 
-    //---------------------------- Slut pop-ups --------------------------- //
+    //---------------------------- End pop-ups --------------------------- //
 
     // WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT
     document.getElementById("hamburgerIcon").addEventListener("click", function () {
@@ -99,7 +99,7 @@ window.onload = function () {
         save(getCurrentNoteID()); // Save note
     });
 
-    // WHEN CLICKING ON TRASHCAN ICON
+    // WHEN CLICK ON TRASHCAN ICON
     document.getElementById("deleteAll").addEventListener("click", function () {
         deleteAll(); // Delete all notes
         newPage(); // Create new object in note list
@@ -112,7 +112,6 @@ window.onload = function () {
         filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
     });
 
-
     // SHOW FAVORITES
     document.getElementById("favIcon").addEventListener("click", function () {
 
@@ -123,5 +122,10 @@ window.onload = function () {
 
         filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
         displayFirstNote(); // Display first note of note list in editor
+    });
+
+    // WHEN TYPING IN SEARCH FIELD
+    document.getElementById("searchField").firstElementChild.addEventListener("keyup", function() {
+        SearchFunction();
     });
 }
