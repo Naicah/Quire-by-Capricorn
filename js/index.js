@@ -33,13 +33,18 @@ window.onload = function () {
     });
 
     // WHEN CLICK ON IGNORE IN UNSAVED POP UP
+
+// BUGG - HIGHLIGT FUNKAR INTE VID IGNORE
+
     document.getElementById("unsavedContentIgnore").addEventListener("click", function () {
+        console.log("unsavedContentIgnore");
         unsavedContentIgnore(getNextNoteID()); // Ignore changes and display next note
         popUpToggle(document.getElementById("unsavedContent")); // Hide warning pop up
     });
 
     // WHEN CLICK ON CANCEL IN UNSAVED POP UP
     document.getElementById("unsavedContentCancel").addEventListener("click", function () {
+        console.log("unsavedContentCancel");
         popUpToggle(document.getElementById("unsavedContent")); // Hide warning pop up
     });
     // WHEN CLICK ON X IN UNSAVED POP UP
@@ -66,7 +71,6 @@ window.onload = function () {
     document.getElementById("fire").addEventListener("click", function () {
         changeTheme("fire"); // Change theme
     });
-
     // WHEN CLICK ON WATER THEME
     document.getElementById("water").addEventListener("click", function () {
         changeTheme("water"); // Change theme

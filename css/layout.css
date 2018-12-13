@@ -223,19 +223,6 @@
         outline: 0;
       }
 
-      /* star icon  */
-
-    #noteList .fa-star{
-        float: right;
-        font-size: 1.2em;
-        padding: 1em 0;
-        opacity: 0.2;
-        margin-top: 0;
-    }
-
-    #noteList .fa-star:hover{
-        opacity: 1;
-    }
     /* ------------- CLICK NOTE LIST ------------- */
     #clickNoteList article{
         height: 4em;
