@@ -134,6 +134,7 @@ window.onload = function () {
         SearchFunction();
     });
 
+    // EXECUTE PRINT ACTION WHEN CLICK ON PRINT ICON
     document.getElementById("print").addEventListener("click", function() {
         window.print();
     });
