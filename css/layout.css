@@ -182,6 +182,7 @@
         -webkit-transition: all .5s;
         transition: all .5s;
         padding-left: 1em;
+        padding: 0.5em;
     }
     #searchInput:focus {
         width: 60%;
