@@ -21,7 +21,6 @@ function positionSaveButton() {
 // SET ID OF CURRENTLY DISPLAYED NOTE - Nina
 function setCurrentNoteID(id) {
 	document.getElementById("main").firstChild.id = id; // Store ID in hidden Div in main
-	changeActiveNote(id);
 }
 
 // GET ID OF CURRENTLY DISPLAYED NOTE - Nina
@@ -71,9 +70,6 @@ function displayNoteList(func = () => true) {
 	noteArr.sort(compareTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
-
-	
-
 
 	// displayNoteList((n)=> n.fav==true); Till favorite click icon.
 	// om inget argument specificeras körs den bara true.
@@ -161,7 +157,6 @@ function checkIfSaved(currentID, nextID) {
 // SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
 function unsavedContentSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
-	// filterNoteList(); // Update note list
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	// setting next note as active.
 	let note = getNoteFromStorage(nextID);
@@ -175,11 +170,23 @@ function unsavedContentIgnore(nextID) {
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	setCurrentNoteID(nextID);
 }
-
+// Highlight function adding focus to target that's displayed - jonathan
+function highlight(obj){
+	// getting current obj from textToEditor,
+	let arr = getAllNotes();
+	// gathering all objets
+	arr.forEach((n)=>{
+		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
+		(n.id === obj.id) ? n.active = true : n.active = false;
+		// save down all objects
+		addToLocalStorage(n);
+	})
+}
 // DISPLAY TEXT OF GIVEN NOTE IN EDITOR - setting up hightlight menu
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
+	highlight(noteObj);
 	setCurrentNoteID(noteObj.id);
 }
 
@@ -359,47 +366,22 @@ function filterNoteList(){
 	// filterSearch();
 }
 
-function changeActiveNote(newActiveNote) {
-
-	// let changeActiveNote = getNoteFromStorage(getCurrentNoteID());
-	let notes = getAllNotes();
-	notes.forEach((n)=>{ //For each saved note
-		(n.id == newActiveNote.id) ? n.active = true : n.active = false; // Change all notes to not active except current note
+// Highlight function adding focus to target that's displayed - jonathan
+function highlight(obj){
+		// getting current obj from textToEditor,
+	let arr = getAllNotes();
+	// gathering all objets
+	arr.forEach((n)=>{
+		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
+		(n.id === obj.id) ? n.active = true : n.active = false;
+		// save down all objects
 		addToLocalStorage(n);
-		// let note = document.getElementById(n.id);
-		// if (n.active) {
-		// 	note.classList.add("active-style");
-		// } else {
-		// 	note.classList.remove("active-style");
-		// }
 	})
 }
-
-// Checking for active obj in list to display focused
-		// if(obj.active){
-		// 	newArticle.classList.add("active-style");
-		// }else{
-		// 	newArticle.classList.remove("active-style");
-		// }
-
-
-// // Highlight function adding focus to target that's displayed - jonathan
-// function highlight(obj){
-// 		// getting current obj from textToEditor,
-// 	let arr = getAllNotes();
-// 	// gathering all objets
-// 	arr.forEach((n)=>{
-// 		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
-// 		(n.id === obj.id) ? n.active = true : n.active = false;
-// 		// save down all objects
-// 		addToLocalStorage(n);
-// 	})
-// }
 
 // TOGGLE SHOWING FAV NOTES
 function filterFav() {
 	let favIcon = document.getElementById("favIcon").firstElementChild;
-
 	
 	if (favIcon.classList.contains("yellowStar")) {
 		displayNoteList((n)=> n.fav==true);
