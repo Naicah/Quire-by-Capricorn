@@ -133,4 +133,8 @@ window.onload = function () {
     document.getElementById("searchField").firstElementChild.addEventListener("keyup", function() {
         SearchFunction();
     });
+
+    document.getElementById("print").addEventListener("click", function() {
+        window.print();
+    });
 }
