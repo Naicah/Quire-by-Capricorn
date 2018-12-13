@@ -66,23 +66,23 @@ function displayFirstNote() {
 // DISPLAY NOTES IN NOTELIST
 // Skicka med alternativ funktion, annars retuneras true.
 function displayNoteList(func = () => true) {
-	let noteArr = getAllNotes();
-	noteArr.sort(compareTime); // sorting them by last edited
+	let allNotes = getAllNotes();
+	allNotes.sort(compareTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
 
 	// displayNoteList((n)=> n.fav==true); Till favorite click icon.
 	// om inget argument specificeras körs den bara true.
-	//noteArr = noteArr.filter((n) => func(n));
-	noteArr.filter((n) => func(n)).forEach((obj) => { // Create Div with note info for each saved note
+	//allNotes = allNotes.filter((n) => func(n));
+	allNotes.filter((n) => func(n)).forEach((obj) => { // Create Div with note info for each saved note
 		let newArticle = document.createElement("article");
-		let newH = document.createElement("h4");
-		let newP = document.createElement("p");
-		let newI = document.createElement("i");
-		newI.classList.add("far");
-		newI.classList.add("fa-star");
+		let title = document.createElement("h4");
+		let date = document.createElement("p");
+		let favIcon = document.createElement("i");
+		favIcon.classList.add("far");
+		favIcon.classList.add("fa-star");
 		if (obj.fav){
-			newI.classList.add("fas");
+			favIcon.classList.add("fas");
 		}
 		// Checking for active obj in list to display focused
 		if(obj.active){
@@ -90,21 +90,21 @@ function displayNoteList(func = () => true) {
 		}else{
 			newArticle.classList.remove("active-style");
 		}
-		let title = obj.title;
+		let noteTitle = obj.title;
 
-		if (title.length > 20) {
-			title = title.substring(0, 20) + "..."; // Only show first 20 characters of title in note list
+		if (noteTitle.length > 20) {
+			noteTitle = title.substring(0, 20) + "..."; // Only show first 20 characters of title in note list
 		}
-		if (title == "") { // If user hasn't written a title
-			title = "NY ANTECKNING";
+		if (noteTitle == "") { // If user hasn't written a title
+			noteTitle = "NY ANTECKNING";
 			obj.title = "NY ANTECKNING";
 		}
-		newH.innerHTML = title;
-		newP.innerHTML = `${obj.dateTime}`;
+		title.innerHTML = title;
+		date.innerHTML = `${obj.dateTime}`;
 		newArticle.id = `${obj.id}`;
 		newArticle.appendChild(newI);
-		newArticle.appendChild(newH);
-		newArticle.appendChild(newP);
+		newArticle.appendChild(title);
+		newArticle.appendChild(date);
 		container.appendChild(newArticle);
 	});
 }
@@ -324,6 +324,12 @@ function newPage() {
 	setCurrentNoteID(note.id);
 	textToEditor(note);
 	filterNoteList();
+}
+
+// DELETE GIVEN NOTE
+function deleteNote() {
+	let noteID = getNoteIDFromNoteList();
+	localStorage.removeItem(note);
 }
 
 // DELETE ALL NOTES
