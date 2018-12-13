@@ -58,6 +58,7 @@ function displayFirstNote() {
 	} else {
 		id = document.getElementById("clickNoteList").firstChild.id;
 		textToEditor(getNoteFromStorage(id)); // Display the first note of the list in editor
+		filterNoteList();
 	}
 	setCurrentNoteID(id);
 }
@@ -156,8 +157,12 @@ function checkIfSaved(currentID, nextID) {
 // SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
 function unsavedContentSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
-	filterNoteList(); // Update note list
+	// filterNoteList(); // Update note list
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
+	// setting next note as active.
+	let note = getNoteFromStorage(nextID);
+	note.active = true;
+	filterNoteList();
 	setCurrentNoteID(nextID);
 }
 
