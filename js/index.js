@@ -113,8 +113,14 @@ window.onload = function () {
 
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function (event) {
-        checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList(event)); // Check if there are any unsaved changes in displayed note
-        filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
+        if (event.target.classList.contains("deleteIcon")) {
+            deleteNote(getNoteIDFromNoteList(event));
+            console.log("click delete");
+        } else {
+            console.log("click note list ej delete");
+            checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList(event)); // Check if there are any unsaved changes in displayed note
+            filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
+        }
     });
 
     // SHOW FAVORITES

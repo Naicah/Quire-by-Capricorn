@@ -79,8 +79,12 @@ function displayNoteList(func = () => true) {
 		let title = document.createElement("h4");
 		let date = document.createElement("p");
 		let favIcon = document.createElement("i");
+		let deleteIcon = document.createElement("i");
+		
 		favIcon.classList.add("far");
 		favIcon.classList.add("fa-star");
+		deleteIcon.classList.add("deleteIcon");
+
 		if (obj.fav){
 			favIcon.classList.add("fas");
 		}
@@ -99,10 +103,13 @@ function displayNoteList(func = () => true) {
 			noteTitle = "NY ANTECKNING";
 			obj.title = "NY ANTECKNING";
 		}
-		title.innerHTML = title;
+
+		deleteIcon.innerHTML = "&#x2718";
+		title.innerHTML = noteTitle;
 		date.innerHTML = `${obj.dateTime}`;
 		newArticle.id = `${obj.id}`;
-		newArticle.appendChild(newI);
+		newArticle.appendChild(favIcon);
+		newArticle.appendChild(deleteIcon);
 		newArticle.appendChild(title);
 		newArticle.appendChild(date);
 		container.appendChild(newArticle);
@@ -112,11 +119,12 @@ function displayNoteList(func = () => true) {
 // WHEN CLICK IN NOTE LIST: RETURN ID OF CLICKED NOTE
 function getNoteIDFromNoteList(event) {
 	let id = "";
+
 	if (event.target.tagName === "ARTICLE"){
 		id = (event.target).id;
 	} else {
 		id = (event.target.parentElement).id;
-		if (event.target.tagName === "I"){
+		if (event.target.classList.contains("fa-star")){
 			let star = event.target;
 			star.classList.toggle("fas");
 			setFavState(isFavTrue(star),id);
@@ -327,9 +335,15 @@ function newPage() {
 }
 
 // DELETE GIVEN NOTE
-function deleteNote() {
-	let noteID = getNoteIDFromNoteList();
-	localStorage.removeItem(note);
+function deleteNote(id) {
+	id.toString();
+	console.log("delete pushed: " + id);
+	localStorage.removeItem(id);
+	filterNoteList();
+	displayFirstNote();
+	
+	
+	
 }
 
 // DELETE ALL NOTES
