@@ -13,7 +13,7 @@ var quill = new Quill('#editor', {
 	theme: 'snow'
 });
 
-// POSITION SAVE BUTTON
+// POSITION SAVE BUTTON - Nina
 function positionSaveButton() {
 	document.querySelector(".ql-formats").appendChild(document.getElementById("save"));
 }
@@ -41,7 +41,7 @@ function getNextNoteID() {
 }
 
 // FIND ALL SAVED NOTES IN STORAGE AND RETURN ARRAY WITH NOTE OBJECTS - Jonathan
-function loopNoteObjects() {
+function getAllNotes() {
 	let noteArr = [];
 	Object.keys(localStorage).forEach((key) => {
 		noteArr.push(JSON.parse(localStorage.getItem(key)));
@@ -66,8 +66,8 @@ function displayFirstNote() {
 // DISPLAY NOTES IN NOTELIST
 // Skicka med alternativ funktion, annars retuneras true.
 function displayNoteList(func = () => true) {
-	let noteArr = loopNoteObjects();
-	noteArr.sort(sortTime); // sorting them by last edited
+	let noteArr = getAllNotes();
+	noteArr.sort(compareTime); // sorting them by last edited
 	let container = document.getElementById("clickNoteList");
 	container.innerHTML = "";
 
@@ -157,7 +157,6 @@ function checkIfSaved(currentID, nextID) {
 // SAVE CHANGES AND DISPLAY NEXT NOTE - Nina
 function unsavedContentSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
-	// filterNoteList(); // Update note list
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	// setting next note as active.
 	let note = getNoteFromStorage(nextID);
@@ -171,11 +170,10 @@ function unsavedContentIgnore(nextID) {
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	setCurrentNoteID(nextID);
 }
-
 // Highlight function adding focus to target that's displayed - jonathan
 function highlight(obj){
-		// getting current obj from textToEditor,
-	let arr = loopNoteObjects();
+	// getting current obj from textToEditor,
+	let arr = getAllNotes();
 	// gathering all objets
 	arr.forEach((n)=>{
 		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
@@ -184,7 +182,6 @@ function highlight(obj){
 		addToLocalStorage(n);
 	})
 }
-
 // DISPLAY TEXT OF GIVEN NOTE IN EDITOR - setting up hightlight menu
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
@@ -254,7 +251,7 @@ function newNote(title, text) {
 }
 
 // Get created time in millisecs to compare list priority. - jonathan
-function sortTime(a,b){
+function compareTime(a,b){
 	const timeA = a.lastEdit;
 	const timeB = b.lastEdit;
 
@@ -269,7 +266,7 @@ function sortTime(a,b){
 
 // GET LOWEST AVAILABLE ID - Nina
 function getAvailID() {
-	let notes = loopNoteObjects(); //Get all notes
+	let notes = getAllNotes(); //Get all notes
 	let noteIDs = []; //Array of all Note IDs
 
 	notes.forEach((n) => { //For each note
@@ -372,10 +369,23 @@ function filterNoteList(){
 	// filterSearch();
 }
 
+// Highlight function adding focus to target that's displayed - jonathan
+function highlight(obj){
+		// getting current obj from textToEditor,
+	let arr = getAllNotes();
+	// gathering all objets
+	arr.forEach((n)=>{
+		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
+		(n.id === obj.id) ? n.active = true : n.active = false;
+		// save down all objects
+		addToLocalStorage(n);
+	})
+}
+
 // TOGGLE SHOWING FAV NOTES
 function filterFav() {
 	let favIcon = document.getElementById("favIcon").firstElementChild;
-
+	
 	if (favIcon.classList.contains("yellowStar")) {
 		displayNoteList((n)=> n.fav==true);
 	} else {
@@ -383,14 +393,7 @@ function filterFav() {
 	}
 }
 
-// SEARCH FUNCTION
-
-document.getElementById("searchField").firstElementChild.addEventListener("keyup", function() {
-      SearchFunction();
-  });
-
-
-   // SEARCH FUNCTION / WILLIAM
+// SEARCH FUNCTION - William
  function SearchFunction(){
 	var search = document.getElementById("searchInput").value.toLocaleLowerCase();
     displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
