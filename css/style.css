@@ -295,7 +295,7 @@ input::-webkit-search-cancel-button {
 	font-family: inherit;
 	font-size: 100%;
 	border: none;
-	padding: 9px 10px 9px 32px;
+	padding: 0.7em;
     width: 60%;
     margin:auto;
     margin-bottom: 3%;
