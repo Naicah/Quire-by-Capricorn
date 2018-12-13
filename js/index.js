@@ -33,18 +33,13 @@ window.onload = function () {
     });
 
     // WHEN CLICK ON IGNORE IN UNSAVED POP UP
-
-// BUGG - HIGHLIGT FUNKAR INTE VID IGNORE
-
     document.getElementById("unsavedContentIgnore").addEventListener("click", function () {
-        console.log("unsavedContentIgnore");
         unsavedContentIgnore(getNextNoteID()); // Ignore changes and display next note
         popUpToggle(document.getElementById("unsavedContent")); // Hide warning pop up
     });
 
     // WHEN CLICK ON CANCEL IN UNSAVED POP UP
     document.getElementById("unsavedContentCancel").addEventListener("click", function () {
-        console.log("unsavedContentCancel");
         popUpToggle(document.getElementById("unsavedContent")); // Hide warning pop up
     });
     // WHEN CLICK ON X IN UNSAVED POP UP
@@ -117,11 +112,9 @@ window.onload = function () {
 
     // WHEN CLICK IN NOTE LIST
     document.getElementById("clickNoteList").addEventListener("click", function (event) {
-        if (event.target.classList.contains("deleteIcon")) {
+        if (event.target.classList.contains("deleteIcon")) { // If click on delete icon (X) in note list
             deleteNote(getNoteIDFromNoteList(event));
-            console.log("click delete");
-        } else {
-            console.log("click note list ej delete");
+        } else { // If click on something else in note list
             checkIfSaved(getCurrentNoteID(), getNoteIDFromNoteList(event)); // Check if there are any unsaved changes in displayed note
             filterNoteList(); // Filter and only show given type of notes in note list (ex favourites, tags, search)
         }

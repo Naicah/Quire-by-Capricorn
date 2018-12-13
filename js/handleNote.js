@@ -121,7 +121,6 @@ function displayNoteList(func = () => true) {
 
 // WHEN CLICK IN NOTE LIST: RETURN ID OF CLICKED NOTE
 function getNoteIDFromNoteList(event) {
-	console.log(event);
 	let id = "";
 
 	if (event.target.tagName === "ARTICLE"){
@@ -135,10 +134,8 @@ function getNoteIDFromNoteList(event) {
 			let star = event.target;
 			star.classList.toggle("fas");
 			setFavState(isFavTrue(star),id);
-			console.log("star")
 		}
 	}
-	console.log("id: " + id)
 	setNextNoteID(id);
 	return id;
 }
@@ -205,6 +202,7 @@ function textToEditor(noteObj) {
 	quill.root.innerHTML = noteObj.text;
 	highlight(noteObj);
 	setCurrentNoteID(noteObj.id);
+	filterNoteList();
 }
 
 // GET OBJECT OF GIVEN NOTE FROM STORAGE
@@ -345,7 +343,6 @@ function newPage() {
 
 // DELETE GIVEN NOTE
 function deleteNote(id) {
-	console.log("deleteNote(): " + id);
 	id.toString();
 	localStorage.removeItem(id);
 	filterNoteList();
