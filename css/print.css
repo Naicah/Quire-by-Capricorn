@@ -13,23 +13,35 @@
     display:block;
     margin:0;
     padding:0;
-    height: auto;
+    height: auto !important;
     width:595px;
+    overflow: visible !important;
   }
+  .ql-container *{
+    color: #000 !important;
+  }
+  body,html{
+        overflow: visible !important;
+        height: auto;
+  }
+
   #editor{
-    width: 100%;
+    min-width: 100% !important;
     display:block;
-    border:none;
-    height: auto;
+    border: none;
+    overflow: visible !important;
+    height: auto !important;
   }
+
  /* Ql-editor size of a a4; */
   .ql-editor{
-    padding:0;
-    margin:0;
-    min-height: 100%;
-    width:595px;
-    display:block;
-    border:none;
-   overflow: auto;
+    position: fixed !imprtant;
+    top:0;
+    padding:0 !important;
+    margin:0 !important;
+    min-height: 100% !important;
+    width:595px !important;
+    border:none !important;
+    overflow: visible !important;
   }
 }
