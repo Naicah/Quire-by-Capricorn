@@ -17,7 +17,9 @@
     width:595px;
     overflow: visible !important;
   }
-
+  .ql-container *{
+    color: #000 !important;
+  }
   body,html{
         overflow: visible !important;
         height: auto;
