@@ -70,6 +70,10 @@ window.onload = function () {
     document.getElementById("water").addEventListener("click", function () {
         changeTheme("water"); // Change theme
     });
+     // WHEN CLICK ON SPACE THEME
+     document.getElementById("space").addEventListener("click", function () {
+        changeTheme("space"); // Change theme
+    });
     // WHEN CLICK ON STANDARD THEME
     document.getElementById("standard").addEventListener("click", function () {
         changeTheme("standard"); // Change theme
