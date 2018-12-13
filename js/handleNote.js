@@ -346,9 +346,6 @@ function changeTheme(theme) {
 		case "water":
 			cssFile = "../css/water.css";
 			break;
-		case "space":
-			cssFile = "../css/space.css";
-			break;
 		case "forrest":
 			cssFile = "../css/forrest.css";
 			break;
@@ -359,7 +356,7 @@ function changeTheme(theme) {
 			cssFile = "";
 			break;
 	}
-	oldlink = document.getElementsByTagName("link").item(4);
+	oldlink = document.getElementsByTagName("link").item(3);
 	oldlink.setAttribute("href", cssFile);
 }
 
