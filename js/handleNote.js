@@ -375,6 +375,9 @@ function changeTheme(theme) {
 		case "fire":
 			cssFile = "../css/fire.css";
 			break;
+		case "space":
+			cssFile = "../css/space.css";
+			break;
 		case "standard":
 			cssFile = "";
 			break;
