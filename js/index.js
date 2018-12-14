@@ -94,7 +94,11 @@ window.onload = function () {
 
     // WHEN CLICKING ON ICON FOR NEW PAGE
     document.getElementById("newPage").addEventListener("click", function () {
-        updateNote(getCurrentNoteID(), getText()); // Save changes of displayed note
+       let notes = getAllNotes();
+        if (notes > 0) {
+            updateNote(getCurrentNoteID(), getText()); // Save changes of displayed note
+        }
+        
         newPage(); // Create new object in note list
     });
 
