@@ -64,7 +64,6 @@ function displayFirstNote() {
 }
 
 // DISPLAY NOTES IN NOTELIST
-// Skicka med alternativ funktion, annars retuneras true.
 function displayNoteList(func = () => true) {
 	let noteArr = getAllNotes();
 	noteArr.sort(compareTime); // sorting them by last edited
@@ -72,8 +71,6 @@ function displayNoteList(func = () => true) {
 	container.innerHTML = "";
 
 	// displayNoteList((n)=> n.fav==true); Till favorite click icon.
-	// om inget argument specificeras körs den bara true.
-	//noteArr = noteArr.filter((n) => func(n));
 	noteArr.filter((n) => func(n)).forEach((obj) => { // Create Div with note info for each saved note
 		let newArticle = document.createElement("article");
 		let newH = document.createElement("h4");
@@ -366,7 +363,6 @@ function changeTheme(theme) {
 // FILTER WHICH NOTES SHOULD BE DISPLAYED IN NOTE LIST
 function filterNoteList(){
 	filterFav();
-	// filterSearch();
 }
 
 // Highlight function adding focus to target that's displayed - jonathan
