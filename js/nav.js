@@ -1,20 +1,19 @@
 // SHOW OR HIDE MENU WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT - William
 function toggleMenu() {
-	var collapse = document.querySelector(".collapse-mobile");
+	var menuContainer = document.getElementById("menuContainer");
 	var hamburger = document.querySelector("#hamburgerIcon");
 	hamburger.classList.toggle("merge");
-	collapse.classList.toggle('none');
+	menuContainer.classList.toggle('none');
 }
 function toggleNoteList() {
 	document.getElementById("notes").classList.toggle('none');
 }
-
-
 window.onscroll = () => {
-	setToolbarPositionStatus();
+	setToolbarPositionState();
 }
+
 //STICKY NAV MOBILE
-	function setToolbarPositionStatus(){
+function setToolbarPositionState(){
 	let state = true;
 	let noteList = document.querySelector("#noteList");
 	let topNav = document.querySelector("#topNav");

@@ -2,11 +2,11 @@ nav  {
     background-image:url("https://images.unsplash.com/photo-1533201357341-8d79b10dd0f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=28bf8cd814da8b4413f83a6d50cde55b&auto=format&fit=crop&w=1868&q=80");
     background-size:cover;
 }
-#topNav, #searchField  {
+#topNav, #searchField {
     background-image:url("https://images.unsplash.com/photo-1533201357341-8d79b10dd0f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=28bf8cd814da8b4413f83a6d50cde55b&auto=format&fit=crop&w=1868&q=80");
 }
 
-.menuIcon:hover, #clickNoteList div:hover{
+.menuIcon:hover, #clickNoteList div:hover {
     background: rgba(255, 255, 255, 0.3);
 }
 
@@ -18,25 +18,24 @@ nav  {
     background-image:url("https://images.unsplash.com/photo-1533201357341-8d79b10dd0f0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=28bf8cd814da8b4413f83a6d50cde55b&auto=format&fit=crop&w=1868&q=80");
     background-size:cover;
 }
-.ql-container *{
+.ql-container * {
     font-family: 'Montserrat', sans-serif;
     color:White;
     font-size: 1.2em;
 }
-
-.ql-container H1{
+.ql-container H1 {
   font-family: 'Great Vibes', cursive;
     font-weight: normal;
     text-align: center;
     font-size: 4em !important;
 }
-.ql-container H2{
+.ql-container H2 {
     font-family: 'Amatic SC', cursive;
     font-weight: normal;
     text-align: center;
     font-size: 2em !important;
 }
-.ql-editor{
+.ql-editor {
   border-right: 1px solid #ffffff;
   border-left: 1px solid #ffffff;
 }

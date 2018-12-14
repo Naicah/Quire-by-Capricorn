@@ -1,9 +1,9 @@
 /* bugg fix for layout.css, that cannot be inserted there */
-  @media only screen and (min-width: 764px){
-    .ql-editor{
-      height:93%;
-    }
+@media only screen and (min-width: 764px){
+  .ql-editor{
+    height:93%;
   }
+}
 @media print{
   nav, .collapse-mobile, .ql-toolbar, #popUp, #navSec,
   #topNav, #menu, #noteList, #notes, #searchField{
@@ -21,8 +21,8 @@
     color: #000 !important;
   }
   body,html{
-        overflow: visible !important;
-        height: auto;
+    overflow: visible !important;
+    height: auto;
   }
 
   #editor{

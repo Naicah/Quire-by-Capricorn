@@ -7,9 +7,9 @@
         font-size: 1.0vw;
     }
 
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+    ::-webkit-scrollbar {
+        width: 0px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
     }
     /* -------------------------------- GRID -------------------------------- */
     #nav { grid-area: nav; }
@@ -21,7 +21,7 @@
     #searchField { grid-area: searchField; }
     #noteList { grid-area: noteList; }
     #editor { grid-area: editor; }
-   .ql-toolbar { grid-area: ql-toolbar; }
+    .ql-toolbar { grid-area: ql-toolbar; }
 
     .container {
         display: grid;
@@ -69,21 +69,28 @@
     /* -------------------------------- POP UPS -------------------------------- */
     .popUpContent {
         padding: 2em;
-        padding: 1em;
     }
 
     @keyframes animatetop {
-    0% {
-        top: -15em;
-        opacity: 0;
-    }
-    100% {
-        top: 15em;
-        opacity: 1;
-    }
+        0% {
+            top: -15em;
+            opacity: 0;
+        }
+        100% {
+            top: 15em;
+            opacity: 1;
+        }
     }
     .popUpContent button{
         margin: 0.3em;
+    }
+    .popUpContent h2 {
+        margin: 0;
+        font-size: 2em;
+    }
+
+    .exit {
+        margin: 0.2em 0.5em;
     }
     #tutorial-content {
         width: 50%;
@@ -93,35 +100,13 @@
         animation-name: animatetop;
         animation-duration: 0.6s;
     }
-
     #themeChoice {
         padding: 1em;
     }
-
-    .popUpContent h2 {
-        margin: 0;
-        font-size: 2em;
-    }
-
-    .exit {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 0.2em 0.5em;
-        font-size: 20px;
-    }
-
     #themeChoice div {
-        width: 8em;
-        height: 8em;
         margin: 1em auto auto;
     }
-
     #themeChoice img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 1px solid;
         transition: 0.3s;
     }
     #themeChoice img:hover {
@@ -132,31 +117,23 @@
     /* -------------------------- NAVSEC --------------------------- */
     /* --------------------- TOPNAV ------------------ */
     #topNav {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
         height: auto;
     }
     #logo {
-        height: 2.5em;
         width: 2.5em;
-        padding: 0;
         margin: 0;
     }
     #hamburgerIcon {
         display: none;
     }
     /* ---------------------- MENU -------------------- */
+    #menuContainer {
+        display: block;
+    }
     #menu {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
@@ -164,16 +141,10 @@
         -webkit-box-pack: start;
             -ms-flex-pack: start;
                 justify-content: flex-start;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        height: auto;/* 5x5 so that every icon is 5em */
+        height: auto;
     }
-
     .icon{
-        display: block;
         font-size: 1.5em;
-        color: white;
     }
 
     /* ---------------------------- NOTES --------------------------- */
@@ -193,7 +164,6 @@
                 align-items: center;
         font-size: 1.5em;
     }
-
     #searchIcon{
         color: white;
         float: right;
@@ -202,13 +172,10 @@
         display: block;
         font-size: 1.4em;
     }
-
     form {
-        width: 100%;
         padding-right: 0%;
         display: block;
     }
-
     input {
         outline: none;
     }
@@ -221,14 +188,11 @@
     input::-webkit-search-cancel-button {
         display: none;
     }
-
     #searchInput {
         width: 30%;
-        margin:0;
+        margin: 0;
         margin-left: 5%;
         border-radius: 10em;
-        -webkit-transition: all .5s;
-        transition: all .5s;
         padding-left: 1em;
         padding: 0.5em;
     }
@@ -238,47 +202,18 @@
         border-color: #66CC75;
     }
 
-    input:-moz-placeholder {
-        color: #999;
-        text-align: center;
-    }
-    input::-webkit-input-placeholder {
-        color: #999;
-        text-align: center;
-    }
-
-
     /* -------------------- NOTE LIST ---------------------- */
     #noteList {
-        background-color: #ebebeb;
         min-height: 5em;
         max-height: 100%;
-        display: block;
     }
-    .custom-dropdown {
-        background-color: #115493;
-        top: 436px;
-        z-index: 1;
-        width: 18.9%;
-        height: 5%;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        text-indent: 18%;
-        border-radius: initial;
-        border: none;
-        color: #fff;
-        font-size: inherit;
-        outline: 0;
-      }
 
     /* ------------- CLICK NOTE LIST ------------- */
     #clickNoteList article{
         height: 4em;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
     #clickNoteList article h4, #clickNoteList article p {
         padding-left: 0.7em;
-        color: black;
         margin: 0;
     }
     #clickNoteList article h4{
@@ -316,9 +251,7 @@
                 justify-content: left;
         width: 100%;
     }
-    .collapse-mobile{
-        display: block;
-    }
+
     /* ----------- TOOLBAR CONTENT  -------------- */
     /* All content types */
     #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
@@ -364,7 +297,6 @@
     #searchIcon{
         padding-top: 0;
     }
-
     #searchInput:focus {
         width: 65%;
     }

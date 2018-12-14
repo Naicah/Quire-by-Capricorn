@@ -6,11 +6,9 @@ nav  {
     background-image:url("https://images.unsplash.com/photo-1534262521332-cfd802370cc0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1789&q=80");
     border-bottom: 1px solid white;
 }
-
 .menuIcon:hover, #clickNoteList article:hover{
     background: rgba(94, 101, 143, 1);
 }
-
 #noteList, .ql-toolbar.ql-snow {
     background: rgba(255, 255, 255, 0);
 }
@@ -24,7 +22,6 @@ nav  {
     color:White;
     font-size: 1.2em;
 }
-
 .ql-container H1{
     font-family: 'Orbitron', sans-serif;
     font-weight: normal;
@@ -37,7 +34,6 @@ nav  {
     text-align: center;
     font-size: 2em !important;
 }
-
 .ql-toolbar.ql-snow {
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -45,28 +41,23 @@ nav  {
     padding: 8px;
     border-top: 0;
 }
-
 .active-style {
     background: #0066cc73;
     outline: 2px solid #115493;
 }
-
 .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
     border-color: #ccc;
     color: white;
     background: black;
 }
-
 .ql-toolbar .ql-snow .ql-formats button svg {
     color: white !important;
 }
-
 #clickNoteList article h4, #clickNoteList article p {
     padding-left: 0.7em;
     color: white;
     margin: 0;
 }
-
 .ql-snow .ql-stroke {
     fill: none;
     stroke: #f8f8f2;
@@ -74,40 +65,34 @@ nav  {
     stroke-linejoin: round;
     stroke-width: 2;
 }
-
 #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
     height: 8vw !important;
     width: auto !important;
     padding: 0.5em 0.25em !important;
     color: white;
 }
-
 #noteList .fa-star {
     color: white;
     opacity: 0.4;
 }
 
 @media only screen and (min-width: 764px) {
-#editorContainer > div > span > span:first-child {
-    width: 10vw !important;
-    margin-left: 1vw;
-    color: white;
-}
-
-#saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
-    height: 2.5vw !important;
-    margin-right: 1vw;
-    color: white;
-}
-
-#noteList {
-    border-bottom: 0;
-    border-left: 1px solid white;
-}
-
-#noteList .fa-star {
-    color:white;
-    opacity: 0.4;
-}
-
+    #editorContainer > div > span > span:first-child {
+        width: 10vw !important;
+        margin-left: 1vw;
+        color: white;
+    }
+    #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
+        height: 2.5vw !important;
+        margin-right: 1vw;
+        color: white;
+    }
+    #noteList {
+        border-bottom: 0;
+        border-left: 1px solid white;
+    }
+    #noteList .fa-star {
+        color:white;
+        opacity: 0.4;
+    }
 }

@@ -9,18 +9,17 @@ function showTutuorial() {
   // Walk through the array
   for (var i = 0; i < cookieArray.length; i++) {
     var checkCookie = cookieArray[i];
-
     // Remove any leading spaces
     while (checkCookie.charAt(0) == ' ') {
       checkCookie = checkCookie.substring(1, checkCookie.length);
     }
-
     // Look for cookie set by key_value
     if (checkCookie.indexOf(cookie_key_value) == 0) {
       // The cookie was found so set the variable
       foundCookie = 1;
     }
   }
+  
   // Check if a cookie has been found
   if (foundCookie == 0) {
     // The key_value cookie was not found so set it now
