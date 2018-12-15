@@ -2,12 +2,15 @@
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 }
+
 body, html{
     margin:0;
 }
+
 .none {
     display: none;
 }
+
 .flex {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -40,6 +43,7 @@ body, html{
         'main'; /* Main = Editor container but has to be specified as main to work */
     padding: 0;
 }
+
 #editorContainer {
     display: grid;
     grid-template-columns: 1fr;
@@ -54,6 +58,7 @@ body, html{
 /*---------------------------------------------------------------------------
   -                               POP-UPS                                   -
   --------------------------------------------------------------------------- */
+
 #popUpBg{
     position: fixed;
     top: 0;
@@ -63,6 +68,7 @@ body, html{
     background: rgba(0, 0, 0, 0.7);
     z-index: 20;
 }
+
 .popUpContainer {
     position: fixed;
     width: 70vw;
@@ -70,6 +76,7 @@ body, html{
     left: 15vw;
     z-index: 25;
 }
+
 .exitPopUp {
     position: absolute;
     top: 0;
@@ -78,6 +85,7 @@ body, html{
     z-index: 27;
     
 }
+
 .exitPopUp p {
     font-size: 2rem;
     z-index: 26;
@@ -86,6 +94,7 @@ body, html{
 #popUpContainer:hover, .exitPopUp:hover {
     cursor: pointer;
 }
+
 .popUpContent {
     background-color: white;
     margin: auto;
@@ -96,10 +105,12 @@ body, html{
     color: #213d57;
     z-index: 18;
 }
+
 .popUpContent h2 {
     margin: 0;
     z-index: 19;
 }
+
 .popUpContent button {
     height: 1cm;
     border: rgba(255, 255, 255, .5);
@@ -110,18 +121,23 @@ body, html{
     -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+
 .popUpContent button:hover{
     background-color: #213d57;
 }
+
 #tutorial.popUpContainer {
     top: 20vh;
 }
+
 #unsavedContent.popUpContainer {
     top: 30vh;
 }
+
 #chooseTheme.popUpContainer {
     top: 10vh;
 }
+
 /*------------------------------------------------------------
   -                      THEME VIEW                          -
   ------------------------------------------------------------ */
@@ -132,18 +148,21 @@ body, html{
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
 }
+
 #themeChoice div {
     width: 8em;
     height: 8em;
     margin:auto;
     margin-top: 1em;
 }
+
 #themeChoice img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     border: 1px solid;
 }
+
 #themeChoice img:hover{
     opacity: 1;
     cursor: pointer;
@@ -155,12 +174,15 @@ body, html{
 /*------------------------------------------------------------
   -                      NAVSEC                              -
   ------------------------------------------------------------ */
+
 #navSec {
     background-color: #105493;
 }
+
 /*-------------------------------------------------
   -                      TOPNAV                   -
   ------------------------------------------------- */
+
 #topNav {
     background-color:#213d57;
     height: 4em;
@@ -175,12 +197,14 @@ body, html{
         -ms-flex-pack: justify;
             justify-content: space-between;
 }
+
 #logo {
     height: 2.5em;
     width: auto;
     padding: 0;
     margin-left: 1.5em;
 }
+
 #hamburgerIcon{
     display: block;
     color: white;
@@ -188,6 +212,7 @@ body, html{
     font-size: 42px; 
     margin-right: 1.5rem;
 }
+
 .ham1, .ham2, .ham3{
   width: 35px;
   height: 5px;
@@ -196,20 +221,25 @@ body, html{
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
+
 .merge .ham1{
   -webkit-transform: rotate(-45deg) translate(-8px, 6px) ;
   transform: rotate(-45deg) translate(-9px, 6px) ;
 }
+
 .merge .ham2{
  opacity: 0;
 }
+
 .merge .ham3{
   -webkit-transform: rotate(45deg) translate(-10px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
+
 /*-------------------------------------------------
   -                      MENU                     -
   ------------------------------------------------- */
+
 #menu {
     display:-webkit-box;
     display:-ms-flexbox;
@@ -227,6 +257,7 @@ body, html{
             justify-content: space-evenly;
    
 }
+
 .menuIcon{
     background-color: inherit;
     width: 100%;
@@ -242,9 +273,11 @@ body, html{
         -ms-flex-align: center;
             align-items: center;
 }
+
 .menuIcon:hover{
     background-color: #213d57;
 }
+
 .icon{
     margin: 1em auto;
     max-height: 2em;
@@ -253,11 +286,13 @@ body, html{
     font-size: 25px;
     color: white;
 }
+
 #noteList .fa-star{
     float: right;
     margin-right: 2%;
     margin-top: 3%;
 }
+
 .yellowStar{
     color:goldenrod;
 }
@@ -265,6 +300,7 @@ body, html{
 /*------------------------------------------------------------
   -                      NOTES                               -
   ------------------------------------------------------------ */
+
 #notes {
     overflow: auto;
 }
@@ -275,9 +311,11 @@ body, html{
 #searchField {
     background-color:#115493;
 }
+
 #searchIcon{
     display: none;
 }
+
 form {
     width: 100%;
     display: -webkit-box;
@@ -288,13 +326,16 @@ form {
         -ms-flex-direction: row;
             flex-direction: row;
 }
+
 input {
 	outline: none;
 }
+
 input::-webkit-search-decoration,
 input::-webkit-search-cancel-button {
 	display: none;
 }
+
 #searchInput {
 	-webkit-appearance: textfield;
 	-webkit-box-sizing: content-box;
@@ -308,10 +349,12 @@ input::-webkit-search-cancel-button {
 	-webkit-transition: all .5s;
 	transition: all .5s;
 }
+
 input:-moz-placeholder {
     color: #999;
     text-align: center;
 }
+
 input::-webkit-input-placeholder {
     color: #999;
     text-align: center;
@@ -320,6 +363,7 @@ input::-webkit-input-placeholder {
 /*-------------------------------------------------
   -                   NOTE LIST                   -
   ------------------------------------------------- */
+
 #noteList {
     background-color: #ebebeb;
     min-height: 3em;
@@ -328,40 +372,49 @@ input::-webkit-input-placeholder {
     border-bottom: 1px solid darkgrey;
     font-family: sans-serif;
 }
+
 /* The style for the current note in the note list */
 .current-style {
   background: #fff;
   outline: 1px solid #115493;
 }
+
 /*---------------------------------------
   -            CLICK NOTE LIST          -
   --------------------------------------- */
+  
 #clickNoteList { /* Div containing all note divs in note list - click lo show text in edito */
     display: block;
     width: auto;
     height: auto;
 }
+
 #clickNoteList article { /* Divs created for each note in notelist */
     height: 3em;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
 #clickNoteList article:hover { /* When hovering over any notelist obj */
     background: #f5f5f5;
     cursor: pointer;
 }
+
 #clickNoteList article h4, #clickNoteList article p { /* All text in div for notes in notelist */
     padding-left: 10px;
     color: black;
     margin: 0.3em 0 0 0;
 }
+
 #clickNoteList article h4 { /* Heading (title) in div for notes in notelist */
     font-size: 1em;
     margin: 0;
 }
+
 #clickNoteList article p { /* Text (time & date) in div for notes in notelist */
     font-size: 0.8em;
     color: #777;
 }
+
 .noteListIconDiv {
     height: 100%;
     padding: 0 0.5em; 
@@ -376,14 +429,17 @@ input::-webkit-input-placeholder {
     -ms-flex-pack: distribute;
     justify-content: space-evenly;
 }
+
 .deleteIcon {
     opacity: 0.2;
     margin-top: 0;
 }
+
 #noteList .fa-star { /* Star icon in div for notes in notelist */
     opacity: 0.2;
     margin-top: 0;
 }
+
 #noteList .fa-star:hover, .deleteIcon:hover { /* On hover over star icon or delete icon in div for notes in notelist */
     opacity: 1;
 }
@@ -408,6 +464,7 @@ input::-webkit-input-placeholder {
     -webkit-transition: top 0.3s;
     transition: top 0.3s;
 }
+
 .ql-toolbar.ql-snow{
     padding: 0.7em !important;
     display: -webkit-box;
@@ -417,9 +474,11 @@ input::-webkit-input-placeholder {
         -ms-flex-align: center;
             align-items: center;
 }
+
 .ql-toolbar-inherit{
     position: inherit;
 }
+
 .ql-toolbar.ql-snow .ql-formats { /* Container for toolbar content */
     margin-right: 0 !important;
     display: -webkit-box;
@@ -439,7 +498,8 @@ input::-webkit-input-placeholder {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-  }
+}
+
 /* Everything in toolbar */
 #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
     height: 8vw !important;
@@ -447,10 +507,12 @@ input::-webkit-input-placeholder {
     padding: 0.5em 0.25em !important;
     color: #444;
 }
+
 #editorContainer > div > span > span:first-child { /* Drop down Header container*/
     padding: 0 !important;
     width: 20vw !important;
 }
+
 .ql-toolbar.ql-snow .ql-picker-label { /* Drop down Header lable */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -465,14 +527,17 @@ input::-webkit-input-placeholder {
     padding: 0 !important;
     font-size: 4vw !important;
 }
+
 #editorContainer > div > span > span:first-child > span:last-child > span{ /* Alternative in drop down header */
     font-size: 2.5vw !important;
     height: 7vw !important;
 }
+
 #editorContainer > div > span > span:nth-child(6) { /* Text align */
     width: 10vw !important;
     height: 8vw !important;
 }
+
 #saveIcon {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -482,12 +547,15 @@ input::-webkit-input-placeholder {
         -ms-flex-pack: center;
             justify-content: center;
 }
+
 #saveIcon i{
     font-size: 5vw !important;
 }
+
 #save:hover {
     cursor: pointer;
 }
+
 #load-wrapp {
     text-align: center;
     float: left;
@@ -497,6 +565,7 @@ input::-webkit-input-placeholder {
     border-radius: 5px;
     text-align: center;;
 }
+
 .line {
     display: inline-block;
     width: 15px;
@@ -504,23 +573,28 @@ input::-webkit-input-placeholder {
     border-radius: 15px;
     background-color: #4b9cdb;
 }
+
 .load-8 .line {
     -webkit-animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
             animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;
 }
+
 @-webkit-keyframes loadingH {
     0% {width: 15px;}
     50% {width: 35px; padding: 4px;}
     100% {width: 15px;}
 }
+
 @keyframes loadingH {
     0% {width: 15px;}
     50% {width: 35px; padding: 4px;}
     100% {width: 15px;}
 }
+
 .ql-snow.ql-toolbar:after, .ql-snow .ql-toolbar:after {
     content: none !important;
 }
+
 /*-------------------------------------------------
   -                      EDITOR                   -
   ------------------------------------------------- */
@@ -529,6 +603,7 @@ input::-webkit-input-placeholder {
     overflow-x:hidden;
     max-height: 93vh;
  }
+ 
 #editor{
   overflow-x: hidden;
   height: auto;

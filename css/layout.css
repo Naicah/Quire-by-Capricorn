@@ -11,6 +11,7 @@
         width: 0px;  /* remove scrollbar space */
         background: transparent;  /* optional: just make scrollbar invisible */
     }
+
     /* -------------------------------- GRID -------------------------------- */
     #nav { grid-area: nav; }
     #main { grid-area: main; }
@@ -31,6 +32,7 @@
         grid-template-columns: 2fr 10fr;
         overflow: hidden;
     }
+
     #nav {
           display: grid;
           grid-template-areas:
@@ -39,6 +41,7 @@
           grid-template-rows: 100vh;
           z-index: 0;
     }
+
     #editorContainer {
         display: grid;
         grid-template-columns: 1fr;
@@ -47,6 +50,7 @@
             'ql-toolbar'
             'editor';
     }
+
     #navSec {
         display: grid;
         grid-template-areas:
@@ -56,6 +60,7 @@
         grid-template-rows: 1fr 11fr;
         max-height:100%;
     }
+
     #notes {
         display: grid;
         grid-template-areas:
@@ -67,6 +72,7 @@
     }
 
     /* -------------------------------- POP UPS -------------------------------- */
+
     .popUpContent {
         padding: 2em;
     }
@@ -81,9 +87,11 @@
             opacity: 1;
         }
     }
+
     .popUpContent button{
         margin: 0.3em;
     }
+
     .popUpContent h2 {
         margin: 0;
         font-size: 2em;
@@ -92,23 +100,29 @@
     .exit {
         margin: 0.2em 0.5em;
     }
+
     #tutorial-content {
         width: 50%;
     }
+
     #chooseTheme.popUpContainer {
         top: 15em;
         animation-name: animatetop;
         animation-duration: 0.6s;
     }
+
     #themeChoice {
         padding: 1em;
     }
+
     #themeChoice div {
         margin: 1em auto auto;
     }
+
     #themeChoice img {
         transition: 0.3s;
     }
+
     #themeChoice img:hover {
         box-shadow: 0 10px 50px rgb(144, 150, 165)
     }
@@ -116,23 +130,29 @@
     /* -------------------------------- NAV -------------------------------- */
     /* -------------------------- NAVSEC --------------------------- */
     /* --------------------- TOPNAV ------------------ */
+
     #topNav {
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
         height: auto;
     }
+
     #logo {
         width: 2.5em;
         margin: 0;
     }
+
     #hamburgerIcon {
         display: none;
     }
+
     /* ---------------------- MENU -------------------- */
+
     #menuContainer {
         display: block;
     }
+
     #menu {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -143,6 +163,7 @@
                 justify-content: flex-start;
         height: auto;
     }
+
     .icon{
         font-size: 1.5em;
     }
@@ -164,6 +185,7 @@
                 align-items: center;
         font-size: 1.5em;
     }
+
     #searchIcon{
         color: white;
         float: right;
@@ -172,22 +194,26 @@
         display: block;
         font-size: 1.4em;
     }
+
     form {
         padding-right: 0%;
         display: block;
     }
+
     input {
         outline: none;
     }
+
     #searchInput {
         -webkit-appearance: textfield;
         -webkit-box-sizing: content-box;
         font-family: inherit;
     }
-    input::-webkit-search-decoration,
-    input::-webkit-search-cancel-button {
+
+    input::-webkit-search-decoration, input::-webkit-search-cancel-button {
         display: none;
     }
+
     #searchInput {
         width: 30%;
         margin: 0;
@@ -196,6 +222,7 @@
         padding-left: 1em;
         padding: 0.5em;
     }
+
     #searchInput:focus {
         width: 60%;
         background-color: #fff;
@@ -203,22 +230,27 @@
     }
 
     /* -------------------- NOTE LIST ---------------------- */
+
     #noteList {
         min-height: 5em;
         max-height: 100%;
     }
 
     /* ------------- CLICK NOTE LIST ------------- */
+
     #clickNoteList article{
         height: 4em;
     }
+
     #clickNoteList article h4, #clickNoteList article p {
         padding-left: 0.7em;
         margin: 0;
     }
+
     #clickNoteList article h4{
         padding-top: 0.5em;
     }
+
     #clickNoteList article p{
         margin:0;
         padding-top: 1.5em;
@@ -226,8 +258,8 @@
 
     /* -------------------------------- MAIN -------------------------------- */
     /* ------------------  EDITOR CONTAINER (QUILL EDITOR) -------- */
-
     /* --------------------- TOOLBAR ----------------------- */
+
     .ql-toolbar{
         display: -webkit-box;
         display: -ms-flexbox;
@@ -253,31 +285,38 @@
     }
 
     /* ----------- TOOLBAR CONTENT  -------------- */
+    
     /* All content types */
     #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
         height: 2.5vw !important;
         margin-right: 1vw;
     }
+
     #editorContainer > div > span > span:first-child { /* Drop down Header container*/
         width: 10vw !important;
         margin-left: 1vw;
     }
+
     .ql-toolbar.ql-snow .ql-picker-label { /* Drop down Header lable */
         font-size: 1.5vw !important;
     }
+
     #editorContainer > div > span > span:first-child > span:last-child > span{ /* Alternative in drop down header */
         font-size: 0.8vw !important;
         height: 2.5vw !important;
     }
+
     #editorContainer > div > span > span:nth-child(6) { /* Text align */
         width: 2.5vw !important;
         height: 2.5vw !important;
     }
+
     #saveIcon i{
         font-size: 1.5vw !important;
     }
 
      /* --------------------- EDITOR ----------------------- */
+
     .ql-editor{
         overflow-y:auto;
         position: absolute;
@@ -297,6 +336,7 @@
     #searchIcon{
         padding-top: 0;
     }
+    
     #searchInput:focus {
         width: 65%;
     }
