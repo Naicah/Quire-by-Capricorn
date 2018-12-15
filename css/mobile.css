@@ -70,14 +70,20 @@ body, html{
     left: 15vw;
     z-index: 25;
 }
-.exit {
+.exitPopUp {
     position: absolute;
     top: 0;
     right: 0;
-    margin: 2vw;
-    font-size: 20px;
+    margin-right: 2vw;
+    z-index: 27;
+    
 }
-#popUpContainer:hover, .exit:hover {
+.exitPopUp p {
+    font-size: 2rem;
+    z-index: 26;
+}
+
+#popUpContainer:hover, .exitPopUp:hover {
     cursor: pointer;
 }
 .popUpContent {
@@ -92,6 +98,7 @@ body, html{
 }
 .popUpContent h2 {
     margin: 0;
+    z-index: 19;
 }
 .popUpContent button {
     height: 1cm;

@@ -1,6 +1,6 @@
-// SHOW OR HIDE MENU WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT - William
+// SHOW OR HIDE MENU WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT
 function toggleMenu() {
-	var menuContainer = document.getElementById("menuContainer");
+	var menuContainer = document.querySelector("#menuContainer");
 	var hamburger = document.querySelector("#hamburgerIcon");
 	hamburger.classList.toggle("merge");
 	menuContainer.classList.toggle('none');
