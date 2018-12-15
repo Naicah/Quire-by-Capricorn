@@ -1,73 +1,76 @@
 ﻿README 
-CAPRICORN TEXT EDITOR 
-Capricorn text editor is a project created by William Nordqvist, Oliver Vasquez, Jonathan Silkewall and Nina Hedman. 
-This was the first group project that we got assigned from KYH Front-end development school. 
 
-The main focus with the project was to create a web-based text editor with a focus on agile work methodic.
+CAPRICORN TEXT EDITOR 
+    Capricorn text editor is a project created by William Nordqvist, Oliver Vasquez, Jonathan Silkewall and Nina Hedman. 
+    This was the first group project that we got assigned from KYH Front-end development school. 
+
+The main focus with the project was to create a web based text editor with a focus on agile work methodic.
 
 Our requirements for the project was the following: 
-1. Adjusted for Chrome, Firefox and Safari browser for both desktop and mobile.
-2. Responsive design and need to work on all mobile devices, desktop and 4k displays.
-3. HTML5 and CSS3.
-4. No frameworks such as JQuery, Reach, Angular mfl.
-5. Semantic HTML, SEO and accessibility optimized.
+    1. Adjusted for Chrome, Firefox and Safari browser for both desktop and mobile.
+    2. Responsive design and needs to work on all mobile devices, desktops and 4k displays.
+    3. HTML5 and CSS3.
+    4. No frameworks such as JQuery, Reach, Angular etc.
+    5. Semantic HTML, SEO and accessibility optimized.
 
 
 Current files are used for the project. 
-index.html - here is where we wrote all the semantics HTML where we used grit system as a base. 
-style.css -  css for mobile design code. 
-layout.css - css for desktop and 4k displays. 
-print.css - css for content adjustments for print.
-fire.css - css for the "fire" theme. 
-forrest.css - css for the "Forrest" theme.
-space.css - css for the "Space" theme. 
-water.css - css for the "water" theme. 
-index.js - Javascript code for all the listeners where we call the callback functions.
-handleNote.js - Main file for all the callback functions. 
-nav.js -  Javascript code that is connected to the Navbar in mobile view. 
-tutorial.js - Javascript code for our popup windows. 
+    index.html - HTML with the whole structure for the editor (semantic) 
+
+    mobile.css -  CSS for mobile design
+    layout.css - CSS for desktop and 4k displays
+    print.css - CSS for content adjustments for print
+    forrest.css - CSS for the theme Forrest
+    fire.css - CSS for the theme Fire
+    water.css - CSS for the theme Water
+    space.css - CSS for the theme Space
+    
+    index.js - Javascript where setup functions are called and all eventlisteners are initialised
+    handleNote.js - Javascript with all function for the editor
+    nav.js -  Javascript with functions for nav in mobile mode
+    tutorial.js - Javascript with functions for the initial tutorial
 
 UX/UI 
+    The ground components in the editor are built up with grid layout where we tried to work as modular as possible.
+    Following are the comonents of the editor
 
-The ground components in the editor are built up with Grid where we tried to work as modular as possible.
- Here is the following list with the components and with a short description.
+    Searchfield - a field where the user can search for a keyword that listens to keyUp event. The note list will be filtered based on the content in each note.
 
- Searchfield - a field where the user can search for a keyword that listened to keyUp event. The list will be filtered based on the content in each article.
+    Menu - all the icons related to functions.
+        New page Icon - This icon allows the user to create a new document.
+        Star icon - This icons filters on all the favorite marked notes.
+        Theme icon - This icons open up a new window where the user can choose between 5 different themes to work with. Every theme has its own background picture and font family. 
+        Print icon - This icon allows the user to print the current note, background included if wanted
+        Trashcan - This icon deletes all the note. 
 
- Menu - this is where we keep all the icon related to function.
- Menu New page Icon - This icon allows the user to create a new document. A warning popUp window will alert if the user has unsaved data.
- Menu Star icon - This icons filters on all the favorite marked articles.
- Menu Theme icon - This icons open up a new window where the user can choose between 4 different themes to work with. Every theme has its own background picture and font family. 
- Menu Trashcan - This icon deletes all the articles. 
+    NoteList - The note list is the container that stores all the different articles. 
+        You can save as many notes as you want (or as many your browser allows you to). All the notes will be saved in your browsers local storage. 
+        The whole note list is saved in one array, each note is then saved in one Object. 
+        Each object contains following keys:
+            Object active - Boolean. Value to determine weither the note is the current note. The note in the note list will then change background color to show that this is the current note. 
+            Object dateTime - Contains date where the article was last saved. 
+            Object Fave - Boolean. To mark if the user has marked this as a favourite article. All article that is marked true here will be filtered out when the user clicks on the Star icon. 
+            Object ID - Sets the article ID. This comes handful for us as developers when we need to grab a specific article in a function etc. 
+            Object text - Saves the text that contains in the editor. 
+            Object title - Stores the first line in the editor that then will be displayed as a title in the noteList. 
 
- NoteList - NoteList is the container that stores all the different articles. 
- You can save as many articles as you want (or as many your browser allows you to). All the articles will be saved in your Browser local storage. 
- The hole Notelist is saved in one Array, each article is then saved in one Object. 
- Each object does then contain following keys.
-  Object active - Boolean. To mark if this is an active article. The article will then change the background color to show at this is the active article the user is working on. 
-  Object dateTime - Contains date where the article was last saved. 
-  Object Fave - Boolean. To mark if the user has marked this as a favourite article. All article that is marked true here will be filtered out when the user clicks on the Star icon. 
-  Object ID - Sets the article ID. This comes handful for us as developers when we need to grab a specific article in a function etc. 
-  Object text - Saves the text that contains in the editor. 
-  Object title - Stores the first line in the editor that then will be displayed as a title in the noteList. 
+    Toolbar - The editor toolbar is a toolbar that we borrowed directly from "https://quilljs.com/". We could manually adjust what we wanted it to contain. 
+    We choose to have:
+        Font size editor where the user can choose between heading1, heading2 or normal text.
+        Bolded text. 
+        Italics text. 
+        Underlined text.   
+        Left, centre or right justify text. 
+        Order lists. 
+        Unordered list. 
+        Attach pictures. 
+        Save button. 
 
-Toolbar - The editor toolbar is a toolbar that we borrowed directly from "https://quilljs.com/". We could manually adjust what we wanted it to contain. 
-We choose to have:
-    Font size editor where the user can choose between heading1, heading2 or normal text.
-    Bolded text. 
-    Italics text. 
-    Underlined text.   
-    Left, centre or right justify text. 
-    Order lists. 
-    Unordered list. 
-    Attach pictures. 
-    Save button. 
-
-    Editor - The editor is the biggest component of the site and where is the user writes it´s text. 
-    We borrowed the editor from "https://quilljs.com/".
+        Editor - The editor is the biggest component of the site and where is the user writes it´s text. 
+        We borrowed the editor from "https://quilljs.com/".
 
 
-Länk till trello 
+Link to Trello 
 https://trello.com/b/p7xqy1Y3/capricorn
 
 

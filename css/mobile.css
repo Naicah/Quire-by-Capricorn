@@ -328,8 +328,8 @@ input::-webkit-input-placeholder {
     border-bottom: 1px solid darkgrey;
     font-family: sans-serif;
 }
-/* The active style for a note in notelist that is currently focused. */
-.active-style {
+/* The style for the current note in the note list */
+.current-style {
   background: #fff;
   outline: 1px solid #115493;
 }

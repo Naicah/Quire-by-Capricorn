@@ -57,9 +57,9 @@ function unsavedContentSave(currentID, nextID) {
 	updateNote(currentID, getText());// Save note
 	textToEditor(getNoteFromStorage(nextID)); // Display next note in editor
 	
-	// setting next note as active.
+	// setting next note as current.
 	let note = getNoteFromStorage(nextID);
-	note.active = true;
+	note.current = true;
 	filterNoteList();
 	setCurrentNoteID(nextID);
 }
@@ -147,11 +147,11 @@ function displayNoteList(func = () => true) { // Pass argument or else true
 		if (obj.fav){
 			favIcon.classList.add("fas");
 		}
-		// Checking for active obj in list to display focused
-		if(obj.active){
-			newArticle.classList.add("active-style");
+		// Checking for current obj in list to display focused
+		if(obj.current){
+			newArticle.classList.add("current-style");
 		}else{
-			newArticle.classList.remove("active-style");
+			newArticle.classList.remove("current-style");
 		}
 		let noteTitle = obj.title;
 
@@ -223,14 +223,14 @@ function filterFav() {
 
 // ------------------- STATES --------------------- //
 
-// SET ACTIVE STATE
-function setActiveState(obj){
+// SET CURRENT STATE
+function setCurrentState(obj){
 	// getting current obj from textToEditor,
 	let arr = getAllNotes();
 	// gathering all objets
 	arr.forEach((n)=>{
-		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
-		(n.id === obj.id) ? n.active = true : n.active = false;
+		//ForEach obj checking if id is same as targeted in textToditor, if true set current to true else false.
+		(n.id === obj.id) ? n.current = true : n.current = false;
 		// save down all objects
 		addToLocalStorage(n);
 	})
@@ -261,11 +261,11 @@ function newNote(title, text) {
 	return {
 		id: getAvailID(),
 		title: title,
-		dateTime: getTimeString(), // Current time = time that note was created (last saved)
-		lastEdit: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
 		text: text,
+		dateTime: getTimeString(), // Current time = time that note was created/last saved
+		lastEdit: new Date().getTime(), // Current time in number to be able to sort note list after time last saved
+		current: false,
 		fav: false,
-		active: false,
 	};
 }
 
@@ -408,7 +408,7 @@ function getText() {
 function textToEditor(noteObj) {
 	quill.root.innerHTML = "";
 	quill.root.innerHTML = noteObj.text;
-	setActiveState(noteObj);
+	setCurrentState(noteObj);
 	setCurrentNoteID(noteObj.id);
 	filterNoteList();
 }

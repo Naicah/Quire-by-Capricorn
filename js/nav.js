@@ -1,18 +1,24 @@
-// SHOW OR HIDE MENU WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT
+// --------------------------- MOBILE ------------------------------ //
+
+// SHOW OR HIDE MENU WHEN CLICK ON HAMBURGER ICON
 function toggleMenu() {
 	var menuContainer = document.querySelector("#menuContainer");
 	var hamburger = document.querySelector("#hamburgerIcon");
 	hamburger.classList.toggle("merge");
 	menuContainer.classList.toggle('none');
 }
+
+// SHOW OR HIDE NOTE LIST
 function toggleNoteList() {
 	document.getElementById("notes").classList.toggle('none');
 }
+
+// WHEN SCROLLING
 window.onscroll = () => {
 	setToolbarPositionState();
 }
 
-//STICKY NAV MOBILE
+// MAKE TOOLBAR STICKY
 function setToolbarPositionState(){
 	let state = true;
 	let noteList = document.querySelector("#noteList");
