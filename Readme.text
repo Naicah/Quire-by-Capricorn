@@ -36,41 +36,43 @@ UX/UI
 
     Searchfield - a field where the user can search for a keyword that listens to keyUp event. The note list will be filtered based on the content in each note.
 
-    Menu - all the icons related to functions.
+    Menu - contains all the icons related to functions
         New page Icon - This icon allows the user to create a new document.
         Star icon - This icons filters on all the favorite marked notes.
         Theme icon - This icons open up a new window where the user can choose between 5 different themes to work with. Every theme has its own background picture and font family. 
         Print icon - This icon allows the user to print the current note, background included if wanted
         Trashcan - This icon deletes all the note. 
 
-    NoteList - The note list is the container that stores all the different articles. 
+    NoteList - The note list is the container that stores all the different notes. 
         You can save as many notes as you want (or as many your browser allows you to). All the notes will be saved in your browsers local storage. 
         The whole note list is saved in one array, each note is then saved in one Object. 
-        Each object contains following keys:
-            Object active - Boolean. Value to determine weither the note is the current note. The note in the note list will then change background color to show that this is the current note. 
-            Object dateTime - Contains date where the article was last saved. 
-            Object Fave - Boolean. To mark if the user has marked this as a favourite article. All article that is marked true here will be filtered out when the user clicks on the Star icon. 
-            Object ID - Sets the article ID. This comes handful for us as developers when we need to grab a specific article in a function etc. 
-            Object text - Saves the text that contains in the editor. 
-            Object title - Stores the first line in the editor that then will be displayed as a title in the noteList. 
+        Each object contains the following values:
+            ID (key) - The notes ID, unique and always lowest possible unused number
+            title - The first line in the editor, is displayed as the title in the note list
+            text - All text from the editor. 
+            dateTime - Date and time that the note was created/last saved. 
+            lastEdit - dateTime converted to integer, to compare whitch note was created/saved last and display at top of note list
+            current - Boolean. Value to determine weither the note is the current note. The note in the note list will then change background color to show that this is the current note. 
+            fav - Boolean. Value to determine if the note is a favourite note. All notes that is marked true will be filtered out when the user clicks on the Star icon. 
+            
+           
+    Toolbar - Created via "https://quilljs.com/"
+        Chosen tools:
+            Header (heading 1, heading 2, normal text)
+            Bold 
+            Italic
+            Underlined   
+            Alignment (left, middle, right, fill) 
+            Ordered list 
+            Unordered list 
+            Attach pictures
+            Save (our own creation appended in Quills toolbar)
 
-    Toolbar - The editor toolbar is a toolbar that we borrowed directly from "https://quilljs.com/". We could manually adjust what we wanted it to contain. 
-    We choose to have:
-        Font size editor where the user can choose between heading1, heading2 or normal text.
-        Bolded text. 
-        Italics text. 
-        Underlined text.   
-        Left, centre or right justify text. 
-        Order lists. 
-        Unordered list. 
-        Attach pictures. 
-        Save button. 
-
-        Editor - The editor is the biggest component of the site and where is the user writes it´s text. 
-        We borrowed the editor from "https://quilljs.com/".
+    Editor - Created via "https://quilljs.com/"
+        Container where the user writes the notes
 
 
-Link to Trello 
+Link to Trello:
 https://trello.com/b/p7xqy1Y3/capricorn
 
 
