@@ -124,16 +124,6 @@ function displayFirstNote() {
 }
 
 // DISPLAY NOTES IN NOTELIST
-<<<<<<< HEAD
-function displayNoteList(func = () => true) {
-	let noteArr = getAllNotes();
-	noteArr.sort(compareTime); // sorting them by last edited
-	let container = document.getElementById("clickNoteList");
-	container.innerHTML = "";
-
-	// displayNoteList((n)=> n.fav==true); Till favorite click icon.
-	noteArr.filter((n) => func(n)).forEach((obj) => { // Create Div with note info for each saved note
-=======
 function displayNoteList(func = () => true) { // Pass argument or else true
 	let allNotes = getAllNotes();
 	allNotes.sort(compareTime); // sorting them by last edited
@@ -142,7 +132,6 @@ function displayNoteList(func = () => true) { // Pass argument or else true
 
 	// Create content for each saved note
 	allNotes.filter((n) => func(n)).forEach((obj) => { 
->>>>>>> bfe4eb54d66a5ec917f65fe149f2c3b4b37be823
 		let newArticle = document.createElement("article");
 		let title = document.createElement("h4");
 		let date = document.createElement("p");
@@ -437,96 +426,3 @@ function savingAnimation() {
 	}, 1000);
 };
 
-<<<<<<< HEAD
-// ADD NOTE TO LOCAL STORAGE
-function addToLocalStorage(note) {
-	localStorage.setItem(note.id, JSON.stringify(note));
-}
-
-// CREATE NEW PAGE IN NOTE LIST
-function newPage() {
-	let newArticle = document.createElement("article");
-	let newH = document.createElement("h4");
-	newArticle.appendChild(newH);
-	document.getElementById("clickNoteList").appendChild(newArticle);
-	let note = newNote("", "");
-	quill.root.innerHTML = "";
-	addToLocalStorage(note);
-	setCurrentNoteID(note.id);
-	textToEditor(note);
-	filterNoteList();
-}
-
-// DELETE ALL NOTES
-function deleteAll() {
-	localStorage.clear();
-	quill.root.innerHTML = "";
-	filterNoteList();
-}
-
-// HIDE OR SHOW GIVEN POP UP
-function popUpToggle (popUp) {
-	document.getElementById("popUpBg").classList.toggle('none'); //Pop up background
-	popUp.classList.toggle('none');
-}
-
-// CHANGE THEME
-function changeTheme(theme) {
-	let cssFile;
-	switch (theme) {
-		case "water":
-			cssFile = "../css/water.css";
-			break;
-		case "space":
-			cssFile = "../css/space.css";
-			break;
-		case "forrest":
-			cssFile = "../css/forrest.css";
-			break;
-		case "fire":
-			cssFile = "../css/fire.css";
-			break;
-		case "standard":
-			cssFile = "";
-			break;
-	}
-	oldlink = document.getElementsByTagName("link").item(4);
-	oldlink.setAttribute("href", cssFile);
-}
-
-// FILTER WHICH NOTES SHOULD BE DISPLAYED IN NOTE LIST
-function filterNoteList(){
-	filterFav();
-}
-
-// Highlight function adding focus to target that's displayed - jonathan
-function highlight(obj){
-		// getting current obj from textToEditor,
-	let arr = getAllNotes();
-	// gathering all objets
-	arr.forEach((n)=>{
-		//ForEach obj checking if id is same as targeted in textToditor, if true set active to true else false.
-		(n.id === obj.id) ? n.active = true : n.active = false;
-		// save down all objects
-		addToLocalStorage(n);
-	})
-}
-
-// TOGGLE SHOWING FAV NOTES
-function filterFav() {
-	let favIcon = document.getElementById("favIcon").firstElementChild;
-	
-	if (favIcon.classList.contains("yellowStar")) {
-		displayNoteList((n)=> n.fav==true);
-	} else {
-		displayNoteList();
-	}
-}
-
-// SEARCH FUNCTION - William
- function SearchFunction(){
-	var search = document.getElementById("searchInput").value.toLocaleLowerCase();
-    displayNoteList((n)=> n.text.toLocaleLowerCase().includes(search));
-    }
-=======
->>>>>>> bfe4eb54d66a5ec917f65fe149f2c3b4b37be823
