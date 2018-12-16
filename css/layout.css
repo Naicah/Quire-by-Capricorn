@@ -49,6 +49,7 @@
          grid-template-areas:
             'ql-toolbar'
             'editor';
+        height: 100vh;
     }
 
     #navSec {
@@ -325,8 +326,7 @@
         left:15%;
         margin-top: 1em;
         width:70%;
-        border-right: 1px solid rgba(55,55,55,0.5);
-        border-left: 1px solid rgba(55,55,55,0.5);
+        box-shadow: 0 15px 50px rgb(144, 150, 165, 0.5);
       }
 }
 /*--------------------------------------------------------------------------

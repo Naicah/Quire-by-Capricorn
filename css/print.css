@@ -1,7 +1,7 @@
 /* bugg fix for layout.css, that cannot be inserted there */
 @media only screen and (min-width: 764px){
   .ql-editor{
-    height:93%;
+ 
   }
 }
 @media print{
