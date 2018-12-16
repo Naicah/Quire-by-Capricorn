@@ -35,8 +35,6 @@
 
  /* Ql-editor size of a a4; */
   .ql-editor{
-    position: fixed !important;
-    top:0;
     padding:0 !important;
     margin:0 !important;
     min-height: 100% !important;
