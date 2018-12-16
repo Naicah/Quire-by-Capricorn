@@ -1,20 +1,25 @@
-// SHOW OR HIDE MENU WHEN CLICK ON HAMBURGER ICON IN MOBILE LAYOUT - William
+// --------------------------- MOBILE ------------------------------ //
+
+// SHOW OR HIDE MENU WHEN CLICK ON HAMBURGER ICON
 function toggleMenu() {
-	var collapse = document.querySelector(".collapse-mobile");
+	var menuContainer = document.querySelector("#menuContainer");
 	var hamburger = document.querySelector("#hamburgerIcon");
 	hamburger.classList.toggle("merge");
-	collapse.classList.toggle('none');
+	menuContainer.classList.toggle('none');
 }
+
+// SHOW OR HIDE NOTE LIST
 function toggleNoteList() {
 	document.getElementById("notes").classList.toggle('none');
 }
 
-
+// WHEN SCROLLING
 window.onscroll = () => {
-	setToolbarPositionStatus();
+	setToolbarPositionState();
 }
-//STICKY NAV MOBILE
-	function setToolbarPositionStatus(){
+
+// MAKE TOOLBAR STICKY
+function setToolbarPositionState(){
 	let state = true;
 	let noteList = document.querySelector("#noteList");
 	let topNav = document.querySelector("#topNav");

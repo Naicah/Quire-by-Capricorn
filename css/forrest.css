@@ -1,10 +1,8 @@
 body {
-background-image: url(https://images.unsplash.com/photo-1530799750-13f7b374d113?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6386bdd75049d070cca6ed0ac55ea294&auto=format&fit=crop&w=2250&q=80);
-background-size: cover;
-background-repeat: no-repeat;
-
+    background-image: url(https://images.unsplash.com/photo-1530799750-13f7b374d113?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6386bdd75049d070cca6ed0ac55ea294&auto=format&fit=crop&w=2250&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-
 .ql-toolbar.ql-snow {
     background-color: white;
 }
@@ -12,36 +10,28 @@ background-repeat: no-repeat;
   border-right: 1px solid #ffffff;
   border-left: 1px solid #ffffff;
 }
-
 #editor {
 color:#CC8800;
 text-align: center;
 }
-
 .ql-snow * {
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+        box-sizing: border-box;
     text-align: center;
 }
-
-button{
+button {
     color: white;
 }
-
-#editor H1{
+#editor H1 {
     font-family: initial;
-
 }
-
-#editor H2{
+#editor H2 {
     font-family: sans-serif;
 }
-
 #editor p {
     font-family:cursive;
     font-size: 1.2em;
 }
-
 #editor .ql-editor.ql-blank::before{
     color: #fff;
-  }
+}

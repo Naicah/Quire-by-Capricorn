@@ -1,51 +1,50 @@
-body{
+body {
   background-image: url("https://images.unsplash.com/photo-1531418580067-04bc72baa73c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43956108ea3e65a0d922fde8dc676913&auto=format&fit=crop&w=1534&q=80");
-  background-size:cover;
+  background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
 }
-
 #editor {
-font-family:"";
-color:#252525;
+  font-family:"";
+  color:#252525;
 }
-.ql-container *{
+.ql-container * {
   font-family: 'Varela Round', sans-serif;
    color: #fff;
    font-size: 1.2em;
    line-height: 1.2em;
 }
-#editor H1{
+#editor H1 {
   font-family: 'Lobster', cursive;
   font-size: 3em;
   letter-spacing: 1.5px;
 }
 
-#editor H2{
+#editor H2 {
   font-family: 'Lora', serif;
   font-size: 1.8em;
 }
 
-#topNav, #searchField  {
+#topNav, #searchField {
   background-color: #5b1f0a;
 }
 
-#navSec{
+#navSec {
     background-color: #ffa530;
 }
-.menuIcon:hover{
+.menuIcon:hover {
     background: #5b1f0a;
 }
 .ql-toolbar.ql-snow {
     background-color: #ffa530;
 }
-#noteList{
+#noteList {
   background-color: #ffa233;
 }
-#editor .ql-editor.ql-blank::before{
+#editor .ql-editor.ql-blank::before {
   color: #fff;
 }
-.ql-editor{
+.ql-editor {
   border-right: 1px solid #ffffff;
   border-left: 1px solid #ffffff;
 }

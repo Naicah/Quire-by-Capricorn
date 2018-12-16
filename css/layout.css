@@ -7,10 +7,11 @@
         font-size: 1.0vw;
     }
 
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+    ::-webkit-scrollbar {
+        width: 0px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
     }
+
     /* -------------------------------- GRID -------------------------------- */
     #nav { grid-area: nav; }
     #main { grid-area: main; }
@@ -21,7 +22,7 @@
     #searchField { grid-area: searchField; }
     #noteList { grid-area: noteList; }
     #editor { grid-area: editor; }
-   .ql-toolbar { grid-area: ql-toolbar; }
+    .ql-toolbar { grid-area: ql-toolbar; }
 
     .container {
         display: grid;
@@ -31,6 +32,7 @@
         grid-template-columns: 2fr 10fr;
         overflow: hidden;
     }
+
     #nav {
           display: grid;
           grid-template-areas:
@@ -39,6 +41,7 @@
           grid-template-rows: 100vh;
           z-index: 0;
     }
+
     #editorContainer {
         display: grid;
         grid-template-columns: 1fr;
@@ -47,6 +50,7 @@
             'ql-toolbar'
             'editor';
     }
+
     #navSec {
         display: grid;
         grid-template-areas:
@@ -56,6 +60,7 @@
         grid-template-rows: 1fr 11fr;
         max-height:100%;
     }
+
     #notes {
         display: grid;
         grid-template-areas:
@@ -67,27 +72,39 @@
     }
 
     /* -------------------------------- POP UPS -------------------------------- */
+
     .popUpContent {
         padding: 2em;
-        padding: 1em;
     }
 
     @keyframes animatetop {
-    0% {
-        top: -15em;
-        opacity: 0;
+        0% {
+            top: -15em;
+            opacity: 0;
+        }
+        100% {
+            top: 15em;
+            opacity: 1;
+        }
     }
-    100% {
-        top: 15em;
-        opacity: 1;
-    }
-    }
+
     .popUpContent button{
         margin: 0.3em;
     }
+
+    .popUpContent h2 {
+        margin: 0;
+        font-size: 2em;
+    }
+
+    .exit {
+        margin: 0.2em 0.5em;
+    }
+
     #tutorial-content {
         width: 50%;
     }
+
     #chooseTheme.popUpContainer {
         top: 15em;
         animation-name: animatetop;
@@ -98,32 +115,14 @@
         padding: 1em;
     }
 
-    .popUpContent h2 {
-        margin: 0;
-        font-size: 2em;
-    }
-
-    .exit {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 0.2em 0.5em;
-        font-size: 20px;
-    }
-
     #themeChoice div {
-        width: 8em;
-        height: 8em;
         margin: 1em auto auto;
     }
 
     #themeChoice img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 1px solid;
         transition: 0.3s;
     }
+
     #themeChoice img:hover {
         box-shadow: 0 10px 50px rgb(144, 150, 165)
     }
@@ -131,32 +130,30 @@
     /* -------------------------------- NAV -------------------------------- */
     /* -------------------------- NAVSEC --------------------------- */
     /* --------------------- TOPNAV ------------------ */
+
     #topNav {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
         height: auto;
     }
+
     #logo {
-        height: 2.5em;
         width: 2.5em;
-        padding: 0;
         margin: 0;
     }
+
     #hamburgerIcon {
         display: none;
     }
+
     /* ---------------------- MENU -------------------- */
+
+    #menuContainer {
+        display: block;
+    }
+
     #menu {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
@@ -164,16 +161,11 @@
         -webkit-box-pack: start;
             -ms-flex-pack: start;
                 justify-content: flex-start;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        height: auto;/* 5x5 so that every icon is 5em */
+        height: auto;
     }
 
     .icon{
-        display: block;
         font-size: 1.5em;
-        color: white;
     }
 
     /* ---------------------------- NOTES --------------------------- */
@@ -204,7 +196,6 @@
     }
 
     form {
-        width: 100%;
         padding-right: 0%;
         display: block;
     }
@@ -212,91 +203,54 @@
     input {
         outline: none;
     }
+
     #searchInput {
         -webkit-appearance: textfield;
         -webkit-box-sizing: content-box;
         font-family: inherit;
     }
-    input::-webkit-search-decoration,
-    input::-webkit-search-cancel-button {
+
+    input::-webkit-search-decoration, input::-webkit-search-cancel-button {
         display: none;
     }
 
     #searchInput {
         width: 30%;
-        margin:0;
+        margin: 0;
         margin-left: 5%;
         border-radius: 10em;
-        -webkit-transition: all .5s;
-        transition: all .5s;
         padding-left: 1em;
         padding: 0.5em;
     }
+
     #searchInput:focus {
         width: 60%;
         background-color: #fff;
         border-color: #66CC75;
     }
 
-    input:-moz-placeholder {
-        color: #999;
-        text-align: center;
-    }
-    input::-webkit-input-placeholder {
-        color: #999;
-        text-align: center;
-    }
-
-
     /* -------------------- NOTE LIST ---------------------- */
+
     #noteList {
-        background-color: #ebebeb;
         min-height: 5em;
         max-height: 100%;
-        display: block;
-    }
-    .custom-dropdown {
-        background-color: #115493;
-        top: 436px;
-        z-index: 1;
-        width: 18.9%;
-        height: 5%;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        text-indent: 18%;
-        border-radius: initial;
-        border: none;
-        color: #fff;
-        font-size: inherit;
-        outline: 0;
-      }
-
-      /* star icon  */
-
-    #noteList .fa-star{
-        float: right;
-        font-size: 1.2em;
-        padding: 1em 0;
-        opacity: 0.2;
-        margin-top: 0;
     }
 
-    #noteList .fa-star:hover{
-        opacity: 1;
-    }
     /* ------------- CLICK NOTE LIST ------------- */
+
     #clickNoteList article{
         height: 4em;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
+
     #clickNoteList article h4, #clickNoteList article p {
         padding-left: 0.7em;
-        color: black;
         margin: 0;
     }
+
     #clickNoteList article h4{
         padding-top: 0.5em;
     }
+
     #clickNoteList article p{
         margin:0;
         padding-top: 1.5em;
@@ -304,8 +258,8 @@
 
     /* -------------------------------- MAIN -------------------------------- */
     /* ------------------  EDITOR CONTAINER (QUILL EDITOR) -------- */
-
     /* --------------------- TOOLBAR ----------------------- */
+
     .ql-toolbar{
         display: -webkit-box;
         display: -ms-flexbox;
@@ -329,35 +283,40 @@
                 justify-content: left;
         width: 100%;
     }
-    .collapse-mobile{
-        display: block;
-    }
+
     /* ----------- TOOLBAR CONTENT  -------------- */
+    
     /* All content types */
     #saveIcon, #editorContainer > div > span > span, #editorContainer > div > span > select, #editorContainer > div > span > button {
         height: 2.5vw !important;
         margin-right: 1vw;
     }
+
     #editorContainer > div > span > span:first-child { /* Drop down Header container*/
         width: 10vw !important;
         margin-left: 1vw;
     }
+
     .ql-toolbar.ql-snow .ql-picker-label { /* Drop down Header lable */
         font-size: 1.5vw !important;
     }
+
     #editorContainer > div > span > span:first-child > span:last-child > span{ /* Alternative in drop down header */
         font-size: 0.8vw !important;
         height: 2.5vw !important;
     }
+
     #editorContainer > div > span > span:nth-child(6) { /* Text align */
         width: 2.5vw !important;
         height: 2.5vw !important;
     }
+
     #saveIcon i{
         font-size: 1.5vw !important;
     }
 
      /* --------------------- EDITOR ----------------------- */
+
     .ql-editor{
         overflow-y:auto;
         position: absolute;
@@ -377,7 +336,7 @@
     #searchIcon{
         padding-top: 0;
     }
-
+    
     #searchInput:focus {
         width: 65%;
     }
