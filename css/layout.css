@@ -250,6 +250,7 @@
 
     #clickNoteList article h4{
         padding-top: 0.5em;
+        overflow: hidden;
     }
 
     #clickNoteList article p{
