@@ -41,7 +41,7 @@ nav  {
     padding: 8px;
     border-top: 0;
 }
-.active-style {
+.current-style {
     background: #0066cc73;
     outline: 2px solid #115493;
 }
