@@ -1,7 +1,6 @@
 // ON LOAD
 window.onload = function () {
     showTutuorial(); // Show tutorial on first visit
-    console.log("hej");
 
     // ---------------------------------- SETUP ---------------------------------- //
 

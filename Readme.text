@@ -32,7 +32,7 @@ Current files are used for the project.
 
 UX/UI 
     The ground components in the editor are built up with grid layout where we tried to work as modular as possible.
-    Following are the comonents of the editor
+    Following are the components of the editor
 
     Searchfield - a field where the user can search for a keyword that listens to keyUp event. The note list will be filtered based on the content in each note.
 
@@ -51,8 +51,8 @@ UX/UI
             title - The first line in the editor, is displayed as the title in the note list
             text - All text from the editor. 
             dateTime - Date and time that the note was created/last saved. 
-            lastEdit - dateTime converted to integer, to compare whitch note was created/saved last and display at top of note list
-            current - Boolean. Value to determine weither the note is the current note. The note in the note list will then change background color to show that this is the current note. 
+            lastEdit - dateTime converted to integer, to compare which note was created/saved last and display at top of note list
+            current - Boolean. Value to determine whether the note is the current note. The note in the note list will then change background color to show that this is the current note. 
             fav - Boolean. Value to determine if the note is a favourite note. All notes that is marked true will be filtered out when the user clicks on the Star icon. 
             
            
