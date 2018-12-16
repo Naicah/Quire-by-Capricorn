@@ -35,3 +35,11 @@ button {
 #editor .ql-editor.ql-blank::before{
     color: #fff;
 }
+
+
+@media only screen and (min-width: 764px) {
+    .ql-editor {
+     box-shadow: 0 0 0;
+    }
+    
+}

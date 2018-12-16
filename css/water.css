@@ -38,3 +38,11 @@ body, nav, #navSec, #editorContainer {
   border-right: 1px solid #ffffff;
   border-left: 1px solid #ffffff;
 }
+
+
+@media only screen and (min-width: 764px) {
+    .ql-editor {
+     box-shadow: 0 0 0;
+    }
+    
+}
