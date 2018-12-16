@@ -155,8 +155,8 @@ function displayNoteList(func = () => true) { // Pass argument or else true
 		}
 		let noteTitle = obj.title;
 
-		if (noteTitle.length > 20) {
-			noteTitle = title.substring(0, 20) + "..."; // Only show first 20 characters of title in note list
+		if (noteTitle.length > 17) {
+			noteTitle = obj.title.substring(0, 17) + "..."; // Only show first 17 characters of title in note list
 		}
 		if (noteTitle == "") { // If user hasn't written a title
 			noteTitle = "NY ANTECKNING";
