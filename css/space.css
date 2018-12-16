@@ -76,6 +76,11 @@ nav  {
     opacity: 0.4;
 }
 
+.deleteIcon {
+    color: white;
+    opacity: 0.4;
+}
+
 @media only screen and (min-width: 764px) {
     #editorContainer > div > span > span:first-child {
         width: 10vw !important;
