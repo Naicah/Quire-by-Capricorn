@@ -65,22 +65,27 @@ window.onload = function () {
     // WHEN CLICK ON FORREST THEME
     document.getElementById("forrest").addEventListener("click", function () {
         changeTheme("forrest"); // Change theme
+        popUpToggle(document.getElementById("chooseTheme")); // Hide warning pop up
     });
     // WHEN CLICK ON FIRE THEMW
     document.getElementById("fire").addEventListener("click", function () {
         changeTheme("fire"); // Change theme
+        popUpToggle(document.getElementById("chooseTheme")); // Hide warning pop up
     });
     // WHEN CLICK ON WATER THEME
     document.getElementById("water").addEventListener("click", function () {
         changeTheme("water"); // Change theme
+        popUpToggle(document.getElementById("chooseTheme")); // Hide warning pop up
     });
      // WHEN CLICK ON SPACE THEME
      document.getElementById("space").addEventListener("click", function () {
         changeTheme("space"); // Change theme
+        popUpToggle(document.getElementById("chooseTheme")); // Hide warning pop up
     });
     // WHEN CLICK ON STANDARD THEME
     document.getElementById("standard").addEventListener("click", function () {
         changeTheme("standard"); // Change theme
+        popUpToggle(document.getElementById("chooseTheme")); // Hide warning pop up
     });
 
     // // WHEN CLICK ON X IN CHOOSE THEME POP UP
