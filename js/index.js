@@ -59,7 +59,9 @@ window.onload = function () {
     document.getElementById('exitTutorial').addEventListener('click', function () {
         popUpToggle(document.getElementById("tutorial")); // Hide warning pop up
     });
-
+    document.getElementById('tutorial-btn').addEventListener('click', function () {
+        popUpToggle(document.getElementById("tutorial")); // Hide warning pop up
+    });
     //---------------------  THEME POP UP --------------------- //
     
     // WHEN CLICK ON FORREST THEME
