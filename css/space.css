@@ -42,7 +42,7 @@ nav  {
     border-top: 0;
 }
 .current-style {
-    background: #0066cc73;
+    background: rgba(0, 102, 204, 0.451);
     outline: 2px solid #115493;
 }
 .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {

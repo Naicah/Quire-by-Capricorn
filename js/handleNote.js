@@ -11,7 +11,7 @@ var quill = new Quill('#editor', {
 			'image',
 		],
 	},
-	placeholder: 'Compose an epic...',
+	placeholder: 'Start writing here...',
 	theme: 'snow'
 });
 
